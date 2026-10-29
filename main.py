@@ -1,0 +1,297 @@
+"""
+Blog Bot (Polymer) — main orchestrator.
+
+Writes editorial BLOG POSTS as Sanity `blogPost` drafts. Publishing is manual: review
+and publish in Studio, then deploy the site.
+
+Commands:
+  python main.py run           # scheduled run: drain pending 'Launch Batch' rows, then STAGE this week's calendar post
+  python main.py calendar [N]  # write + STAGE the next N scheduled posts from the calendar (default 1)
+  python main.py launch        # write + STAGE all pending 'Launch Batch' posts at once
+  python main.py index         # submit sitemap URLs modified in the last 24h to IndexNow + Google
+  python main.py doctor        # check settings + connectivity
+"""
+
+import sys
+from rich.console import Console
+from rich.table import Table
+
+from lib.logging import setup as setup_logging, get
+
+
+log = get(__name__)
+console = Console()
+
+
+def _fresh_calendar_opportunities() -> list:
+    """Calendar posts with no blogPost (draft or published) in Sanity yet, earliest-first."""
+    from connectors import sanity
+    from lib import content_calendar
+    opps = content_calendar.load_opportunities()
+    return [o for o in opps if not sanity.document_exists(o.id)]
+
+
+def _split_launch(opps: list) -> tuple[list, list]:
+    """(launch-batch, scheduled) — Launch Batch posts are staged all at once (bulk);
+    scheduled ones go one-per-run."""
+    launch = [o for o in opps if o.launch_batch]
+    scheduled = [o for o in opps if not o.launch_batch]
+    return launch, scheduled
+
+
+def _save_output(page) -> None:
+    """Writes the post into <slug>-output/ in the repo: <slug>.json (the whole ContentPage,
+    to-do list included), <slug>.md (for review), <slug>-research.md. A Lambda run pushes
+    them to GitHub at the end of the run (lib.repo)."""
+    from lib import repo
+    slug = page.opportunity.id
+    repo.stage(f"{slug}-output/{slug}.json", page.model_dump_json(indent=2))
+    repo.stage(f"{slug}-output/{slug}.md", _as_markdown(page))
+    _save_research(page)
+    log.info(f"Saved output: {slug}-output/")
+
+
+def _save_research(page) -> None:
+    """Writes the research brief on its own, so it survives a failed writing call."""
+    from lib import repo
+    if not page.research_brief:
+        return
+    slug = page.opportunity.id
+    repo.stage(f"{slug}-output/{slug}-research.md", page.research_brief)
+
+
+def _as_markdown(page) -> str:
+    """The post as one markdown file for review: the SEO fields, the body, the FAQ, then
+    the to-do list for the follow-up run."""
+    from markdownify import markdownify
+    c = page.content
+    head = (
+        f"# {c.h1}\n\n"
+        f"pageTitle: {c.title}\n"
+        f"slug: {c.slug}\n"
+        f"metaDescription: {c.meta_description}\n"
+        f"mainImageAlt: {c.main_image_alt}\n\n"
+    )
+    body = markdownify(c.body_html, heading_style="ATX")
+    faq = "\n\n## Frequently asked questions\n\n" + "\n\n".join(
+        f"### {item['q']}\n\n{item['a']}" for item in c.faq_items
+    ) if c.faq_items else ""
+    todo = "\n\n## To-do\n\n" + "\n".join(
+        f"- {t['item']}" + (f" (done {t['done']})" if t.get("done") else "") for t in page.todos
+    ) if page.todos else ""
+    return head + body.strip() + faq + todo + "\n"
+
+
+def _stage_one(o) -> "object":
+    """Generate + stage a single calendar opportunity as a Sanity draft, notify Slack, and
+    mark the calendar row as generated. Returns the staged ContentPage, or None."""
+    from agents import publisher
+    from connectors import slack
+    from lib import content_calendar
+    from models.content import ContentPage
+
+    console.print(f"[cyan]→ {o.proposed_title}[/cyan]  ({o.page_type.value}, kw: {o.keyword})")
+    page = ContentPage(opportunity=o)
+    try:
+        publisher.generate_and_stage(page)
+        _save_output(page)
+        console.print(f"  [green]Staged:[/green] {page.sanity_document_id}")
+        try:
+            slack.notify_staged(page)
+        except Exception as e:
+            log.warning(f"Slack notification failed (post is staged): {type(e).__name__}: {e}")
+        if o.calendar_row:
+            content_calendar.mark_generated(o.calendar_row)
+        return page
+    except Exception as e:
+        log.exception(f"Failed for '{o.proposed_title}': {e}")
+        console.print(f"  [red]Failed:[/red] {e}")
+        _save_research(page)
+        return None
+
+
+def stage_launch_batch() -> int:
+    """Generate + stage every pending 'Launch Batch' post, all at once (bulk).
+    Returns how many were staged."""
+    launch, _ = _split_launch(_fresh_calendar_opportunities())
+    if not launch:
+        return 0
+
+    console.rule(f"[bold green]Blog Bot — Launch Batch: staging {len(launch)} post(s)[/bold green]")
+    return sum(1 for o in launch if _stage_one(o) is not None)
+
+
+def stage_calendar(limit: int = 1) -> int:
+    """Generate + stage the next `limit` SCHEDULED (Week N) posts from the calendar.
+    Launch Batch posts are handled separately by stage_launch_batch(). Returns how many
+    were staged."""
+    _, scheduled = _split_launch(_fresh_calendar_opportunities())
+    if not scheduled:
+        console.print("[yellow]No upcoming scheduled calendar posts left to stage.[/yellow]")
+        return 0
+
+    batch = scheduled[:limit]
+    console.rule(f"[bold green]Blog Bot — Staging {len(batch)} scheduled post(s) from calendar[/bold green]")
+    return sum(1 for o in batch if _stage_one(o) is not None)
+
+
+def run_from_calendar():
+    """CLI: stage the next N upcoming posts from the calendar (N from argv, default 1)."""
+    limit = int(sys.argv[2]) if len(sys.argv) > 2 else 1
+    stage_calendar(limit)
+
+
+def run_launch():
+    """CLI: generate + stage ALL pending 'Launch Batch' posts at once (bulk)."""
+    n = stage_launch_batch()
+    if n == 0:
+        console.print("[yellow]No pending Launch Batch posts.[/yellow]")
+
+
+def scheduled_run():
+    """Weekly cadence:
+      • Any pending 'Launch Batch' posts → staged in bulk, every run.
+      • While the calendar still has scheduled posts → one per run.
+      • Once the calendar is exhausted → nothing to stage (the strategy path is not built).
+    """
+    launched = stage_launch_batch()
+    if launched:
+        log.info(f"Launch Batch: staged {launched} post(s).")
+
+    _, scheduled = _split_launch(_fresh_calendar_opportunities())
+    if scheduled:
+        log.info(f"Calendar phase ({len(scheduled)} left): staging this week's post from the calendar.")
+        stage_calendar(1)
+    elif not launched:
+        log.info("Calendar exhausted: nothing to stage.")
+
+
+def submit_recent_for_indexing():
+    """Daily job — submit sitemap URLs modified in the last 24h to IndexNow + Google."""
+    from connectors import indexing
+    urls = indexing.submit_recent(hours=24)
+    log.info(f"Submitted {len(urls)} URL(s) for indexing.")
+
+
+def doctor():
+    """Sanity-checks credentials and connectivity for all services."""
+    from config.settings import settings
+    from lib.content_calendar import CALENDAR_PATH
+
+    checks = []
+
+    pairs = [
+        ("Anthropic API key", settings.anthropic_api_key),
+        ("Google Sheets client ID", settings.google_internal_sheets_client_id),
+        ("Google Sheets client secret", settings.google_internal_sheets_client_secret),
+        ("Google Sheets refresh token", settings.google_internal_sheets_refresh_token),
+        ("Search Console refresh token (optional)", settings.google_search_console_refresh_token),
+        ("GSC site URL", settings.gsc_site_url),
+        ("Sanity dataset", settings.sanity_dataset),
+        ("Sanity API token", settings.sanity_api_token),
+        ("Sanity Studio URL", settings.sanity_studio_url),
+        ("IndexNow key", settings.indexnow_key),
+        ("Slack bot token", settings.slack_bot_token),
+        ("Slack content channel", settings.slack_content_channel),
+        ("Content calendar CSV", str(CALENDAR_PATH) if CALENDAR_PATH.exists() else ""),
+        ("GitHub repo + token (Lambda commits its output)", settings.github_repo and settings.github_token),
+    ]
+    for label, value in pairs:
+        checks.append((label, "✓ set" if value else "✗ missing"))
+
+    brand = settings.brand_guidelines()
+    if not brand.strip():
+        checks.append(("Brand guidelines", "✗ config/brand_guidelines.md is empty"))
+    elif "[To be written.]" in brand:
+        checks.append(("Brand guidelines", "⚠ config/brand_guidelines.md still has placeholders"))
+    else:
+        checks.append(("Brand guidelines", "✓ filled"))
+
+    table = Table(title="Doctor report", show_header=True)
+    table.add_column("Check")
+    table.add_column("Status")
+    for label, status in checks:
+        table.add_row(label, status)
+    console.print(table)
+
+    console.rule("[bold]Live probes[/bold]")
+    _probe("Sanity", _probe_sanity)
+    _probe("Slack", _probe_slack)
+    _probe("Calendar", _probe_calendar)
+    _probe("Sitemap", _probe_sitemap)
+
+
+def _probe(name: str, fn) -> None:
+    try:
+        result = fn()
+        console.print(f"[green]✓[/green] {name}: {result}")
+    except Exception as e:
+        console.print(f"[red]✗[/red] {name}: {type(e).__name__}: {e}")
+
+
+def _probe_sanity() -> str:
+    from connectors import sanity
+    return f"{sanity.count_posts()} blogPost documents"
+
+
+def _probe_slack() -> str:
+    from connectors.slack import _client
+    r = _client().auth_test()
+    return f"connected as {r['user']} in {r['team']}"
+
+
+def _probe_calendar() -> str:
+    from lib import content_calendar
+    return f"{len(content_calendar.load_opportunities())} rows not yet generated"
+
+
+def _probe_sitemap() -> str:
+    from lib import site_pages
+    return f"{len(site_pages.existing_pages())} URLs"
+
+
+COMMANDS = {
+    "run": scheduled_run,
+    "calendar": run_from_calendar,
+    "launch": run_launch,
+    "index": submit_recent_for_indexing,
+    "doctor": doctor,
+}
+
+# The scheduled entrypoints — each gets its whole run's log relayed to Slack.
+REPORTED_JOBS = {"run", "index"}
+
+
+def _run_cli(cmd: str) -> bool:
+    """Runs a COMMANDS entry. Returns False if it raised."""
+    from lib import repo
+    from lib.logging import capture_to_list, release
+
+    capture = capture_to_list() if cmd in REPORTED_JOBS else None
+    ok = True
+    repo.reset()
+    try:
+        COMMANDS[cmd]()
+        repo.push(f"Engine run: {cmd}")
+    except Exception as e:
+        ok = False
+        log.exception(f"Command '{cmd}' failed: {e}")
+    finally:
+        if capture is not None:
+            from connectors import slack
+            slack.notify_run_report(cmd, capture.records, ok=ok)
+            release(capture)
+    return ok
+
+
+if __name__ == "__main__":
+    setup_logging()
+
+    cmd = sys.argv[1] if len(sys.argv) > 1 else "run"
+    if cmd not in COMMANDS:
+        console.print(f"[red]Unknown command: {cmd}[/red]")
+        console.print(f"Available: {', '.join(COMMANDS)}")
+        sys.exit(1)
+
+    if not _run_cli(cmd):
+        sys.exit(1)
