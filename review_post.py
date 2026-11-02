@@ -105,7 +105,7 @@ def opening_logic_rules() -> str:
     """The four logic checks, from the opening writer's request (OPENING_USER in rewrite_opening.py)."""
     from rewrite_opening import OPENING_USER
     start = OPENING_USER.index("First, wherever the draft gives a reason")
-    end = OPENING_USER.index("they only spent 15 minutes to submit the application.", start) + len("they only spent 15 minutes to submit the application.")
+    end = OPENING_USER.index("so ranges are acceptable.", start) + len("so ranges are acceptable.")
     return OPENING_USER[start:end].strip()
 
 
