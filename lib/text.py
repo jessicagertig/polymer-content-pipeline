@@ -180,6 +180,11 @@ def space_before_headings(html: str) -> str:
     return re.sub(r"(<h2\b)", r"<p>&nbsp;</p>\1", html, flags=re.I)
 
 
+def space_em_dashes(text: str) -> str:
+    """One space before and one after every em dash (house rule 5)."""
+    return re.sub(r"[ \t\u00a0]*\u2014[ \t\u00a0]*", " \u2014 ", text)
+
+
 def has_empty_lists(html: str) -> bool:
     """True if the body still has an empty list item or empty list (pre-clean signal)."""
     return bool(

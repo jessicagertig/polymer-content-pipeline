@@ -7,13 +7,33 @@ from lib.llm import structured_call
 from agents.research import research_brief
 from lib.logging import get
 from lib.site_pages import existing_pages
-from lib.text import word_count as wc, reading_time, clean_body_html, has_empty_lists
+from lib.text import word_count as wc, reading_time, clean_body_html, has_empty_lists, space_em_dashes
 from lib.validation import validate, fix_internal_links
 from models.content import ContentPage, GeneratedContent, ContentStatus
 from prompts.content import CONTENT_SYSTEM, CONTENT_USER, PAGE_SCHEMA, PAGE_STRUCTURES, POLYMER_INCLUDED, POLYMER_EXCLUDED
 
 
 log = get(__name__)
+
+
+def faq_items_from_html(html: str) -> list[dict]:
+    """[{q, a}] from an <h3>question</h3><p>answer</p> sequence; tags inside are stripped."""
+    import re
+    from lib.text import strip_html
+    items = []
+    for q, a in re.findall(r"<h3[^>]*>(.*?)</h3>\s*((?:(?!<h3)[\s\S])*)", html, flags=re.I | re.S):
+        items.append({"q": strip_html(q).strip(), "a": strip_html(a).strip()})
+    return [i for i in items if i["q"] and i["a"]]
+
+
+def page_structure(opp) -> str:
+    """The blog format for one opportunity: the alternatives playbook or the page structure for its type."""
+    competitor_name = opp.competitor_signal.competitor if opp.competitor_signal else "the competitor"
+    if opp.page_type.value == "alternatives":
+        structure = settings.alternatives_playbook()
+    else:
+        structure = PAGE_STRUCTURES.get(opp.page_type.value, PAGE_STRUCTURES["guide"])
+    return structure.replace("{competitor}", competitor_name)
 
 
 def generate(page: ContentPage) -> ContentPage:
@@ -23,7 +43,7 @@ def generate(page: ContentPage) -> ContentPage:
 
     pages = existing_pages()
     brand = settings.brand_guidelines()
-    research = research_brief(opp)
+    research = page.research_brief or research_brief(opp)
     page.research_brief = research
 
     competitor_context = "N/A"
@@ -37,12 +57,7 @@ def generate(page: ContentPage) -> ContentPage:
         )
 
     page_type = opp.page_type.value
-    competitor_name = opp.competitor_signal.competitor if opp.competitor_signal else "the competitor"
-    if page_type == "alternatives":
-        structure = settings.alternatives_playbook()
-    else:
-        structure = PAGE_STRUCTURES.get(page_type, PAGE_STRUCTURES["guide"])
-    structure = structure.replace("{competitor}", competitor_name)
+    structure = page_structure(opp)
 
     if opp.includes_polymer:
         polymer_section = POLYMER_INCLUDED.format(feature_inventory=settings.feature_inventory())
@@ -64,7 +79,7 @@ def generate(page: ContentPage) -> ContentPage:
     )
 
     # System prompt with brand guidelines is mostly stable across calls → cache it
-    system = CONTENT_SYSTEM.format(brand_guidelines=brand)
+    system = CONTENT_SYSTEM.format(brand_guidelines=brand, elements_of_style=settings.elements_of_style())
 
     # Generate; regenerate once if the model leaves empty list scaffolds (renders as
     # big blank gaps). On the final attempt we sanitize whatever we got.
@@ -76,9 +91,23 @@ def generate(page: ContentPage) -> ContentPage:
             tool_name="generate_post",
             tool_description="Submit the complete generated blog post.",
             input_schema=PAGE_SCHEMA,
-            max_tokens=16000,
+            max_tokens=32000,
             cache_system=True,
         )
+        if isinstance(result.get("faq_html"), str):   # the FAQ comes as HTML; nested JSON broke on some models
+            result["faq_items"] = faq_items_from_html(result["faq_html"])
+        bad_list = None
+        for key in ("faq_items", "internal_links"):
+            if isinstance(result.get(key), str):   # some models return the list as a JSON string
+                try:
+                    result[key] = json.loads(result[key])
+                except ValueError as e:
+                    bad_list = f"{key} came back as unparseable text ({e})"
+        if bad_list and attempt < MAX_ATTEMPTS:
+            log.warning(f"Attempt {attempt}/{MAX_ATTEMPTS}: {bad_list}; regenerating…")
+            continue
+        if bad_list:
+            raise ValueError(bad_list)
         if not has_empty_lists(result["body_html"]):
             break
         log.warning(
@@ -87,8 +116,14 @@ def generate(page: ContentPage) -> ContentPage:
             + ("; regenerating…" if attempt < MAX_ATTEMPTS else "; sanitizing final output.")
         )
 
+    from lib import repo
+    repo.stage(f"{opp.id}-output/{opp.id}-writer-check.md",
+               f"# {opp.id} writer's self-check\n\n## Draft\n\n{result.get('draft_body_html', '').strip()}\n\n"
+               f"## Check\n\n{result.get('check', '').strip()}\n\n## Final\n\n{result['body_html'].strip()}\n")
+
     # Safety-net cleanup of empty lists/paragraphs/stray <br> before staging
     body_html, removed = clean_body_html(result["body_html"])
+    body_html = space_em_dashes(body_html)
     if removed:
         log.warning(f"Sanitized {removed} empty HTML artifact(s) from body before staging")
 
@@ -108,7 +143,7 @@ def generate(page: ContentPage) -> ContentPage:
         main_image_alt=result.get("main_image_alt", ""),
         slug=raw_slug,
         body_html=body_html,
-        faq_items=result.get("faq_items", []),
+        faq_items=[{k: space_em_dashes(v) if isinstance(v, str) else v for k, v in i.items()} for i in result.get("faq_items", [])],
         internal_links=result.get("internal_links", []),
         word_count=word_total,
         reading_time_minutes=reading_time(body_html),

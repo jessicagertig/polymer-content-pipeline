@@ -38,7 +38,7 @@ def test_fix_internal_links():
 def test_validate_todos_do_not_fail_the_post():
     content = GeneratedContent(
         title="t", h1="h", meta_description="m", slug="s",
-        body_html="<h2>x</h2>" + "<p>word</p>" * 600, word_count=600,
+        body_html="<h2>x</h2>" + "<p>word</p>" * 2600, word_count=2600,
         internal_links=[{"text": "guide", "url": "/blog/ats-guide"}, {"text": "nope", "url": "/blog/nope"}],
     )
     result = validate(content, existing_urls=PAGES, placed_paths=["/pricing"])

@@ -3,3 +3,4 @@
 output*/
 .aws-sam/
 __pycache__/
+*-output/

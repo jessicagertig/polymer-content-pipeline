@@ -43,11 +43,11 @@ def _content_type_to_page_type(content_type: str, title: str) -> PageType:
     if "listicle" in c or "roundup" in c:
         return PageType.LISTICLE
     if "how-to" in c or "how to" in c or "step-by-step" in c or "step by step" in c or "process" in c:
-        return PageType.HOWTO
+        return PageType.GUIDE
     if "comparison" in c:
         return PageType.COMPARISON
     if "pov" in c:
-        return PageType.OPINION
+        return PageType.GUIDE
     if c:
         return PageType.GUIDE
     # No Content Type given — fall back to the title heuristic.
@@ -59,9 +59,9 @@ def _page_type_from_title(title: str) -> PageType:
     if re.search(r"\bvs\.?\b", t):
         return PageType.COMPARISON
     if "how to" in t:
-        return PageType.HOWTO
+        return PageType.GUIDE
     if t.startswith("why "):
-        return PageType.OPINION
+        return PageType.GUIDE
     if re.search(r"^\d+\b|\b(best|top|tools|examples|ways)\b", t):
         return PageType.LISTICLE
     return PageType.GUIDE
@@ -163,6 +163,7 @@ def load_opportunities() -> list[ContentOpportunity]:
                 calendar_row=calendar_row,
                 launch_batch=_slot_sort_key(cell(r, "Publish Slot")) == 0,
                 includes_polymer=cell(r, "Includes Polymer").strip().lower() in ("yes", "y", "true", "1"),
+                product_based=cell(r, "Product-based").strip().lower() in ("yes", "y", "true", "1"),
             )
         )
 

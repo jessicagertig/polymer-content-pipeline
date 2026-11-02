@@ -23,7 +23,8 @@ class ValidationResult:
 
 
 # Constraints
-MIN_WORD_COUNT = 600
+MIN_WORD_COUNT = 2500      # body, FAQ excluded; under this fails the post
+REPORT_WORD_COUNT = 6000   # over this is reported as a to-do, never failed
 MAX_META_DESCRIPTION = 160
 MAX_TITLE_LENGTH = 65
 MIN_FAQ_ITEMS = 3
@@ -103,6 +104,8 @@ def validate(
         result.errors.append(
             f"Word count {content.word_count} below minimum {MIN_WORD_COUNT}"
         )
+    if content.word_count > REPORT_WORD_COUNT:
+        result.todos.append(f"Body is {content.word_count} words, over {REPORT_WORD_COUNT}.")
 
     # Body must have semantic structure
     body = content.body_html.lower()

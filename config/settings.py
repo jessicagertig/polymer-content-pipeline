@@ -43,8 +43,9 @@ class Settings(BaseSettings):
     auto_generate_on_approval: bool = True
     site_domain: str = "www.polymer.co"
     research_max_searches: int = 5   # web searches per post (the web search tool's max_uses)
+    research_step_searches: int = 6  # web searches across the three research calls (definitions, topic, statistics)
     research_max_tokens: int = 3000  # max_tokens on each research response
-    research_max_words: int = 500    # length of the brief the researcher is asked for
+    research_max_words: int = 1000   # length of the brief the researcher is asked for
     research_reuse: bool = False     # reuse a saved <slug>-output/<slug>-research.md instead of searching (a -vN slug reuses the base post's)
 
     # GitHub — the Lambda commits each run's output (<slug>-output/ and the calendar CSV)
@@ -54,7 +55,13 @@ class Settings(BaseSettings):
     github_branch: str = "main"
 
     def brand_guidelines(self) -> str:
-        path = Path(__file__).parent / "brand_guidelines.md"
+        """The writing guide. The house rules are written into the prompt itself (prompts/content.py); config/house-rules.md is the record of them."""
+        here = Path(__file__).parent
+        return (here / "brand_guidelines.md").read_text() if (here / "brand_guidelines.md").exists() else ""
+
+    def elements_of_style(self) -> str:
+        """Strunk's The Elements of Style (1918, public domain), sent in the writer's system prompt."""
+        path = Path(__file__).parent / "elements-of-style.md"
         return path.read_text() if path.exists() else ""
 
     def feature_inventory(self) -> str:
@@ -66,6 +73,11 @@ class Settings(BaseSettings):
         here = Path(__file__).parent
         parts = [here / "alternatives-playbook.md", here / "polymer-competitive-positioning.md"]
         return "\n\n".join(p.read_text() for p in parts if p.exists())
+
+    def competitor_domains(self) -> list[str]:
+        """Competitor domains the researcher's web search never returns results from."""
+        path = Path(__file__).parent / "competitor-domains.txt"
+        return [line.strip() for line in path.read_text().splitlines() if line.strip()] if path.exists() else []
 
 
 settings = Settings()

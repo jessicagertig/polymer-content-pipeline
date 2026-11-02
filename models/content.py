@@ -63,6 +63,7 @@ class ContentOpportunity(BaseModel):
     calendar_row: Optional[int] = None   # 1-based row in the content-calendar sheet (for write-back), if sourced from it
     launch_batch: bool = False            # Launch Batch rows — staged all at once (bulk) into the normal review window
     includes_polymer: bool = False        # Polymer is one of the products the post covers; the feature inventory goes into the prompt
+    product_based: bool = False           # the post is about named products; research runs as one call, not the three-step split
 
 
 class GeneratedContent(BaseModel):
