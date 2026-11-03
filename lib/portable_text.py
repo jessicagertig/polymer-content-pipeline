@@ -31,6 +31,11 @@ def block(text: str, style: str = "normal") -> dict:
     }
 
 
+def toc_block() -> dict:
+    """The table of contents. The site builds its list from the post's H2s."""
+    return {"_key": _key(), "_type": "toc", "heading": "Table of contents"}
+
+
 def faq_blocks(faq_items: list[dict]) -> list[dict]:
     """The FAQ as the H2 + H3/paragraph pairs web/pages/blog/[slug].js detects for the
     accordion and the FAQPage schema."""

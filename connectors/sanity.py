@@ -51,7 +51,11 @@ def draft_id(slug: str) -> str:
 
 
 def build_document(content: GeneratedContent) -> dict:
-    """The blogPost document. No featureImage: the header image is added in Studio."""
+    """The blogPost document. No featureImage: the header image is added in Studio.
+    The table of contents goes after the opening, before the first H2."""
+    body = portable_text.from_html(content.body_html)
+    first_h2 = next((i for i, b in enumerate(body) if b.get("style") == "h2"), len(body))
+    body.insert(first_h2, portable_text.toc_block())
     return {
         "_id": draft_id(content.slug),
         "_type": "blogPost",
@@ -61,7 +65,7 @@ def build_document(content: GeneratedContent) -> dict:
         "publishDate": date.today().isoformat(),
         "author": {"_type": "reference", "_ref": settings.sanity_author_ref},
         "metaDescription": content.meta_description,
-        "content": portable_text.from_html(content.body_html) + portable_text.faq_blocks(content.faq_items),
+        "content": body + portable_text.faq_blocks(content.faq_items),
     }
 
 
