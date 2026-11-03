@@ -57,7 +57,9 @@ class ListHandler(logging.Handler):
         self.records: list[str] = []
 
     def emit(self, record: logging.LogRecord) -> None:
-        self.records.append(self.format(record))
+        # One line per record for the Slack report: the message only, no traceback.
+        message = " ".join(line.strip() for line in record.getMessage().splitlines() if line.strip())
+        self.records.append(f"{record.levelname}: {message[:300]}")
 
 
 def capture_to_list(level: str = "INFO") -> ListHandler:
