@@ -6,8 +6,10 @@ Cache control on stable system content cuts cost on repeat runs.
 """
 
 import threading
+import time
 from typing import Any, List, Union
 import anthropic
+import httpx
 
 from config.settings import settings
 from lib.logging import get
@@ -55,6 +57,32 @@ def _client() -> anthropic.Anthropic:
     return anthropic.Anthropic(api_key=settings.anthropic_api_key)
 
 
+RETRY_WAITS = (15, 60, 180)   # seconds before the second, third, and fourth attempt
+
+
+def _retryable(e: Exception) -> bool:
+    """A dropped or reset connection, a timeout, a rate limit, or a server or overload error."""
+    if isinstance(e, (anthropic.APIConnectionError, httpx.TransportError)):
+        return True
+    if isinstance(e, anthropic.APIStatusError):
+        status = getattr(e, "status_code", 0) or 0
+        return status == 429 or status >= 500 or "overloaded" in str(e).lower()
+    return False
+
+
+def _with_retries(call, what: str):
+    """Runs `call`, and runs it again after each wait in RETRY_WAITS when it fails with an error
+    a later attempt can get past."""
+    for attempt, wait in enumerate((*RETRY_WAITS, None), 1):
+        try:
+            return call()
+        except Exception as e:
+            if wait is None or not _retryable(e):
+                raise
+            log.warning(f"{what} failed on attempt {attempt} ({type(e).__name__}: {e}); trying again in {wait}s")
+            time.sleep(wait)
+
+
 def structured_call(
     *,
     system: Union[str, List[dict]],
@@ -94,16 +122,19 @@ def structured_call(
 
     # Streamed, because the API refuses a non-streaming request whose max_tokens could
     # take longer than ten minutes to produce. The stream is only read to the end.
-    with _client().messages.stream(
-        model=MODEL,
-        max_tokens=max_tokens,
-        system=system_blocks,
-        tools=tools,
-        tool_choice={"type": "auto"},   # forcing a tool is rejected on this model; the user prompt names it
-        messages=[{"role": "user", "content": user}],
-        **({"thinking": {"type": "adaptive"}} if thinking else {}),
-    ) as stream:
-        response = stream.get_final_message()
+    def call():
+        with _client().messages.stream(
+            model=MODEL,
+            max_tokens=max_tokens,
+            system=system_blocks,
+            tools=tools,
+            tool_choice={"type": "auto"},   # forcing a tool is rejected on this model; the user prompt names it
+            messages=[{"role": "user", "content": user}],
+            **({"thinking": {"type": "adaptive"}} if thinking else {}),
+        ) as stream:
+            return stream.get_final_message()
+
+    response = _with_retries(call, f"Model call for '{tool_name}'")
 
     # Log cache stats if present
     usage = response.usage
@@ -143,14 +174,14 @@ def research_call(*, system: str, user: str, max_searches: int, max_tokens: int,
     messages = [{"role": "user", "content": user}]
     searches = input_tokens = output_tokens = 0
     for _ in range(4):
-        response = client.messages.create(
+        response = _with_retries(lambda: client.messages.create(
             model=MODEL,
             max_tokens=max_tokens,
             system=system,
             tools=tools,
             messages=messages,
             output_config={"effort": "low"},
-        )
+        ), "Research call")
         usage = response.usage
         input_tokens += usage.input_tokens
         output_tokens += usage.output_tokens
