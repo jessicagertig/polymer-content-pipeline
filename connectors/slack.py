@@ -25,25 +25,49 @@ def _configured() -> bool:
     return bool(settings.slack_bot_token) and not settings.slack_bot_token.startswith("xoxb-...")
 
 
-def _post(channel: str, blocks: list, text: str = "") -> None:
+def _post(channel: str, blocks: list, text: str = "") -> str:
+    """Posts a message and returns its ts, which replies in its thread need, or "" when nothing was posted."""
     if not _configured():
         log.info(f"Slack not configured — skipping post to {channel}: {text}")
-        return
+        return ""
     try:
-        _client().chat_postMessage(channel=channel, blocks=blocks, text=text)
+        return _client().chat_postMessage(channel=channel, blocks=blocks, text=text)["ts"]
     except SlackApiError as e:
         log.error(f"Slack post to {channel} failed: {e.response['error']}")
+        return ""
 
 
-def _upload(channel: str, path: Path, title: str, comment: str = "") -> None:
-    """Attaches a file to the channel. The channel setting must be the channel's ID for uploads."""
-    if not _configured() or not path.exists():
-        log.info(f"Slack not configured or {path.name} missing — skipping upload to {channel}")
+def _upload(channel: str, path: Path, title: str, ts: str) -> None:
+    """Attaches a file in the thread of the message `ts`. When the upload fails (the bot needs the
+    files:write scope, and the channel setting must be the channel's ID), the file's text is posted
+    in the same thread instead, one reply per section."""
+    if not _configured() or not ts or not path.exists():
+        log.info(f"Slack not configured, no message, or {path.name} missing — skipping upload to {channel}")
         return
     try:
-        _client().files_upload_v2(channel=channel, file=str(path), title=title, initial_comment=comment)
+        _client().files_upload_v2(channel=channel, file=str(path), title=title, thread_ts=ts)
+        return
     except SlackApiError as e:
-        log.error(f"Slack upload of {path.name} to {channel} failed: {e.response['error']}")
+        log.warning(f"Slack upload of {path.name} failed ({e.response['error']}); posting its text in the thread instead")
+    _thread(channel, ts, _sections(path.read_text()))
+
+
+def _thread(channel: str, ts: str, parts: list[str]) -> None:
+    """Posts each part as a reply in the thread of the message `ts`, split to Slack's section limit."""
+    for part in parts:
+        for i in range(0, len(part), _SECTION_MAX_CHARS):
+            chunk = part[i:i + _SECTION_MAX_CHARS]
+            try:
+                _client().chat_postMessage(channel=channel, thread_ts=ts, text=chunk,
+                                           blocks=[{"type": "section", "text": {"type": "mrkdwn", "text": chunk}}])
+            except SlackApiError as e:
+                log.error(f"Slack thread reply in {channel} failed: {e.response['error']}")
+
+
+def _sections(markdown: str) -> list[str]:
+    """A markdown file split at its H2 headings, one part per section."""
+    head, *rest = ("\n" + markdown).split("\n## ")
+    return ([head.strip()] if head.strip() else []) + [f"## {p.strip()}" for p in rest]
 
 
 def _text(s: str) -> str:
@@ -109,8 +133,8 @@ def notify_new_drafts(pages: list[ContentPage]) -> None:
 
 def notify_staged(page: ContentPage, spent: str = "") -> None:
     """Notifies that a post is staged as a Sanity draft and ready for review, with the run's report:
-    the cost, any larger errors, the em dash report, the to-do list, and the graphic suggestions,
-    which are also attached as a file."""
+    the cost, any larger errors, the em dash report, and the to-do list. The graphic suggestions
+    go in the message's thread, as a file, or as text when the upload fails."""
     opp = page.opportunity
     content = page.content
     slug = opp.id
@@ -145,7 +169,7 @@ def notify_staged(page: ContentPage, spent: str = "") -> None:
             "text": {
                 "type": "mrkdwn",
                 "text": (
-                    f"*Graphic suggestions:* {places} place(s), in the attached file\n"
+                    f"*Graphic suggestions:* {places} place(s), in this message's thread\n"
                     f"*Header image alt text:* {content.main_image_alt or '_none_'}\n"
                     f"*Files:* {_outputs_link(slug)}\n"
                     f"*Live URL once published:* {page.live_url}"
@@ -153,8 +177,8 @@ def notify_staged(page: ContentPage, spent: str = "") -> None:
             },
         },
     ]
-    _post(settings.slack_content_channel, blocks, text=f"Draft staged: {opp.proposed_title}")
-    _upload(settings.slack_content_channel, graphics, f"Graphic suggestions: {opp.proposed_title}")
+    ts = _post(settings.slack_content_channel, blocks, text=f"Draft staged: {opp.proposed_title}")
+    _upload(settings.slack_content_channel, graphics, f"Graphic suggestions: {opp.proposed_title}", ts)
 
 
 def notify_stopped(page: ContentPage, done: list[str], spent: str) -> None:
@@ -183,8 +207,9 @@ def notify_stopped(page: ContentPage, done: list[str], spent: str) -> None:
 
 def notify_larger_error(page: ContentPage) -> None:
     """Posts each larger error the content check reported, with both statements quoted as the
-    fixer wrote them, attaches the draft, and asks whether to redraft the article. The engine
-    can only send to Slack, so the answer comes through a Claude session."""
+    fixer wrote them, puts the draft in the message's thread (as a file, or as text when the upload
+    fails), and asks whether to redraft the article. The engine can only send to Slack, so the
+    answer comes through a Claude session."""
     opp = page.opportunity
     out = _outputs(opp.id)
     larger = out / f"{opp.id}-larger-errors.md"
@@ -194,10 +219,10 @@ def notify_larger_error(page: ContentPage) -> None:
         {"type": "header", "text": {"type": "plain_text", "text": "⚠️ Larger error in a staged draft"}},
         {"type": "section", "text": {"type": "mrkdwn", "text": f"*Post:* {opp.proposed_title}"}},
         {"type": "section", "text": {"type": "mrkdwn", "text": _text(larger.read_text().strip())}},
-        {"type": "section", "text": {"type": "mrkdwn", "text": "*Do you want to redraft this article?*"}},
+        {"type": "section", "text": {"type": "mrkdwn", "text": "*Do you want to redraft this article?* The draft is in this message's thread."}},
     ]
-    _post(settings.slack_content_channel, blocks, text=f"Larger error: {opp.proposed_title}")
-    _upload(settings.slack_content_channel, out / f"{opp.id}.md", f"Draft: {opp.proposed_title}")
+    ts = _post(settings.slack_content_channel, blocks, text=f"Larger error: {opp.proposed_title}")
+    _upload(settings.slack_content_channel, out / f"{opp.id}.md", f"Draft: {opp.proposed_title}", ts)
 
 
 def notify_competitor_threat(competitor: str, keyword: str, their_rank: int, traffic_delta: int) -> None:
