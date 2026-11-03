@@ -119,6 +119,8 @@ def _stage_one(o) -> "object":
         done = run_steps(slug, write)
         if "graphics" not in done:
             log.warning(f"'{o.proposed_title}' stopped after: {', '.join(done)}. Not staged; {usage_line()}")
+            if os.environ.get("DRY_RUN") != "true":
+                slack.notify_stopped(ContentPage(opportunity=o), done, usage_line())
             return None
         page = ContentPage.model_validate_json((ROOT / f"{slug}-output" / f"{slug}.json").read_text())
         if os.environ.get("DRY_RUN") == "true":   # a full test run: every step, but nothing staged, sent, or marked
@@ -128,7 +130,8 @@ def _stage_one(o) -> "object":
         _save_output(page)
         console.print(f"  [green]Staged:[/green] {page.sanity_document_id}; {usage_line()}")
         try:
-            slack.notify_staged(page)
+            slack.notify_staged(page, spent=usage_line())
+            slack.notify_larger_error(page)
         except Exception as e:
             log.warning(f"Slack notification failed (post is staged): {type(e).__name__}: {e}")
         if o.calendar_row:
