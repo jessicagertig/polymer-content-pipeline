@@ -1,0 +1,209 @@
+2026-11-03 21:34:33,369 | INFO    | lib.content_calendar | Loaded 31 blog opportunities from blog-content-topics.csv
+2026-11-03 21:34:40,526 | INFO    | __main__ | Launch Batch: 6 post(s) left; staging the next one.
+2026-11-03 21:34:41,850 | INFO    | pipeline | Resuming ats-vs-crm; finished steps: none
+2026-11-03 21:34:41,851 | INFO    | agents.content_generator | Generating: ATS vs CRM: What's the Difference, and Which One Does a Hiring Team Need?
+2026-11-03 21:34:44,010 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-03 21:39:40,619 | INFO    | lib.llm | Structured call: stop=tool_use, 4604 in, 13695 out
+2026-11-03 21:39:40,625 | INFO    | agents.content_generator | Generated 3058 words, 7 FAQs
+2026-11-03 21:39:40,717 | INFO    | __main__ | Saved output: ats-vs-crm-output/
+2026-11-03 21:39:42,524 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-03 21:40:26,231 | INFO    | lib.llm | Structured call: stop=tool_use, 8429 in, 2257 out
+2026-11-03 21:40:26,246 | INFO    | main | Saved output: ats-vs-crm-output/
+2026-11-03 21:40:26,248 | INFO    | rewrite_opening | Opening rewritten for ats-vs-crm: 190 -> 232 words
+2026-11-03 21:40:27,405 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-03 21:41:38,539 | INFO    | lib.llm | Structured call: stop=tool_use, 1438 in, 5018 out
+2026-11-03 21:41:39,659 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-03 21:42:08,965 | INFO    | lib.llm | Structured call: stop=tool_use, 2011 in, 1787 out
+2026-11-03 21:42:10,169 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-03 21:42:37,052 | INFO    | lib.llm | Structured call: stop=tool_use, 1356 in, 2244 out
+2026-11-03 21:42:38,033 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-03 21:42:59,562 | INFO    | lib.llm | Structured call: stop=tool_use, 1526 in, 1435 out
+2026-11-03 21:43:00,433 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-03 21:43:54,756 | INFO    | lib.llm | Structured call: stop=tool_use, 1358 in, 3832 out
+2026-11-03 21:43:56,406 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-03 21:44:32,615 | INFO    | lib.llm | Structured call: stop=tool_use, 1503 in, 2032 out
+2026-11-03 21:44:34,048 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-03 21:45:23,794 | INFO    | lib.llm | Structured call: stop=tool_use, 1351 in, 3554 out
+2026-11-03 21:45:24,688 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-03 21:45:47,898 | INFO    | lib.llm | Structured call: stop=tool_use, 1496 in, 1390 out
+2026-11-03 21:45:49,303 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-03 21:46:22,324 | INFO    | lib.llm | Structured call: stop=tool_use, 1358 in, 2401 out
+2026-11-03 21:46:24,592 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-03 21:47:44,529 | INFO    | lib.llm | Structured call: stop=tool_use, 1458 in, 4739 out
+2026-11-03 21:47:45,432 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-03 21:48:55,683 | INFO    | lib.llm | Structured call: stop=tool_use, 1360 in, 5295 out
+2026-11-03 21:48:57,073 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-03 21:49:14,354 | INFO    | lib.llm | Structured call: stop=tool_use, 1401 in, 1124 out
+2026-11-03 21:49:15,128 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-03 21:50:22,651 | INFO    | lib.llm | Structured call: stop=tool_use, 1357 in, 5107 out
+2026-11-03 21:50:22,667 | INFO    | main | Saved output: ats-vs-crm-output/
+2026-11-03 21:50:22,668 | INFO    | review_post | Opening checked for ats-vs-crm: 6 correction(s)
+2026-11-03 21:50:23,766 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-03 21:50:23,892 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-03 21:50:24,095 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-03 21:50:33,622 | INFO    | lib.llm | Structured call: stop=tool_use, 1161 in, 595 out
+2026-11-03 21:50:35,029 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-03 21:50:36,025 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-03 21:50:39,425 | INFO    | lib.llm | Structured call: stop=tool_use, 1118 in, 854 out
+2026-11-03 21:50:42,017 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-03 21:50:49,928 | INFO    | lib.llm | Structured call: stop=tool_use, 1355 in, 731 out
+2026-11-03 21:50:51,334 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-03 21:50:52,540 | INFO    | lib.llm | Structured call: stop=tool_use, 1346 in, 1381 out
+2026-11-03 21:50:53,941 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-03 21:51:00,930 | INFO    | lib.llm | Structured call: stop=tool_use, 1261 in, 1859 out
+2026-11-03 21:51:02,130 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-03 21:51:03,338 | INFO    | lib.llm | Structured call: stop=tool_use, 1233 in, 1609 out
+2026-11-03 21:51:05,305 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-03 21:51:09,367 | INFO    | lib.llm | Structured call: stop=tool_use, 1168 in, 499 out
+2026-11-03 21:51:10,370 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-03 21:51:11,269 | INFO    | lib.llm | Structured call: stop=tool_use, 1405 in, 1777 out
+2026-11-03 21:51:12,235 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-03 21:51:15,673 | INFO    | lib.llm | Structured call: stop=tool_use, 1359 in, 254 out
+2026-11-03 21:51:23,010 | INFO    | lib.llm | Structured call: stop=tool_use, 1476 in, 2225 out
+2026-11-03 21:51:23,862 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-03 21:51:30,735 | INFO    | lib.llm | Structured call: stop=tool_use, 1238 in, 1599 out
+2026-11-03 21:51:32,425 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-03 21:51:43,887 | INFO    | lib.llm | Structured call: stop=tool_use, 1158 in, 786 out
+2026-11-03 21:51:44,911 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-03 21:51:49,536 | INFO    | lib.llm | Structured call: stop=tool_use, 1347 in, 1369 out
+2026-11-03 21:51:50,477 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-03 21:52:05,748 | INFO    | lib.llm | Structured call: stop=tool_use, 1319 in, 1571 out
+2026-11-03 21:52:06,670 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-03 21:52:13,592 | INFO    | lib.llm | Structured call: stop=tool_use, 1528 in, 1948 out
+2026-11-03 21:52:14,368 | INFO    | lib.llm | Structured call: stop=tool_use, 1148 in, 471 out
+2026-11-03 21:52:14,983 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-03 21:52:15,404 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-03 21:52:29,154 | INFO    | lib.llm | Structured call: stop=tool_use, 1181 in, 1282 out
+2026-11-03 21:52:30,514 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-03 21:52:35,083 | INFO    | lib.llm | Structured call: stop=tool_use, 1316 in, 994 out
+2026-11-03 21:52:36,178 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-03 21:52:37,059 | INFO    | lib.llm | Structured call: stop=tool_use, 1145 in, 455 out
+2026-11-03 21:53:01,303 | INFO    | lib.llm | Structured call: stop=tool_use, 1403 in, 1940 out
+2026-11-03 21:53:02,182 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-03 21:53:20,309 | INFO    | lib.llm | Structured call: stop=tool_use, 1298 in, 945 out
+2026-11-03 21:53:21,112 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-03 21:53:36,653 | INFO    | lib.llm | Structured call: stop=tool_use, 1300 in, 1542 out
+2026-11-03 21:53:37,593 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-03 21:53:54,479 | INFO    | lib.llm | Structured call: stop=tool_use, 1297 in, 911 out
+2026-11-03 21:53:54,481 | ERROR   | __main__ | Failed for 'ATS vs CRM: What's the Difference, and Which One Does a Hiring Team Need?': peer closed connection without sending complete message body (incomplete chunked read); $2.03: 61566 in, 83507 out, 108018 cache written, 638732 cache read, 0 searches
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/httpcore2/_exceptions.py", line 13, in map_exceptions
+    yield
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/httpcore2/_sync/http11.py", line 197, in _receive_event
+    event = self._h11_state.next_event()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/h11/_connection.py", line 481, in next_event
+    event = self._extract_next_receive_event()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/h11/_connection.py", line 431, in _extract_next_receive_event
+    event = self._reader.read_eof()
+            ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/h11/_readers.py", line 207, in read_eof
+    raise RemoteProtocolError(
+h11._util.RemoteProtocolError: peer closed connection without sending complete message body (incomplete chunked read)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/httpx2/_transports/default.py", line 98, in map_httpcore_exceptions
+    yield
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/httpx2/_transports/default.py", line 124, in __iter__
+    yield from self._httpcore_stream
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/httpcore2/_sync/connection_pool.py", line 426, in __iter__
+    for chunk in iterator:
+                 ^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/httpcore2/_sync/http11.py", line 320, in __iter__
+    raise exc
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/httpcore2/_sync/http11.py", line 312, in __iter__
+    for chunk in iterator:
+                 ^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/httpcore2/_sync/http11.py", line 188, in _receive_response_body
+    event = self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/httpcore2/_sync/http11.py", line 196, in _receive_event
+    with map_exceptions({h11.RemoteProtocolError: RemoteProtocolError}):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/httpcore2/_exceptions.py", line 17, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore2.RemoteProtocolError: peer closed connection without sending complete message body (incomplete chunked read)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/polymer-content-pipeline/polymer-content-pipeline/main.py", line 132, in _stage_one
+    done = run_steps(slug, write)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/polymer-content-pipeline/polymer-content-pipeline/pipeline.py", line 79, in run_steps
+    if fn(slug, stop_at=stop_at):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/polymer-content-pipeline/polymer-content-pipeline/review_post.py", line 268, in check_post
+    results = list(pool.map(lambda i: _check_section(sections[i], system, fix_system, max_fixes), batch))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/_base.py", line 619, in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/_base.py", line 317, in _result_or_cancel
+    return fut.result(timeout)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/polymer-content-pipeline/polymer-content-pipeline/review_post.py", line 268, in <lambda>
+    results = list(pool.map(lambda i: _check_section(sections[i], system, fix_system, max_fixes), batch))
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/polymer-content-pipeline/polymer-content-pipeline/review_post.py", line 181, in _check_section
+    result = structured_call(system=system, user=find_prompt.format(section_html=section), tool_name="report_faults",
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/polymer-content-pipeline/polymer-content-pipeline/lib/llm.py", line 106, in structured_call
+    response = stream.get_final_message()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/anthropic/lib/streaming/_messages.py", line 100, in get_final_message
+    self.until_done()
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/anthropic/lib/streaming/_messages.py", line 127, in until_done
+    consume_sync_iterator(self)
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/anthropic/_utils/_streams.py", line 6, in consume_sync_iterator
+    for _ in iterator:
+             ^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/anthropic/lib/streaming/_messages.py", line 74, in __iter__
+    for item in self._iterator:
+                ^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/anthropic/lib/streaming/_messages.py", line 138, in __stream__
+    for sse_event in self._raw_stream:
+                     ^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/anthropic/_streaming.py", line 65, in __iter__
+    for item in self._iterator:
+                ^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/anthropic/_streaming.py", line 92, in __stream__
+    for sse in iterator:
+               ^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/anthropic/_streaming.py", line 71, in _iter_events
+    yield from self._decoder.iter_bytes(self.response.iter_bytes())
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/anthropic/_streaming.py", line 351, in iter_bytes
+    for chunk in self._iter_chunks(iterator):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/anthropic/_streaming.py", line 362, in _iter_chunks
+    for chunk in iterator:
+                 ^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/httpx2/_models.py", line 893, in iter_bytes
+    for raw_bytes in self.iter_raw():
+                     ^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/httpx2/_models.py", line 948, in iter_raw
+    for raw_stream_bytes in self.stream:
+                            ^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/httpx2/_client.py", line 143, in __iter__
+    yield from self._stream
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/httpx2/_transports/default.py", line 123, in __iter__
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/httpx2/_transports/default.py", line 115, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx2.RemoteProtocolError: peer closed connection without sending complete message body (incomplete chunked read)
