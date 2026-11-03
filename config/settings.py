@@ -65,6 +65,11 @@ class Settings(BaseSettings):
         path = Path(__file__).parent / "elements-of-style.md"
         return path.read_text() if path.exists() else ""
 
+    def image_menu(self) -> str:
+        """The image types the blog uses and how to describe each one (from wrk-marketing reference-posts/image-descriptions.md), sent to the graphics step."""
+        path = Path(__file__).parent / "image-menu.md"
+        return path.read_text() if path.exists() else ""
+
     def feature_inventory(self) -> str:
         path = Path(__file__).parent / "polymer-feature-inventory.md"
         return path.read_text() if path.exists() else ""

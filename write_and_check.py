@@ -93,6 +93,10 @@ def run(base: str) -> None:
     if "transition pass" in done and "recheck" not in done:
         recheck_saved(slug)
         finish("recheck")
+    if "recheck" in done and "graphics" not in done:
+        from suggest_graphics import suggest
+        suggest(slug)
+        finish("graphics")
     em_dash_report(slug)
     if "transition pass" in done:
         steps.unlink()
