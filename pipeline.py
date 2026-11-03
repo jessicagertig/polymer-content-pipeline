@@ -1,6 +1,7 @@
 """The steps every post goes through, in order: the writer, a new opening (rewrite_opening.py),
-the opening's check loop, the check loop on every other section, the whole-article content
-check, the whole-post transition pass, the recheck of links and validation, the graphics
+the resources hidden from every review step, the opening's check loop, the check loop on every
+other section, the whole-article content check, the whole-post transition pass, the resource
+review (which puts the resources back), the recheck of links and validation, the graphics
 suggestions, and a last count of em dashes per section.
 
 Each finished step is listed in <slug>-steps.json. Run again after a failure, a post starts at
@@ -38,7 +39,7 @@ def run_steps(slug: str, write: Callable[[bool], None], stop_at: float = STOP_AT
     """Runs every step for one post, starting after the last finished step. `write(resuming)`
     writes the post and saves it under `slug`. Returns the finished steps; the post is done
     when "graphics" is among them."""
-    from review_post import check_post, check_opening, content_check, transition_pass, em_dash_report
+    from review_post import check_post, check_opening, content_check, transition_pass, em_dash_report, hide_resources, resource_review
     from rewrite_opening import rewrite as rewrite_opening
     from suggest_graphics import suggest
     out = ROOT / f"{slug}-output"
@@ -54,7 +55,8 @@ def run_steps(slug: str, write: Callable[[bool], None], stop_at: float = STOP_AT
         done.append(step)
         steps.write_text(json.dumps(done))
 
-    for step, fn in [("write", lambda: write(resuming)), ("opening", lambda: rewrite_opening(slug)), ("opening check", lambda: check_opening(slug))]:
+    for step, fn in [("write", lambda: write(resuming)), ("hide resources", lambda: hide_resources(slug)),
+                     ("opening", lambda: rewrite_opening(slug)), ("opening check", lambda: check_opening(slug))]:
         if step not in done:
             fn()
             finish(step)
@@ -66,7 +68,10 @@ def run_steps(slug: str, write: Callable[[bool], None], stop_at: float = STOP_AT
             break
         if fn(slug, stop_at=stop_at):
             finish(step)
-    if "transition pass" in done and "recheck" not in done:
+    if "transition pass" in done and "resource review" not in done:
+        resource_review(slug)
+        finish("resource review")
+    if "resource review" in done and "recheck" not in done:
         recheck_saved(slug)
         finish("recheck")
     if "recheck" in done and "graphics" not in done:

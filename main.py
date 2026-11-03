@@ -98,7 +98,7 @@ def _stage_one(o, instructions: str = "") -> "object":
     from agents import publisher
     from agents.content_generator import generate
     from connectors import slack
-    from lib import content_calendar
+    from lib import content_calendar, resources
     from lib.llm import reset_usage, usage_line
     from lib.repo import ROOT
     from models.content import ContentPage
@@ -131,6 +131,7 @@ def _stage_one(o, instructions: str = "") -> "object":
         if os.environ.get("DRY_RUN") == "true":   # a full test run: every step, but nothing staged, sent, or marked
             log.info(f"DRY_RUN: '{o.proposed_title}' finished every step; not staged; {usage_line()}")
             return page
+        page.content.body_html = resources.unwrap(page.content.body_html)
         publisher.stage(page)
         _save_output(page)
         console.print(f"  [green]Staged:[/green] {page.sanity_document_id}; {usage_line()}")

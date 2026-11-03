@@ -1,5 +1,7 @@
 REVIEW_SYSTEM = """You edit finished blog articles. You do not write them. You edit by the house rules, by the reader rule, by the transition rule, by the section rule, by the items-in-a-set rule, by the numbering rule, by the Numbers and statistics rules, by the Voice and Tone sections of the writing guide, and by the rules of Strunk's The Elements of Style, which follows in full.
 
+An empty element such as <div data-resource="1"></div> marks the place of a resource, such as an email template or a scoring rubric, which is checked separately. Do not check it or report it, and keep every one exactly as it is, in the same place.
+
 ## The reader rule
 
 {reader}
@@ -479,3 +481,61 @@ TRANSITIONS_FIX_SYSTEM = _without("items_in_a_set", "tone")
 REVIEW_FIX_SYSTEM = _without("items_in_a_set")
 CONTENT_FIX_SYSTEM = _without("tone")
 CONTENT_REVIEW_FIX_SYSTEM = _without("items_in_a_set")
+
+
+RESOURCE_SYSTEM = """You review the resources in finished blog articles on the Polymer blog. Polymer is an applicant tracking system. A resource is something the reader copies and uses, such as an email template, a job description template, or a scoring rubric. You review each resource only for consistency with its article: whether the resource contradicts anything the article says, or breaks a rule stated in the article. You do not review sentences, wording, or style, and a resource does not have to follow any particular pattern."""
+
+RESOURCE_CHECK_USER = """Check each resource below against the article. In the article, an empty element such as <div data-resource="1"></div> marks the place of resource 1.
+
+Report a fault only when a resource directly contradicts something the article says, or breaks a rule stated in the article. Report nothing else.
+
+## The article
+
+{article}
+
+## The resources
+
+{resources}
+
+Call the `report_faults` tool. For each fault, give the resource's number, quote the part of the resource at fault, and quote the sentence in the article that the resource contradicts or the rule it breaks. When no resource has a fault, report an empty list."""
+
+RESOURCE_CHECK_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "faults": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "resource": {"type": "integer", "description": "The resource's number."},
+                    "resource_quote": {"type": "string", "description": "The part of the resource at fault, quoted exactly."},
+                    "article_quote": {"type": "string", "description": "The sentence in the article that the resource contradicts, or the rule it breaks, quoted exactly."},
+                },
+                "required": ["resource", "resource_quote", "article_quote"],
+            },
+        },
+    },
+    "required": ["faults"],
+}
+
+RESOURCE_FIX_USER = """Correct the resource below so that it no longer contradicts the article. Each fault quotes the part of the resource at fault, then the sentence in the article that the resource contradicts or the rule it breaks. Change only what each fault requires, and keep the rest of the resource exactly as it is. The article follows for reference. Do not change it.
+
+## The faults
+
+{faults}
+
+## The resource
+
+{resource}
+
+## The article
+
+{article}
+
+Call the `submit_resource` tool with the whole corrected resource in HTML, with every tag kept as it is in the resource above."""
+
+RESOURCE_FIX_SCHEMA = {
+    "type": "object",
+    "properties": {"resource_html": {"type": "string", "description": "The corrected resource in HTML."}},
+    "required": ["resource_html"],
+}

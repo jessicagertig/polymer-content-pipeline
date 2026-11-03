@@ -21,6 +21,7 @@ from config.settings import settings
 from connectors import sanity
 from lib.llm import structured_call, cost, usage_line
 from lib.logging import get
+from lib import resources as res
 from lib.repo import ROOT
 from lib.text import word_count, reading_time, space_em_dashes
 from main import _save_output
@@ -31,6 +32,7 @@ from prompts.review import (
     REVIEW_CHANGES_USER, REVIEW_FIX_USER, OPENING_FIND_USER, OPENING_FIX_USER,
     CONTENT_RULES, CONTENT_FIXES, CONTENT_FIND_USER, CONTENT_FIND_SCHEMA, CONTENT_FIX_USER, CONTENT_FIX_SCHEMA,
     CONTENT_REVIEW_CHANGES_USER, CONTENT_REVIEW_FIX_USER,
+    RESOURCE_SYSTEM, RESOURCE_CHECK_USER, RESOURCE_CHECK_SCHEMA, RESOURCE_FIX_USER, RESOURCE_FIX_SCHEMA,
     OPENING_FIX_SYSTEM, FIX_SYSTEM, TRANSITIONS_FIX_SYSTEM, REVIEW_FIX_SYSTEM, CONTENT_FIX_SYSTEM, CONTENT_REVIEW_FIX_SYSTEM,
 )
 
@@ -410,12 +412,60 @@ def _report_larger(slug: str, larger: str) -> None:
     log.warning(f"Larger error reported in {slug}, added to {slug}-larger-errors.md; the article carries on")
 
 
+def hide_resources(slug: str) -> None:
+    """Replaces each resource in the article with a placeholder (lib.resources.hide), so no
+    checker or fixer receives it, and saves the resources to <slug>-resources.json."""
+    page = ContentPage.model_validate_json((ROOT / f"{slug}-output" / f"{slug}.json").read_text())
+    body, found = res.hide(page.content.body_html)
+    if not found:
+        return
+    (ROOT / f"{slug}-output" / f"{slug}-resources.json").write_text(json.dumps(found, indent=2))
+    _save_body(page, body)
+    log.info(f"Hid {len(found)} resource(s) in {slug} from the review steps")
+
+
+def resource_review(slug: str) -> None:
+    """Checks each resource only for consistency with the article: a resource must not contradict
+    anything the article says or break any rule stated in the article. No sentence is checked, and
+    a resource does not have to fit any pattern. A fixer corrects each resource with a direct
+    contradiction. Then the resources go back in place of their placeholders. A resource whose
+    placeholder a fixer removed goes back at the end of its section and is reported in
+    <slug>-larger-errors.md. The record is <slug>-resource-review.md."""
+    path = ROOT / f"{slug}-output" / f"{slug}-resources.json"
+    if not path.exists():
+        return
+    page = ContentPage.model_validate_json((ROOT / f"{slug}-output" / f"{slug}.json").read_text())
+    found = json.loads(path.read_text())
+    article = page.content.body_html
+    listed = "\n\n".join(f"### Resource {n}\n\n{res.inner(r['html'])}" for n, r in enumerate(found, 1))
+    check = structured_call(system=RESOURCE_SYSTEM, user=RESOURCE_CHECK_USER.format(article=article, resources=listed), tool_name="report_faults",
+                            tool_description="Report the faults in the resources.", input_schema=RESOURCE_CHECK_SCHEMA, max_tokens=8000)
+    records = [f"## Check\n\n{json.dumps(check['faults'], indent=2)}\n"]
+    for n, r in enumerate(found, 1):
+        faults = [f for f in check["faults"] if f["resource"] == n]
+        if not faults:
+            continue
+        listed_faults = "\n\n".join(f"Resource: {f['resource_quote']}\nArticle: {f['article_quote']}" for f in faults)
+        fixed = structured_call(system=RESOURCE_SYSTEM, user=RESOURCE_FIX_USER.format(faults=listed_faults, resource=res.inner(r["html"]), article=article),
+                                tool_name="submit_resource", tool_description="Submit the corrected resource.", input_schema=RESOURCE_FIX_SCHEMA, max_tokens=16000)
+        r["html"] = f'<div class="resource">{fixed["resource_html"].strip()}</div>'
+        records.append(f"## Resource {n}, corrected\n\n{r['html']}\n")
+    body, missing = res.show(article, found)
+    for n in missing:
+        _report_larger(slug, f"A review fixer removed resource {n} from the section \"{found[n - 1]['section'] or 'the opening'}\". "
+                             "The code put it back at the end of that section. Check that it is in the right place.")
+    _save_body(page, body)
+    path.unlink()
+    _write_record(page, f"{slug}-resource-review.md", f"{slug} resource review", records)
+    log.info(f"Resource review for {slug}: {len(check['faults'])} fault(s); {len(missing)} placeholder(s) missing")
+
+
 def em_dash_report(slug: str) -> None:
     """The last step. The code counts the em dashes in every section (house rule 4) and looks
     for em dashes in headings (house rule 7), and lists what it finds in <slug>-em-dashes.md.
     No model call; the article is not changed."""
     page = ContentPage.model_validate_json((ROOT / f"{slug}-output" / f"{slug}.json").read_text())
-    over = [f"- {_section_name(s)}: {f.split('|||')[-1].strip()}" for s in split_sections(page.content.body_html) for f in _em_dash_faults(s)]
+    over = [f"- {_section_name(s)}: {f.split('|||')[-1].strip()}" for s in split_sections(res.without(page.content.body_html)) for f in _em_dash_faults(s)]
     if over:
         (ROOT / f"{slug}-output" / f"{slug}-em-dashes.md").write_text(f"# {slug}: sections over the em dash limit\n\n" + "\n".join(over) + "\n")
         log.warning(f"{len(over)} section(s) in {slug} over the em dash limit, listed in {slug}-em-dashes.md")
