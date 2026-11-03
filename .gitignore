@@ -3,4 +3,4 @@
 output*/
 .aws-sam/
 __pycache__/
-*-output/
+*-v[0-9]*-output/
