@@ -56,7 +56,7 @@ def research_brief(opp) -> str:
         system=RESEARCH_SYSTEM,
         user=user,
         max_searches=settings.research_max_searches,
-        max_tokens=settings.research_max_tokens,
+        max_tokens=settings.research_resource_max_tokens if opp.resource_article else settings.research_max_tokens,
         blocked_domains=settings.competitor_domains(),
     )
     if not result["text"]:
@@ -95,7 +95,7 @@ def _three_step_brief(opp, structure: str) -> str:
             system=RESEARCH_SYSTEM,
             user=STEP_USER.format(**context, **step, max_searches=searches),
             max_searches=searches,
-            max_tokens=settings.research_max_tokens,
+            max_tokens=settings.research_resource_max_tokens if opp.resource_article else settings.research_max_tokens,
             blocked_domains=settings.competitor_domains(),
         )
         if not result["text"]:

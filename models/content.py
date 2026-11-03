@@ -64,6 +64,7 @@ class ContentOpportunity(BaseModel):
     launch_batch: bool = False            # Launch Batch rows — staged all at once (bulk) into the normal review window
     includes_polymer: bool = False        # Polymer is one of the products the post covers; the feature inventory goes into the prompt
     product_based: bool = False           # the post is about named products; research runs as one call, not the three-step split
+    resource_article: bool = False        # the post offers resources (email templates, job description templates, rubrics); research gets a larger response cap
 
 
 class GeneratedContent(BaseModel):

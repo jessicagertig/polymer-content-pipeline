@@ -164,6 +164,7 @@ def load_opportunities() -> list[ContentOpportunity]:
                 launch_batch=_slot_sort_key(cell(r, "Publish Slot")) == 0,
                 includes_polymer=cell(r, "Includes Polymer").strip().lower() in ("yes", "y", "true", "1"),
                 product_based=cell(r, "Product-based").strip().lower() in ("yes", "y", "true", "1"),
+                resource_article=cell(r, "Resource article").strip().lower() in ("yes", "y", "true", "1"),
             )
         )
 
