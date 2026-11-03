@@ -44,7 +44,7 @@ class Settings(BaseSettings):
     site_domain: str = "www.polymer.co"
     research_max_searches: int = 5   # web searches per post (the web search tool's max_uses)
     research_step_searches: int = 6  # web searches across the three research calls (definitions, topic, statistics)
-    research_max_tokens: int = 3000  # max_tokens on each research response
+    research_max_tokens: int = 8000  # max_tokens on each research response
     research_max_words: int = 1000   # length of the brief the researcher is asked for
     research_reuse: bool = False     # reuse a saved <slug>-output/<slug>-research.md instead of searching (a -vN slug reuses the base post's)
 
