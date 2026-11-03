@@ -58,8 +58,7 @@ def test_blocks():
     assert all(r["_type"] == "tableRow" for r in table["rows"])
 
     quote = blocks[8]
-    assert quote["text"][0]["children"][0]["text"] == "A quote."
-    assert quote["text"][0]["children"][0]["marks"] == []
+    assert [(c["text"], c["marks"]) for c in quote["text"][0]["children"]] == [("A ", []), ("quote", ["strong"]), (".", [])]
 
     for b in blocks:
         assert b["_key"]

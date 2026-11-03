@@ -1,8 +1,8 @@
 """HTML → Portable Text for the blogPost `content` field (studio/schemas/blogPost.js).
 
 Handles what the writer emits: <h2>/<h3>/<h4>/<p>, <ul>/<ol>/<li>, <table>,
-<blockquote>, <strong>/<em>, <a href>, <br>. Table cells and quotes are flattened to
-plain text, which is what those two schema objects accept.
+<blockquote>, <strong>/<em>, <a href>, <br>. Table cells are flattened to plain text,
+which is what the table object accepts. Quotes keep bold, italics, links, and lists.
 """
 
 import re
@@ -185,11 +185,6 @@ class _Converter(HTMLParser):
             self.quote = None
             for b in quote_blocks:
                 b["style"] = "normal"
-                b["markDefs"] = []
-                b.pop("listItem", None)
-                b.pop("level", None)
-                text = "".join(child["text"] for child in b["children"])
-                b["children"] = [{"_key": _key(), "_type": "span", "marks": [], "text": text}]
             if quote_blocks:
                 self.blocks.append({"_key": _key(), "_type": "quote", "text": quote_blocks})
 
