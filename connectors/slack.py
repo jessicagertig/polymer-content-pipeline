@@ -31,7 +31,7 @@ def _post(channel: str, blocks: list, text: str = "") -> str:
         log.info(f"Slack not configured — skipping post to {channel}: {text}")
         return ""
     try:
-        return _client().chat_postMessage(channel=channel, blocks=blocks, text=text)["ts"]
+        return _client().chat_postMessage(channel=channel, blocks=blocks, text=text, unfurl_links=False, unfurl_media=False)["ts"]
     except SlackApiError as e:
         log.error(f"Slack post to {channel} failed: {e.response['error']}")
         return ""
@@ -58,7 +58,7 @@ def _thread(channel: str, ts: str, parts: list[str]) -> None:
         for i in range(0, len(part), _SECTION_MAX_CHARS):
             chunk = part[i:i + _SECTION_MAX_CHARS]
             try:
-                _client().chat_postMessage(channel=channel, thread_ts=ts, text=chunk,
+                _client().chat_postMessage(channel=channel, thread_ts=ts, text=chunk, unfurl_links=False, unfurl_media=False,
                                            blocks=[{"type": "section", "text": {"type": "mrkdwn", "text": chunk}}])
             except SlackApiError as e:
                 log.error(f"Slack thread reply in {channel} failed: {e.response['error']}")

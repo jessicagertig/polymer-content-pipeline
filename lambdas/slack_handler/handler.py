@@ -295,7 +295,7 @@ def post_plain_message_to_channel(text):
         logger.error("SLACK_BOT_TOKEN or SLACK_CHANNEL_ID not set")
         return False
 
-    data = json.dumps({"channel": channel, "text": text}).encode()
+    data = json.dumps({"channel": channel, "text": text, "unfurl_links": False, "unfurl_media": False}).encode()
     req = urllib.request.Request(
         "https://slack.com/api/chat.postMessage",
         data=data,
