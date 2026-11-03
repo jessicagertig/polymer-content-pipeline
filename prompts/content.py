@@ -184,7 +184,7 @@ Every fact about a named product comes from this brief. Every statistic follows 
 
 {redraft_section}
 
-Write a draft of the body first. Then read the draft back against the house rules, the Opening rules, the Structure rules, the blog format, the research rules, the Numbers and statistics rules, the Logic rules, the Voice and Tone sections of the writing guide, and every rule in The Elements of Style, one rule at a time, and write one line per rule on what you found. Read the whole text of each rule, examples included. Then rewrite whatever failed. Submit the draft, the check, and the final article.
+Write a draft of the body first, at full length: at least 2,500 words, and ideally 3,000 to 3,500, FAQ excluded. Then read the draft back against the house rules, the Opening rules, the Structure rules, the blog format, the research rules, the Numbers and statistics rules, the Logic rules, the Voice and Tone sections of the writing guide, and every rule in The Elements of Style, one rule at a time, and write one line per rule on what you found. Read the whole text of each rule, examples included. Then rewrite whatever failed. Submit the draft, the check, and the final article.
 
 Call the `generate_post` tool with the structured output. Internal links should point to /blog/... articles or relevant product pages on the site."""
 
