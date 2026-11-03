@@ -1,8 +1,15 @@
 """Tests for the model call retries in lib/llm.py."""
-import httpx
 import pytest
 
 from lib import llm
+
+
+class TransportError(Exception):
+    """Stands in for the HTTP library's TransportError, matched by name."""
+
+
+class RemoteProtocolError(TransportError):
+    pass
 
 
 def test_a_dropped_connection_is_retried(monkeypatch):
@@ -12,7 +19,7 @@ def test_a_dropped_connection_is_retried(monkeypatch):
     def call():
         calls.append(1)
         if len(calls) < 3:
-            raise httpx.RemoteProtocolError("peer closed connection without sending complete message body")
+            raise RemoteProtocolError("peer closed connection without sending complete message body")
         return "ok"
 
     assert llm._with_retries(call, "test") == "ok" and len(calls) == 3

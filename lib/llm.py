@@ -9,7 +9,6 @@ import threading
 import time
 from typing import Any, List, Union
 import anthropic
-import httpx
 
 from config.settings import settings
 from lib.logging import get
@@ -61,8 +60,10 @@ RETRY_WAITS = (15, 60, 180)   # seconds before the second, third, and fourth att
 
 
 def _retryable(e: Exception) -> bool:
-    """A dropped or reset connection, a timeout, a rate limit, or a server or overload error."""
-    if isinstance(e, (anthropic.APIConnectionError, httpx.TransportError)):
+    """A dropped or reset connection, a timeout, a rate limit, or a server or overload error. The
+    HTTP library's transport errors are matched by class name, because the anthropic package's
+    HTTP library has changed names (httpx, httpx2)."""
+    if isinstance(e, anthropic.APIConnectionError) or any(c.__name__ == "TransportError" for c in type(e).__mro__):
         return True
     if isinstance(e, anthropic.APIStatusError):
         status = getattr(e, "status_code", 0) or 0
