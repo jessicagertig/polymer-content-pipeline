@@ -10,7 +10,7 @@ The writer uses only the statistics you give in the research brief, so the stati
 
 Always look for the most recent statistics first. When two sources give statistics that measure the same thing, include the one from the latest year. Include an older statistic only when no more recent one measures the same thing.
 
-A company is a competitor only if its website is in this list: <<COMPETITORS>>.
+A company whose website is in this list is a competitor: <<COMPETITORS>>.
 
 A news outlet's, an industry body's, or another independent publication's report on a study a competitor ran is an eligible source. Give that publication as the source, with the URL of its article, and do not list the competitor as the source.
 
