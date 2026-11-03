@@ -52,6 +52,15 @@ def write(base: str, resuming: bool) -> str:
     return slug
 
 
+def recheck_saved(slug: str) -> None:
+    """The internal links and validation run again on the saved article, and the to-do list is rebuilt."""
+    from agents.content_generator import recheck
+    path = ROOT / f"{slug}-output" / f"{slug}.json"
+    page = recheck(ContentPage.model_validate_json(path.read_text()))
+    _save_output(page)
+    log.info(f"Rechecked {slug}: {len(page.todos)} to-do item(s)")
+
+
 def run(base: str) -> None:
     from review_post import check_post, check_opening, content_check, transition_pass, em_dash_report
     from rewrite_opening import rewrite as rewrite_opening
@@ -81,6 +90,9 @@ def run(base: str) -> None:
             break
         if fn(slug, stop_at=STOP_AT):
             finish(step)
+    if "transition pass" in done and "recheck" not in done:
+        recheck_saved(slug)
+        finish("recheck")
     em_dash_report(slug)
     if "transition pass" in done:
         steps.unlink()

@@ -170,3 +170,20 @@ def generate(page: ContentPage) -> ContentPage:
 
     log.info(f"Generated {word_total} words, {len(content.faq_items)} FAQs")
     return page
+
+
+def recheck(page: ContentPage) -> ContentPage:
+    """After the review steps: fix_internal_links and validate run again on the final body, and the
+    to-do list is rebuilt from them. A check that fails here is added to the to-do list instead of
+    raised, so the reviewed article is kept."""
+    existing_urls = {p["url"] for p in existing_pages()}
+    content = page.content
+    content.body_html, placed_paths, link_todos = fix_internal_links(content.body_html, existing_urls)
+    content.word_count = wc(content.body_html)
+    content.reading_time_minutes = reading_time(content.body_html)
+    result = validate(content, existing_urls=existing_urls, placed_paths=placed_paths)
+    items = link_todos + [f"Failed check after review: {e}" for e in result.errors] + result.todos
+    page.todos = [{"item": t, "done": ""} for t in items]
+    if page.todos:
+        log.warning(f"To-do after review: {[t['item'] for t in page.todos]}")
+    return page
