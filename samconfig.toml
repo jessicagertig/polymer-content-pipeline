@@ -1,15 +1,16 @@
 version = 0.1
 
 [default.deploy.parameters]
-stack_name = "polymer-blog-bot"
+stack_name = "polymer-content-engine-slack"
 resolve_s3 = true
-s3_prefix = "polymer-blog-bot"
+s3_prefix = "polymer-content-engine-slack"
 region = "us-east-1"
 profile = "polymer"
 confirm_changeset = true
 capabilities = "CAPABILITY_IAM"
 disable_rollback = true
 # Secrets are passed via `make deploy` (sources .env). Do not put them here.
+parameter_overrides = "GitHubOwner=\"jessicagertig\" GitHubRepo=\"polymer-content-engine\""
 image_repositories = []
 
 [default.global.parameters]

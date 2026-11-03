@@ -85,6 +85,7 @@ class ContentPage(BaseModel):
     status: ContentStatus = ContentStatus.DRAFT
     sanity_document_id: str = ""
     research_brief: str = ""
+    redraft_instructions: str = ""   # typed into the Slack Redraft box; the writer follows them
     sanity_draft_url: str = ""
     live_url: str = ""
     content: Optional[GeneratedContent] = None

@@ -6,7 +6,7 @@
 #   make index        Submit sitemap URLs modified in the last 24h to IndexNow + Google
 #   make doctor       Check settings + connectivity
 #   make test         Run the tests
-#   make deploy       sam build && sam deploy (sources secrets from .env)
+#   make deploy       Deploy the Slack button Lambda (sources secrets from .env)
 
 PYTHON := .venv/bin/python
 N ?= 1
@@ -33,25 +33,15 @@ doctor:
 test:
 	$(PYTHON) -m pytest tests
 
-## Build and deploy the Lambda stack (sources secrets from .env)
+## Build and deploy the Slack Lambda (sources secrets from .env)
 deploy:
 	@set -a && . ./.env && set +a && \
 	sam build && sam deploy \
 		--parameter-overrides \
-		"AnthropicApiKey=$$ANTHROPIC_API_KEY" \
-		"SanityDataset=$$SANITY_STUDIO_API_DATASET" \
-		"SanityApiToken=$$SANITY_API_WRITE_TOKEN" \
-		"SanityStudioUrl=$$SANITY_STUDIO_URL" \
 		"SlackBotToken=$$SLACK_BOT_TOKEN" \
-		"SlackContentChannel=$$SLACK_CONTENT_CHANNEL" \
-		"GoogleInternalSheetsClientId=$$GOOGLE_INTERNAL_SHEETS_CLIENT_ID" \
-		"GoogleInternalSheetsClientSecret=$$GOOGLE_INTERNAL_SHEETS_CLIENT_SECRET" \
-		"GoogleInternalSheetsRefreshToken=$$GOOGLE_INTERNAL_SHEETS_REFRESH_TOKEN" \
-		"GoogleSearchConsoleRefreshToken=$$GOOGLE_SEARCH_CONSOLE_REFRESH_TOKEN" \
-		"GscSiteUrl=$$GSC_SITE_URL" \
-		"IndexNowKey=$$INDEXNOW_KEY" \
-		"GithubRepo=$$GITHUB_REPO" \
-		"GithubToken=$$GITHUB_TOKEN"
+		"SlackSigningSecret=$$SLACK_SIGNING_SECRET" \
+		"SlackChannelId=$$SLACK_CONTENT_CHANNEL" \
+		"GitHubToken=$$GITHUB_TOKEN"
 
 help:
 	@echo ""
@@ -63,5 +53,5 @@ help:
 	@echo "  make index        Submit recently modified sitemap URLs for indexing"
 	@echo "  make doctor       Check settings + connectivity"
 	@echo "  make test         Run the tests"
-	@echo "  make deploy       sam build && sam deploy"
+	@echo "  make deploy       Deploy the Slack button Lambda"
 	@echo ""

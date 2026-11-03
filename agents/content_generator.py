@@ -10,7 +10,7 @@ from lib.site_pages import existing_pages
 from lib.text import word_count as wc, reading_time, clean_body_html, has_empty_lists, space_em_dashes
 from lib.validation import validate, fix_internal_links
 from models.content import ContentPage, GeneratedContent, ContentStatus
-from prompts.content import CONTENT_SYSTEM, CONTENT_USER, PAGE_SCHEMA, PAGE_STRUCTURES, POLYMER_INCLUDED, POLYMER_EXCLUDED
+from prompts.content import CONTENT_SYSTEM, CONTENT_USER, PAGE_SCHEMA, PAGE_STRUCTURES, POLYMER_INCLUDED, POLYMER_EXCLUDED, REDRAFT_SECTION
 
 
 log = get(__name__)
@@ -76,6 +76,7 @@ def generate(page: ContentPage) -> ContentPage:
         site_domain=settings.site_domain,
         existing_pages=json.dumps(pages),
         polymer_section=polymer_section,
+        redraft_section=REDRAFT_SECTION.format(instructions=page.redraft_instructions) if page.redraft_instructions else "",
     )
 
     # System prompt with brand guidelines is mostly stable across calls → cache it

@@ -8,6 +8,8 @@ Commands:
   python main.py run           # scheduled daily run: the next 'Launch Batch' post, or this week's calendar post
   python main.py calendar [N]  # write + STAGE the next N scheduled posts from the calendar (default 1)
   python main.py launch        # write + STAGE all pending 'Launch Batch' posts at once
+  python main.py redraft SLUG  # write a staged post again, following REDRAFT_INSTRUCTIONS (Slack's Redraft button)
+  python main.py resume SLUG   # resume a stopped post from its last finished step (Slack's Resume now button)
   python main.py index         # submit sitemap URLs modified in the last 24h to IndexNow + Google
   python main.py doctor        # check settings + connectivity
 
@@ -86,11 +88,13 @@ def _as_markdown(page) -> str:
     return head + body.strip() + faq + todo + "\n"
 
 
-def _stage_one(o) -> "object":
+def _stage_one(o, instructions: str = "") -> "object":
     """Writes one calendar post and runs every step in pipeline.run_steps, then stages it once as a
     Sanity draft, notifies Slack, and marks the calendar row as generated. Returns the staged
     ContentPage, or None when the post failed or stopped before its last step. A post that
-    stopped resumes from its last finished step on the next run."""
+    stopped resumes from its last finished step on the next run. With `instructions`, the post is
+    a redraft: the writer uses the saved research and follows the instructions, and the calendar
+    row is not marked again."""
     from agents import publisher
     from agents.content_generator import generate
     from connectors import slack
@@ -106,7 +110,8 @@ def _stage_one(o) -> "object":
 
     def write(resuming: bool) -> None:
         saved = ROOT / f"{slug}-output" / f"{slug}-research.md"
-        page = ContentPage(opportunity=o, research_brief=saved.read_text() if resuming and saved.exists() else "")
+        page = ContentPage(opportunity=o, research_brief=saved.read_text() if (resuming or instructions) and saved.exists() else "",
+                           redraft_instructions=instructions)
         try:
             generate(page)
         except Exception:
@@ -131,16 +136,41 @@ def _stage_one(o) -> "object":
         console.print(f"  [green]Staged:[/green] {page.sanity_document_id}; {usage_line()}")
         try:
             slack.notify_staged(page, spent=usage_line())
-            slack.notify_larger_error(page)
         except Exception as e:
             log.warning(f"Slack notification failed (post is staged): {type(e).__name__}: {e}")
-        if o.calendar_row:
+        if o.calendar_row and not instructions:
             content_calendar.mark_generated(o.calendar_row)
         return page
     except Exception as e:
         log.exception(f"Failed for '{o.proposed_title}': {e}; {usage_line()}")
         console.print(f"  [red]Failed:[/red] {e}")
         return None
+
+
+def _saved_opportunity(slug: str):
+    from lib.repo import ROOT
+    from models.content import ContentPage
+    return ContentPage.model_validate_json((ROOT / f"{slug}-output" / f"{slug}.json").read_text()).opportunity
+
+
+def redraft():
+    """CLI: python main.py redraft <slug>. Writes a staged post again from its saved research,
+    following the instructions typed into the Slack Redraft box (REDRAFT_INSTRUCTIONS), runs every
+    step, and stages it in place of the earlier Sanity draft. Every file in the post's folder but
+    the research brief is removed first, so no record from the earlier draft carries over; git
+    keeps the earlier draft."""
+    from lib.repo import ROOT
+    slug = sys.argv[2]
+    opp = _saved_opportunity(slug)
+    for f in (ROOT / f"{slug}-output").iterdir():
+        if f.is_file() and f.name != f"{slug}-research.md":
+            f.unlink()
+    _stage_one(opp, os.environ["REDRAFT_INSTRUCTIONS"])
+
+
+def resume():
+    """CLI: python main.py resume <slug>. Resumes a stopped post from its last finished step."""
+    _stage_one(_saved_opportunity(sys.argv[2]))
 
 
 def stage_launch_batch() -> int:
@@ -291,12 +321,14 @@ COMMANDS = {
     "run": scheduled_run,
     "calendar": run_from_calendar,
     "launch": run_launch,
+    "redraft": redraft,
+    "resume": resume,
     "index": submit_recent_for_indexing,
     "doctor": doctor,
 }
 
 # The scheduled entrypoints — each gets its whole run's log relayed to Slack.
-REPORTED_JOBS = {"run", "index"}
+REPORTED_JOBS = {"run", "redraft", "resume", "index"}
 
 
 def _run_cli(cmd: str) -> bool:

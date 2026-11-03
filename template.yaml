@@ -1,109 +1,66 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: Polymer blog bot - scheduled blog post generation into Sanity drafts
+Description: Polymer content engine - Slack integration (button clicks)
 
 Parameters:
-  AnthropicApiKey:
-    Type: String
-    NoEcho: true
-  SanityDataset:
-    Type: String
-  SanityApiToken:
-    Type: String
-    NoEcho: true
-    Description: Sanity token with write access to the dataset
-  SanityStudioUrl:
-    Type: String
-    Default: ""
-    Description: Studio base URL, for the draft link in Slack (optional)
   SlackBotToken:
     Type: String
     NoEcho: true
     Description: Slack bot token (xoxb-...)
-  SlackContentChannel:
-    Type: String
-    Description: Slack channel for staged-draft messages and run reports
-  GoogleInternalSheetsClientId:
-    Type: String
-    Description: OAuth client ID shared with inflow-ats and polymer-engagement-pipeline
-  GoogleInternalSheetsClientSecret:
+  SlackSigningSecret:
     Type: String
     NoEcho: true
-  GoogleInternalSheetsRefreshToken:
+    Description: Slack signing secret for request verification
+  SlackChannelId:
+    Type: String
+    Description: Slack channel ID for the redraft confirmation
+  GitHubToken:
     Type: String
     NoEcho: true
-    Description: Refresh token granted the spreadsheets scope
-  GoogleSearchConsoleRefreshToken:
+    Description: GitHub PAT with repo scope for workflow_dispatch
+  GitHubOwner:
     Type: String
-    NoEcho: true
-    Default: ""
-    Description: Refresh token granted the webmasters scope; empty skips Google indexing requests
-  GscSiteUrl:
+    Default: jessicagertig
+  GitHubRepo:
     Type: String
-    Default: "https://www.polymer.co/"
-  IndexNowKey:
-    Type: String
-    NoEcho: true
-    Default: ""
-    Description: IndexNow key, also hosted at https://www.polymer.co/<key>.txt
-  GithubRepo:
-    Type: String
-    Description: owner/name of this repo; the function commits each run's output there
-  GithubToken:
-    Type: String
-    NoEcho: true
-    Description: Fine-grained PAT for that repo with Contents read and write
-  RunSchedule:
-    Type: String
-    Default: "cron(0 13 ? * MON *)"
-    Description: EventBridge Scheduler expression for the weekly staging run (UTC)
-  IndexSchedule:
-    Type: String
-    Default: "cron(0 14 * * ? *)"
-    Description: EventBridge Scheduler expression for the daily indexing run (UTC)
+    Default: polymer-content-engine
 
 Globals:
   Function:
     Runtime: python3.12
-    Timeout: 900
-    MemorySize: 512
+    Timeout: 10
+    MemorySize: 128
 
 Resources:
 
-  BlogBotFunction:
+  SlackApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: Prod
+
+  SlackHandlerFunction:
     Type: AWS::Serverless::Function
     Properties:
-      FunctionName: polymer-blog-bot
-      Handler: lambda_handler.lambda_handler
-      CodeUri: .
+      FunctionName: polymer-content-engine-slack-handler
+      Handler: handler.lambda_handler
+      CodeUri: lambdas/slack_handler/
       Environment:
         Variables:
-          ANTHROPIC_API_KEY: !Ref AnthropicApiKey
-          SANITY_DATASET: !Ref SanityDataset
-          SANITY_API_TOKEN: !Ref SanityApiToken
-          SANITY_STUDIO_URL: !Ref SanityStudioUrl
           SLACK_BOT_TOKEN: !Ref SlackBotToken
-          SLACK_CONTENT_CHANNEL: !Ref SlackContentChannel
-          GOOGLE_INTERNAL_SHEETS_CLIENT_ID: !Ref GoogleInternalSheetsClientId
-          GOOGLE_INTERNAL_SHEETS_CLIENT_SECRET: !Ref GoogleInternalSheetsClientSecret
-          GOOGLE_INTERNAL_SHEETS_REFRESH_TOKEN: !Ref GoogleInternalSheetsRefreshToken
-          GOOGLE_SEARCH_CONSOLE_REFRESH_TOKEN: !Ref GoogleSearchConsoleRefreshToken
-          GSC_SITE_URL: !Ref GscSiteUrl
-          INDEXNOW_KEY: !Ref IndexNowKey
-          GITHUB_REPO: !Ref GithubRepo
-          GITHUB_TOKEN: !Ref GithubToken
+          SLACK_SIGNING_SECRET: !Ref SlackSigningSecret
+          SLACK_CHANNEL_ID: !Ref SlackChannelId
+          GITHUB_TOKEN: !Ref GitHubToken
+          GITHUB_OWNER: !Ref GitHubOwner
+          GITHUB_REPO: !Ref GitHubRepo
       Events:
-        WeeklyRun:
-          Type: ScheduleV2
+        SlackInteract:
+          Type: Api
           Properties:
-            ScheduleExpression: !Ref RunSchedule
-            Input: '{"command": "run"}'
-        DailyIndex:
-          Type: ScheduleV2
-          Properties:
-            ScheduleExpression: !Ref IndexSchedule
-            Input: '{"command": "index"}'
+            RestApiId: !Ref SlackApi
+            Path: /slack/interact
+            Method: POST
 
 Outputs:
-  FunctionName:
-    Value: !Ref BlogBotFunction
+  SlackInteractUrl:
+    Description: Set this as the Slack Interactivity Request URL
+    Value: !Sub "https://${SlackApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/slack/interact"

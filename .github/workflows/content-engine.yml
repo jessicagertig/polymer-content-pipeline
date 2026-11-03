@@ -2,6 +2,8 @@
 # 13:00 UTC daily: `python main.py run` writes and stages the next Launch Batch post, or this
 # week's calendar post when one is due. 14:00 UTC daily: `python main.py index` submits pages
 # the site changed in the last 24 hours for indexing. "Run workflow" starts either by hand.
+# The Slack buttons start it too, through the Lambda in lambdas/slack_handler: Resume now with
+# `resume <slug>`, and Redraft with `redraft <slug>` and the instructions typed into its box.
 # After each run, the post's output folder and the calendar are committed to this repo, so the
 # next run reads the updated calendar and resumes a stopped post.
 
@@ -17,7 +19,15 @@ on:
         description: "main.py command"
         type: choice
         default: run
-        options: [run, index, doctor]
+        options: [run, index, doctor, redraft, resume]
+      slug:
+        description: "Post slug, for redraft and resume"
+        type: string
+        default: ""
+      instructions:
+        description: "Redraft instructions"
+        type: string
+        default: ""
 
 concurrency:
   group: content-engine
@@ -56,7 +66,9 @@ jobs:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
           GITHUB_REPO: ${{ github.repository }}
           GITHUB_BRANCH: ${{ github.ref_name }}
-        run: python main.py ${{ inputs.command || (github.event.schedule == '0 14 * * *' && 'index') || 'run' }}
+          SLUG: ${{ inputs.slug }}
+          REDRAFT_INSTRUCTIONS: ${{ inputs.instructions }}
+        run: python main.py ${{ inputs.command || (github.event.schedule == '0 14 * * *' && 'index') || 'run' }} "$SLUG"
 
       - name: Commit the outputs and the calendar
         if: always()

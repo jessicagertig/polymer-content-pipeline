@@ -79,12 +79,6 @@ def _outputs(slug: str) -> Path:
     return ROOT / f"{slug}-output"
 
 
-def _outputs_link(slug: str) -> str:
-    if not settings.github_repo:
-        return f"`{slug}-output/`"
-    return f"<https://github.com/{settings.github_repo}/tree/{settings.github_branch}/{slug}-output|{slug}-output on GitHub>"
-
-
 def notify_new_drafts(pages: list[ContentPage]) -> None:
     """Posts a message listing new draft opportunities for review."""
     if not pages:
@@ -131,54 +125,106 @@ def notify_new_drafts(pages: list[ContentPage]) -> None:
     _post(settings.slack_content_channel, blocks, text=f"{len(pages)} new content opportunities ready for review")
 
 
+def _read(path: Path) -> str:
+    return path.read_text().strip() if path.exists() else ""
+
+
+def _header(text: str) -> dict:
+    return {"type": "header", "text": {"type": "plain_text", "text": text[:150]}}
+
+
 def notify_staged(page: ContentPage, spent: str = "") -> None:
-    """Notifies that a post is staged as a Sanity draft and ready for review, with the run's report:
-    the cost, any larger errors, the em dash report, and the to-do list. The graphic suggestions
-    go in the message's thread, as a file, or as text when the upload fails."""
+    """Posts the review messages for a staged post, each its own message, in this order: the
+    summary; the larger errors, when there are any; the fixes (em dashes and the to-do list), when
+    there are any; the graphic ideas, with the suggestions in that message's thread; and the
+    article, with the article in that message's thread."""
+    notify_summary(page, spent)
+    notify_larger_error(page)
+    notify_fixes(page)
+    notify_graphics(page)
+    notify_article(page)
+
+
+def notify_summary(page: ContentPage, spent: str = "") -> None:
+    """The post is staged as a Sanity draft: what it is, its cost, and how many review items follow."""
     opp = page.opportunity
     content = page.content
-    slug = opp.id
-    out = _outputs(slug)
+    out = _outputs(opp.id)
     draft_link = f"<{page.sanity_draft_url}|Open in Studio>" if page.sanity_draft_url else page.sanity_document_id
-    larger = (out / f"{slug}-larger-errors.md").read_text().strip() if (out / f"{slug}-larger-errors.md").exists() else ""
-    em = (out / f"{slug}-em-dashes.md").read_text().strip() if (out / f"{slug}-em-dashes.md").exists() else ""
-    todos = "\n".join(f"• {t['item']}" for t in page.todos) or "None."
-    graphics = out / f"{slug}-graphics.md"
-    places = graphics.read_text().count("\n## ") if graphics.exists() else 0
+    larger = _read(out / f"{opp.id}-larger-errors.md")
+    em_lines = [l for l in _read(out / f"{opp.id}-em-dashes.md").splitlines() if l.startswith("- ")]
+    places = _read(out / f"{opp.id}-graphics.md").count("\n## ")
     blocks = [
-        {
-            "type": "header",
-            "text": {"type": "plain_text", "text": "✅ Draft staged in Sanity"},
-        },
+        _header(f"✅ Draft staged: {opp.proposed_title}"),
         {
             "type": "section",
             "fields": [
-                {"type": "mrkdwn", "text": f"*Post:*\n{opp.proposed_title}"},
                 {"type": "mrkdwn", "text": f"*Keyword:*\n{opp.keyword}"},
                 {"type": "mrkdwn", "text": f"*Type:*\n{opp.page_type.value.capitalize()}"},
                 {"type": "mrkdwn", "text": f"*Draft:*\n{draft_link}"},
                 {"type": "mrkdwn", "text": f"*Words:*\n{content.word_count:,}"},
                 {"type": "mrkdwn", "text": f"*Cost:*\n{spent or 'not recorded'}"},
+                {"type": "mrkdwn", "text": f"*Live URL once published:*\n{page.live_url}"},
             ],
         },
-        {"type": "section", "text": {"type": "mrkdwn", "text": _text(f"*Larger errors:*\n{larger or 'None reported.'}")}},
-        {"type": "section", "text": {"type": "mrkdwn", "text": _text(f"*Em dashes:*\n{em or 'No section is over the limit.'}")}},
-        {"type": "section", "text": {"type": "mrkdwn", "text": _text(f"*To-do:*\n{todos}")}},
         {
             "type": "section",
             "text": {
                 "type": "mrkdwn",
                 "text": (
-                    f"*Graphic suggestions:* {places} place(s), in this message's thread\n"
-                    f"*Header image alt text:* {content.main_image_alt or '_none_'}\n"
-                    f"*Files:* {_outputs_link(slug)}\n"
-                    f"*Live URL once published:* {page.live_url}"
+                    f"*Larger errors:* {'yes, in the next message' if larger else 'none'}\n"
+                    f"*Fixes:* {len(page.todos)} to-do item(s), {len(em_lines)} section(s) over the em dash limit\n"
+                    f"*Graphic ideas:* {places} place(s)\n"
+                    f"*Header image alt text:* {content.main_image_alt or '_none_'}"
                 ),
             },
         },
     ]
-    ts = _post(settings.slack_content_channel, blocks, text=f"Draft staged: {opp.proposed_title}")
-    _upload(settings.slack_content_channel, graphics, f"Graphic suggestions: {opp.proposed_title}", ts)
+    _post(settings.slack_content_channel, blocks, text=f"Draft staged: {opp.proposed_title}")
+
+
+def notify_fixes(page: ContentPage) -> None:
+    """The em dash report and the to-do list, when either has anything in it."""
+    opp = page.opportunity
+    em = _read(_outputs(opp.id) / f"{opp.id}-em-dashes.md")
+    if not em and not page.todos:
+        return
+    todos = "\n".join(f"• {t['item']}" for t in page.todos) or "None."
+    blocks = [
+        _header(f"✏️ Fixes: {opp.proposed_title}"),
+        {"type": "section", "text": {"type": "mrkdwn", "text": _text(f"*Em dashes:*\n{em or 'No section is over the limit.'}")}},
+        {"type": "section", "text": {"type": "mrkdwn", "text": _text(f"*To-do:*\n{todos}")}},
+    ]
+    _post(settings.slack_content_channel, blocks, text=f"Fixes: {opp.proposed_title}")
+
+
+def notify_graphics(page: ContentPage) -> None:
+    """The graphic ideas: a message of its own, with the suggestions in its thread."""
+    opp = page.opportunity
+    graphics = _outputs(opp.id) / f"{opp.id}-graphics.md"
+    if not graphics.exists():
+        return
+    places = graphics.read_text().count("\n## ")
+    blocks = [
+        _header(f"🖼️ Graphic ideas: {opp.proposed_title}"),
+        {"type": "section", "text": {"type": "mrkdwn", "text": f"{places} place(s), each with two or three options, in this message's thread."}},
+    ]
+    ts = _post(settings.slack_content_channel, blocks, text=f"Graphic ideas: {opp.proposed_title}")
+    _upload(settings.slack_content_channel, graphics, f"Graphic ideas: {opp.proposed_title}", ts)
+
+
+def notify_article(page: ContentPage) -> None:
+    """The article: a message of its own, with the article in its thread."""
+    opp = page.opportunity
+    article = _outputs(opp.id) / f"{opp.id}.md"
+    if not article.exists():
+        return
+    blocks = [
+        _header(f"📄 Article: {opp.proposed_title}"),
+        {"type": "section", "text": {"type": "mrkdwn", "text": f"{page.content.word_count:,} words, in this message's thread."}},
+    ]
+    ts = _post(settings.slack_content_channel, blocks, text=f"Article: {opp.proposed_title}")
+    _upload(settings.slack_content_channel, article, f"Article: {opp.proposed_title}", ts)
 
 
 def notify_stopped(page: ContentPage, done: list[str], spent: str) -> None:
@@ -186,43 +232,58 @@ def notify_stopped(page: ContentPage, done: list[str], spent: str) -> None:
     run resumes it from its last finished step."""
     opp = page.opportunity
     blocks = [
-        {"type": "header", "text": {"type": "plain_text", "text": "⏸️ Post stopped before staging"}},
+        _header(f"⏸️ Stopped before staging: {opp.proposed_title}"),
         {
             "type": "section",
             "text": {
                 "type": "mrkdwn",
                 "text": (
-                    f"*Post:* {opp.proposed_title}\n"
                     f"*Finished steps:* {', '.join(done) or 'none'}\n"
                     f"*Cost so far:* {spent}\n"
                     "The check loops stop once a post costs more than the cost ceiling, or a step stops partway. "
-                    "Nothing was staged to Sanity. The next run resumes this post from its last finished step.\n"
-                    f"*Files:* {_outputs_link(opp.id)}"
+                    "Nothing was staged to Sanity. The next run resumes this post from its last finished step, "
+                    "or Resume now resumes it right away."
                 ),
             },
         },
+        {
+            "type": "actions",
+            "elements": [{
+                "type": "button",
+                "text": {"type": "plain_text", "text": "Resume now", "emoji": True},
+                "value": opp.id,
+                "action_id": f"resume_{opp.id}",
+                "style": "primary",
+            }],
+        },
     ]
-    _post(settings.slack_content_channel, blocks, text=f"Post stopped before staging: {opp.proposed_title}")
+    _post(settings.slack_content_channel, blocks, text=f"Stopped before staging: {opp.proposed_title}")
 
 
 def notify_larger_error(page: ContentPage) -> None:
-    """Posts each larger error the content check reported, with both statements quoted as the
-    fixer wrote them, puts the draft in the message's thread (as a file, or as text when the upload
-    fails), and asks whether to redraft the article. The engine can only send to Slack, so the
-    answer comes through a Claude session."""
+    """Each larger error the content check reported, with both statements quoted as the fixer
+    wrote them, and the question whether to redraft the article. The article itself is in the
+    Article message. The Redraft button opens a box for the instructions (lambdas/slack_handler)."""
     opp = page.opportunity
-    out = _outputs(opp.id)
-    larger = out / f"{opp.id}-larger-errors.md"
-    if not larger.exists() or not larger.read_text().strip():
+    larger = _read(_outputs(opp.id) / f"{opp.id}-larger-errors.md")
+    if not larger:
         return
     blocks = [
-        {"type": "header", "text": {"type": "plain_text", "text": "⚠️ Larger error in a staged draft"}},
-        {"type": "section", "text": {"type": "mrkdwn", "text": f"*Post:* {opp.proposed_title}"}},
-        {"type": "section", "text": {"type": "mrkdwn", "text": _text(larger.read_text().strip())}},
-        {"type": "section", "text": {"type": "mrkdwn", "text": "*Do you want to redraft this article?* The draft is in this message's thread."}},
+        _header(f"⚠️ Larger error: {opp.proposed_title}"),
+        {"type": "section", "text": {"type": "mrkdwn", "text": _text(larger)}},
+        {"type": "section", "text": {"type": "mrkdwn", "text": "*Do you want to redraft this article?* The article is in the Article message below."}},
+        {
+            "type": "actions",
+            "elements": [{
+                "type": "button",
+                "text": {"type": "plain_text", "text": "Redraft", "emoji": True},
+                "value": opp.id,
+                "action_id": f"redraft_{opp.id}",
+                "style": "primary",
+            }],
+        },
     ]
-    ts = _post(settings.slack_content_channel, blocks, text=f"Larger error: {opp.proposed_title}")
-    _upload(settings.slack_content_channel, out / f"{opp.id}.md", f"Draft: {opp.proposed_title}", ts)
+    _post(settings.slack_content_channel, blocks, text=f"Larger error: {opp.proposed_title}")
 
 
 def notify_competitor_threat(competitor: str, keyword: str, their_rank: int, traffic_delta: int) -> None:

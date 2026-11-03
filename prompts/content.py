@@ -180,6 +180,8 @@ Every fact about a named product comes from this brief. Every statistic follows 
 
 {polymer_section}
 
+{redraft_section}
+
 Write a draft of the body first. Then read the draft back against the house rules, the Opening rules, the Structure rules, the blog format, the research rules, the Numbers and statistics rules, the Logic rules, the Voice and Tone sections of the writing guide, and every rule in The Elements of Style, one rule at a time, and write one line per rule on what you found. Read the whole text of each rule, examples included. Then rewrite whatever failed. Submit the draft, the check, and the final article.
 
 Call the `generate_post` tool with the structured output. Internal links should point to /blog/... articles or relevant product pages on the site."""
@@ -190,6 +192,11 @@ Polymer is one of the products this article covers. Describe Polymer only as the
 
 ### Polymer feature inventory
 {feature_inventory}"""
+
+REDRAFT_SECTION = """## Instructions for this draft
+This article was drafted before. Write it again and follow these instructions from the editor:
+
+{instructions}"""
 
 POLYMER_EXCLUDED = """## Polymer in this article
 Do not mention Polymer or its features anywhere in this article. Polymer references are added in a separate step after the draft."""
