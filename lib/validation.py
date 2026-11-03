@@ -31,7 +31,7 @@ MIN_FAQ_ITEMS = 3
 MIN_INTERNAL_LINKS = 2
 
 _ANCHOR = re.compile(r'<a\b[^>]*\bhref="([^"]*)"[^>]*>(.*?)</a>', re.S | re.I)
-_FLATTENED = re.compile(r"<(table|blockquote)\b.*?</\1>", re.S | re.I)   # lib.portable_text drops links inside these
+_FLATTENED = re.compile(r"<table\b.*?</table>", re.S | re.I)   # lib.portable_text drops links inside tables
 
 
 def site_path(href: str) -> Optional[str]:
@@ -63,7 +63,7 @@ def fix_internal_links(body_html: str, existing_urls: set) -> tuple[str, list[st
             return text
         placed.append(path)
         if any(a <= m.start() < b for a, b in flattened):
-            todos.append(f"Link to {path} is inside a table or quote and will not render; move it into a paragraph.")
+            todos.append(f"Link to {path} is inside a table and will not render; move it into a paragraph.")
         return m.group(0)
 
     return _ANCHOR.sub(fix, body_html), placed, todos
