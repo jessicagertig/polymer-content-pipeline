@@ -314,30 +314,3 @@ def notify_competitor_threat(competitor: str, keyword: str, their_rank: int, tra
 
 
 # Slack section blocks cap out at 3000 chars of text.
-_RUN_REPORT_MAX_CHARS = 2900
-
-
-def notify_run_report(job: str, lines: list[str], ok: bool = True) -> None:
-    """Posts the captured log of one scheduled run (run/index) to the report channel —
-    Lambda only surfaces logs in CloudWatch otherwise, so this is the per-execution
-    visibility in the channel people actually watch."""
-    icon = "✅" if ok else "❌"
-    body = "\n".join(f"• {line}" for line in lines) if lines else "_(nothing logged)_"
-    if len(body) > _RUN_REPORT_MAX_CHARS:
-        body = body[:_RUN_REPORT_MAX_CHARS] + "\n…(truncated — see CloudWatch for the full run)"
-
-    blocks = [
-        {
-            "type": "header",
-            "text": {"type": "plain_text", "text": f"{icon} blog-bot-{job} run report"},
-        },
-        {
-            "type": "section",
-            "text": {"type": "mrkdwn", "text": body},
-        },
-    ]
-    _post(
-        settings.slack_report_channel or settings.slack_content_channel,
-        blocks,
-        text=f"blog-bot-{job} run report",
-    )

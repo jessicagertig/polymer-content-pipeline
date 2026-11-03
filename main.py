@@ -327,30 +327,19 @@ COMMANDS = {
     "doctor": doctor,
 }
 
-# The scheduled entrypoints — each gets its whole run's log relayed to Slack.
-REPORTED_JOBS = {"run", "redraft", "resume", "index"}
-
 
 def _run_cli(cmd: str) -> bool:
     """Runs a COMMANDS entry. Returns False if it raised."""
     from lib import repo
-    from lib.logging import capture_to_list, release
 
-    capture = capture_to_list() if cmd in REPORTED_JOBS else None
-    ok = True
     repo.reset()
     try:
         COMMANDS[cmd]()
         repo.push(f"Engine run: {cmd}")
     except Exception as e:
-        ok = False
         log.exception(f"Command '{cmd}' failed: {e}")
-    finally:
-        if capture is not None:
-            from connectors import slack
-            slack.notify_run_report(cmd, capture.records, ok=ok)
-            release(capture)
-    return ok
+        return False
+    return True
 
 
 if __name__ == "__main__":

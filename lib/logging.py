@@ -45,37 +45,3 @@ def get(name: str) -> logging.Logger:
     if not _CONFIGURED:
         setup()
     return logging.getLogger(name)
-
-
-class ListHandler(logging.Handler):
-    """Collects formatted log records in memory instead of writing them anywhere —
-    used to relay an entire run's log to Slack, since Cloud Run Jobs only surface
-    logs in Cloud Logging otherwise."""
-
-    def __init__(self):
-        super().__init__()
-        self.records: list[str] = []
-
-    def emit(self, record: logging.LogRecord) -> None:
-        # One line per record for the Slack report: the message only, no traceback.
-        message = " ".join(line.strip() for line in record.getMessage().splitlines() if line.strip())
-        self.records.append(f"{record.levelname}: {message[:300]}")
-
-
-def capture_to_list(level: str = "INFO") -> ListHandler:
-    """Attaches a ListHandler to the root logger and returns it. Call `release()`
-    with the returned handler when the run is over."""
-    handler = ListHandler()
-    handler.setLevel(level)
-    handler.setFormatter(logging.Formatter("%(levelname)s: %(message)s"))
-    root = logging.getLogger()
-    # Force the root logger's own threshold down too — something else (e.g. a test
-    # runner's log-capturing plugin) may have raised it above what we need here.
-    if root.level == logging.NOTSET or root.level > handler.level:
-        root.setLevel(handler.level)
-    root.addHandler(handler)
-    return handler
-
-
-def release(handler: ListHandler) -> None:
-    logging.getLogger().removeHandler(handler)
