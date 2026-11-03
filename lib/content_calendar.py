@@ -40,6 +40,8 @@ def _content_type_to_page_type(content_type: str, title: str) -> PageType:
     c = (content_type or "").lower()
     if "alternatives" in c:
         return PageType.ALTERNATIVES
+    if "interview questions" in (title or "").lower():
+        return PageType.INTERVIEW_QUESTION_GUIDE
     if "listicle" in c or "roundup" in c:
         return PageType.LISTICLE
     if "how-to" in c or "how to" in c or "step-by-step" in c or "step by step" in c or "process" in c:
@@ -56,6 +58,8 @@ def _content_type_to_page_type(content_type: str, title: str) -> PageType:
 
 def _page_type_from_title(title: str) -> PageType:
     t = (title or "").lower()
+    if "interview questions" in t:
+        return PageType.INTERVIEW_QUESTION_GUIDE
     if re.search(r"\bvs\.?\b", t):
         return PageType.COMPARISON
     if "how to" in t:

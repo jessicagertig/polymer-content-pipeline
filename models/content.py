@@ -10,6 +10,7 @@ class PageType(str, Enum):
     HOWTO = "how-to"
     GUIDE = "guide"
     LISTICLE = "listicle"
+    INTERVIEW_QUESTION_GUIDE = "interview-question-guide"   # an article focused on interview questions, with a rubric for each
     OPINION = "opinion"
     COMPARISON = "comparison"   # editorial "X vs Y" article
     ALTERNATIVES = "alternatives"   # "[Competitor] alternatives" post, written from the alternatives playbook

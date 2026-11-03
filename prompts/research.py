@@ -102,6 +102,7 @@ STEP_TOPICS = {
     "guide": "best practices",
     "comparison": "trade-offs",
     "listicle": "list items",
+    "interview-question-guide": "list items",
 }
 
 DEFINITIONS_STEP = dict(
@@ -134,6 +135,8 @@ TOPIC_STEPS = {
         instructions="look up what good items of this kind are, and what makes them good and more effective. Do not focus on only one source. Provide a minimum of 3 sources. For each, you may give its list exactly as the source gives it, with what the source says makes the items good, the source name, the article's title, and the URL.",
     ),
 }
+
+TOPIC_STEPS["interview-question-guide"] = TOPIC_STEPS["listicle"]
 
 STATISTICS_STEP = dict(
     step="statistics",

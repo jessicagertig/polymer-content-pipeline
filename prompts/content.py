@@ -225,6 +225,67 @@ The FAQ is supplied as faq_html, not in the body. Authoritative prose. Each sect
 3. **Takeaway** (A brief close.)
 4. **FAQ section** (supplied as faq_html, not in the body)
 Be specific. Every item earns its place.""",
+    "interview-question-guide": """INTERVIEW QUESTION GUIDE, an authoritative deep dive written as an editorial. Write the opening by the Opening rules in the system prompt. An interview question guide is focused on explaining how to ask interview questions, the benefit of interview questions, how to understand responses to interview questions, and providing actual interview questions and scoring rubrics. Cover each of the points below, in the place and to the extent that the point is relevant to the subject. These points are not sections or headings.
+
+- The benefits of asking interview questions worded as they are in this guide. Name the kind of questions the guide addresses, such as unique questions, screening questions, behavioral questions, or technical questions.
+
+- How to ask the questions in a structured interview. Explain how to choose which questions to ask in a specific situation, which could include factors like the type of interview and the role, and how many to ask.
+
+- How to understand responses to interview questions, including what a strong answer and a weak answer sound like.
+
+- Actual interview questions and scoring rubrics. Make each question an H2, so that every question appears in the table of contents. When the title contains a number of questions, such as 21 questions, number the questions. Put a scoring rubric under each question, and do not repeat the rubric in the text about the question.
+
+- How to use an ATS for structured interviews. When the article includes Polymer, also explain how to use the questions inside Polymer.
+
+- What the reader should do next.
+
+Carry the structured interview through the whole article, not only the section about structured interviews.
+
+The reader came to this article for the interview questions named in the title. The reader does not need to be convinced to ask the questions. Do not tell the reader anything negative to make a case for asking the questions.
+
+If the only statistics available are negative, a negative statistic may be used briefly at the beginning of the article to draw the reader in. Elsewhere, use a negative statistic only in contrast: to show an improvement, or to show that a different method works less well than the method in the article.
+
+The FAQ is supplied as faq_html, not in the body. Authoritative prose. Write each section so that a reader can understand the section without reading the rest of the article.
+
+The examples below come from a published Polymer article, “21 Unique Interview Questions That Reveal How Candidates Think.” Each one describes strong and weak answers to a question in specific terms a reader can use, without repeating the question’s rubric and without inventing a scenario to fill space. Describe strong and weak answers in this article the same way. Do not copy the examples.
+
+Example 1: Share an example of spotting a problem before it became serious
+What a strong answer looks like: The candidate points to a clear early signal and explains why it stood out. They show how they checked whether the risk was real, what step they pushed forward, and what that action helped avoid. The best answers make the stakes plain: downtime avoided, churn prevented, or a deadline kept on track.
+
+What a weak answer looks like: The candidate tells a story about a problem that was already visible and serious by the time they got involved. Or they fall back on something like "I'm always proactive" without any proof. If someone else spotted the issue and the candidate only responded after that, it's reaction, not foresight.
+
+Example 2: Describe a time you had to make sense of conflicting information
+The best answers don't just focus on the final decision. They show how the candidate judged the inputs in front of them. Strong candidates compare source quality, not just opinions. They explain why they leaned on one input more than another by looking at things like:
+
+- sample size
+- recency
+- collection method
+- possible bias
+They also verify that the conflict is real before acting. Then they explain the trade-offs and walk through the steps they used to decide. In messy roles, that matters a lot. Pressure can warp judgment, and mixed signals often do the same.
+
+The main gap between a 3 and a 4 or 5 is what happens after the candidate notices the conflict. Mid-range answers tend to skip from "the data conflicted" to "I made a call." Stronger answers fill in the middle. They mapped the sources, checked assumptions, ran a small test, or got a neutral point of view before moving ahead. The best answers also end with a measurable result.
+
+Weak answers usually miss that middle step. A low-scoring response often sounds like: there were two different views, so the candidate went with the manager's call. That's not judgment. That's deference. No source check. No verification. No thought about risk or cost.
+
+Example 3: Describe a time you navigated a crisis without rushing into a bad decision
+What you want to hear is a clear, deliberate pause. Did they resist the urge to jump in right away? Did they figure out what information they needed before choosing a path? Strong answers usually center on a specific, high-stakes situation, like a production outage or a compliance breach. The candidate should explain how they checked the facts, pulled in the right people, thought through options, and kept communication clear even when the full picture wasn't there yet. The strongest answers show restraint first, action second.
+
+Weak answers often celebrate speed for its own sake. That's where trouble starts. If a candidate says they "moved fast" but can't explain how they tested assumptions or weighed trade-offs, that's a warning sign. The same goes for answers that are vague, low-stakes, or told from the sidelines. If they can't explain why they paused - or why their call made more sense than the other options - you're not learning much.
+
+Example 4: Describe a time you solved a complex problem with limited information
+Strong answers make the problem feel real. The candidate explains what was on the line, points to the missing facts, and walks through their reasoning. They talk about the options they weighed, why some paths didn't make sense, and which risks they chose to take. They also end with a measurable result and one lesson they took from the experience.
+
+Weak answers usually feel fuzzy or too small to matter. The candidate gives a minor example, glosses over what was unknown, and jumps from "there was a problem" to "we fixed it" without showing the thinking in between. Pay attention to heavy use of "we" when it's not clear what the person actually owned. No clear outcome and no reflection are warning signs.
+
+Example 5: How do you decide whether to solve a problem yourself or ask for help?
+A strong candidate can walk you through a real decision process built on three factors:
+
+- Difficulty
+- Time pressure
+- Impact on others
+Good answers show that the candidate doesn't just toss the problem over the wall. They ask for help with context, explain what they've already tried, and make a clear request. That kind of balanced help-seeking usually points to stronger performance than either extreme: refusing help no matter what, or handing the problem off too soon.
+
+Weak answers usually fall into one of two buckets. The candidate either says they always figure it out alone, or they ask someone else to solve it almost right away. Both suggest poor calibration.""",
 
     "comparison": """COMPARISON ARTICLE, an editorial "X vs Y" article, a blog article and not a landing page. The opening follows the Opening rules in the system prompt. A comparison sets two products side by side, or two kinds of something, such as two kinds of hiring software or two hiring methods. The points below are what a comparison usually covers. They are not sections, and they are not headings. Cover each one where the subject calls for it.
 - A table of the points that decide the choice. Use ✓, ✗, or partial.
