@@ -1,5 +1,7 @@
 from datetime import date
 
+from config.settings import settings
+
 TODAY = date.today()
 YEAR = TODAY.year
 # The years that count as recent: last year and this year, and next year from October on.
@@ -113,7 +115,7 @@ Link each statistic to its source. The source is the publication or organization
 
 When a source's name is a website address, such as ustechautomations.com or pin.com, do not name it. Name the company, organization, or author that published the page instead. If the research brief does not give that name, do not name the source at all: link the claim itself to the page. This applies to every source the article cites, not only statistics.
 
-A competitor is any company that sells software a hiring team could use instead of Polymer, such as an applicant tracking system, a recruiting CRM, or an all-in-one HR platform that handles hiring. Never link to a competitor's website, and never name a competitor as the source of a statistic. When a news outlet, an industry body, or another independent publication reports on a study a competitor ran, name that publication as the source and link to its article. Name only that publication, and do not write that the competitor's survey was reported by it.
+A competitor is any company that sells software a hiring team could use instead of Polymer, such as an applicant tracking system, a recruiting CRM, or an all-in-one HR platform that handles hiring. A company is a competitor only if its website is in this list: <<COMPETITORS>>. Never link to a competitor's website, and never name a competitor as the source of a statistic. When a news outlet, an industry body, or another independent publication reports on a study a competitor ran, name that publication as the source and link to its article. Name only that publication, and do not write that the competitor's survey was reported by it.
 
 You may compare a statistic from a past year with the same statistic from a recent year. Both statistics must come from the same source and measure the same thing. Gallup's yearly statistics on employee engagement are an example. If you are doing a comparison, you need to provide both years in the text. Since a comparison uses two statistics, do not do such a comparison in the opening, the text before the first H2.
 
@@ -307,4 +309,4 @@ PAGE_SCHEMA = {
 }
 
 
-CONTENT_SYSTEM = CONTENT_SYSTEM.replace("<<STAT_RULE>>", STAT_RULE)
+CONTENT_SYSTEM = CONTENT_SYSTEM.replace("<<STAT_RULE>>", STAT_RULE).replace("<<COMPETITORS>>", ", ".join(settings.competitor_domains()))
