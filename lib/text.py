@@ -34,7 +34,7 @@ def clean_body_html(html: str) -> tuple[str, int]:
       - empty list items: <li> &nbsp; <br> </li>
       - empty lists:       <ul> &nbsp; </ul> / <ol></ol>
       - empty paragraphs:  <p> &nbsp; </p>
-      - runs of stray <br>
+      - runs of <br>, which become one <br>
 
     Returns (cleaned_html, artifacts_removed). A non-zero count signals a low-quality
     generation worth regenerating.
@@ -53,8 +53,8 @@ def clean_body_html(html: str) -> tuple[str, int]:
     html, n = re.subn(rf"<p>{_EMPTY_INLINE}</p>", "", html, flags=re.I)
     removed += n
 
-    # Collapse 2+ consecutive <br> into nothing (they were spacing hacks)
-    html = re.sub(r"(?:<br\s*/?>\s*){2,}", "", html, flags=re.I)
+    # Collapse 2+ consecutive <br> into one, so the lines stay separate
+    html = re.sub(r"(?:<br\s*/?>\s*){2,}", "<br>", html, flags=re.I)
 
     return html, removed
 

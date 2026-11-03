@@ -1,7 +1,7 @@
 """HTML → Portable Text for the blogPost `content` field (studio/schemas/blogPost.js).
 
 Handles what the writer emits: <h2>/<h3>/<h4>/<p>, <ul>/<ol>/<li>, <table>,
-<blockquote>, <strong>/<em>, <a href>, <br>. Table cells are flattened to plain text,
+<blockquote>, <strong>/<em>/<u>/<s>/<code>, <a href>, <br>. Table cells are flattened to plain text,
 which is what the table object accepts. Quotes keep bold, italics, links, and lists.
 """
 
@@ -16,7 +16,8 @@ def _key() -> str:
 
 _BLOCK_STYLES = {"h2": "h2", "h3": "h3", "h4": "h4", "p": "normal"}
 _LIST_TAGS = {"ul": "bullet", "ol": "number"}
-_INLINE_MARKS = {"strong": "strong", "b": "strong", "em": "em", "i": "em"}
+_INLINE_MARKS = {"strong": "strong", "b": "strong", "em": "em", "i": "em", "u": "underline",
+                 "s": "strike-through", "del": "strike-through", "strike": "strike-through", "code": "code"}
 _SKIP_TAGS = {"h1", "script", "style", "img"}
 
 
@@ -38,13 +39,13 @@ def toc_block() -> dict:
 
 def faq_blocks(faq_items: list[dict]) -> list[dict]:
     """The FAQ as the H2 + H3/paragraph pairs web/pages/blog/[slug].js detects for the
-    accordion and the FAQPage schema."""
+    accordion and the FAQPage schema. Each paragraph of an answer is its own block."""
     if not faq_items:
         return []
     blocks = [block("Frequently asked questions", "h2")]
     for item in faq_items:
         blocks.append(block(item["q"], "h3"))
-        blocks.append(block(item["a"]))
+        blocks.extend(block(p) for p in item["a"].split("\n\n") if p.strip())
     return blocks
 
 

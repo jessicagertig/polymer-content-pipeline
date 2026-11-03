@@ -80,3 +80,13 @@ if __name__ == "__main__":
     test_blocks()
     test_faq_blocks()
     print("ok")
+
+
+def test_underline_strike_and_code_are_kept():
+    b = portable_text.from_html("<p><u>U</u> <s>S</s> <code>C</code></p>")[0]
+    assert [(c["text"], c["marks"]) for c in b["children"] if c["marks"]] == [("U", ["underline"]), ("S", ["strike-through"]), ("C", ["code"])]
+
+
+def test_faq_answer_paragraphs_are_separate_blocks():
+    blocks = portable_text.faq_blocks([{"q": "Q?", "a": "One.\n\nTwo."}])
+    assert [(b["style"], b["children"][0]["text"]) for b in blocks] == [("h2", "Frequently asked questions"), ("h3", "Q?"), ("normal", "One."), ("normal", "Two.")]

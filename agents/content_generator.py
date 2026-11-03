@@ -17,12 +17,18 @@ log = get(__name__)
 
 
 def faq_items_from_html(html: str) -> list[dict]:
-    """[{q, a}] from an <h3>question</h3><p>answer</p> sequence; tags inside are stripped."""
+    """[{q, a}] from an <h3>question</h3><p>answer</p> sequence, as plain text, which is how the
+    site shows FAQ answers. Each paragraph or list item of an answer stays a separate paragraph,
+    with a blank line between them."""
     import re
-    from lib.text import strip_html
+
+    def plain(fragment: str) -> str:
+        return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", re.sub(r"<br\s*/?>", " ", fragment, flags=re.I))).strip()
+
     items = []
     for q, a in re.findall(r"<h3[^>]*>(.*?)</h3>\s*((?:(?!<h3)[\s\S])*)", html, flags=re.I | re.S):
-        items.append({"q": strip_html(q).strip(), "a": strip_html(a).strip()})
+        paragraphs = [plain(p) for p in re.split(r"</(?:p|li)>", a, flags=re.I)]
+        items.append({"q": plain(q), "a": "\n\n".join(p for p in paragraphs if p)})
     return [i for i in items if i["q"] and i["a"]]
 
 
