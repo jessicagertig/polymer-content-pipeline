@@ -195,6 +195,16 @@ def mark_generated(row: int) -> None:
         log.warning(f"Failed to mark calendar row {row} as generated: {type(e).__name__}: {e}")
 
 
+def last_generated() -> "datetime | None":
+    """The latest 'Generated At' timestamp in the calendar, or None when no row has one."""
+    rows = _read_rows()
+    if GENERATED_AT_HEADER not in rows[0]:
+        return None
+    col = rows[0].index(GENERATED_AT_HEADER)
+    stamps = [datetime.fromisoformat(r[col].strip()) for r in rows[1:] if len(r) > col and r[col].strip()]
+    return max(stamps, default=None)
+
+
 def _to_int(s: str) -> int:
     try:
         return int(re.sub(r"[^\d]", "", s) or 0)

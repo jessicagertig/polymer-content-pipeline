@@ -1,4 +1,4 @@
-"""Write each post fresh under the current prompt, write a separate opening from scratch in a call of its own (rewrite_opening.py), run the opening's own check loop, run the check loop on every other section, then the whole-article content check, then the whole-post transition pass, then a last count of em dashes per section that lists any section over the limit.
+"""Write a test copy of each post fresh under the current prompt, then run every step in pipeline.run_steps: a new opening, the opening's check loop, the check loop on every other section, the whole-article content check, the transition pass, the recheck of links and validation, the graphics suggestions, and a last count of em dashes per section.
 
 Usage: python write_and_check.py <base-slug> [<base-slug> ...]
 
@@ -6,16 +6,14 @@ For each base slug, the opportunity is read from <base>-FROM-output/<base>-FROM.
 the id <base>-TO, and written from scratch into <base>-TO-output/, with fresh research. Then the
 checks run. A larger error found by the content check is only reported, in <slug>-larger-errors.md. Nothing is sent to Sanity.
 
-Each finished step is listed in <slug>-steps.json. Run again after a failure, a post starts
-at the step that failed: the article, its research, and every finished check are kept. The
-file is removed when the transition pass finishes.
+The steps, the step file, and resuming after a failure are in pipeline.run_steps, which the
+production path in main.py also uses.
 
 Cost gates: a post stops its check loop, keeping the sections done, once it has spent more
 than STOP_AT dollars. The next post starts only if the one before it cost NEXT_IF_UNDER
 dollars or less.
 """
 
-import json
 import sys
 
 from lib.llm import reset_usage, cost, usage_line
@@ -23,13 +21,13 @@ from lib.logging import get
 from lib.repo import ROOT
 from main import _save_output, _save_research
 from models.content import ContentPage
+from pipeline import STOP_AT, run_steps
 
 log = get(__name__)
 
 FROM = "v4"
 TO = "v9"
 NEXT_IF_UNDER = 9.0
-STOP_AT = 15.0
 
 
 def write(base: str, resuming: bool) -> str:
@@ -52,54 +50,8 @@ def write(base: str, resuming: bool) -> str:
     return slug
 
 
-def recheck_saved(slug: str) -> None:
-    """The internal links and validation run again on the saved article, and the to-do list is rebuilt."""
-    from agents.content_generator import recheck
-    path = ROOT / f"{slug}-output" / f"{slug}.json"
-    page = recheck(ContentPage.model_validate_json(path.read_text()))
-    _save_output(page)
-    log.info(f"Rechecked {slug}: {len(page.todos)} to-do item(s)")
-
-
 def run(base: str) -> None:
-    from review_post import check_post, check_opening, content_check, transition_pass, em_dash_report
-    from rewrite_opening import rewrite as rewrite_opening
-    slug = f"{base}-{TO}"
-    out = ROOT / f"{slug}-output"
-    out.mkdir(exist_ok=True)
-    steps = out / f"{slug}-steps.json"
-    resuming = steps.exists()
-    done = json.loads(steps.read_text()) if resuming else []
-    if resuming:
-        log.info(f"Resuming {slug}; finished steps: {', '.join(done) or 'none'}")
-    steps.write_text(json.dumps(done))
-
-    def finish(step: str) -> None:
-        done.append(step)
-        steps.write_text(json.dumps(done))
-
-    for step, fn in [("write", lambda: write(base, resuming)), ("opening", lambda: rewrite_opening(slug)), ("opening check", lambda: check_opening(slug))]:
-        if step not in done:
-            fn()
-            finish(step)
-    for step, fn in [("section check", check_post), ("content check", content_check), ("transition pass", transition_pass)]:
-        if step in done:
-            continue
-        if cost() > STOP_AT:
-            log.warning(f"Skipping the {step} and every step after it for {slug}: ${cost():.2f} spent, over ${STOP_AT:.2f}")
-            break
-        if fn(slug, stop_at=STOP_AT):
-            finish(step)
-    if "transition pass" in done and "recheck" not in done:
-        recheck_saved(slug)
-        finish("recheck")
-    if "recheck" in done and "graphics" not in done:
-        from suggest_graphics import suggest
-        suggest(slug)
-        finish("graphics")
-    em_dash_report(slug)
-    if "transition pass" in done:
-        steps.unlink()
+    run_steps(f"{base}-{TO}", lambda resuming: write(base, resuming), STOP_AT)
 
 
 if __name__ == "__main__":

@@ -5,13 +5,17 @@ Writes editorial BLOG POSTS as Sanity `blogPost` drafts. Publishing is manual: r
 and publish in Studio, then deploy the site.
 
 Commands:
-  python main.py run           # scheduled run: drain pending 'Launch Batch' rows, then STAGE this week's calendar post
+  python main.py run           # scheduled daily run: the next 'Launch Batch' post, or this week's calendar post
   python main.py calendar [N]  # write + STAGE the next N scheduled posts from the calendar (default 1)
   python main.py launch        # write + STAGE all pending 'Launch Batch' posts at once
   python main.py index         # submit sitemap URLs modified in the last 24h to IndexNow + Google
   python main.py doctor        # check settings + connectivity
+
+DRY_RUN=true runs every step for a post but stages nothing to Sanity, sends nothing to Slack,
+and leaves the calendar unmarked.
 """
 
+import os
 import sys
 from rich.console import Console
 from rich.table import Table
@@ -83,19 +87,46 @@ def _as_markdown(page) -> str:
 
 
 def _stage_one(o) -> "object":
-    """Generate + stage a single calendar opportunity as a Sanity draft, notify Slack, and
-    mark the calendar row as generated. Returns the staged ContentPage, or None."""
+    """Writes one calendar post and runs every step in pipeline.run_steps, then stages it once as a
+    Sanity draft, notifies Slack, and marks the calendar row as generated. Returns the staged
+    ContentPage, or None when the post failed or stopped before its last step. A post that
+    stopped resumes from its last finished step on the next run."""
     from agents import publisher
+    from agents.content_generator import generate
     from connectors import slack
     from lib import content_calendar
+    from lib.llm import reset_usage, usage_line
+    from lib.repo import ROOT
     from models.content import ContentPage
+    from pipeline import run_steps
 
     console.print(f"[cyan]→ {o.proposed_title}[/cyan]  ({o.page_type.value}, kw: {o.keyword})")
-    page = ContentPage(opportunity=o)
-    try:
-        publisher.generate_and_stage(page)
+    slug = o.id
+    reset_usage()
+
+    def write(resuming: bool) -> None:
+        saved = ROOT / f"{slug}-output" / f"{slug}-research.md"
+        page = ContentPage(opportunity=o, research_brief=saved.read_text() if resuming and saved.exists() else "")
+        try:
+            generate(page)
+        except Exception:
+            _save_research(page)
+            raise
+        page.content.slug = slug
         _save_output(page)
-        console.print(f"  [green]Staged:[/green] {page.sanity_document_id}")
+
+    try:
+        done = run_steps(slug, write)
+        if "graphics" not in done:
+            log.warning(f"'{o.proposed_title}' stopped after: {', '.join(done)}. Not staged; {usage_line()}")
+            return None
+        page = ContentPage.model_validate_json((ROOT / f"{slug}-output" / f"{slug}.json").read_text())
+        if os.environ.get("DRY_RUN") == "true":   # a full test run: every step, but nothing staged, sent, or marked
+            log.info(f"DRY_RUN: '{o.proposed_title}' finished every step; not staged; {usage_line()}")
+            return page
+        publisher.stage(page)
+        _save_output(page)
+        console.print(f"  [green]Staged:[/green] {page.sanity_document_id}; {usage_line()}")
         try:
             slack.notify_staged(page)
         except Exception as e:
@@ -104,9 +135,8 @@ def _stage_one(o) -> "object":
             content_calendar.mark_generated(o.calendar_row)
         return page
     except Exception as e:
-        log.exception(f"Failed for '{o.proposed_title}': {e}")
+        log.exception(f"Failed for '{o.proposed_title}': {e}; {usage_line()}")
         console.print(f"  [red]Failed:[/red] {e}")
-        _save_research(page)
         return None
 
 
@@ -149,20 +179,24 @@ def run_launch():
 
 
 def scheduled_run():
-    """Weekly cadence:
-      • Any pending 'Launch Batch' posts → staged in bulk, every run.
-      • While the calendar still has scheduled posts → one per run.
-      • Once the calendar is exhausted → nothing to stage (the strategy path is not built).
-    """
-    launched = stage_launch_batch()
-    if launched:
-        log.info(f"Launch Batch: staged {launched} post(s).")
+    """Daily: one Launch Batch post per run while any remain. After that, one Week N post, only
+    when no post was generated in the last 7 days (the calendar's Generated At column)."""
+    from datetime import datetime, timedelta, timezone
+    from lib import content_calendar
 
-    _, scheduled = _split_launch(_fresh_calendar_opportunities())
+    launch, scheduled = _split_launch(_fresh_calendar_opportunities())
+    if launch:
+        log.info(f"Launch Batch: {len(launch)} post(s) left; staging the next one.")
+        _stage_one(launch[0])
+        return
+    last = content_calendar.last_generated()
+    if last and datetime.now(timezone.utc) - last < timedelta(days=7):
+        log.info(f"Last post generated {last:%Y-%m-%d}; the next Week N post is due 7 days after it.")
+        return
     if scheduled:
-        log.info(f"Calendar phase ({len(scheduled)} left): staging this week's post from the calendar.")
-        stage_calendar(1)
-    elif not launched:
+        log.info(f"Calendar phase ({len(scheduled)} left): staging this week's post.")
+        _stage_one(scheduled[0])
+    else:
         log.info("Calendar exhausted: nothing to stage.")
 
 
