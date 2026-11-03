@@ -261,7 +261,6 @@ def doctor():
         ("Slack bot token", settings.slack_bot_token),
         ("Slack content channel", settings.slack_content_channel),
         ("Content calendar CSV", str(CALENDAR_PATH) if CALENDAR_PATH.exists() else ""),
-        ("GitHub repo + token (Lambda commits its output)", settings.github_repo and settings.github_token),
     ]
     for label, value in pairs:
         checks.append((label, "✓ set" if value else "✗ missing"))

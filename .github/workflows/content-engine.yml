@@ -64,8 +64,6 @@ jobs:
           GOOGLE_SEARCH_CONSOLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_SEARCH_CONSOLE_REFRESH_TOKEN }}
           GSC_SITE_URL: ${{ secrets.GSC_SITE_URL }}
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
-          GITHUB_REPO: ${{ github.repository }}
-          GITHUB_BRANCH: ${{ github.ref_name }}
           SLUG: ${{ inputs.slug }}
           REDRAFT_INSTRUCTIONS: ${{ inputs.instructions }}
         run: python main.py ${{ inputs.command || (github.event.schedule == '0 14 * * *' && 'index') || 'run' }} "$SLUG"
