@@ -10,7 +10,7 @@ confirm_changeset = true
 capabilities = "CAPABILITY_IAM"
 disable_rollback = true
 # Secrets are passed via `make deploy` (sources .env). Do not put them here.
-parameter_overrides = "GitHubOwner=\"jessicagertig\" GitHubRepo=\"polymer-content-engine\""
+parameter_overrides = "GitHubOwner=\"jessicagertig\" GitHubRepo=\"polymer-content-pipeline\""
 image_repositories = []
 
 [default.global.parameters]

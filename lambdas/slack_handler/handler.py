@@ -16,7 +16,7 @@ Env vars:
   SLACK_CHANNEL_ID       - Channel for the redraft confirmation
   GITHUB_TOKEN           - PAT with repo scope for workflow_dispatch
   GITHUB_OWNER           - GitHub repo owner (default: jessicagertig)
-  GITHUB_REPO            - GitHub repo name (default: polymer-content-engine)
+  GITHUB_REPO            - GitHub repo name (default: polymer-content-pipeline)
 """
 
 import hashlib
@@ -32,7 +32,7 @@ logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
 GITHUB_OWNER = os.environ.get("GITHUB_OWNER", "jessicagertig")
-GITHUB_REPO = os.environ.get("GITHUB_REPO", "polymer-content-engine")
+GITHUB_REPO = os.environ.get("GITHUB_REPO", "polymer-content-pipeline")
 
 
 # ---------------------------------------------------------------------------

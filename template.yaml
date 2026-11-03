@@ -23,7 +23,7 @@ Parameters:
     Default: jessicagertig
   GitHubRepo:
     Type: String
-    Default: polymer-content-engine
+    Default: polymer-content-pipeline
 
 Globals:
   Function:
