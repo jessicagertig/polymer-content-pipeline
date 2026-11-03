@@ -42,7 +42,10 @@ def write(base: str, resuming: bool) -> str:
     try:
         generate(page)
     except Exception:
-        _save_research(page)
+        if page.content:
+            _save_output(page)
+        else:
+            _save_research(page)
         raise
     page.content.slug = slug
     _save_output(page)

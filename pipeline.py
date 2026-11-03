@@ -1,8 +1,8 @@
 """The steps every post goes through, in order: the writer, a new opening (rewrite_opening.py),
 the resources hidden from every review step, the opening's check loop, the check loop on every
 other section, the whole-article content check, the whole-post transition pass, the resource
-review (which puts the resources back), the recheck of links and validation, the graphics
-suggestions, and a last count of em dashes per section.
+review (which puts the resources back), the recheck of links and validation, the list of
+links that may go to competitors, the graphics suggestions, and a last count of em dashes per section.
 
 Each finished step is listed in <slug>-steps.json. Run again after a failure, a post starts at
 the step that failed: the article, its research, and every finished check are kept. The file
@@ -24,6 +24,16 @@ log = get(__name__)
 
 STOP_AT = 15.0
 
+STEP_ORDER = ("write", "hide resources", "opening", "opening check", "section check", "content check",
+              "transition pass", "resource review", "recheck", "competitor links", "graphics")
+
+
+def next_step(slug: str) -> str:
+    """The step a post stopped or failed at: the first step in STEP_ORDER that is not finished."""
+    steps = ROOT / f"{slug}-output" / f"{slug}-steps.json"
+    done = json.loads(steps.read_text()) if steps.exists() else []
+    return next((s for s in STEP_ORDER if s not in done), "")
+
 
 def recheck_saved(slug: str) -> None:
     """The internal links and validation run again on the saved article, and the to-do list is rebuilt."""
@@ -39,7 +49,7 @@ def run_steps(slug: str, write: Callable[[bool], None], stop_at: float = STOP_AT
     """Runs every step for one post, starting after the last finished step. `write(resuming)`
     writes the post and saves it under `slug`. Returns the finished steps; the post is done
     when "graphics" is among them."""
-    from review_post import check_post, check_opening, content_check, transition_pass, em_dash_report, hide_resources, resource_review
+    from review_post import check_post, check_opening, content_check, transition_pass, em_dash_report, hide_resources, resource_review, competitor_links
     from rewrite_opening import rewrite as rewrite_opening
     from suggest_graphics import suggest
     out = ROOT / f"{slug}-output"
@@ -74,7 +84,10 @@ def run_steps(slug: str, write: Callable[[bool], None], stop_at: float = STOP_AT
     if "resource review" in done and "recheck" not in done:
         recheck_saved(slug)
         finish("recheck")
-    if "recheck" in done and "graphics" not in done:
+    if "recheck" in done and "competitor links" not in done:
+        competitor_links(slug)
+        finish("competitor links")
+    if "competitor links" in done and "graphics" not in done:
         suggest(slug)
         finish("graphics")
     em_dash_report(slug)

@@ -36,6 +36,16 @@ def existing_pages() -> list[dict]:
     return [{"url": entry["url"]} for entry in sitemap_entries()]
 
 
+def blog_articles() -> list[dict]:
+    """[{"url": "/blog/slug", "title": "…"}, …] — the published blog articles, the writer's list for
+    internal links. The URLs come from the sitemap, the titles from Sanity."""
+    from connectors import sanity
+    found = sanity.query('*[_type == "blogPost" && !(_id in path("drafts.**"))]{"slug": slug.current, "title": editorialTitle}')
+    titles = {d["slug"]: d["title"] for d in found.get("result", [])}
+    return [{"url": e["url"], "title": titles.get(e["url"].removeprefix("/blog/"), "")}
+            for e in sitemap_entries() if e["url"].startswith("/blog/")]
+
+
 def recently_updated(hours: int) -> list[dict]:
     """Entries whose <lastmod> falls within the last `hours`."""
     cutoff = datetime.now(timezone.utc) - timedelta(hours=hours)

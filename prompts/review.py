@@ -539,3 +539,31 @@ RESOURCE_FIX_SCHEMA = {
     "properties": {"resource_html": {"type": "string", "description": "The corrected resource in HTML."}},
     "required": ["resource_html"],
 }
+
+
+COMPETITOR_LINKS_SYSTEM = """You review the links in finished blog articles on the Polymer blog. Polymer is an applicant tracking system."""
+
+COMPETITOR_LINKS_USER = """The article links to the websites below. List each website whose owner sells software a hiring team could use instead of Polymer, such as an applicant tracking system, a recruiting CRM, or an all-in-one HR platform that handles hiring. List a website only when you believe its owner sells such software. For each, give the website, the company's name, and what the company sells, in one short line.
+
+{domains}
+
+Call the `report_competitors` tool. When no website qualifies, report an empty list."""
+
+COMPETITOR_LINKS_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "suspects": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "website": {"type": "string", "description": "The website, exactly as listed."},
+                    "company": {"type": "string"},
+                    "sells": {"type": "string", "description": "What the company sells, in one short line."},
+                },
+                "required": ["website", "company", "sells"],
+            },
+        },
+    },
+    "required": ["suspects"],
+}

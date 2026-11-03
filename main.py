@@ -28,6 +28,10 @@ from lib.logging import setup as setup_logging, get
 log = get(__name__)
 console = Console()
 
+# This run's articles and failures: the run's log goes into the article's folder when the run
+# worked on one article, and each failure gets a Failed message in Slack.
+_run: dict = {"slugs": [], "failures": []}
+
 
 def _fresh_calendar_opportunities() -> list:
     """Calendar posts with no blogPost (draft or published) in Sanity yet, earliest-first."""
@@ -106,6 +110,7 @@ def _stage_one(o, instructions: str = "") -> "object":
 
     console.print(f"[cyan]→ {o.proposed_title}[/cyan]  ({o.page_type.value}, kw: {o.keyword})")
     slug = o.id
+    _run["slugs"].append(slug)
     reset_usage()
 
     def write(resuming: bool) -> None:
@@ -115,7 +120,10 @@ def _stage_one(o, instructions: str = "") -> "object":
         try:
             generate(page)
         except Exception:
-            _save_research(page)
+            if page.content:
+                _save_output(page)
+            else:
+                _save_research(page)
             raise
         page.content.slug = slug
         _save_output(page)
@@ -143,15 +151,23 @@ def _stage_one(o, instructions: str = "") -> "object":
             content_calendar.mark_generated(o.calendar_row)
         return page
     except Exception as e:
+        from pipeline import next_step
         log.exception(f"Failed for '{o.proposed_title}': {e}; {usage_line()}")
         console.print(f"  [red]Failed:[/red] {e}")
+        _run["failures"].append({"opp": o, "step": next_step(slug), "reason": str(e), "spent": usage_line()})
         return None
 
 
 def _saved_opportunity(slug: str):
+    """The post's opportunity from its saved article, or from the calendar when the post failed
+    before its article was saved."""
+    from lib import content_calendar
     from lib.repo import ROOT
     from models.content import ContentPage
-    return ContentPage.model_validate_json((ROOT / f"{slug}-output" / f"{slug}.json").read_text()).opportunity
+    path = ROOT / f"{slug}-output" / f"{slug}.json"
+    if path.exists():
+        return ContentPage.model_validate_json(path.read_text()).opportunity
+    return next(o for o in content_calendar.load_opportunities() if o.id == slug)
 
 
 def redraft():
@@ -329,17 +345,41 @@ COMMANDS = {
 
 
 def _run_cli(cmd: str) -> bool:
-    """Runs a COMMANDS entry. Returns False if it raised."""
+    """Runs a COMMANDS entry. Returns False if it raised. The run's log is saved to
+    run-logs/<date>-<command>.log, or to the article's folder when the run worked on one article,
+    and each failure gets a Failed message in Slack with the log in its thread. doctor keeps no log."""
+    from datetime import datetime, timezone
     from lib import repo
+    from lib.logging import start_run_log, stop_run_log
+    from lib.repo import ROOT
 
+    stamp = datetime.now(timezone.utc).strftime("%Y-%m-%d-%H%M")
+    log_path = ROOT / "run-logs" / f"{stamp}-{cmd}.log"
+    handler = start_run_log(log_path) if cmd != "doctor" else None
+    ok = True
     repo.reset()
     try:
         COMMANDS[cmd]()
         repo.push(f"Engine run: {cmd}")
     except Exception as e:
+        ok = False
         log.exception(f"Command '{cmd}' failed: {e}")
-        return False
-    return True
+        _run["failures"].append({"opp": None, "step": "", "reason": str(e), "spent": ""})
+    finally:
+        if handler:
+            stop_run_log(handler)
+    if handler and len(_run["slugs"]) == 1:
+        slug = _run["slugs"][0]
+        (ROOT / f"{slug}-output").mkdir(exist_ok=True)
+        log_path = log_path.replace(ROOT / f"{slug}-output" / f"{slug}-{stamp}-{cmd}.log")
+    if os.environ.get("DRY_RUN") != "true":
+        from connectors import slack
+        for failure in _run["failures"]:
+            try:
+                slack.notify_failed(failure["opp"], cmd, failure["step"], failure["reason"], failure["spent"], log_path)
+            except Exception as e:
+                log.warning(f"Slack Failed message did not post: {type(e).__name__}: {e}")
+    return ok
 
 
 if __name__ == "__main__":

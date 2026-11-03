@@ -37,10 +37,10 @@ def _post(channel: str, blocks: list, text: str = "") -> str:
         return ""
 
 
-def _upload(channel: str, path: Path, title: str, ts: str) -> None:
+def _upload(channel: str, path: Path, title: str, ts: str, last_chars: int = 0) -> None:
     """Attaches a file in the thread of the message `ts`. When the upload fails (the bot needs the
     files:write scope, and the channel setting must be the channel's ID), the file's text is posted
-    in the same thread instead, one reply per section."""
+    in the same thread instead, one reply per section; with `last_chars`, only the end of the text."""
     if not _configured() or not ts or not path.exists():
         log.info(f"Slack not configured, no message, or {path.name} missing — skipping upload to {channel}")
         return
@@ -49,7 +49,8 @@ def _upload(channel: str, path: Path, title: str, ts: str) -> None:
         return
     except SlackApiError as e:
         log.warning(f"Slack upload of {path.name} failed ({e.response['error']}); posting its text in the thread instead")
-    _thread(channel, ts, _sections(path.read_text()))
+    text = path.read_text()
+    _thread(channel, ts, [text[-last_chars:]] if last_chars else _sections(text))
 
 
 def _thread(channel: str, ts: str, parts: list[str]) -> None:
@@ -154,6 +155,7 @@ def notify_summary(page: ContentPage, spent: str = "") -> None:
     larger = _read(out / f"{opp.id}-larger-errors.md")
     em_lines = [l for l in _read(out / f"{opp.id}-em-dashes.md").splitlines() if l.startswith("- ")]
     places = _read(out / f"{opp.id}-graphics.md").count("\n## ")
+    suspects = len(_read(out / f"{opp.id}-competitor-links.md").splitlines())
     blocks = [
         _header(f"✅ Draft staged: {opp.proposed_title}"),
         {
@@ -173,7 +175,8 @@ def notify_summary(page: ContentPage, spent: str = "") -> None:
                 "type": "mrkdwn",
                 "text": (
                     f"*Larger errors:* {'yes, in the next message' if larger else 'none'}\n"
-                    f"*Fixes:* {len(page.todos)} to-do item(s), {len(em_lines)} section(s) over the em dash limit\n"
+                    f"*Fixes:* {len(page.todos)} to-do item(s), {len(em_lines)} section(s) over the em dash limit, "
+                    f"{suspects} link(s) that may go to competitors\n"
                     f"*Graphic ideas:* {places} place(s)\n"
                     f"*Header image alt text:* {content.main_image_alt or '_none_'}"
                 ),
@@ -184,10 +187,12 @@ def notify_summary(page: ContentPage, spent: str = "") -> None:
 
 
 def notify_fixes(page: ContentPage) -> None:
-    """The em dash report and the to-do list, when either has anything in it."""
+    """The em dash report, the to-do list, and the links that may go to competitors, when any of
+    them has anything in it."""
     opp = page.opportunity
     em = _read(_outputs(opp.id) / f"{opp.id}-em-dashes.md")
-    if not em and not page.todos:
+    suspects = _read(_outputs(opp.id) / f"{opp.id}-competitor-links.md")
+    if not em and not page.todos and not suspects:
         return
     todos = "\n".join(f"• {t['item']}" for t in page.todos) or "None."
     blocks = [
@@ -195,6 +200,9 @@ def notify_fixes(page: ContentPage) -> None:
         {"type": "section", "text": {"type": "mrkdwn", "text": _text(f"*Em dashes:*\n{em or 'No section is over the limit.'}")}},
         {"type": "section", "text": {"type": "mrkdwn", "text": _text(f"*To-do:*\n{todos}")}},
     ]
+    if suspects:
+        blocks.append({"type": "section", "text": {"type": "mrkdwn", "text": _text(
+            f"*Links that may go to competitors* (keep or remove them in Studio):\n{suspects}")}})
     _post(settings.slack_content_channel, blocks, text=f"Fixes: {opp.proposed_title}")
 
 
@@ -258,6 +266,32 @@ def notify_stopped(page: ContentPage, done: list[str], spent: str) -> None:
         },
     ]
     _post(settings.slack_content_channel, blocks, text=f"Stopped before staging: {opp.proposed_title}")
+
+
+def notify_failed(opp, command: str, step: str, reason: str, spent: str, log_path: Path) -> None:
+    """A run failed. For an article: its title, the step it failed at, the reason, the cost so far,
+    and a Retry now button; the next run also tries the article again. For a run with no article,
+    the command and the reason. The run's log goes in the message's thread."""
+    title = opp.proposed_title if opp else f"{command} run"
+    lines = ([f"*Failed at:* {step}"] if step else []) + [f"*Reason:* {' '.join(reason.split())[:500]}"]
+    if spent:
+        lines.append(f"*Cost so far:* {spent}")
+    if opp:
+        lines.append("Nothing was staged to Sanity. The next run tries this article again, or Retry now tries it right away.")
+    blocks = [_header(f"❌ Failed: {title}"), {"type": "section", "text": {"type": "mrkdwn", "text": "\n".join(lines)}}]
+    if opp:
+        blocks.append({
+            "type": "actions",
+            "elements": [{
+                "type": "button",
+                "text": {"type": "plain_text", "text": "Retry now", "emoji": True},
+                "value": opp.id,
+                "action_id": f"resume_{opp.id}",
+                "style": "primary",
+            }],
+        })
+    ts = _post(settings.slack_content_channel, blocks, text=f"Failed: {title}")
+    _upload(settings.slack_content_channel, log_path, f"Log: {title}", ts, last_chars=_SECTION_MAX_CHARS * 3)
 
 
 def notify_larger_error(page: ContentPage) -> None:

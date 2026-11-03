@@ -33,6 +33,7 @@ from prompts.review import (
     CONTENT_RULES, CONTENT_FIXES, CONTENT_FIND_USER, CONTENT_FIND_SCHEMA, CONTENT_FIX_USER, CONTENT_FIX_SCHEMA,
     CONTENT_REVIEW_CHANGES_USER, CONTENT_REVIEW_FIX_USER,
     RESOURCE_SYSTEM, RESOURCE_CHECK_USER, RESOURCE_CHECK_SCHEMA, RESOURCE_FIX_USER, RESOURCE_FIX_SCHEMA,
+    COMPETITOR_LINKS_SYSTEM, COMPETITOR_LINKS_USER, COMPETITOR_LINKS_SCHEMA,
     OPENING_FIX_SYSTEM, FIX_SYSTEM, TRANSITIONS_FIX_SYSTEM, REVIEW_FIX_SYSTEM, CONTENT_FIX_SYSTEM, CONTENT_REVIEW_FIX_SYSTEM,
 )
 
@@ -458,6 +459,37 @@ def resource_review(slug: str) -> None:
     path.unlink()
     _write_record(page, f"{slug}-resource-review.md", f"{slug} resource review", records)
     log.info(f"Resource review for {slug}: {len(check['faults'])} fault(s); {len(missing)} placeholder(s) missing")
+
+
+def external_links(html: str) -> dict[str, list[str]]:
+    """{website: [every URL in the article on that website]} for links to other websites."""
+    from urllib.parse import urlparse
+    found: dict[str, list[str]] = {}
+    for href in re.findall(r'href="(https?://[^"]+)"', html):
+        site = urlparse(href).netloc.lower().removeprefix("www.")
+        if site and site != settings.site_domain.removeprefix("www."):
+            found.setdefault(site, []).append(href)
+    return found
+
+
+def competitor_links(slug: str) -> None:
+    """Lists the article's links to websites whose owners may sell hiring software, in
+    <slug>-competitor-links.md, for the Fixes message in Slack, so they can be kept or removed by
+    hand. The article is not changed."""
+    page = ContentPage.model_validate_json((ROOT / f"{slug}-output" / f"{slug}.json").read_text())
+    path = ROOT / f"{slug}-output" / f"{slug}-competitor-links.md"
+    path.unlink(missing_ok=True)
+    links = external_links(page.content.body_html)
+    if not links:
+        return
+    result = structured_call(system=COMPETITOR_LINKS_SYSTEM, user=COMPETITOR_LINKS_USER.format(domains="\n".join(links)),
+                             tool_name="report_competitors", tool_description="Report the websites whose owners sell hiring software.",
+                             input_schema=COMPETITOR_LINKS_SCHEMA, max_tokens=4000)
+    lines = [f"- {s['website']} ({s['company']}, {s['sells']}): " + ", ".join(links.get(s["website"].lower().removeprefix("www."), []))
+             for s in result["suspects"]]
+    if lines:
+        path.write_text("\n".join(lines) + "\n")
+    log.info(f"Competitor links in {slug}: {len(lines)} of {len(links)} website(s)")
 
 
 def em_dash_report(slug: str) -> None:

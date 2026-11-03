@@ -46,6 +46,17 @@ def test_validate_todos_do_not_fail_the_post():
     assert len(result.todos) == 3   # too few placed; ats-guide listed but not placed; nope not a page
 
 
+def test_word_count_floor_and_minimum():
+    def check(words):
+        content = GeneratedContent(title="t", h1="h", meta_description="m", slug="s",
+                                   body_html="<h2>x</h2>" + "<p>word</p>" * words, word_count=words)
+        return validate(content, existing_urls=PAGES, placed_paths=["/blog/ats-guide", "/pricing"])
+    assert not check(1999).ok
+    short = check(2400)
+    assert short.ok and any("under the 2500 minimum" in t for t in short.todos)
+    assert check(2600).ok and not any("minimum" in t for t in check(2600).todos)
+
+
 if __name__ == "__main__":
     test_site_path()
     test_fix_internal_links()

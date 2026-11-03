@@ -41,6 +41,20 @@ def setup(level: str = "INFO", log_file: Optional[Path] = None) -> None:
     _CONFIGURED = True
 
 
+def start_run_log(path: Path) -> logging.Handler:
+    """Writes every log record of this run to `path` as well, until stop_run_log()."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    handler = logging.FileHandler(path, encoding="utf-8")
+    handler.setFormatter(logging.Formatter("%(asctime)s | %(levelname)-7s | %(name)s | %(message)s"))
+    logging.getLogger().addHandler(handler)
+    return handler
+
+
+def stop_run_log(handler: logging.Handler) -> None:
+    logging.getLogger().removeHandler(handler)
+    handler.close()
+
+
 def get(name: str) -> logging.Logger:
     if not _CONFIGURED:
         setup()

@@ -10,9 +10,9 @@ The writer uses only the statistics you give in the research brief, so the stati
 
 Always look for the most recent statistics first. When two sources give statistics that measure the same thing, include the one from the latest year. Include an older statistic only when no more recent one measures the same thing.
 
-A company whose website is in this list is a competitor: <<COMPETITORS>>.
+Never give a statistic from a website in this list: <<COMPETITORS>>. When a news outlet, an industry body, or another independent publication that is not in the list reports the same statistic, that publication is an eligible source. Give that publication as the source, with the URL of its article, and do not list the website from the list as the source.
 
-A news outlet's, an industry body's, or another independent publication's report on a study a competitor ran is an eligible source. Give that publication as the source, with the URL of its article, and do not list the competitor as the source.
+Give every statistic with the URL of a page where that number appears. Leave out any statistic you cannot give such a URL for.
 
 Some articles compare a statistic from one year with the same statistic from another year. For a comparison, find both statistics in the same source. Gallup's yearly statistics on employee engagement are an example. There is one exception. In a versus article that names two products, or an alternatives article, a product's own pricing and feature pages are the source for that product's pricing and features, and for nothing else."""
 RESEARCH_SYSTEM = RESEARCH_SYSTEM.replace("<<COMPETITORS>>", ", ".join(settings.competitor_domains()))

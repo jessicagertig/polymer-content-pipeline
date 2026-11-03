@@ -23,7 +23,8 @@ class ValidationResult:
 
 
 # Constraints
-MIN_WORD_COUNT = 2500      # body, FAQ excluded; under this fails the post
+FLOOR_WORD_COUNT = 2000    # body, FAQ excluded; under this fails the post
+MIN_WORD_COUNT = 2500      # body, FAQ excluded; under this the writer expands the article once, and a post still under it gets a to-do
 REPORT_WORD_COUNT = 6000   # over this is reported as a to-do, never failed
 MAX_META_DESCRIPTION = 160
 MAX_TITLE_LENGTH = 65
@@ -100,10 +101,12 @@ def validate(
         result.errors.append("Meta description is empty")
 
     # Word count
-    if content.word_count < MIN_WORD_COUNT:
+    if content.word_count < FLOOR_WORD_COUNT:
         result.errors.append(
-            f"Word count {content.word_count} below minimum {MIN_WORD_COUNT}"
+            f"Word count {content.word_count} below the floor of {FLOOR_WORD_COUNT}"
         )
+    elif content.word_count < MIN_WORD_COUNT:
+        result.todos.append(f"Body is {content.word_count} words, under the {MIN_WORD_COUNT} minimum.")
     if content.word_count > REPORT_WORD_COUNT:
         result.todos.append(f"Body is {content.word_count} words, over {REPORT_WORD_COUNT}.")
 

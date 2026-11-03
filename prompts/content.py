@@ -15,6 +15,8 @@ You are writing an editorial BLOG ARTICLE, not a landing page or a sales page. W
 
 ## Hard requirements for every article
 
+**Length:** every article is at least 2,500 words, FAQ excluded. The ideal length is about 3,000 to 3,500 words.
+
 **House rules:**
 
 1. Colons are only allowed when they are introducing a numbered or bulleted list. An em dash is not a colon.
@@ -113,11 +115,13 @@ Every statistic in the article comes from the research brief, which is given und
 
 Always prefer the more recent statistic. When the research brief gives two or more statistics that measure the same thing, use the one from the latest year. <<STAT_RULE>>
 
-Link each statistic to its source. The source is the publication or organization whose web page the research brief gives for that statistic.
+Link each statistic to its source. The source is the publication or organization whose web page the research brief gives for that statistic. Never write a statistic without a link to a page where that number appears. If the research brief gives no such page for a statistic, leave the statistic out.
 
 When a source's name is a website address, such as ustechautomations.com or pin.com, do not name it. Name the company, organization, or author that published the page instead. If the research brief does not give that name, do not name the source at all: link the claim itself to the page. This applies to every source the article cites, not only statistics.
 
-A competitor is any company that sells software a hiring team could use instead of Polymer, such as an applicant tracking system, a recruiting CRM, or an all-in-one HR platform that handles hiring. A company whose website is in this list is a competitor: <<COMPETITORS>>. Never link to a competitor's website, and never name a competitor as the source of a statistic. When a news outlet, an industry body, or another independent publication reports on a study a competitor ran, name that publication as the source and link to its article. Name only that publication, and do not write that the competitor's survey was reported by it.
+A competitor is any company that sells software a hiring team could use instead of Polymer, such as an applicant tracking system, a recruiting CRM, or an all-in-one HR platform that handles hiring. Never name a competitor as the source of a statistic. When a competitor's page is the source, link the statistic to that page without naming the company.
+
+Never use a statistic from a website in this list: <<COMPETITORS>>. When a news outlet, an industry body, or another independent publication that is not in the list reports the same statistic, name that publication as the source and link to its article. Name only that publication, and do not write that the competitor's survey was reported by it.
 
 You may compare a statistic from a past year with the same statistic from a recent year. Both statistics must come from the same source and measure the same thing. Gallup's yearly statistics on employee engagement are an example. If you are doing a comparison, you need to provide both years in the text. Since a comparison uses two statistics, do not do such a comparison in the opening, the text before the first H2.
 
@@ -177,8 +181,10 @@ Every fact about a named product comes from this brief. Every statistic follows 
 ## Site domain (for schema)
 {site_domain}
 
-## Existing internal pages (for link suggestions)
+## Blog articles on the site, for internal links
 {existing_pages}
+
+Link to at least 2 of these articles in the body, where they fit the text. Every article in internal_links appears as a link in the body.
 
 {polymer_section}
 
@@ -186,7 +192,7 @@ Every fact about a named product comes from this brief. Every statistic follows 
 
 Write a draft of the body first, at full length: at least 2,500 words, and ideally 3,000 to 3,500, FAQ excluded. Then read the draft back against the house rules, the Opening rules, the Structure rules, the blog format, the research rules, the Numbers and statistics rules, the Logic rules, the Voice and Tone sections of the writing guide, and every rule in The Elements of Style, one rule at a time, and write one line per rule on what you found. Read the whole text of each rule, examples included. Then rewrite whatever failed. Submit the draft, the check, and the final article.
 
-Call the `generate_post` tool with the structured output. Internal links should point to /blog/... articles or relevant product pages on the site."""
+Call the `generate_post` tool with the structured output. Internal links point to the blog articles listed above."""
 
 
 POLYMER_INCLUDED = """## Polymer in this article
@@ -194,6 +200,30 @@ Polymer is one of the products this article covers. Describe Polymer only as the
 
 ### Polymer feature inventory
 {feature_inventory}"""
+
+EXPAND_USER = """The article below is {words} words. The minimum is 2,500 words, with FAQ excluded, and the ideal length is about 3,000 to 3,500. Add to the article until it is at least 2,500 words.
+
+Add substance where the article is thin: a section with fewer than about 150 words under its heading, and any point in the blog format below that the article covers only briefly. Every addition comes from the research below or follows from what the article already says. Do not add filler, do not repeat a point the article already makes, and do not invent a fact, a number, or a source. Keep every other sentence, heading, link, table, and resource as it is.
+
+## Blog format: {page_type}
+
+{page_structure}
+
+## Research
+
+{research}
+
+## The article
+
+{body_html}
+
+Call the `submit_article` tool with the whole article."""
+
+EXPAND_SCHEMA = {
+    "type": "object",
+    "properties": {"body_html": {"type": "string", "description": "The whole article body in HTML, with the additions."}},
+    "required": ["body_html"],
+}
 
 REDRAFT_SECTION = """## Instructions for this draft
 This article was drafted before. Write it again and follow these instructions from the editor:

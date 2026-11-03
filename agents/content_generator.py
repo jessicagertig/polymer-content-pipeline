@@ -6,11 +6,11 @@ from config.settings import settings
 from lib.llm import structured_call
 from agents.research import research_brief
 from lib.logging import get
-from lib.site_pages import existing_pages
+from lib.site_pages import existing_pages, blog_articles
 from lib.text import word_count as wc, reading_time, clean_body_html, has_empty_lists, space_em_dashes
-from lib.validation import validate, fix_internal_links
+from lib.validation import validate, fix_internal_links, MIN_WORD_COUNT
 from models.content import ContentPage, GeneratedContent, ContentStatus
-from prompts.content import CONTENT_SYSTEM, CONTENT_USER, PAGE_SCHEMA, PAGE_STRUCTURES, POLYMER_INCLUDED, POLYMER_EXCLUDED, REDRAFT_SECTION
+from prompts.content import CONTENT_SYSTEM, CONTENT_USER, PAGE_SCHEMA, PAGE_STRUCTURES, POLYMER_INCLUDED, POLYMER_EXCLUDED, REDRAFT_SECTION, EXPAND_USER, EXPAND_SCHEMA
 
 
 log = get(__name__)
@@ -80,7 +80,7 @@ def generate(page: ContentPage) -> ContentPage:
         competitor_context=competitor_context,
         research=research,
         site_domain=settings.site_domain,
-        existing_pages=json.dumps(pages),
+        existing_pages=json.dumps(blog_articles()),
         polymer_section=polymer_section,
         redraft_section=REDRAFT_SECTION.format(instructions=page.redraft_instructions) if page.redraft_instructions else "",
     )
@@ -156,6 +156,28 @@ def generate(page: ContentPage) -> ContentPage:
         reading_time_minutes=reading_time(body_html),
     )
 
+    # Under the minimum: the writer adds to the article once
+    if word_total < MIN_WORD_COUNT:
+        log.warning(f"'{opp.proposed_title}' is {word_total} words, under {MIN_WORD_COUNT}; expanding it once")
+        expanded = structured_call(
+            system=system,
+            user=EXPAND_USER.format(words=word_total, page_type=page_type, page_structure=structure, research=research, body_html=body_html),
+            tool_name="submit_article",
+            tool_description="Submit the whole article with the additions.",
+            input_schema=EXPAND_SCHEMA,
+            max_tokens=32000,
+            cache_system=True,
+        )
+        body_html, _ = clean_body_html(expanded["body_html"])
+        body_html = space_em_dashes(body_html)
+        body_html, placed_paths, link_todos = fix_internal_links(body_html, existing_urls)
+        word_total = wc(body_html)
+        content.body_html, content.word_count, content.reading_time_minutes = body_html, word_total, reading_time(body_html)
+        log.info(f"Expanded '{opp.proposed_title}' to {word_total} words")
+
+    # The article is kept on the page before validation, so the caller saves it even when a check fails
+    page.content = content
+
     # Validate before returning — caller decides whether to stage
     result_validation = validate(content, existing_urls=existing_urls, placed_paths=placed_paths)
 
@@ -172,7 +194,6 @@ def generate(page: ContentPage) -> ContentPage:
     if page.todos:
         log.warning(f"To-do for the follow-up run: {[t['item'] for t in page.todos]}")
 
-    page.content = content
     page.status = ContentStatus.GENERATING
 
     log.info(f"Generated {word_total} words, {len(content.faq_items)} FAQs")
