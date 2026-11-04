@@ -244,6 +244,8 @@ The link goes on the words that name the article's topic, never on "read more," 
 ## Articles this hub links to
 {hub_articles}"""
 
+HUB_UNPUBLISHED = """Some articles on the list are not published yet. Do not link to them. Write the article so that each one has a phrase where a link to it would fit, so the link can be added once the article is published."""
+
 POLYMER_EXCLUDED ="""## Polymer in this article
 Do not mention Polymer or its features anywhere in this article. Polymer references are added in a separate step after the draft."""
 

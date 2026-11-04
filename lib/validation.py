@@ -146,7 +146,10 @@ def validate(
         elif path not in placed:
             result.todos.append(f"Add a link to {path} ('{text}'): listed but not placed in the body.")
     for url in hub_links or []:
-        if site_path(url) not in placed:
+        path = site_path(url)
+        if path not in existing_urls:
+            result.todos.append(f"Add a link to {url} once it is published.")
+        elif path not in placed:
             result.todos.append(f"Add a link to {url}: a hub article not linked in the body.")
 
     if result.errors:

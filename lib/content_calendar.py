@@ -179,6 +179,13 @@ def load_opportunities() -> list[ContentOpportunity]:
     return opps
 
 
+def planned_titles() -> dict[str, str]:
+    """{"/blog/<slug>": Suggested Blog Title} for every calendar row, generated or not."""
+    rows = _read_rows()
+    slug_i, title_i = rows[0].index("Suggested URL Slug"), rows[0].index("Suggested Blog Title")
+    return {f"/blog/{r[slug_i].strip('/').split('/')[-1]}": r[title_i] for r in rows[1:] if len(r) > max(slug_i, title_i)}
+
+
 def mark_generated(row: int) -> None:
     """Marks a calendar row as generated: writes an ISO-8601 UTC timestamp into its
     'Generated At' cell in the CSV. Non-fatal — the post is already staged and the

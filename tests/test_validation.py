@@ -49,10 +49,11 @@ def test_validate_todos_do_not_fail_the_post():
 def test_hub_links_not_placed_are_todos():
     content = GeneratedContent(title="t", h1="h", meta_description="m", slug="s",
                                body_html="<h2>x</h2>" + "<p>word</p>" * 2600, word_count=2600)
-    result = validate(content, existing_urls=PAGES, placed_paths=["/blog/ats-guide", "/pricing"],
+    result = validate(content, existing_urls=PAGES, placed_paths=["/blog/ats-guide"],
                       hub_links=["https://www.polymer.co/blog/ats-guide", "https://www.polymer.co/pricing/", "/blog/other"])
     assert result.ok
-    assert result.todos == ["Add a link to /blog/other: a hub article not linked in the body."]
+    assert result.todos[1:] == ["Add a link to https://www.polymer.co/pricing/: a hub article not linked in the body.",
+                                "Add a link to /blog/other once it is published."]
 
 
 def test_word_count_floor_and_minimum():

@@ -7,10 +7,11 @@ from lib.llm import structured_call
 from agents.research import research_brief
 from lib.logging import get
 from lib.site_pages import existing_pages, blog_articles
+from lib.content_calendar import planned_titles
 from lib.text import word_count as wc, reading_time, clean_body_html, has_empty_lists, space_em_dashes
 from lib.validation import validate, fix_internal_links, site_path, MIN_WORD_COUNT
 from models.content import ContentPage, GeneratedContent, ContentStatus
-from prompts.content import CONTENT_SYSTEM, CONTENT_USER, PAGE_SCHEMA, PAGE_STRUCTURES, POLYMER_INCLUDED, POLYMER_EXCLUDED, REDRAFT_SECTION, HUB_SECTION, EXPAND_USER, EXPAND_SCHEMA
+from prompts.content import CONTENT_SYSTEM, CONTENT_USER, PAGE_SCHEMA, PAGE_STRUCTURES, POLYMER_INCLUDED, POLYMER_EXCLUDED, REDRAFT_SECTION, HUB_SECTION, HUB_UNPUBLISHED, EXPAND_USER, EXPAND_SCHEMA
 
 
 log = get(__name__)
@@ -74,8 +75,12 @@ def generate(page: ContentPage) -> ContentPage:
     hub_section = ""
     if page_type == "hub":
         titles = {a["url"]: a["title"] for a in articles}
+        planned = planned_titles()
+        paths = [site_path(u) for u in opp.hub_links]
         hub_section = HUB_SECTION.format(hub_articles="\n".join(
-            f"{titles.get(site_path(u), '')} ({site_path(u)})" for u in opp.hub_links))
+            f"{titles[p]} ({p})" if p in titles else f"{planned.get(p, '')} ({p}, not published yet)" for p in paths))
+        if any(p not in titles for p in paths):
+            hub_section += "\n\n" + HUB_UNPUBLISHED
 
     user = CONTENT_USER.format(
         keyword=opp.keyword,
