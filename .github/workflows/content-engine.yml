@@ -1,6 +1,6 @@
 # The content engine, run on GitHub Actions.
-# 13:00 UTC daily: `python main.py run` writes and stages the next Launch Batch post, or this
-# week's calendar post when one is due. 14:00 UTC daily: `python main.py index` submits pages
+# 13:17 UTC daily: `python main.py run` writes and stages the next Launch Batch post, or this
+# week's calendar post when one is due. 14:17 UTC daily: `python main.py index` submits pages
 # the site changed in the last 24 hours for indexing. "Run workflow" starts either by hand.
 # The Slack buttons start it too, through the Lambda in lambdas/slack_handler: Resume now with
 # `resume <slug>`, and Redraft with `redraft <slug>` and the instructions typed into its box.
@@ -11,8 +11,8 @@ name: Content engine
 
 on:
   schedule:
-    - cron: "0 13 * * *"
-    - cron: "0 14 * * *"
+    - cron: "17 13 * * *"
+    - cron: "17 14 * * *"
   workflow_dispatch:
     inputs:
       command:
@@ -67,7 +67,7 @@ jobs:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
           SLUG: ${{ inputs.slug }}
           REDRAFT_INSTRUCTIONS: ${{ inputs.instructions }}
-        run: python main.py ${{ inputs.command || (github.event.schedule == '0 14 * * *' && 'index') || 'run' }} "$SLUG"
+        run: python main.py ${{ inputs.command || (github.event.schedule == '17 14 * * *' && 'index') || 'run' }} "$SLUG"
 
       - name: Commit the outputs and the calendar
         if: always()
