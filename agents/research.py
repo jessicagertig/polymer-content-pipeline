@@ -71,7 +71,7 @@ def research_brief(opp) -> str:
 
 def _three_step_brief(opp, structure: str) -> str:
     """Definitions, then the article type's topic search, then statistics, each a separate call.
-    Statistics gets the searches the first two steps did not use."""
+    The statistics step searches only the reputable sources' sites (config/reputable-sources.txt)."""
     page_type = opp.page_type.value
     context = dict(
         topic=STEP_TOPICS[page_type],
@@ -86,21 +86,21 @@ def _three_step_brief(opp, structure: str) -> str:
     steps = [
         (DEFINITIONS_STEP | {"search_note": definitions_note}, 2),
         (TOPIC_STEPS[page_type], 2),
-        (STATISTICS_STEP, None),
+        (STATISTICS_STEP, settings.research_statistics_searches),
     ]
-    parts, used = [], 0
+    reputable = [address for _, addresses in settings.reputable_sources() for address in addresses]
+    parts = []
     for step, searches in steps:
-        searches = searches or max(3, settings.research_step_searches - used)
         result = research_call(
             system=RESEARCH_SYSTEM,
             user=STEP_USER.format(**context, **step, max_searches=searches),
             max_searches=searches,
             max_tokens=settings.research_resource_max_tokens if opp.resource_article else settings.research_max_tokens,
             blocked_domains=settings.competitor_domains(),
+            allowed_domains=reputable if step is STATISTICS_STEP else None,
         )
         if not result["text"]:
             raise RuntimeError(f"Research call for {step['step']} returned no text")
-        used += result["searches"]
         log.info(f"Research, {step['step']}: {result['searches']} searches, {len(result['text'].split())} words")
         parts.append(result["text"])
     return "\n\n".join(parts)

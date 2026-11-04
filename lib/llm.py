@@ -159,18 +159,22 @@ def structured_call(
     raise RuntimeError(f"Claude did not call the expected tool '{tool_name}'")
 
 
-def research_call(*, system: str, user: str, max_searches: int, max_tokens: int, blocked_domains: list[str] | None = None) -> dict:
+def research_call(*, system: str, user: str, max_searches: int, max_tokens: int, blocked_domains: list[str] | None = None,
+                  allowed_domains: list[str] | None = None) -> dict:
     """
     Calls Claude with the server-side web search tool and returns
     {"text", "searches", "input_tokens", "output_tokens"}.
 
     Spend is capped by max_searches (the tool's max_uses), max_tokens on each response,
     and low effort. A turn the server pauses is resumed at most three times.
-    The search never returns results from blocked_domains.
+    The search never returns results from blocked_domains. With allowed_domains, it returns
+    results only from those; the search tool takes one or the other, not both.
     """
     client = _client()
     tools = [{"type": "web_search_20260209", "name": "web_search", "max_uses": max_searches, "allowed_callers": ["direct"]}]
-    if blocked_domains:
+    if allowed_domains:
+        tools[0]["allowed_domains"] = allowed_domains
+    elif blocked_domains:
         tools[0]["blocked_domains"] = blocked_domains
     messages = [{"role": "user", "content": user}]
     searches = input_tokens = output_tokens = 0

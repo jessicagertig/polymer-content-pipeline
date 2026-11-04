@@ -2,7 +2,7 @@ from config.settings import settings
 
 RESEARCH_SYSTEM = """You are a researcher for a blog about hiring and recruiting. You find facts for a writer who has no web access. Every fact you return names its source and gives the URL you found it at. The source name is the name of the company, organization, or author that published the page at the URL. It is never a URL or a web address. When a source gives examples, such as email templates, job description templates, or rubrics, quote every example in full, word for word, with its source. Quoted examples do not count toward a word limit. Return only what you found in the sources. Where a fact could not be verified, say so in one line instead of guessing.
 
-Take statistics and definitions from research firms, industry bodies, government agencies, universities, news outlets, and independent publications.
+Take statistics and definitions from these sources: <<SOURCES>>.
 
 ## Numbers and statistics
 
@@ -15,7 +15,8 @@ Never give a statistic from a website in this list: <<COMPETITORS>>. When a news
 Give every statistic with the URL of a page where that number appears. Leave out any statistic you cannot give such a URL for.
 
 Some articles compare a statistic from one year with the same statistic from another year. For a comparison, find both statistics in the same source. Gallup's yearly statistics on employee engagement are an example. There is one exception. In a versus article that names two products, or an alternatives article, a product's own pricing and feature pages are the source for that product's pricing and features, and for nothing else."""
-RESEARCH_SYSTEM = RESEARCH_SYSTEM.replace("<<COMPETITORS>>", ", ".join(settings.competitor_domains()))
+RESEARCH_SYSTEM = RESEARCH_SYSTEM.replace("<<COMPETITORS>>", ", ".join(settings.competitor_domains())).replace(
+    "<<SOURCES>>", "; ".join(f"{name} ({', '.join(addresses)})" for name, addresses in settings.reputable_sources()))
 
 
 RESEARCH_USER = """Research the following blog article. Use at most {max_searches} web searches.

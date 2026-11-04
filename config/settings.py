@@ -46,6 +46,7 @@ class Settings(BaseSettings):
     research_step_searches: int = 6  # web searches across the three research calls (definitions, topic, statistics)
     research_max_tokens: int = 3000  # max_tokens on each research response
     research_resource_max_tokens: int = 32000  # max_tokens on each research response for a resource article, which quotes its sources' examples in full
+    research_statistics_searches: int = 5   # web searches in the statistics step, which searches only the reputable sources' sites
     research_max_words: int = 1000   # length of the brief the researcher is asked for
     research_reuse: bool = False     # reuse a saved <slug>-output/<slug>-research.md instead of searching (a -vN slug reuses the base post's)
 
@@ -79,6 +80,12 @@ class Settings(BaseSettings):
         here = Path(__file__).parent
         parts = [here / "alternatives-playbook.md", here / "polymer-competitive-positioning.md"]
         return "\n\n".join(p.read_text() for p in parts if p.exists())
+
+    def reputable_sources(self) -> list[tuple[str, list[str]]]:
+        """The sources the statistics search is limited to, as (name, addresses), from config/reputable-sources.txt."""
+        path = Path(__file__).parent / "reputable-sources.txt"
+        rows = [line.split("|", 1) for line in path.read_text().splitlines() if "|" in line] if path.exists() else []
+        return [(name.strip(), [a.strip() for a in addresses.split(",") if a.strip()]) for name, addresses in rows]
 
     def competitor_domains(self) -> list[str]:
         """Competitor domains the researcher's web search never returns results from."""
