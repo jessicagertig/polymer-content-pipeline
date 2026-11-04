@@ -245,7 +245,9 @@ Do not edit anything.
 {section_html}"""
 
 
-OPENING_FIX_USER = """Correct the opening of an article below. Each line in the list of faults quotes a sentence and names the rule it breaks. A fault the code counted, such as too many em dashes, also gives the count. For each fault, read the whole text of the rule it names, examples included, and use that rule to find what in the quoted sentence breaks it. Change every sentence on the list so that it no longer breaks the rule, and change nothing that is not on the list unless a change on the list requires it. Edit the opening as a whole so that the sentences work together.
+OPENING_FIX_USER = """Correct the opening of an article below. Each line in the list of faults quotes a sentence and names the rule it breaks. A fault the code counted, such as too many em dashes, also gives the count. For each fault, read the whole text of the rule it names, examples included, and use that rule to find what in the quoted sentence breaks it. Change every sentence on the list so that it no longer breaks the rule, and change nothing that is not on the list unless a change on the list requires it. Each sentence you change must still work with the sentences around it.
+
+Keep the paragraphs as they are. Do not move a sentence into another paragraph, and do not merge or split paragraphs. A fault the code counted about the length of a paragraph or of the whole opening is corrected by shortening or removing sentences within that paragraph. The only exception is a fault the code counted about the number of paragraphs: then split or join paragraphs only as far as that count requires.
 
 Keep every fact, figure, link, and quotation as it is. Keep the meaning. Change the words, not the content. Do not invent a fact, a number, or a detail that is not in the opening.
 
