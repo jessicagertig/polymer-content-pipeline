@@ -25,7 +25,7 @@ Where the ATS falls short is on the edges of the active hiring cycle. It is buil
 
 ## What a Recruiting CRM Does
 
-A recruiting CRM (candidate relationship management) is the practice and software of proactively engaging and nurturing relationships with candidates regardless of whether there's an active role to fill. Where an ATS is transactional and requisition-focused, a [CRM is relational and pipeline-focused](https://recruiterflow.com/blog/candidate-relationship-management/). It tracks every touchpoint with a candidate over months or years, so the relationship does not reset each time a new role opens.
+A recruiting CRM (candidate relationship management) is the practice and software of proactively engaging and nurturing relationships with candidates regardless of whether there's an active role to fill. Where an ATS is transactional and requisition-focused, a CRM is relational and pipeline-focused. It tracks every touchpoint with a candidate over months or years, so the relationship does not reset each time a new role opens.
 
 The candidates in a CRM are typically passive: people who haven't applied to anything, but who are on your radar. That includes past applicants you weren't ready to hire, strong second-place finishers from previous searches, contacts made at industry events, and candidates sourced through outreach. A CRM gives you the tools to stay in touch with all of them through multi-channel outreach, automated follow-up sequences, and employer branding campaigns — so that when a role opens, you're not starting a cold search.
 
