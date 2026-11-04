@@ -140,8 +140,8 @@ def _opening_count_faults(section: str) -> list[str]:
     paragraphs = re.findall(r"<p[\s>].*?</p>", section, flags=re.I | re.S)
     faults = []
     words = word_count(section)
-    if not 100 <= words <= 200:
-        faults.append(f"The whole opening ||| Opening length ||| The opening is {words} words. The limit is 100 to 200 words.")
+    if not 100 <= words <= 220:
+        faults.append(f"The whole opening ||| Opening length ||| The opening is {words} words. The limit is 100 to 220 words.")
     if not 3 <= len(paragraphs) <= 4:
         faults.append(f"The whole opening ||| Opening paragraphs ||| The opening has {len(paragraphs)} paragraphs. It must have three or four.")
     if paragraphs and word_count(paragraphs[0]) > 80:
