@@ -1,7 +1,7 @@
 {
   "opportunity": {
     "id": "interview-guide",
-    "page_type": "guide",
+    "page_type": "hub",
     "keyword": "interview guide",
     "supporting_keywords": [
       "interview process",
@@ -20,7 +20,15 @@
     "launch_batch": true,
     "includes_polymer": false,
     "product_based": false,
-    "resource_article": false
+    "resource_article": false,
+    "hub_links": [
+      "https://www.polymer.co/blog/problem-solving-interview-questions",
+      "https://www.polymer.co/blog/behavioral-interview-scoring-matrix",
+      "https://www.polymer.co/blog/unique-interview-questions",
+      "https://www.polymer.co/blog/interview-feedback-examples",
+      "https://www.polymer.co/blog/interview-bias",
+      "https://www.polymer.co/blog/first-impression-bias"
+    ]
   },
   "status": "Staged",
   "sanity_document_id": "drafts.interview-guide",

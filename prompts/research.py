@@ -101,6 +101,7 @@ Then, under the heading "Unverified", list anything you looked for and did not f
 
 STEP_TOPICS = {
     "guide": "best practices",
+    "hub": "best practices",
     "comparison": "trade-offs",
     "listicle": "list items",
     "interview-question-guide": "list items",
@@ -138,6 +139,7 @@ TOPIC_STEPS = {
 }
 
 TOPIC_STEPS["interview-question-guide"] = TOPIC_STEPS["listicle"]
+TOPIC_STEPS["hub"] = TOPIC_STEPS["guide"]
 
 STATISTICS_STEP = dict(
     step="statistics",

@@ -186,6 +186,8 @@ Every fact about a named product comes from this brief. Every statistic follows 
 
 Link to at least 2 of these articles in the body, where they fit the text. Every article in internal_links appears as a link in the body.
 
+{hub_section}
+
 {polymer_section}
 
 {redraft_section}
@@ -230,7 +232,19 @@ This article was drafted before. Write it again and follow these instructions fr
 
 {instructions}"""
 
-POLYMER_EXCLUDED = """## Polymer in this article
+HUB_SECTION = """**This article is a hub.** Each article listed below is on this site and covers part of this article's subject in more depth. Write the article so that linking to every one of them is natural. Plan the sections so that each listed article's topic comes up where a reader would want to read more about it, and link to the article there. Every listed article appears as a link in the body. Internal links are naturally interwoven into the article, such that no sentence containing a link stands out as awkwardly placed because it was added to link to an article without making sure the article itself is still written properly.
+
+Two examples of sentences with an internal link:
+
+- "A <a href="/blog/behavioral-interview-scoring-matrix">behavioral interview scoring matrix</a> is a grid that lists the competencies a role requires and describes what a weak, acceptable, and strong answer looks like for each."
+- "Read more about writing questions candidates haven't rehearsed in our <a href="/blog/unique-interview-questions">guide to unique interview questions</a>."
+
+The link goes on the words that name the article's topic, never on "read more," "here," or "this article."
+
+## Articles this hub links to
+{hub_articles}"""
+
+POLYMER_EXCLUDED ="""## Polymer in this article
 Do not mention Polymer or its features anywhere in this article. Polymer references are added in a separate step after the draft."""
 
 
@@ -334,6 +348,8 @@ The FAQ is supplied as faq_html, not in the body. Factually accurate, with no un
 3. **Expanded FAQ** (cover the People Also Ask cluster more fully)
 Write a complete replacement, not an addendum. Make every section stronger.""",
 }
+
+PAGE_STRUCTURES["hub"] = PAGE_STRUCTURES["guide"]
 
 
 PAGE_SCHEMA = {

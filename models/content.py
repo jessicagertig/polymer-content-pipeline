@@ -11,6 +11,7 @@ class PageType(str, Enum):
     GUIDE = "guide"
     LISTICLE = "listicle"
     INTERVIEW_QUESTION_GUIDE = "interview-question-guide"   # an article focused on interview questions, with a rubric for each
+    HUB = "hub"                 # a guide that links to every blog article in its calendar row's Hub Links
     OPINION = "opinion"
     COMPARISON = "comparison"   # editorial "X vs Y" article
     ALTERNATIVES = "alternatives"   # "[Competitor] alternatives" post, written from the alternatives playbook
@@ -66,6 +67,7 @@ class ContentOpportunity(BaseModel):
     includes_polymer: bool = False        # Polymer is one of the products the post covers; the feature inventory goes into the prompt
     product_based: bool = False           # the post is about named products; research runs as one call, not the three-step split
     resource_article: bool = False        # the post offers resources (email templates, job description templates, rubrics); research gets a larger response cap
+    hub_links: list[str] = Field(default_factory=list)   # a hub's blog article URLs, from the calendar's Hub Links column; each must be linked in the body
 
 
 class GeneratedContent(BaseModel):

@@ -8,9 +8,9 @@ from agents.research import research_brief
 from lib.logging import get
 from lib.site_pages import existing_pages, blog_articles
 from lib.text import word_count as wc, reading_time, clean_body_html, has_empty_lists, space_em_dashes
-from lib.validation import validate, fix_internal_links, MIN_WORD_COUNT
+from lib.validation import validate, fix_internal_links, site_path, MIN_WORD_COUNT
 from models.content import ContentPage, GeneratedContent, ContentStatus
-from prompts.content import CONTENT_SYSTEM, CONTENT_USER, PAGE_SCHEMA, PAGE_STRUCTURES, POLYMER_INCLUDED, POLYMER_EXCLUDED, REDRAFT_SECTION, EXPAND_USER, EXPAND_SCHEMA
+from prompts.content import CONTENT_SYSTEM, CONTENT_USER, PAGE_SCHEMA, PAGE_STRUCTURES, POLYMER_INCLUDED, POLYMER_EXCLUDED, REDRAFT_SECTION, HUB_SECTION, EXPAND_USER, EXPAND_SCHEMA
 
 
 log = get(__name__)
@@ -70,6 +70,13 @@ def generate(page: ContentPage) -> ContentPage:
     else:
         polymer_section = POLYMER_EXCLUDED
 
+    articles = blog_articles()
+    hub_section = ""
+    if page_type == "hub":
+        titles = {a["url"]: a["title"] for a in articles}
+        hub_section = HUB_SECTION.format(hub_articles="\n".join(
+            f"{titles.get(site_path(u), '')} ({site_path(u)})" for u in opp.hub_links))
+
     user = CONTENT_USER.format(
         keyword=opp.keyword,
         supporting_keywords=", ".join(opp.supporting_keywords) or "(none specified)",
@@ -80,7 +87,8 @@ def generate(page: ContentPage) -> ContentPage:
         competitor_context=competitor_context,
         research=research,
         site_domain=settings.site_domain,
-        existing_pages=json.dumps(blog_articles()),
+        existing_pages=json.dumps(articles),
+        hub_section=hub_section,
         polymer_section=polymer_section,
         redraft_section=REDRAFT_SECTION.format(instructions=page.redraft_instructions) if page.redraft_instructions else "",
     )
@@ -179,7 +187,7 @@ def generate(page: ContentPage) -> ContentPage:
     page.content = content
 
     # Validate before returning — caller decides whether to stage
-    result_validation = validate(content, existing_urls=existing_urls, placed_paths=placed_paths)
+    result_validation = validate(content, existing_urls=existing_urls, placed_paths=placed_paths, hub_links=opp.hub_links)
 
     if not result_validation.ok:
         log.error(f"Validation FAILED for '{opp.proposed_title}': {result_validation.errors}")
@@ -209,7 +217,7 @@ def recheck(page: ContentPage) -> ContentPage:
     content.body_html, placed_paths, link_todos = fix_internal_links(content.body_html, existing_urls)
     content.word_count = wc(content.body_html)
     content.reading_time_minutes = reading_time(content.body_html)
-    result = validate(content, existing_urls=existing_urls, placed_paths=placed_paths)
+    result = validate(content, existing_urls=existing_urls, placed_paths=placed_paths, hub_links=page.opportunity.hub_links)
     items = link_todos + [f"Failed check after review: {e}" for e in result.errors] + result.todos
     page.todos = [{"item": t, "done": ""} for t in items]
     if page.todos:

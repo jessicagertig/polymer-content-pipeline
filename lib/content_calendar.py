@@ -38,6 +38,8 @@ GENERATED_AT_HEADER = "Generated At"
 # Order matters: 'listicle' before 'comparison' so "Comparison listicle" → LISTICLE.
 def _content_type_to_page_type(content_type: str, title: str) -> PageType:
     c = (content_type or "").lower()
+    if "hub" in c:
+        return PageType.HUB
     if "alternatives" in c:
         return PageType.ALTERNATIVES
     if "interview questions" in (title or "").lower():
@@ -169,6 +171,7 @@ def load_opportunities() -> list[ContentOpportunity]:
                 includes_polymer=cell(r, "Includes Polymer").strip().lower() in ("yes", "y", "true", "1"),
                 product_based=cell(r, "Product-based").strip().lower() in ("yes", "y", "true", "1"),
                 resource_article=cell(r, "Resource article").strip().lower() in ("yes", "y", "true", "1"),
+                hub_links=[u for u in re.split(r"[\s;,]+", cell(r, "Hub Links")) if u],
             )
         )
 

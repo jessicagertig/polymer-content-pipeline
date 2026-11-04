@@ -78,9 +78,11 @@ def validate(
     content: GeneratedContent,
     existing_urls: Optional[set] = None,
     placed_paths: Optional[list[str]] = None,
+    hub_links: Optional[list[str]] = None,
 ) -> ValidationResult:
     """Validates generated content. Returns ok=False if any hard requirement fails.
-    placed_paths: the site paths fix_internal_links found in the body."""
+    placed_paths: the site paths fix_internal_links found in the body.
+    hub_links: a hub's article URLs, each of which must be linked in the body."""
     result = ValidationResult()
     existing_urls = existing_urls or set()
 
@@ -143,6 +145,9 @@ def validate(
             result.todos.append(f"Listed link to {url} is not a page on the site; ignore it or find the right page.")
         elif path not in placed:
             result.todos.append(f"Add a link to {path} ('{text}'): listed but not placed in the body.")
+    for url in hub_links or []:
+        if site_path(url) not in placed:
+            result.todos.append(f"Add a link to {url}: a hub article not linked in the body.")
 
     if result.errors:
         result.ok = False

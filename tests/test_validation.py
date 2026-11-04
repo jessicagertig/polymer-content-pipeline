@@ -46,6 +46,15 @@ def test_validate_todos_do_not_fail_the_post():
     assert len(result.todos) == 3   # too few placed; ats-guide listed but not placed; nope not a page
 
 
+def test_hub_links_not_placed_are_todos():
+    content = GeneratedContent(title="t", h1="h", meta_description="m", slug="s",
+                               body_html="<h2>x</h2>" + "<p>word</p>" * 2600, word_count=2600)
+    result = validate(content, existing_urls=PAGES, placed_paths=["/blog/ats-guide", "/pricing"],
+                      hub_links=["https://www.polymer.co/blog/ats-guide", "https://www.polymer.co/pricing/", "/blog/other"])
+    assert result.ok
+    assert result.todos == ["Add a link to /blog/other: a hub article not linked in the body."]
+
+
 def test_word_count_floor_and_minimum():
     def check(words):
         content = GeneratedContent(title="t", h1="h", meta_description="m", slug="s",
