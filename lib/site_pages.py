@@ -31,9 +31,12 @@ def sitemap_entries() -> list[dict]:
     return entries
 
 
+NOT_IN_SITEMAP = ["/free-trial"]   # real pages kept out of the sitemap so they are not indexed, but valid links
+
+
 def existing_pages() -> list[dict]:
-    """[{"url": "/path"}, …] — the pool of valid internal-link targets."""
-    return [{"url": entry["url"]} for entry in sitemap_entries()]
+    """[{"url": "/path"}, …] — the pool of valid internal-link targets: the sitemap, plus NOT_IN_SITEMAP."""
+    return [{"url": entry["url"]} for entry in sitemap_entries()] + [{"url": url} for url in NOT_IN_SITEMAP]
 
 
 def blog_articles() -> list[dict]:
