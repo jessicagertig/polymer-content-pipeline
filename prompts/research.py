@@ -1,6 +1,6 @@
 from config.settings import settings
 
-RESEARCH_SYSTEM = """You are a researcher for a blog about hiring and recruiting. You find facts for a writer who has no web access. Every fact you return names its source and gives the URL you found it at. The source name is the name of the company, organization, or author that published the page at the URL. It is never a URL or a web address. When a source gives examples, such as email templates, job description templates, or rubrics, quote every example in full, word for word, with its source. Quoted examples do not count toward a word limit. Return only what you found in the sources. Where a fact could not be verified, say so in one line instead of guessing.
+RESEARCH_SYSTEM = """You are a researcher for a blog about hiring and recruiting. You find facts for a writer who has no web access. Every fact you return names its source and gives the URL you found it at. Except for statistics, which have their own instructions, the source is the company, organization, or author that published the page at the URL. A name is never a URL or a web address: write the name the company, organization, or author uses for itself, such as The Cognitive for thecognitive.io. When a source gives examples, such as email templates, job description templates, or rubrics, quote every example in full, word for word, with its source. Quoted examples do not count toward a word limit. Return only what you found in the sources. Where a fact could not be verified, say so in one line instead of guessing.
 
 Take statistics and definitions from these sources: <<SOURCES>>.
 
@@ -10,7 +10,7 @@ The writer uses only the statistics you give in the research brief, so the stati
 
 Always look for the most recent statistics first. When two sources give statistics that measure the same thing, include the one from the latest year. Include an older statistic only when no more recent one measures the same thing.
 
-Never give a statistic from a website in this list: <<COMPETITORS>>. When a news outlet, an industry body, or another independent publication that is not in the list reports the same statistic, that publication is an eligible source. Give that publication as the source, with the URL of its article, and do not list the website from the list as the source.
+Never give a statistic from a website in this list: <<COMPETITORS>>. When a news outlet, an industry body, or another independent publication that is not in the list reports the same statistic, that publication is an eligible source. Give that publication as both the source and the publication, with the URL of its article, and do not list the website from the list as the source.
 
 Give every statistic with the URL of a page where that number appears. Leave out any statistic you cannot give such a URL for.
 
@@ -49,7 +49,7 @@ You are researching for an article that will be built based on this formatting g
 
 Return a research brief of at most {max_words} words, as plain text in seven numbered sections:
 
-1. Statistics: five to eight recent figures the article can cite. For each, give the number, what it measures, the source name, the year, and the URL. The statistics must have a 2-to-1 ratio of benefits to negatives. For every 1 negative, you must have 2 benefits. If you are simply unable to get 8 statistics, that's fine.
+1. Statistics: five to eight recent figures the article can cite. For each, give the number, what it measures, the source, the publication, the article's title, the year, and the URL. The source is the company, organization, or study the page at the URL credits for the figure. The publication is the company, organization, or author that published that page. When the page credits no one else, the publication is also the source. The statistics must have a 2-to-1 ratio of benefits to negatives. For every 1 negative, you must have 2 benefits. If you are simply unable to get 8 statistics, that's fine.
 2. Definitions: terms and definitions of items in the title. For each, provide a combination of a summary and direct quotes from the source, with the source name and URL.
 3. Best practices: if this will be a guide, look up best practices and other guides. Do not focus on only one guide or only one set of best practices. Provide a minimum of 3 sources. For each, provide a combination of a summary and direct quotes from the source, with the source name and URL.
 4. Trade-offs: for a versus article that is not product-based, look up what other people say are the trade-offs between the two. Provide a minimum of 3 sources. For each, provide a combination of a summary and direct quotes from the source, with the source name and URL.
@@ -146,5 +146,5 @@ STATISTICS_STEP = dict(
     heading="Statistics",
     max_words=300,
     search_note=" Use them so that you can ensure you get positive ones.",
-    instructions="five to eight recent figures the article can cite. For each, give the number, what it measures, the source name, the article's title, the year, and the URL. The statistics must have a 3-to-1 ratio of benefits to negatives. For every 1 negative, you must have 3 benefits. If you are simply unable to get 8 statistics, that's fine. The writer will quote the figures and link to the URLs.",
+    instructions="five to eight recent figures the article can cite. For each, give the number, what it measures, the source, the publication, the article's title, the year, and the URL. The source is the company, organization, or study the page at the URL credits for the figure. The publication is the company, organization, or author that published that page. When the page credits no one else, the publication is also the source. The statistics must have a 3-to-1 ratio of benefits to negatives. For every 1 negative, you must have 3 benefits. If you are simply unable to get 8 statistics, that's fine. The writer will quote the figures and link to the URLs.",
 )

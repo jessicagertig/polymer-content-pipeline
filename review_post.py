@@ -202,6 +202,21 @@ def _check_section(section: str, system: str, fix_system: str, max_fixes: int, i
     return section, "\n".join(record), fixes
 
 
+def brief_statistics(brief: str) -> str:
+    """The Statistics section of a research brief, from its heading to the "## Unverified" after it, under the
+    heading "## Research brief: statistics", for the checker and the fixer. Empty when the brief has none."""
+    start = brief.find("## Statistics")
+    if start < 0:
+        return ""
+    end = brief.find("## Unverified", start)
+    return f"\n\n## Research brief: statistics\n\n{brief[start + len('## Statistics'):end if end > 0 else None].strip()}"
+
+
+def _statistics_for(slug: str) -> str:
+    path = ROOT / f"{slug}-output" / f"{slug}-research.md"
+    return brief_statistics(path.read_text()) if path.exists() else ""
+
+
 def _system(template: str = REVIEW_SYSTEM) -> str:
     return template.format(reader=reader_rule(), transition=transition_rule(), section=section_rule(), items_in_a_set=items_in_a_set_rule(),
                                 numbering=numbering_rule(), numbers=numbers_rules(), voice=voice_section(), tone=tone_section(),
@@ -234,7 +249,8 @@ def check_opening(slug: str, max_fixes: int = 6) -> None:
         return
     progress = ROOT / f"{slug}-output" / f"{slug}-opening-progress.json"
     logic = opening_logic_rules()
-    sections[0], record, fixes = _check_section(sections[0], _system(), _system(OPENING_FIX_SYSTEM), max_fixes, is_opening=True,
+    statistics = _statistics_for(slug)
+    sections[0], record, fixes = _check_section(sections[0], _system() + statistics, _system(OPENING_FIX_SYSTEM) + statistics, max_fixes, is_opening=True,
                                                 find_prompt=OPENING_FIND_USER.replace("<<LOGIC>>", logic),
                                                 fix_prompt=OPENING_FIX_USER.replace("<<LOGIC>>", logic), progress=progress)
     _save_body(page, "".join(sections))
@@ -251,7 +267,8 @@ def check_post(slug: str, max_fixes: int = 4, workers: int = 4, stop_at: float =
     Returns whether every section was checked."""
     page = ContentPage.model_validate_json((ROOT / f"{slug}-output" / f"{slug}.json").read_text())
     sections = split_sections(page.content.body_html)
-    system, fix_system = _system(), _system(FIX_SYSTEM)
+    statistics = _statistics_for(slug)
+    system, fix_system = _system() + statistics, _system(FIX_SYSTEM) + statistics
     progress = ROOT / f"{slug}-output" / f"{slug}-check-progress.json"
     done: dict[str, dict] = {}
     if progress.exists():

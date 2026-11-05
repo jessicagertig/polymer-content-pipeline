@@ -115,7 +115,7 @@ Every statistic in the article comes from the research brief, which is given und
 
 Always prefer the more recent statistic. When the research brief gives two or more statistics that measure the same thing, use the one from the latest year. <<STAT_RULE>>
 
-Link each statistic to its source. The source is the publication or organization whose web page the research brief gives for that statistic. Never write a statistic without a link to a page where that number appears. If the research brief gives no such page for a statistic, leave the statistic out.
+In the sentence with each statistic, write the name of the company, organization, or study the research brief gives as its source. Link the statistic to the URL the research brief gives for it. When that source is a competitor, write the name of the publication the research brief gives for that URL instead. If the research brief gives no URL for a statistic, leave the statistic out.
 
 When a source's name is a website address, such as ustechautomations.com or pin.com, do not name it. Name the company, organization, or author that published the page instead. If the research brief does not give that name, do not name the source at all: link the claim itself to the page. This applies to every source the article cites, not only statistics.
 
