@@ -218,7 +218,7 @@ Submit the changes, the check, the final article as the same HTML it came in as,
 {body_html}"""
 
 
-OPENING_FIND_USER = """Check the opening of an article below against the house rules, the reader rule, the Numbers and statistics rules, the Voice section, the Tone section, every rule in The Elements of Style, Section V included, and the Logic rules, which follow under their own heading. The opening is all you are given.
+OPENING_FIND_USER = """Check the opening of an article below against the house rules, the reader rule, the Numbers and statistics rules, the Voice section, the Tone section, every rule in The Elements of Style, Section V included, the Logic rules, and the Opening rules, which follow under their own headings. You are given the opening and the article's title.
 
 Write the log first. Go through the opening one sentence at a time, from the first sentence to the last. Quote each sentence once. Under it, write one line for each rule, in the order the rules are given: the rule, then Pass, or Fail with the words that break it and why. You cannot judge a sentence by the title of a rule alone. Read the whole text of the rule, examples included, before you judge a sentence by it. Section V counts as one rule.
 
@@ -240,6 +240,14 @@ Do not edit anything.
 
 <<LOGIC>>
 
+## The Opening rules
+
+<<OPENING>>
+
+## The article's title
+
+<<TITLE>>
+
 ## The opening
 
 {section_html}"""
@@ -260,6 +268,12 @@ The first paragraph uses at most one statistic, as the Numbers and statistics ru
 The Logic rules, given here as your checker was given them:
 
 <<LOGIC>>
+
+The Opening rules, given here as your checker was given them:
+
+<<OPENING>>
+
+The article's title is <<TITLE>>.
 
 Never add a semicolon.
 

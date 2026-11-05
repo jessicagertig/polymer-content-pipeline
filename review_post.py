@@ -88,6 +88,13 @@ def numbers_rules() -> str:
     return CONTENT_SYSTEM[start:end].strip()
 
 
+def opening_rules() -> str:
+    """The Opening block and its examples, from the writer's system prompt."""
+    from prompts.content import CONTENT_SYSTEM
+    start = CONTENT_SYSTEM.index("**Opening:**")
+    return CONTENT_SYSTEM[start:CONTENT_SYSTEM.index("**Structure:**", start)].strip()
+
+
 def items_in_a_set_rule() -> str:
     """The items-in-a-set rule, from the Structure block of the writer's system prompt."""
     from prompts.content import CONTENT_SYSTEM
@@ -239,6 +246,10 @@ def _write_record(page, record_name: str, title: str, records: list[str]) -> Non
     out.write_text(f"# {title} {stamp}\n\n{usage_line()}\n\n" + "\n".join(records))
 
 
+def _with_opening(prompt: str, logic: str, title: str) -> str:
+    return prompt.replace("<<LOGIC>>", logic).replace("<<OPENING>>", opening_rules()).replace("<<TITLE>>", title)
+
+
 def check_opening(slug: str, max_fixes: int = 6) -> None:
     """The opening's own check loop, with the opening's own checker and fixer. The body after the first <h2> is untouched.
     Each check and correction is saved to <slug>-opening-progress.json as it finishes, so a stopped run resumes there."""
@@ -251,8 +262,8 @@ def check_opening(slug: str, max_fixes: int = 6) -> None:
     logic = opening_logic_rules()
     statistics = _statistics_for(slug)
     sections[0], record, fixes = _check_section(sections[0], _system() + statistics, _system(OPENING_FIX_SYSTEM) + statistics, max_fixes, is_opening=True,
-                                                find_prompt=OPENING_FIND_USER.replace("<<LOGIC>>", logic),
-                                                fix_prompt=OPENING_FIX_USER.replace("<<LOGIC>>", logic), progress=progress)
+                                                find_prompt=_with_opening(OPENING_FIND_USER, logic, page.content.h1),
+                                                fix_prompt=_with_opening(OPENING_FIX_USER, logic, page.content.h1), progress=progress)
     _save_body(page, "".join(sections))
     _write_record(page, f"{slug}-opening-check.md", f"{slug} opening check", [f"## Opening\n\n{record}\n## Final\n\n{sections[0]}\n"])
     progress.unlink(missing_ok=True)
