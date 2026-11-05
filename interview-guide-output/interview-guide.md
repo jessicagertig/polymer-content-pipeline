@@ -17,13 +17,13 @@ An interview guide structures candidate interviews by covering the questions to 
 
 That consistency means every interviewer enters the debrief having asked the same questions, rated the same competencies, and applied the same rubric to what they heard. When two interviewers evaluate the same candidate on a shared rubric, their scores reflect the same interview and can be directly compared.
 
-A complete interview guide gives every interviewer what they need to assess candidates fairly: the job requirements ranked by priority, the questions assigned to each interviewer, a scoring rubric for each competency, the logistics for each round, and a template for the debrief. You build it once and refine it after each hire.
+A complete interview guide gives every interviewer what they need to assess candidates fairly: the job requirements ranked by priority, the questions assigned to each interviewer, a scoring rubric for each competency, the logistics for each round, and a template for the debrief. You build it once and refine it after each hire, and the job analysis is where the build begins.
 
 ## Start with a job analysis, not a question list
 
 Before you write a single question, identify the specific skills, competencies, and behaviors the role requires. A job analysis gives every question in the guide a specific skill or behavior to test. Questions written without a job analysis measure general impressions, not the competencies the role demands.
 
-Separate the must-haves from the nice-to-haves. Must-haves are non-negotiable — a candidate who lacks them is unqualified for the role. Nice-to-haves are real advantages, but a candidate without them can still succeed. If you do not make this distinction before the interviews begin, every gap will be weighted equally in the debrief — and that leads to inconsistent decisions and missed hires.
+That analysis starts with separating the must-haves from the nice-to-haves. Must-haves are non-negotiable — a candidate who lacks them is unqualified for the role. Nice-to-haves are real advantages, but a candidate without them can still succeed. If you do not make this distinction before the interviews begin, every gap will be weighted equally in the debrief — and that leads to inconsistent decisions and missed hires.
 
 Once you have your list of requirements, assign each one to an interviewer. When every panelist covers the same competency as everyone else, you end up with redundant data and blind spots elsewhere. Assigning specific competencies to each panelist means the interview covers real ground rather than the same ground multiple times. Each interviewer comes to the debrief with evidence from a different part of the picture.
 
@@ -38,7 +38,7 @@ Cover four things in a screening call:
 * The candidate's reason for exploring a new role, which tells you something about motivation and timing
 * A brief description of the opportunity and what comes next
 
-Before the call, send a confirmation that includes the format, duration, and who will be on it. Candidates who know what to expect give more considered answers and come away with a stronger impression of how the company treats people.
+To get the most from that conversation, send a pre-call confirmation that includes the format, duration, and who will be on it. Candidates who know what to expect give more considered answers and come away with a stronger impression of how the company treats people.
 
 ## Question design: what to ask and why
 
@@ -46,21 +46,21 @@ The questions you ask determine the quality of the information you get. The two 
 
 Behavioral questions ask candidates to describe something they have already done: "Tell me about a time when you had to manage a project without enough resources." These questions are more predictive of future performance than hypotheticals, because they are grounded in real experience rather than imagined scenarios. "Tell me about a time when…" is more useful than "What would you do if…" for exactly this reason — past behavior reflects real constraints, real trade-offs, and real outcomes.
 
-Situational questions present a hypothetical scenario relevant to the role and ask what the candidate would do. They are useful when a candidate lacks direct experience in a specific area, since they reveal reasoning and judgment even where the candidate has no direct track record to draw on. For early-career candidates or those stepping into a new type of role, situational questions carry more of the load.
+The other type, situational questions, presents a hypothetical scenario relevant to the role and asks what the candidate would do. They are useful when a candidate lacks direct experience in a specific area, since they reveal reasoning and judgment even where the candidate has no direct track record to draw on. For early-career candidates or those stepping into a new type of role, situational questions carry more of the load.
 
 A strong interview guide blends both. Behavioral questions anchor to evidence; situational questions fill the gaps. For roles where you expect a full track record, behavioral questions do most of the work. For roles where experience is thin, situational questions and work samples step in.
 
-Go beyond the first answer. When a candidate's response is vague or sounds rehearsed, follow up with "What specifically did you do in that situation?" or "What was the outcome, and what would you do differently?" Follow-up probes are where you find the real signal beneath a polished surface — and they are especially important when candidates have prepared extensively for common questions.
+Whichever type you use, go beyond the first answer. When a candidate's response is vague or sounds rehearsed, follow up with "What specifically did you do in that situation?" or "What was the outcome, and what would you do differently?" Follow-up probes are where you find the real signal beneath a polished surface — and they are especially important when candidates have prepared extensively for common questions.
 
 For a full set of questions that get past rehearsed answers, the guide to [unique interview questions](/blog/unique-interview-questions) covers 21 prompts with evaluation notes. For roles where problem-solving is central to the job, [problem-solving interview questions](/blog/problem-solving-interview-questions) gives you a targeted question set with guidance on what strong and weak answers look like.
 
 ## The 80/20 rule: who should be doing the talking
 
-A common failure in interviews is the interviewer filling the silence. The candidate should carry roughly 80% of the conversation. If you are talking more than 20% of the time, you are evaluating your own performance, not the candidate's.
+Question design is only the start — how you conduct the interview matters just as much. A common failure in interviews is the interviewer filling the silence. The candidate should carry roughly 80% of the conversation. If you are talking more than 20% of the time, you are evaluating your own performance, not the candidate's.
 
 This means keeping your questions short and your follow-up probes open-ended. Resist the urge to explain the question after you ask it, offer examples, or signal the right answer through the way you phrase things. Ask, then listen. Silence after a question is productive. Candidates who take a moment to organize their answer often give more accurate, more considered responses than those who answer immediately with something they had prepared in advance.
 
-Treat the interview as a conversation, not an interrogation. Candidates who feel comfortable say what they actually think and did, not what they believe you want to hear. [Forbes](https://www.forbes.com) also advises being honest about the role's demands, because candidates who join with accurate expectations stay longer.
+Keeping quiet also means keeping the tone right — treat the interview as a conversation, not an interrogation. Candidates who feel comfortable say what they actually think and did, not what they believe you want to hear. [Forbes](https://www.forbes.com) also advises being honest about the role's demands, because candidates who join with accurate expectations stay longer.
 
 ## Scoring: how to evaluate candidates consistently
 
@@ -78,7 +78,7 @@ Every interviewer carries biases they cannot fully see. First impression bias ca
 
 Structured interviews are the most effective defense against first impression bias and confirmation bias. When every candidate answers the same questions in the same order, scored against the same rubric, the interview creates less room for impressions formed in the first minute to drive the final decision. Standardized questions make it harder for bias to operate, because the interviewer is focused on the same information for every candidate rather than following their intuition about where to probe.
 
-The guide to [interview bias](/blog/interview-bias) covers each type, where it enters the process, and how to reduce it. For a closer look at the first-impression problem specifically, [first impression bias in hiring](/blog/first-impression-bias) covers how to recognize it and what to do about it.
+Those types are covered in full in the guide to [interview bias](/blog/interview-bias) — where each one enters the process and how to reduce it. For a closer look at the first-impression problem specifically, [first impression bias in hiring](/blog/first-impression-bias) covers how to recognize it and what to do about it.
 
 ## The debrief: how to synthesize evidence rather than average opinions
 
@@ -86,13 +86,13 @@ The debrief is where interviews either succeed or fail as an evaluation tool. Ru
 
 Start with independent scoring, as described in the section on scoring above. Then go through the competencies one at a time, with each interviewer sharing the evidence from their notes before anyone offers a recommendation. Reviewing evidence before conclusions gives every interviewer's data a fair hearing before the group's opinion converges around whoever spoke first.
 
-Ask each interviewer to describe what the candidate did or said, not whether they liked the candidate. "She described managing a 12-person project by assigning weekly milestones and reviewing them in a standing meeting" is evidence. "I really liked her" is not. The debrief that stays close to behavioral evidence produces a decision that is both more accurate and easier to explain.
+That standard of evidence applies to how interviewers share their findings — ask each interviewer to describe what the candidate did or said, not whether they liked the candidate. "She described managing a 12-person project by assigning weekly milestones and reviewing them in a standing meeting" is evidence. "I really liked her" is not. The debrief that stays close to behavioral evidence produces a decision that is both more accurate and easier to explain.
 
-Document the rationale for the final decision. Keep the completed scorecards, the behavioral notes, and a written summary of why the team made the call it did. This documentation protects you if a decision is ever questioned, and it makes the next hire for the same role easier, because you have a record of what a strong candidate looked like for that specific role.
+Once the evidence has been weighed, document the rationale for the final decision. Keep the completed scorecards, the behavioral notes, and a written summary of why the team made the call it did. This documentation protects you if a decision is ever questioned, and it makes the next hire for the same role easier, because you have a record of what a strong candidate looked like for that specific role.
 
 ## Interview feedback: what candidates deserve to hear
 
-Few companies give candidates substantive feedback. The structured interview process gives you the data to do it well — and doing it well turns rejected candidates into future applicants and referral sources.
+Few companies give candidates substantive feedback. The structured interview process gives you the data to do it well, and doing it well turns rejected candidates into future applicants and referral sources.
 
 HR Executive, citing Talent Board research, found that candidates who received job-related feedback by the end of the same day as their interview were 52% more likely to increase their relationship with the employer, by applying again, referring others, or making purchases. The process does not end when the decision is made. Candidates who leave with a clear sense of how they were evaluated become a source of referrals and future applications, regardless of the outcome.
 
@@ -100,11 +100,11 @@ That clarity comes from feedback tied to what the candidate said and how it mapp
 
 ## Rejection: how to close the loop for every candidate
 
-Rejection is the most neglected part of the interview process. The candidates you do not hire still form an impression of your company, still tell people about their experience, and may apply again or refer others in the future. A prompt, respectful, and specific rejection keeps that relationship intact.
+Feedback and rejection are two sides of the same obligation. Rejection is the most neglected part of the interview process. The candidates you do not hire still form an impression of your company, still tell people about their experience, and may apply again or refer others in the future. A prompt, respectful, and specific rejection keeps that relationship intact.
 
 Send the rejection as soon as the decision is made. A candidate who is waiting for a response cannot move forward in their job search, and moving quickly shows respect for their time.
 
-Candidates who reached the interview stage deserve more than a form email. Having prepared, shown up, and given real time to the process, they have earned a thoughtful response. A note that acknowledges what they did well and explains, in behavioral terms, where the final decision landed gives them something useful and leaves them with a better impression of your company.
+Speed is only part of it — candidates who reached the interview stage deserve more than a form email. Having prepared, shown up, and given real time to the process, they have earned a thoughtful response. A note that acknowledges what they did well and explains, in behavioral terms, where the final decision landed gives them something useful and leaves them with a better impression of your company.
 
 For templates across every stage, from post-application to post-final-round, the guide to [job rejection emails](/blog/job-rejection-email) covers what to say and how to personalize a note without opening the door to a prolonged negotiation.
 
@@ -114,13 +114,13 @@ Taken together, these stages form the interview process. How well you run each o
 
 Gallup also found that roughly 2 out of 3 employees hired in the past year reported that their candidate experience was "exceptional" or "very good." That means roughly one in three new hires rated their experience below that — a gap that represents real risk for companies that have not built a consistent, structured process. A well-run interview process closes that gap and gives hiring teams enough signal to choose the right person with confidence. Gallup found that 2.7 times as many recently hired employees who had an exceptional candidate experience say their job is "as good as" or "better than" expected, connecting the interview directly to retention.
 
-For a broader view of how the interview fits into hiring strategy, the article on [talent acquisition vs. recruitment](/blog/talent-acquisition-vs-recruitment) covers how interview-driven hiring fits into a longer-term approach to building your team.
+The interview sits within a broader hiring strategy — the article on [talent acquisition vs. recruitment](/blog/talent-acquisition-vs-recruitment) covers how interview-driven hiring fits into a longer-term approach to building your team.
 
 ## Where structure has its limits
 
-A structured interview process reduces bias, improves consistency, and produces comparable data. It does not make decisions for you, and it does not eliminate the judgment calls that every hire requires.
+Those results depend on running the process well, and the process itself has limits. A structured interview process reduces bias, improves consistency, and produces comparable data. It does not make decisions for you, and it does not eliminate the judgment calls that every hire requires.
 
-Scoring rubrics are built on the competencies identified before the interview. If the job analysis was incomplete — if you missed a competency that the role actually requires — the rubric will not catch it. The structure is only as strong as the job analysis it rests on. This is the most common failure point, and it is one you cannot fix mid-process without invalidating the comparisons you have already made.
+The rubric illustrates that limit — scoring rubrics are built on the competencies identified before the interview. If the job analysis was incomplete — if you missed a competency that the role actually requires — the rubric will not catch it. The structure is only as strong as the job analysis it rests on. This is the most common failure point, and it is one you cannot fix mid-process without invalidating the comparisons you have already made.
 
 Behavioral questions, too, depend on candidates having relevant past experience to draw on. For early-career candidates, candidates changing industries, or candidates stepping into a first leadership role, the behavioral record is thin. Situational questions, case exercises, and work samples fill that gap, but they also introduce their own consistency challenges if they are not standardized across the candidate pool.
 
@@ -132,7 +132,7 @@ When you already have a structured interview process — with questions, rubrics
 
 Build a guide for each major role type. A focused guide that covers your must-have competencies will do more for your hiring than a comprehensive one you never finish. A clear set of must-have competencies, a question for each, and a simple scoring rubric makes your process consistent, defensible, and faster every time you use it. The first time takes the most work. Every hire after that runs on what you learned from the one before.
 
-Polymer keeps your hiring team aligned through the full interview process, with candidate reviews, shared comments, and scoring tools in one place, so the debrief starts with evidence, not impressions. [Start your free trial here](https://www.polymer.co/free-trial).
+A tool that holds the process together makes building and running that guide easier. Polymer keeps your hiring team aligned through the full interview process, with candidate reviews, shared comments, and scoring tools in one place, so the debrief starts with evidence, not impressions. [Start your free trial here](https://www.polymer.co/free-trial).
 
 ## Frequently asked questions
 
