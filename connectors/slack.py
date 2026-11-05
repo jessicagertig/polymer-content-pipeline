@@ -294,6 +294,14 @@ def notify_failed(opp, command: str, step: str, reason: str, spent: str, log_pat
     _upload(settings.slack_content_channel, log_path, f"Log: {title}", ts, last_chars=_SECTION_MAX_CHARS * 3)
 
 
+def notify_merge_failed(branch: str) -> None:
+    """The run's branch did not merge into main. Its files are safe on the branch."""
+    text = (f"*Branch:* `{branch}`\nThe run's files are on that branch. Until it is merged into main, the calendar "
+            "on main does not have this run's Generated At mark, so the next run would pick the same article again.")
+    _post(settings.slack_content_channel, [_header("⚠️ Not merged into main"), {"type": "section", "text": {"type": "mrkdwn", "text": text}}],
+          text=f"Not merged into main: {branch}")
+
+
 def notify_larger_error(page: ContentPage) -> None:
     """Each larger error the content check reported, with both statements quoted as the fixer
     wrote them, and the question whether to redraft the article. The article itself is in the

@@ -1,12 +1,15 @@
 """Files a run changes in the repo: the <slug>-output/ directories and the calendar CSV.
 
-A run on a laptop writes them into the checkout, to be committed by hand. The Lambda's
+A run on a laptop writes them into the checkout, to be committed by hand. A run on GitHub Actions
+also commits and pushes each file to the run's own branch as it writes it (see the workflow). The Lambda's
 package is read-only, so there they stay in memory and push() commits them to GitHub
 as one commit (settings.github_repo, settings.github_token).
 """
 
 import json
 import os
+import subprocess
+import threading
 import urllib.request
 from pathlib import Path
 from typing import Optional
@@ -19,6 +22,7 @@ log = get(__name__)
 
 ROOT = Path(__file__).parent.parent
 _staged: dict[str, str] = {}   # repo-relative path → text this run changed
+_git_lock = threading.Lock()   # check_post saves from several threads
 
 
 def reset() -> None:
@@ -41,6 +45,25 @@ def stage(rel_path: str, text: str) -> None:
         path.write_text(text, encoding="utf-8")
     except OSError as e:
         log.info(f"Checkout is read-only ({e.strerror}); {rel_path} will be pushed")
+        return
+    if os.environ.get("GITHUB_ACTIONS") == "true":
+        _commit(rel_path)
+
+
+def _commit(rel_path: str) -> None:
+    """Commits the file to the run's branch and pushes it, so a later failure cannot lose it. A failure
+    is logged; the workflow's last step commits whatever is left."""
+    with _git_lock:
+        def git(*args) -> subprocess.CompletedProcess:
+            return subprocess.run(["git", *args], cwd=ROOT, capture_output=True, text=True)
+        git("add", rel_path)
+        if git("diff", "--cached", "--quiet").returncode == 0:
+            return
+        for args in (("commit", "-q", "-m", f"Save {rel_path}"), ("push", "-q")):
+            done = git(*args)
+            if done.returncode:
+                log.warning(f"git {args[0]} for {rel_path} failed: {done.stderr.strip()}")
+                return
 
 
 def push(message: str) -> None:

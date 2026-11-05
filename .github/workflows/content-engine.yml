@@ -6,8 +6,10 @@
 # here. "Run workflow" starts either by hand.
 # The Slack buttons start it too, through the Lambda in lambdas/slack_handler: Resume now with
 # `resume <slug>`, and Redraft with `redraft <slug>` and the instructions typed into its box.
-# After each run, the post's output folder and the calendar are committed to this repo, so the
-# next run reads the updated calendar and resumes a stopped post.
+# Each run works on its own branch, engine-run/<command>-<UTC time>. lib/repo.stage commits and
+# pushes every file the engine saves to that branch as it writes it, and the last step squash-merges
+# the branch into main as one commit, so the next run reads the updated calendar and resumes a
+# stopped post. If that merge conflicts, the files stay on the branch and Slack gets a notice.
 
 name: Content engine
 
@@ -42,6 +44,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Start the run's branch
+        run: |
+          git config user.name "content-engine"
+          git config user.email "content-engine@users.noreply.github.com"
+          branch="engine-run/${{ inputs.command }}-$(date -u +%Y-%m-%d-%H%M)"
+          echo "RUN_BRANCH=$branch" >> "$GITHUB_ENV"
+          git checkout -b "$branch"
+          git push -q -u origin "$branch"
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -69,11 +80,21 @@ jobs:
         run: python main.py ${{ inputs.command }} "$SLUG"
 
       - name: Commit the outputs and the calendar
-        if: always()
+        if: always() && env.RUN_BRANCH != ''
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_CONTENT_CHANNEL: ${{ secrets.SLACK_CONTENT_CHANNEL }}
         run: |
-          git config user.name "content-engine"
-          git config user.email "content-engine@users.noreply.github.com"
           git add -A
-          git diff --cached --quiet || git commit -m "Engine run: ${{ inputs.command || 'scheduled' }}"
-          git pull --rebase origin ${{ github.ref_name }}
-          git push
+          git diff --cached --quiet || git commit -q -m "Engine run: ${{ inputs.command }}"
+          git push -q origin "$RUN_BRANCH"
+          git fetch -q origin main
+          git checkout -q -B main origin/main
+          if git merge --squash "$RUN_BRANCH"; then
+            git diff --cached --quiet || git commit -q -m "Engine run: ${{ inputs.command }} ($RUN_BRANCH)"
+            git push -q origin main
+          else
+            git reset -q --merge
+            python -c "from connectors.slack import notify_merge_failed; notify_merge_failed('$RUN_BRANCH')"
+            exit 1
+          fi
