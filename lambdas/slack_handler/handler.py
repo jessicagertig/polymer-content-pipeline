@@ -5,6 +5,9 @@ Handles Slack interactivity (button clicks) for the content engine.
 Routes (via API Gateway):
   POST /slack/interact - Slack button clicks -> trigger GitHub Action
 
+Timers (template.yaml): {"scheduled_command": "run"} at 13:17 UTC and {"scheduled_command": "index"}
+at 14:17 UTC -> content-engine.yml with that command. A failed start is posted to SLACK_CHANNEL_ID.
+
 Buttons:
   resume_<slug>  - "Resume now" on the Stopped message -> content-engine.yml, command resume
   redraft_<slug> - "Redraft" on the Larger error message -> opens a modal for instructions;
@@ -53,6 +56,9 @@ def dispatch_for(action_id, value):
 
 
 def lambda_handler(event, context):
+    if "scheduled_command" in event:
+        return handle_schedule(event["scheduled_command"])
+
     path = event.get("path", "")
     method = event.get("httpMethod", "")
 
@@ -60,6 +66,14 @@ def lambda_handler(event, context):
         return handle_slack_interact(event)
     else:
         return {"statusCode": 404, "body": json.dumps({"error": "Not found"})}
+
+
+def handle_schedule(command):
+    """A timer in template.yaml: starts content-engine.yml with the command, and posts to Slack when it fails."""
+    ok, detail = trigger_github_action("content-engine.yml", {"command": command})
+    if not ok:
+        post_plain_message_to_channel(f"The scheduled `{command}` run did not start. {detail}")
+    return {"ok": ok}
 
 
 # ---------------------------------------------------------------------------

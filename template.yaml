@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: Polymer content engine - Slack integration (button clicks)
+Description: Polymer content engine - Slack integration (button clicks) and the daily run timers
 
 Parameters:
   SlackBotToken:
@@ -59,6 +59,16 @@ Resources:
             RestApiId: !Ref SlackApi
             Path: /slack/interact
             Method: POST
+        DailyRun:
+          Type: Schedule
+          Properties:
+            Schedule: cron(17 13 * * ? *)
+            Input: '{"scheduled_command": "run"}'
+        DailyIndex:
+          Type: Schedule
+          Properties:
+            Schedule: cron(17 14 * * ? *)
+            Input: '{"scheduled_command": "index"}'
 
 Outputs:
   SlackInteractUrl:
