@@ -5,11 +5,11 @@ slug: interview-guide
 metaDescription: A complete interview guide covering screening, question design, scoring, bias, feedback, and rejection — so every candidate gets a fair, consistent evaluation.
 mainImageAlt: Hiring manager reviewing an interview guide with structured questions and a scoring rubric on a desk
 
-The interview is where hiring gets rigorous or falls apart, and for most growing teams, it falls apart in the same ways every time. Different interviewers ask different questions, scores mean different things to different people, and the debrief turns into a conversation about impressions rather than evidence. [Gallup](https://www.gallup.com/workplace/651650/lasting-impact-exceptional-candidate-experiences.aspx) found that 44% of workers say the interviews they had with the hiring team had the most influence on their decision to accept a job offer, more than any other factor besides pay. How you run the interview shapes what candidates decide about you.
+Most hiring teams struggle to justify their interview decisions once the debrief is over. Different interviewers ask different questions and assign scores differently, and the debrief turns into a conversation about impressions rather than evidence. [Gallup](https://www.gallup.com/workplace/651650/lasting-impact-exceptional-candidate-experiences.aspx) found that 44% of candidates say the interview experience influenced their decision to accept an offer more than anything else besides pay. Without structure, chance determines both the team's evaluation and the candidate's impression of the company.
 
-A structured interview process is the end-to-end sequence of stages through which a candidate is evaluated for a role, from the first screening call through the final decision. It gives every candidate the same questions, the same scoring rubric, and the same standard for evaluation — so the debrief produces a decision based on evidence rather than gut feel.
+A structured interview process runs from the job analysis that shapes your questions through the screening call, the interviews themselves, scoring, and the final decision. It gives every candidate the same questions and the same standard for evaluation, so the debrief produces a decision based on evidence rather than gut feel.
 
-This guide covers each stage of that process in order: how to build a job analysis before writing a single question, how to run a screening call, how to design questions that surface real signal, how to score candidates consistently, and how to close the loop with feedback and rejection that leave every candidate with a fair impression of your company.
+This guide covers each stage in order, from job analysis and question design through the screening call, scoring, and closing with feedback and rejection that leave every candidate with a fair impression of your company.
 
 ## What belongs in an interview guide
 
