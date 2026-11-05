@@ -1,0 +1,4 @@
+- sap.com (SAP, SAP SuccessFactors — an all-in-one HR platform that includes applicant tracking and recruiting tools.): https://www.sap.com/resources/what-is-an-applicant-tracking-system
+- jobadder.com (JobAdder, A recruitment CRM and applicant tracking system for staffing agencies and in-house hiring teams.): https://jobadder.com/blog/what-is-candidate-relationship-management-crm-in-recruiting/
+- olibr.com (Olibr, A tech hiring platform that connects companies with vetted software engineers.): https://olibr.com/blog/recruiting-crm-vs-ats
+- softwarefinder.com (Software Finder, A software discovery platform that lists and compares HR and recruiting software solutions.): https://softwarefinder.com/resources/candidate-relationship-management-systems
