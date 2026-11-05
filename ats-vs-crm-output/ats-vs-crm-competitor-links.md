@@ -1,3 +1,0 @@
-- recruiterflow.com (Recruiterflow, Recruiting CRM and applicant tracking system for hiring teams.): https://recruiterflow.com/blog/candidate-relationship-management/
-- hiretruffle.com (HireTruffle, Talent sourcing and recruiting platform for hiring teams.): https://www.hiretruffle.com/blog/talent-acquisition-statistics
-- serendi.com (Serendi, Recruiting and talent acquisition software.): https://www.serendi.com/post/recruitment-statistics
