@@ -29,7 +29,7 @@ Adoption is high at the enterprise level. According to [Aptitude Research](https
 
 ## Where the two tools diverge
 
-The easiest way to draw the line is by timing. The moment a candidate submits an application, they move from CRM territory into ATS territory. Before that moment, the CRM holds the relationship. After it, the ATS owns the process. Metaview frames the asymmetry plainly: "Your ATS tracks who applied. Your CRM tracks who you wish would apply."
+The easiest way to draw the line is by timing. That boundary falls at the moment of application: before it, the CRM holds the relationship; after it, the ATS owns the process. Metaview frames the asymmetry plainly: "Your ATS tracks who applied. Your CRM tracks who you wish would apply."
 
 The difference between the two tools is also one of purpose: compliance versus engagement. An ATS is built around compliance — EEOC reporting, offer letter management, structured interview feedback, and an auditable record of every stage move and decision. A CRM, by contrast, is built around engagement: drip campaigns, event-based outreach, talent community newsletters, and the relationship-building that keeps a passive candidate warm over months or years. The reverse is equally true: an ATS is poorly suited to running multi-touch nurture sequences for candidates who haven't expressed interest in a specific role yet.
 
@@ -72,7 +72,7 @@ The third cost is integration. Connecting a CRM to an existing ATS requires tech
 
 Some organizations run an ATS and a recruiting CRM side by side, and for high-volume or proactive hiring programs, the combination makes sense. The CRM sources and warms candidates; the ATS takes over the moment they apply; both systems stay in sync through an integration. [HR Dive reports that building a talent pipeline is the top priority for 48% of organizations](https://www.hrdive.com/news/talent-pipeline-top-priority-for-recruiters/707784/), which reflects how seriously larger teams take the pre-application stage of hiring.
 
-The integration gap, however, is real. When the two systems don't share data cleanly, context gets lost at the handoff. A recruiter who spent three months nurturing a candidate may never surface that history to the interviewer. The candidate gets a generic experience; the team loses the advantage of the relationship it built. When that handoff breaks down, context is lost.
+The integration gap, however, is real. When the two systems don't share data cleanly, context gets lost at the handoff. A recruiter who spent three months nurturing a candidate may never surface that history to the interviewer. The candidate gets a generic experience; the team loses the advantage of the relationship it built.
 
 Before committing to both, add up the administrative overhead, the data maintenance burden, and the combined subscription cost, then weigh that total against what the setup actually delivers. Running two systems well requires keeping data clean, integrations maintained, and workflows aligned. Teams that underestimate that work end up paying for capabilities they never fully use.
 
