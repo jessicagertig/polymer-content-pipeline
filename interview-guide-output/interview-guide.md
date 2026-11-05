@@ -42,7 +42,7 @@ Before the call, send a confirmation that includes the format, duration, and who
 
 ## Question design: what to ask and why
 
-The questions you ask determine the quality of the information you get. There are two types worth understanding before you build your question set.
+The questions you ask determine the quality of the information you get. The two types that matter most are behavioral questions and situational questions.
 
 Behavioral questions ask candidates to describe something they have already done: "Tell me about a time when you had to manage a project without enough resources." These questions are more predictive of future performance than hypotheticals, because they are grounded in real experience rather than imagined scenarios. "Tell me about a time when…" is more useful than "What would you do if…" for exactly this reason — past behavior reflects real constraints, real trade-offs, and real outcomes.
 
@@ -104,7 +104,7 @@ Rejection is the most neglected part of the interview process. The candidates yo
 
 Send the rejection as soon as the decision is made. A candidate who is waiting for a response cannot move forward in their job search, and moving quickly shows respect for their time.
 
-Candidates who reached the interview stage deserve more than a form email. Having prepared, shown up, and given real time to the process, they have earned a thoughtful response. A note that acknowledges what they did well and explains, in behavioral terms, where the final decision landed gives them something useful and leaves them with a better impression of your company. That impression determines whether they refer someone to an open role, apply again, or speak well of your hiring process to others.
+Candidates who reached the interview stage deserve more than a form email. Having prepared, shown up, and given real time to the process, they have earned a thoughtful response. A note that acknowledges what they did well and explains, in behavioral terms, where the final decision landed gives them something useful and leaves them with a better impression of your company.
 
 For templates across every stage, from post-application to post-final-round, the guide to [job rejection emails](/blog/job-rejection-email) covers what to say and how to personalize a note without opening the door to a prolonged negotiation.
 
