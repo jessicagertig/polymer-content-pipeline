@@ -48,7 +48,7 @@ def research_brief(opp) -> str:
         page_structure=page_structure(opp),
         keyword=opp.keyword,
         supporting_keywords=", ".join(opp.supporting_keywords) or "(none specified)",
-        editor_brief=EDITOR_BRIEF.format(rationale=opp.rationale) if opp.page_type.value == "alternatives" else "",
+        editor_brief=EDITOR_BRIEF.format(rationale=opp.rationale),
         format_note=FORMAT_NOTES.get(opp.page_type.value, ""),
         max_words=settings.research_max_words,
     )
@@ -80,6 +80,7 @@ def _three_step_brief(opp, structure: str) -> str:
         page_structure=structure,
         keyword=opp.keyword,
         supporting_keywords=", ".join(opp.supporting_keywords) or "(none specified)",
+        editor_brief=EDITOR_BRIEF.format(rationale=opp.rationale),
     )
     definitions_note = (" Devote one search to each side of the versus." if page_type == "comparison"
                         else " If one search turns up enough, stop there.")

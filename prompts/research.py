@@ -87,7 +87,9 @@ You are researching for an article that will be built based on this formatting g
 {keyword}
 
 ## Supporting keywords
-{supporting_keywords}"""
+{supporting_keywords}
+
+{editor_brief}"""
 
 STEP_USER = """Research the following blog article. This is one of three research steps: definitions, then {topic}, then statistics. In this step, research only {step}. Your search limit for this step is {max_searches}. Use a different query for each search.{search_note}
 

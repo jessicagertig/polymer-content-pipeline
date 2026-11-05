@@ -23,6 +23,7 @@ from lib.logging import get
 from main import _save_output
 from models.content import ContentPage
 from prompts.content import CONTENT_SYSTEM
+from prompts.research import EDITOR_BRIEF
 from agents.content_generator import page_structure
 
 log = get(__name__)
@@ -35,6 +36,7 @@ OPENING_USER = """Write the opening of this article, by the Opening rules in the
 ## Target keyword
 {keyword}
 
+{editor_brief}
 ## Blog format: {page_type}
 
 {page_structure}
@@ -91,6 +93,7 @@ def rewrite(slug: str) -> None:
     user = OPENING_USER.format(
         title=content.h1,
         keyword=page.opportunity.keyword,
+        editor_brief=EDITOR_BRIEF.format(rationale=page.opportunity.rationale),
         page_type=page.opportunity.page_type.value,
         page_structure=page_structure(page.opportunity),
         article=rest,

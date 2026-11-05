@@ -8,6 +8,7 @@ from agents.research import research_brief
 from lib.logging import get
 from lib.site_pages import existing_pages, blog_articles
 from lib.content_calendar import planned_titles
+from prompts.research import EDITOR_BRIEF
 from lib.text import word_count as wc, reading_time, clean_body_html, has_empty_lists, space_em_dashes
 from lib.validation import validate, fix_internal_links, site_path, MIN_WORD_COUNT
 from models.content import ContentPage, GeneratedContent, ContentStatus
@@ -93,6 +94,7 @@ def generate(page: ContentPage) -> ContentPage:
         proposed_url=opp.proposed_url,
         proposed_title=opp.proposed_title,
         competitor_context=competitor_context,
+        editor_brief=EDITOR_BRIEF.format(rationale=opp.rationale),
         research=research,
         site_domain=settings.site_domain,
         existing_pages=json.dumps(articles),
