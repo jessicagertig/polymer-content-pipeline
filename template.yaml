@@ -69,15 +69,15 @@ Resources:
           Properties:
             Schedule: cron(17 14 * * ? *)
             Input: '{"scheduled_command": "index"}'
-        TestRun2130:   # one-time test of the timed run, 2026-11-05; remove after it runs
+        TestRun2045:   # one-time test of the timed run, 2026-11-05; remove after it runs
           Type: Schedule
           Properties:
-            Schedule: cron(30 21 5 11 ? 2026)
+            Schedule: cron(45 20 5 11 ? 2026)
             Input: '{"scheduled_command": "run"}'
-        TestRun2330:   # one-time test of the timed run, 2026-11-05; remove after it runs
+        TestRun2245:   # one-time test of the timed run, 2026-11-05; remove after it runs
           Type: Schedule
           Properties:
-            Schedule: cron(30 23 5 11 ? 2026)
+            Schedule: cron(45 22 5 11 ? 2026)
             Input: '{"scheduled_command": "run"}'
 
 Outputs:
