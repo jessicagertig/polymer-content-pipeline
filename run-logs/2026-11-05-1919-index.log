@@ -1,0 +1,4 @@
+2026-11-05 19:19:39,758 | INFO    | connectors.indexing | IndexNow: submitted 2 URLs → HTTP 202
+2026-11-05 19:19:39,764 | INFO    | connectors.indexing | GOOGLE_SEARCH_CONSOLE_REFRESH_TOKEN not set — skipping Google indexing request
+2026-11-05 19:19:39,764 | INFO    | connectors.indexing | GOOGLE_SEARCH_CONSOLE_REFRESH_TOKEN not set — skipping Google indexing request
+2026-11-05 19:19:39,765 | INFO    | __main__ | Submitted 2 URL(s) for indexing.
