@@ -11,7 +11,7 @@ from lib.content_calendar import planned_titles
 from lib.text import word_count as wc, reading_time, clean_body_html, has_empty_lists, space_em_dashes
 from lib.validation import validate, fix_internal_links, site_path, MIN_WORD_COUNT
 from models.content import ContentPage, GeneratedContent, ContentStatus
-from prompts.content import CONTENT_SYSTEM, CONTENT_USER, PAGE_SCHEMA, PAGE_STRUCTURES, POLYMER_INCLUDED, POLYMER_EXCLUDED, REDRAFT_SECTION, HUB_SECTION, HUB_UNPUBLISHED, EXPAND_USER, EXPAND_SCHEMA
+from prompts.content import CONTENT_SYSTEM, CONTENT_USER, PAGE_SCHEMA, PAGE_STRUCTURES, POLYMER_INCLUDED, POLYMER_EXCLUDED, POLYMER_EXCLUDED_PRODUCT_BASED, REDRAFT_SECTION, HUB_SECTION, HUB_UNPUBLISHED, EXPAND_USER, EXPAND_SCHEMA
 
 
 log = get(__name__)
@@ -68,8 +68,11 @@ def generate(page: ContentPage) -> ContentPage:
 
     if opp.includes_polymer:
         polymer_section = POLYMER_INCLUDED.format(feature_inventory=settings.feature_inventory())
-    else:
-        polymer_section = POLYMER_EXCLUDED
+    elif opp.product_based:
+        polymer_section = POLYMER_EXCLUDED_PRODUCT_BASED
+    else:   # the closer: the article's only mention of Polymer
+        polymer_pages = "\n".join(f"https://{settings.site_domain}{p['url']}" for p in pages if not p["url"].startswith("/blog/"))
+        polymer_section = POLYMER_EXCLUDED.format(feature_inventory=settings.feature_inventory(), polymer_pages=polymer_pages)
 
     articles = blog_articles()
     hub_section = ""

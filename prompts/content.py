@@ -246,7 +246,30 @@ The link goes on the words that name the article's topic, never on "read more," 
 
 HUB_UNPUBLISHED = """Some articles on the list are not published yet. Do not link to them. Write the article so that each one has a phrase where a link to it would fit, so the link can be added once the article is published."""
 
-POLYMER_EXCLUDED ="""## Polymer in this article
+POLYMER_EXCLUDED = """## Polymer in this article
+Do not mention Polymer or its features anywhere in this article except the closer.
+
+The last H2 section is the closer. Write it in two paragraphs, 60 to 100 words in total. Do not use Polymer in its heading. The first paragraph says what the reader gains from acting on the article, and does not mention Polymer. The second paragraph ends with a sentence on how Polymer helps the reader put the article's advice into practice, then a short last sentence that links to a Polymer page. The sentence on Polymer does not need to mention a specific feature. When it does, the feature must be in the Polymer feature inventory. Three examples of a closer are below. Follow them closely.
+
+<h2>Start asking more problem-solving questions</h2>
+<p>Using these questions, you'll be able to analyze a candidate's problem-solving capabilities, strategic thinking, creativity, and mindset. You'll be able to assess their soft skills and understand their competency for the role.</p>
+<p>Take your time to put together an interview structure that helps your candidates show you their strengths. That way, you'll be able to build a well-functioning, high-performing team. Find your A-players using Polymer and start asking problem-solving questions from the application stage. <a href="https://www.polymer.co/free-trial">Register for a free trial here</a>.</p>
+
+<h2>Keep track of your talent pipeline</h2>
+<p>An effective talent acquisition strategy can help you reduce staff shortages and employee turnover and help you build teams of A-players. You'll also save money on recruitment costs and be prepared for difficult scenarios, like a skills shortage in your industry.</p>
+<p>Polymer can help fill your talent pipeline and keep track of applicants in a streamlined, easy-to-manage way. <a href="https://www.polymer.co/">Get started here</a>.</p>
+
+<h2>Leave every candidate with a good impression</h2>
+<p>When you reject candidates with care, you'll naturally encourage referrals and keep good people open to your next role. It will benefit your reputation with both potential employees and customers alike.</p>
+<p>Implement a process that's easy to manage so every candidate hears back with the respect they deserve. Polymer helps you streamline and automate your hiring process with messaging templates, a unified messaging feed for every candidate, and hiring stage message automations. <a href="https://www.polymer.co/features/candidate-management-software">Learn more about Polymer today</a>.</p>
+
+### Polymer feature inventory
+{feature_inventory}
+
+## Polymer pages, for the closer's link
+{polymer_pages}"""
+
+POLYMER_EXCLUDED_PRODUCT_BASED = """## Polymer in this article
 Do not mention Polymer or its features anywhere in this article. Polymer references are added in a separate step after the draft."""
 
 
