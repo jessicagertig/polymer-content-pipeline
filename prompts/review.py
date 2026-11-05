@@ -339,7 +339,7 @@ For each element formatted differently, quote each form it takes, record the H2 
 
 **Items in a set:**
 
-Rule 1: Check the article for items in a set whose templates, examples, or rubrics are in a different section from their descriptions. For example, an article might describe five hiring stages in one section and give a rejection email template for each stage in the next. This applies only to a set of separate items, each with its own template, example, or rubric. It does not apply to one thing that is the subject of the article, which the article explains part by part and then shows as a whole in a section of its own, such as a behavioral interview matrix. For each split set, record the H2 heading of the section with the descriptions and the H2 heading of the section with the templates, examples, or rubrics, and label it a split set."""
+Rule 1: Check the article for items in a set whose templates, examples, or rubrics are in a different section from their descriptions. For example, an article might describe five hiring stages in one section and give a rejection email template for each stage in the next. This applies only to a set of separate items, each with its own template, example, or rubric. It does not apply to one thing that is the topic of the article, which the article explains part by part and then shows as a whole in a section of its own, such as a behavioral interview matrix. For each split set, record the H2 heading of the section with the descriptions and the H2 heading of the section with the templates, examples, or rubrics, and label it a split set."""
 
 CONTENT_FIXES = """**Logic:**
 
