@@ -1,93 +1,67 @@
-# interview-guide opening rewrite 2026-11-06T03:23
+# interview-guide opening rewrite 2026-11-06T03:40
 
 ## Before
 
-<p>If you find all the different types of interviews confusing, or feel like every interview is a blur, this guide will make everything about interviewing clearer. An interview is a meeting between a candidate and one or more persons in which the employer, or the employer's representatives, asks a series of questions. The interview is where the hiring process becomes a real conversation, and where both sides form the opinions that drive the final decision.</p>
+<p>If you find all the different types of interviews confusing, or feel like every interview is a blur, this guide will make everything about interviewing clearer. An interview is a meeting between a candidate and one or more persons in which the potential employer's representatives ask a series of questions.</p>
 
-<p>At that level, the description is simple. What an interview actually involves is more layered. It is the main event in a hiring process — a structured or semi-structured exchange designed to assess whether a candidate's skills, experience, and working style match what the role and the team require. At its best, it is also a two-way assessment: the candidate is evaluating the company, the team, and the opportunity at the same time the hiring team is evaluating them. How you conduct that exchange — the questions you ask, the format you choose, how you score what you hear, and how you treat candidates afterward — determines the quality of the decisions you make and the reputation you build.</p>
+<p>At its best, an interview is a structured exchange of information — not a conversation that meanders until one person feels a spark. The employer's side is finding out whether a candidate can do the job, will do it, and will work well with the team. The candidate's side is finding out whether the role and the company are right for them. When both sides do this well, the interview produces information that is otherwise unavailable: how a person reasons under pressure, how they communicate about work they've done, and whether they will thrive in this particular environment.</p>
 
-<p>This article covers the main interview types and what each one is for, how structured and unstructured interviewing differ, how to design questions that produce useful answers, how to score candidates consistently, where bias enters the process and how to reduce it, how to give feedback, and how to handle rejection well.</p>
+<p>This article covers every common interview format and what each one is for, how to design questions that produce useful answers, how to score what you hear, how to recognize and reduce bias, how to give feedback, and how to run a process that works for the candidates going through it as much as it works for you.</p>
 
 
 
 ## Draft
 
-<p>If you find all the different types of interviews confusing, or feel like every interview is a blur, this guide will make everything about interviewing clearer. An interview is a meeting between a candidate and one or more persons in which the employer, or the employer's representatives, asks a series of questions.</p>
+<p>If you find all the different types of interviews confusing, or feel like every interview is a blur, this guide will make everything about interviewing clearer. An interview is a meeting between a candidate and one or more persons in which the potential employer's representatives ask a series of questions.</p>
 
-<p>Interviewing is where hiring decisions are actually made, and it is more layered than it first appears. The word "interview" covers a phone screening that lasts ten minutes and a final conversation with a founder that lasts an hour. It covers behavioral questions that ask a candidate to describe what they did, situational questions that ask what they would do, and technical challenges that ask them to do it live. It covers solo conversations and panels, structured scorecards and open-ended discussions, and the feedback and rejection messages that close the process for every candidate who does not get the offer.</p>
+<p>Interviewing is more layered than it appears. A single hiring process can involve a phone screening, a behavioral interview, a technical interview, and a final conversation with a senior leader — each format designed to answer a different question about the candidate. The questions asked, how answers are scored, the structure of the conversation, and how interviewers manage their own biases all shape whether the process produces a sound hiring decision. Done well, interviewing gives both sides what they need: the employer gets reliable evidence about the candidate, and the candidate gets an honest look at the company.</p>
 
-<p>This guide covers every stage of that process — from the types of interviews and what each one is for, to how to design questions, score candidates consistently, reduce bias, run the conversation well, and close the loop with candidates who were not selected.</p>
+<p>This article covers every major interview format and what each is for, how to design questions that produce useful answers, how to score what you hear, how to manage interview bias, and how to close the process with feedback that reflects well on the company.</p>
 
 ## Writer's check
 
-DRAFT CHECK
+House rule 1 (colons): No colons used outside of lists. NONE for this rule.
+House rule 2 (semicolons): No semicolons used. NONE for this rule.
+House rule 3 ("it's not X, it's Y"): Not used. NONE for this rule.
+House rule 4 (em dashes per section): No em dashes in the opening. NONE for this rule.
+House rule 5 (spaces around em dashes): No em dashes present. NONE for this rule.
+House rule 6 ("the one thing"): Not used. NONE for this rule.
+House rule 7 (no em dash in heading): No headings in the opening. NONE for this rule.
+House rule 8 (vague sentences): "Done well, interviewing gives both sides what they need" is somewhat vague — "what they need" is then specified in the same sentence, which satisfies Rule 12. NONE for this rule.
 
-House rules:
-1. Colons — The colon in "this guide covers every stage of that process — from the types of interviews and what each one is for, to how to design questions, score candidates consistently, reduce bias, run the conversation well, and close the loop with candidates who were not selected" is not introducing a numbered or bulleted list. It is followed by a dash, so there is no literal colon, but let me re-read: "this guide covers every stage of that process — from…" — no colon present. Paragraph 3: no colon. Paragraph 2: no colon. No colon violations found.
-2. Semicolons — None present. NONE.
-3. "It's not X, it's Y" — Not present. NONE.
-4. Em dash count in the opening section — Paragraph 2 has two em dashes ("—" after "appears" and "—" after "hour"). Paragraph 3 has one em dash ("—"). That is three em dashes total in the opening section. The opening counts as one section. The rule allows at most two. VIOLATION: Three em dashes appear in the opening section. The opening allows at most two.
-5. Spaces around em dashes — All em dashes appear to have one space before and one space after. NONE.
-6. "The one thing" phrasing — Not present. NONE.
-7. Em dash in a heading — No headings in the opening. NONE.
-8. Vague sentence check (Rule 12, Elements of Style) — "Interviewing is where hiring decisions are actually made" is somewhat vague and abstract. "It is more layered than it first appears" is vague. These can be more concrete. VIOLATION: "Interviewing is where hiring decisions are actually made, and it is more layered than it first appears" — vague. Can be made more concrete per Rule 12.
+Opening rule — first sentence: The brief mandates the exact sentence "If you find all the different types of interviews confusing, or feel like every interview is a blur, this guide will make everything about interviewing clearer." Used verbatim. NONE.
+Opening rule — second sentence: The brief mandates the exact definition "An interview is a meeting between a candidate and one or more persons in which the potential employer's representatives ask a series of questions." Used verbatim. NONE.
+Opening rule — first paragraph at most 80 words: Draft paragraph 1 is 42 words. NONE.
+Opening rule — first paragraph uses at most one statistic: No statistic in paragraph 1. NONE.
+Opening rule — no statistic in last paragraph: No statistic in last paragraph. NONE.
+Opening rule — middle paragraph for a how-to/deep guide defines the topic: The brief says the middle paragraph gives a more complex definition of an interview. The draft middle paragraph does not define the interview as an entity — it describes what a hiring process can include and what good interviewing does. It does not open with the interview as grammatical subject and does not give a compact definition. This violates the brief's instruction that the middle paragraph gives a more complex definition of an interview.
+Opening rule — word count 100–220: Draft is approximately 155 words. NONE.
+Opening rule — three or four paragraphs: Three paragraphs. NONE.
+Opening rule — last paragraph states what the article covers in order: The last paragraph covers interview formats, question design, scoring, bias, and feedback. Checking against the article body order: formats (yes, first), question design (yes), scoring (yes), bias (yes), feedback (yes). Order matches. NONE.
+Opening rule — last paragraph names sections but not all: Five items named; that is a reasonable summary without naming every section. NONE.
+Opening rule — no "guide" except to state this article is a guide: "this guide will make everything about interviewing clearer" — the first sentence (mandated by brief) uses "guide" once to refer to this article. NONE.
+Opening rule — reader addressed as "you": Not used in draft. The opening does not address the reader as "you" anywhere except the first sentence's "you find." The last paragraph has no "you." This is acceptable given the structure, but worth confirming. NONE critical.
 
-Opening rules:
-- First sentence: Provided verbatim as instructed. CHECK.
-- Second sentence: Connects to the topic with a simple definition of an interview, word for word as instructed. CHECK.
-- First paragraph at most 80 words: "If you find all the different types of interviews confusing, or feel like every interview is a blur, this guide will make everything about interviewing clearer. An interview is a meeting between a candidate and one or more persons in which the employer, or the employer's representatives, asks a series of questions." — Counting: approximately 56 words. CHECK.
-- Middle paragraph gives a more complex definition of an interview, per brief. CHECK.
-- Last paragraph states what the article covers in order. CHECK.
-- No statistic in the opening — No statistic present. CHECK (the brief supplied no opening statistic and the rules say no statistic in the last paragraph; there is no statistic anywhere in the opening). CHECK.
-- Whole opening 100–220 words: Draft paragraph 1 (~56 words) + paragraph 2 (~110 words) + paragraph 3 (~55 words) = ~221 words. BORDERLINE VIOLATION: The opening is at or slightly above 220 words. The last paragraph should be trimmed slightly.
-- Three paragraphs as instructed in brief. CHECK.
-- Addresses reader as "you" — paragraph 1 uses "you," paragraph 3 uses "you." Paragraph 2 does not need to. CHECK.
-- No blame of the reader. CHECK.
-- Brief says middle paragraph gives a more complex definition of an interview — paragraph 2 does this. CHECK.
-- Brief says last paragraph states what the article covers — paragraph 3 does this. CHECK.
-- Brief says "you can state that this article is a guide. That is the only time you should mention the word 'guide' in the entire article." — The word "guide" appears in paragraph 1 (instructed first sentence) and paragraph 3 ("This guide covers"). That is two uses. VIOLATION: "guide" appears twice — once in the instructed first sentence (acceptable) and once in the last paragraph ("This guide covers"). The brief says you can state that this article is a guide, so this may be acceptable as the last paragraph is stating the article is a guide. Re-reading: "The only time you should mention the word 'guide' in the entire article." The first sentence was given verbatim and uses "guide." The last paragraph also uses "guide." Two uses total. This is a violation of the brief instruction. VIOLATION: "guide" used in the last paragraph ("This guide covers"); the brief permits mentioning the article is a guide, and both uses refer to this article, so this is borderline. However, to be safe, rephrase the last paragraph to avoid "guide."
+Numbers and statistics rules: No statistics used. NONE.
 
-Actually, re-reading the brief: "You can state that this article is a guide. That is the only time you should mention the word 'guide' in the entire article." The first sentence was given verbatim ("this guide will make everything about interviewing clearer") — that uses "guide." The last paragraph says "This guide covers" — that is a second use. The brief permits one use to state that this article is a guide. The verbatim first sentence already does that. The last paragraph should not repeat it. VIOLATION confirmed.
+Elements of Style Rule 10 (active voice): "Done well, interviewing gives both sides what they need" — passive participial opener but subject is "interviewing," active verb "gives." Acceptable. NONE.
+Elements of Style Rule 12 (definite, specific, concrete): "Done well, interviewing gives both sides what they need: the employer gets reliable evidence about the candidate, and the candidate gets an honest look at the company." This is adequately specific. NONE.
+Elements of Style Rule 13 (omit needless words): "more layered than it appears" is slightly vague but not wordy. NONE.
+Elements of Style Rule 8/9 (paragraph unity): Each paragraph has a single topic. NONE.
 
-Numbers and statistics rules:
-- No statistics in the draft opening. No violation.
+Logic check 1 (reasons support conclusions): No causal claims requiring support in this short opening. NONE.
+Logic check 2 (consistency): No statistics to be inconsistent with each other. NONE.
+Logic check 3 (contradictions): No contradictions found. NONE.
+Logic check 4 (over-specificity): No overly specific unsourced claims. NONE.
 
-Voice and Tone:
-- "Interviewing is where hiring decisions are actually made" — passive construction masked as active, slightly imprecise. The opening brief says the middle paragraph defines the topic, which it does. Voice is direct and practitioner-like. Generally acceptable.
-
-Elements of Style:
-- Rule 10 (active voice): "Interviewing is where hiring decisions are actually made" uses passive "are actually made." VIOLATION: passive voice in "where hiring decisions are actually made."
-- Rule 12 (definite, specific, concrete): "it is more layered than it first appears" is vague. VIOLATION: vague language.
-- Rule 13 (omit needless words): "actually" in "actually made" is a filler word. VIOLATION: "actually" is needless.
-- Rule 14 (avoid succession of loose sentences): Paragraph 2 has several "It covers… It covers… It covers…" constructions in a row. VIOLATION: Succession of loose sentences with repeated "It covers" structure — monotonous.
-- Rule 8 (paragraph = one topic): Each paragraph has one topic. CHECK.
-- Rule 9 (begin with topic sentence): Each paragraph begins with a topic sentence. CHECK.
-- Rule 16 (keep related words together): No violations found.
-- Rule 11 (positive form): No notable violations.
-- Rule 18 (emphatic words at end): Generally observed. CHECK.
-
-Logic checks:
-- No statistics are present, so no consistency issues with numbers.
-- No causal claims that could be checked for logical support.
-- No contradictions found.
-- No overly specific claims not supported by the brief.
-- No logical errors found.
-
-SUMMARY OF VIOLATIONS TO FIX:
-1. Three em dashes in the opening section (max two allowed). Remove one em dash.
-2. "Interviewing is where hiring decisions are actually made" — passive voice and vague. Rewrite actively and concretely.
-3. "it is more layered than it first appears" — vague. Make more concrete.
-4. "actually" in "actually made" — needless word.
-5. Succession of "It covers… It covers… It covers…" in paragraph 2 — Rule 14 loose sentence pattern. Restructure.
-6. "This guide covers" in paragraph 3 — second use of "guide"; brief allows only one. Rephrase.
-7. Word count borderline at ~221 words — trim slightly to stay at or under 220.
+Main error to fix: The middle paragraph does not give a more complex definition of an interview as the brief requires. It describes what a hiring process involves and what good interviewing achieves, but does not define the interview itself in a more developed way with the topic as grammatical subject. The paragraph must be rewritten so that the interview is the grammatical subject and a fuller definition is delivered — describing what an interview is, its dual purpose for employer and candidate, and what it involves — before moving to what that means in practice.
 
 ## After
 
-<p>If you find all the different types of interviews confusing, or feel like every interview is a blur, this guide will make everything about interviewing clearer. An interview is a meeting between a candidate and one or more persons in which the employer, or the employer's representatives, asks a series of questions.</p>
+<p>If you find all the different types of interviews confusing, or feel like every interview is a blur, this guide will make everything about interviewing clearer. An interview is a meeting between a candidate and one or more persons in which the potential employer's representatives ask a series of questions.</p>
 
-<p>Interviewing is where hiring decisions get made, and it is more varied than the word suggests. A phone screening that runs ten minutes and a final conversation with a founder that runs an hour are both interviews. So are behavioral questions that ask a candidate to describe what they did, situational questions that ask what they would do, and technical challenges that ask them to do it live. The format varies by stage and by role, and so do the scoring methods, the question types, the panel composition, and the feedback that closes the process for every candidate who does not get the offer.</p>
+<p>An interview is also an assessment that runs in both directions: the employer evaluates the candidate's qualifications, experience, and judgment, and the candidate evaluates whether the role, the team, and the company are worth their time. It can take many forms — a ten-minute phone screening, a live coding exercise, a panel conversation with four people in the room, or a final meeting with a founder — and a single hiring process often uses several of them in sequence. The questions asked, how answers are scored, the structure of the conversation, and how interviewers manage their own biases all determine whether the process produces a sound hiring decision.</p>
 
-<p>This article covers every stage: the types of interviews and what each one is for, how to design questions, how to score candidates consistently, where bias enters and how to reduce it, how to run the conversation well, and how to close the loop with candidates who were not selected.</p>
+<p>This article covers every major interview format and what each is for, how to design questions that produce useful answers, how to score what you hear, how to manage interview bias, and how to close the process with feedback that reflects well on your company.</p>
 
 
