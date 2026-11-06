@@ -212,7 +212,7 @@ Add substance where the article is thin: a section with fewer than about 150 wor
 
 {page_structure}
 
-## Research
+{editor_brief}## Research
 
 {research}
 

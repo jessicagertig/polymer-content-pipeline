@@ -50,7 +50,7 @@ You are researching for an article that will be built based on this formatting g
 Return a research brief of at most {max_words} words, as plain text in seven numbered sections:
 
 1. Statistics: five to eight recent figures the article can cite. For each, give the number, what it measures, the source, the publication, the article's title, the year, and the URL. The source is the company, organization, or study the page at the URL credits for the figure. The publication is the company, organization, or author that published that page. When the page credits no one else, the publication is also the source. The statistics must have a 2-to-1 ratio of benefits to negatives. For every 1 negative, you must have 2 benefits. If you are simply unable to get 8 statistics, that's fine.
-2. Definitions: terms and definitions of items in the title. For each, provide a combination of a summary and direct quotes from the source, with the source name and URL.
+2. Definitions: terms and definitions of the article's topic. When the word "guide" is in the title, the guide is this article, never the topic, so do not define it. Look for definitions in Polymer's articles, at polymer.co/blog, first. For each, provide a combination of a summary and direct quotes from the source, with the source name and URL.
 3. Best practices: if this will be a guide, look up best practices and other guides. Do not focus on only one guide or only one set of best practices. Provide a minimum of 3 sources. For each, provide a combination of a summary and direct quotes from the source, with the source name and URL.
 4. Trade-offs: for a versus article that is not product-based, look up what other people say are the trade-offs between the two. Provide a minimum of 3 sources. For each, provide a combination of a summary and direct quotes from the source, with the source name and URL.
 5. List items: for a list article that is not product-based, look up what good items of this kind are, and what makes them good and more effective. Do not focus on only one source. Provide a minimum of 3 sources. For each, you may give its list exactly as the source gives it, with what the source says makes the items good, the source name, and the URL.
@@ -109,11 +109,16 @@ STEP_TOPICS = {
     "interview-question-guide": "list items",
 }
 
+# For an article with Hub Links: the published Hub Links articles' text, read as sources.
+POLYMER_ARTICLES_USER = """Below are articles on this site that this article links to. For each, give its title and URL, what it covers, its main points, and any definition it gives, quoted. Use them as sources for this article.
+
+{articles}"""
+
 DEFINITIONS_STEP = dict(
     step="definitions",
     heading="Definitions",
     max_words=200,
-    instructions="terms and definitions of items in the title. For each, provide a combination of a summary and direct quotes from the source, with the source name, the article's title, and the URL.",
+    instructions="terms and definitions of the article's topic. When the word \"guide\" is in the title, the guide is this article, never the topic, so do not define it. Look for definitions in Polymer's articles, at polymer.co/blog, first. For each, provide a combination of a summary and direct quotes from the source, with the source name, the article's title, and the URL.",
 )
 
 TOPIC_STEPS = {

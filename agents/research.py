@@ -9,10 +9,10 @@ max_uses (settings.research_max_searches), the response max_tokens
 import re
 
 from config.settings import settings
-from lib.llm import research_call
+from lib.llm import research_call, structured_call
 from lib.logging import get
 from lib.repo import ROOT
-from prompts.research import (RESEARCH_SYSTEM, RESEARCH_USER, FORMAT_NOTES, EDITOR_BRIEF,
+from prompts.research import (RESEARCH_SYSTEM, RESEARCH_USER, FORMAT_NOTES, EDITOR_BRIEF, POLYMER_ARTICLES_USER,
                               STEP_USER, STEP_TOPICS, DEFINITIONS_STEP, TOPIC_STEPS, STATISTICS_STEP)
 
 
@@ -69,9 +69,35 @@ def research_brief(opp) -> str:
     return result["text"]
 
 
+def _polymer_articles(opp) -> str:
+    """For an article with Hub Links: each published Hub Links article's text from Sanity, read by one call as
+    sources, under "## Polymer articles". Empty when none is published yet."""
+    from connectors import sanity
+    from lib.site_pages import blog_articles
+    from lib.validation import site_path
+    titles = {a["url"]: a["title"] for a in blog_articles()}
+    articles = []
+    for path in (site_path(u) for u in opp.hub_links):
+        if path not in titles:
+            continue   # not published yet; the writer gets a note for it
+        doc = sanity.query('*[_type == "blogPost" && slug.current == $slug && !(_id in path("drafts.**"))][0]{content}',
+                           {"slug": path.rsplit("/", 1)[-1]}).get("result") or {}
+        text = "\n".join("".join(c.get("text", "") for c in b.get("children", [])) for b in doc.get("content") or [] if b.get("_type") == "block")
+        articles.append(f"### {titles[path]}\nhttps://{settings.site_domain}{path}\n\n{text}")
+    if not articles:
+        return ""
+    result = structured_call(system=RESEARCH_SYSTEM, user=POLYMER_ARTICLES_USER.format(articles="\n\n".join(articles)),
+                             tool_name="submit_research", tool_description="Submit the Polymer articles section of the brief.",
+                             input_schema={"type": "object", "properties": {"text": {"type": "string"}}, "required": ["text"]},
+                             max_tokens=settings.research_polymer_articles_max_tokens)
+    log.info(f"Research, Polymer articles: {len(articles)} article(s), {len(result['text'].split())} words")
+    return "## Polymer articles\n\n" + result["text"].strip()
+
+
 def _three_step_brief(opp, structure: str) -> str:
     """Definitions, then the article type's topic search, then statistics, each a separate call.
-    The statistics step searches only the reputable sources' sites (config/reputable-sources.txt)."""
+    The statistics step searches only the reputable sources' sites (config/reputable-sources.txt).
+    Its output is also saved on its own as <slug>-output/<slug>-statistics.md, for the checker and fixer."""
     page_type = opp.page_type.value
     context = dict(
         topic=STEP_TOPICS[page_type],
@@ -90,7 +116,7 @@ def _three_step_brief(opp, structure: str) -> str:
         (STATISTICS_STEP, settings.research_statistics_searches),
     ]
     reputable = [address for _, addresses in settings.reputable_sources() for address in addresses]
-    parts = []
+    parts = [polymer] if opp.hub_links and (polymer := _polymer_articles(opp)) else []
     for step, searches in steps:
         result = research_call(
             system=RESEARCH_SYSTEM,
@@ -104,4 +130,7 @@ def _three_step_brief(opp, structure: str) -> str:
             raise RuntimeError(f"Research call for {step['step']} returned no text")
         log.info(f"Research, {step['step']}: {result['searches']} searches, {len(result['text'].split())} words")
         parts.append(result["text"])
+        if step is STATISTICS_STEP:
+            from lib import repo
+            repo.stage(f"{opp.id}-output/{opp.id}-statistics.md", result["text"])
     return "\n\n".join(parts)

@@ -23,6 +23,7 @@ from lib.llm import structured_call, cost, usage_line
 from lib.logging import get
 from lib import resources as res
 from lib.repo import ROOT
+from prompts.research import EDITOR_BRIEF
 from lib.text import word_count, reading_time, space_em_dashes
 from main import _save_output
 from models.content import ContentPage
@@ -211,17 +212,28 @@ def _check_section(section: str, system: str, fix_system: str, max_fixes: int, i
 
 def brief_statistics(brief: str) -> str:
     """The Statistics section of a research brief, from its heading to the "## Unverified" after it, under the
-    heading "## Research brief: statistics", for the checker and the fixer. Empty when the brief has none."""
-    start = brief.find("## Statistics")
-    if start < 0:
+    heading "## Research brief: statistics", for the checker and the fixer. The heading may be "## Statistics" or
+    "**Statistics**". Empty when the brief has none."""
+    start = re.search(r"^(?:#+ *|\*\*)Statistics\**\s*$", brief, re.M)
+    if not start:
         return ""
-    end = brief.find("## Unverified", start)
-    return f"\n\n## Research brief: statistics\n\n{brief[start + len('## Statistics'):end if end > 0 else None].strip()}"
+    end = re.search(r"^(?:#+ *|\*\*)Unverified\**\s*$", brief[start.end():], re.M)
+    section = brief[start.end():start.end() + end.start()] if end else brief[start.end():]
+    return f"\n\n## Research brief: statistics\n\n{section.strip()}"
 
 
 def _statistics_for(slug: str) -> str:
+    """The statistics search's own output when research saved it; for an older brief, its Statistics section."""
+    saved = ROOT / f"{slug}-output" / f"{slug}-statistics.md"
+    if saved.exists() and saved.read_text().strip():
+        return f"\n\n## Research brief: statistics\n\n{saved.read_text().strip()}"
     path = ROOT / f"{slug}-output" / f"{slug}-research.md"
     return brief_statistics(path.read_text()) if path.exists() else ""
+
+
+def _brief(page) -> str:
+    """The calendar's Article Brief / Angle, under the writer's "## Brief from the editor" heading."""
+    return "\n\n" + EDITOR_BRIEF.format(rationale=page.opportunity.rationale).strip()
 
 
 def _system(template: str = REVIEW_SYSTEM) -> str:
@@ -261,7 +273,7 @@ def check_opening(slug: str, max_fixes: int = 6) -> None:
     progress = ROOT / f"{slug}-output" / f"{slug}-opening-progress.json"
     logic = opening_logic_rules()
     statistics = _statistics_for(slug)
-    sections[0], record, fixes = _check_section(sections[0], _system() + statistics, _system(OPENING_FIX_SYSTEM) + statistics, max_fixes, is_opening=True,
+    sections[0], record, fixes = _check_section(sections[0], _system() + statistics + _brief(page), _system(OPENING_FIX_SYSTEM) + statistics + _brief(page), max_fixes, is_opening=True,
                                                 find_prompt=_with_opening(OPENING_FIND_USER, logic, page.content.h1),
                                                 fix_prompt=_with_opening(OPENING_FIX_USER, logic, page.content.h1), progress=progress)
     _save_body(page, "".join(sections))
@@ -279,7 +291,7 @@ def check_post(slug: str, max_fixes: int = 4, workers: int = 4, stop_at: float =
     page = ContentPage.model_validate_json((ROOT / f"{slug}-output" / f"{slug}.json").read_text())
     sections = split_sections(page.content.body_html)
     statistics = _statistics_for(slug)
-    system, fix_system = _system() + statistics, _system(FIX_SYSTEM) + statistics
+    system, fix_system = _system() + statistics + _brief(page), _system(FIX_SYSTEM) + statistics + _brief(page)
     progress = ROOT / f"{slug}-output" / f"{slug}-check-progress.json"
     done: dict[str, dict] = {}
     if progress.exists():
@@ -363,7 +375,7 @@ def content_check(slug: str, stop_at: float = 0.0) -> bool:
     and the article carries on. Each step is saved to <slug>-content-progress.json, so a
     stopped run resumes. Returns whether the check finished."""
     page = ContentPage.model_validate_json((ROOT / f"{slug}-output" / f"{slug}.json").read_text())
-    system = _system()
+    system = _system() + _brief(page)
     progress = ROOT / f"{slug}-output" / f"{slug}-content-progress.json"
     state = json.loads(progress.read_text()) if progress.exists() else {"step": "start", "body": page.content.body_html, "records": []}
     opening = split_sections(state.get("original", page.content.body_html))[0]
@@ -385,7 +397,7 @@ def content_check(slug: str, stop_at: float = 0.0) -> bool:
         if not state["faults"]:
             save("done")
         else:
-            fixed = structured_call(system=_system(CONTENT_FIX_SYSTEM), user=CONTENT_FIX_USER.format(rules=CONTENT_RULES, fixes=CONTENT_FIXES, faults=state["faults"], body_html=state["body"]),
+            fixed = structured_call(system=_system(CONTENT_FIX_SYSTEM) + _brief(page), user=CONTENT_FIX_USER.format(rules=CONTENT_RULES, fixes=CONTENT_FIXES, faults=state["faults"], body_html=state["body"]),
                                     tool_name="submit_article", tool_description="Submit the corrected article.", input_schema=CONTENT_FIX_SCHEMA, max_tokens=32000)
             body, restored = _restore_opening(opening, fixed["body_html"])
             before = set(_sentences(state["body"]))
@@ -411,7 +423,7 @@ def content_check(slug: str, stop_at: float = 0.0) -> bool:
         found += [f for s in split_sections(state["body"])[1:] for f in _em_dash_faults(s)]
         records.append(f"## Review of the changed sentences\n\n### Log\n\n{review['log'].strip()}\n\n### Faults\n\n{review['faults'].strip()}\n")
         if found:
-            fixed = structured_call(system=_system(CONTENT_REVIEW_FIX_SYSTEM), user=CONTENT_REVIEW_FIX_USER.format(rules=CONTENT_RULES, fixes=CONTENT_FIXES, faults="\n".join(found), body_html=state["body"]),
+            fixed = structured_call(system=_system(CONTENT_REVIEW_FIX_SYSTEM) + _brief(page), user=CONTENT_REVIEW_FIX_USER.format(rules=CONTENT_RULES, fixes=CONTENT_FIXES, faults="\n".join(found), body_html=state["body"]),
                                     tool_name="submit_article", tool_description="Submit the corrected article.", input_schema=CONTENT_FIX_SCHEMA, max_tokens=32000)
             body, restored = _restore_opening(opening, fixed["body_html"])
             larger = _none(fixed["larger_errors"])
@@ -541,7 +553,7 @@ def transition_pass(slug: str, stop_at: float = 0.0) -> bool:
     saved to <slug>-transitions-progress.json, so a stopped run resumes after the last step.
     Returns whether the pass finished."""
     page = ContentPage.model_validate_json((ROOT / f"{slug}-output" / f"{slug}.json").read_text())
-    system = _system()
+    system = _system() + _brief(page)
     progress = ROOT / f"{slug}-output" / f"{slug}-transitions-progress.json"
     state = json.loads(progress.read_text()) if progress.exists() else {"step": "start", "body": page.content.body_html, "records": []}
     opening = split_sections(state.get("original", page.content.body_html))[0]
@@ -563,7 +575,7 @@ def transition_pass(slug: str, stop_at: float = 0.0) -> bool:
         if not state["faults"]:
             save("done")
         else:
-            fixed = structured_call(system=_system(TRANSITIONS_FIX_SYSTEM), user=TRANSITIONS_FIX_USER.format(faults="\n".join(state["faults"]), body_html=state["body"]),
+            fixed = structured_call(system=_system(TRANSITIONS_FIX_SYSTEM) + _brief(page), user=TRANSITIONS_FIX_USER.format(faults="\n".join(state["faults"]), body_html=state["body"]),
                                     tool_name="submit_post", tool_description="Submit the corrected post.", input_schema=POST_FIX_SCHEMA, max_tokens=32000)
             body, restored = _restore_opening(opening, fixed["body_html"])
             before = set(_sentences(state["body"]))
@@ -586,7 +598,7 @@ def transition_pass(slug: str, stop_at: float = 0.0) -> bool:
         found += [f for s in split_sections(state["body"])[1:] for f in _em_dash_faults(s)]
         records.append(f"## Review of the changed sentences\n\n### Log\n\n{review['log'].strip()}\n\n### Faults\n\n{review['faults'].strip()}\n")
         if found:
-            fixed = structured_call(system=_system(REVIEW_FIX_SYSTEM), user=REVIEW_FIX_USER.format(faults="\n".join(found), body_html=state["body"]),
+            fixed = structured_call(system=_system(REVIEW_FIX_SYSTEM) + _brief(page), user=REVIEW_FIX_USER.format(faults="\n".join(found), body_html=state["body"]),
                                     tool_name="submit_post", tool_description="Submit the corrected post.", input_schema=POST_FIX_SCHEMA, max_tokens=32000)
             body, restored = _restore_opening(opening, fixed["body_html"])
             records.append(f"## Fix of what the review found\n\n### Changes\n\n{fixed['changes'].strip()}\n\n### Fixer's check\n\n{fixed['check'].strip()}\n"

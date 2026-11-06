@@ -174,13 +174,13 @@ def redraft():
     """CLI: python main.py redraft <slug>. Writes a staged post again from its saved research,
     following the instructions typed into the Slack Redraft box (REDRAFT_INSTRUCTIONS), runs every
     step, and stages it in place of the earlier Sanity draft. Every file in the post's folder but
-    the research brief is removed first, so no record from the earlier draft carries over; git
+    the research brief and its statistics is removed first, so no record from the earlier draft carries over; git
     keeps the earlier draft."""
     from lib.repo import ROOT
     slug = sys.argv[2]
     opp = _saved_opportunity(slug)
     for f in (ROOT / f"{slug}-output").iterdir():
-        if f.is_file() and f.name != f"{slug}-research.md":
+        if f.is_file() and f.name not in (f"{slug}-research.md", f"{slug}-statistics.md"):
             f.unlink()
     _stage_one(opp, os.environ["REDRAFT_INSTRUCTIONS"])
 

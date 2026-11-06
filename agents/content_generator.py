@@ -179,7 +179,7 @@ def generate(page: ContentPage) -> ContentPage:
         log.warning(f"'{opp.proposed_title}' is {word_total} words, under {MIN_WORD_COUNT}; expanding it once")
         expanded = structured_call(
             system=system,
-            user=EXPAND_USER.format(words=word_total, page_type=page_type, page_structure=structure, research=research, body_html=body_html),
+            user=EXPAND_USER.format(words=word_total, page_type=page_type, page_structure=structure, editor_brief=EDITOR_BRIEF.format(rationale=opp.rationale), research=research, body_html=body_html),
             tool_name="submit_article",
             tool_description="Submit the whole article with the additions.",
             input_schema=EXPAND_SCHEMA,
