@@ -178,15 +178,21 @@ def research_call(*, system: str, user: str, max_searches: int, max_tokens: int,
         tools[0]["blocked_domains"] = blocked_domains
     messages = [{"role": "user", "content": user}]
     searches = input_tokens = output_tokens = 0
-    for _ in range(4):
-        response = _with_retries(lambda: client.messages.create(
+    # Streamed, like structured_call, because the API refuses a non-streaming request whose
+    # max_tokens could take longer than ten minutes to produce (a resource article's 32,000).
+    def call():
+        with client.messages.stream(
             model=MODEL,
             max_tokens=max_tokens,
             system=system,
             tools=tools,
             messages=messages,
             output_config={"effort": "low"},
-        ), "Research call")
+        ) as stream:
+            return stream.get_final_message()
+
+    for _ in range(4):
+        response = _with_retries(call, "Research call")
         usage = response.usage
         input_tokens += usage.input_tokens
         output_tokens += usage.output_tokens
