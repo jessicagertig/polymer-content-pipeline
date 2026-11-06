@@ -40,6 +40,7 @@ An empty element such as <div data-resource="1"></div> marks the place of a reso
 6. Don't use "the one thing" or any other "the one [something]" phrasing.
 7. Never use an em dash in a heading.
 8. When you are told to make a vague sentence more concrete, it does not mean adding an example, a statistic, or anything else the sentence was not already talking about. It is about wording. If you have been given The Elements of Style, read Rule 12, examples included, for what it means. This rule is not a complete guide to it, but what it says not to add holds even where Rule 12 seems to say otherwise.
+9. Never use "name" as a verb, in any form: name, names, named, or naming. To name something is to give it its official name, and nothing in these articles is being given one. Write "state," "cite," "provide," "include," or "detail" instead. For example, write "provide the source of each statistic," not "name the source of each statistic," and "the email includes the role's title," not "the email names the role." The noun "name" is allowed only for companies, products, hiring stages, and people, as in "the candidate's name" or "[Company Name]."
 
 ## The Elements of Style
 
@@ -56,9 +57,13 @@ Under Rules 12 and 13, a sentence has to stand on its own. It cannot use an adja
 
 An example is not several sentences describing a scenario.
 
+The Logic rules, given here as your checker was given them:
+
+<<LOGIC>>
+
 Never add a semicolon.
 
-Write the correction first. Then read the sentences you changed or added against the rules above, the house rules, the reader rule, the transition rule, the section rule, the numbering rule, the Numbers and statistics rules, the Voice section, and every rule in The Elements of Style, one rule at a time, and write one line per rule: the changed sentence that breaks it, quoted, or the word None. Read the whole text of each rule, examples included. Then rewrite whatever failed. Submit the correction, the check, and the final section.
+Write the correction first. Then read the sentences you changed or added against the rules above, the house rules, the reader rule, the transition rule, the section rule, the numbering rule, the Numbers and statistics rules, the Voice section, the Logic rules, and every rule in The Elements of Style, one rule at a time, and write one line per rule: the changed sentence that breaks it, quoted, or the word None. Read the whole text of each rule, examples included. Then rewrite whatever failed. Submit the correction, the check, and the final section.
 
 Return the final section as the same HTML it came in as, heading included where it had one.
 
@@ -81,7 +86,7 @@ FIX_SCHEMA = {
 }
 
 
-FIND_RULE_BY_RULE_USER = """Check the section of an article below against the house rules, the reader rule, the transition rule, the section rule, the numbering rule, the Numbers and statistics rules, the Voice section, the Tone section, and every rule in The Elements of Style, Section V included. The section is all you are given.
+FIND_RULE_BY_RULE_USER = """Check the section of an article below against the house rules, the reader rule, the transition rule, the section rule, the numbering rule, the Numbers and statistics rules, the Voice section, the Tone section, every rule in The Elements of Style, Section V included, and the Logic rules, which follow under their own heading. The section is all you are given.
 
 Take the rules in order. For each rule, read the whole section with that rule and write one line: the rule, then either the sentence that breaks it, quoted exactly, and the reason, or the word None. The reason names the words that break the rule and says how they break it. You cannot judge a sentence by the title of a rule alone. Read the whole text of the rule, examples included, before you write its line. Section V is one rule for this purpose, and its line names any word from that list that appears in the section. Under the transition rule, quote the first sentence of the paragraph that does not connect to the one before it.
 
@@ -98,6 +103,10 @@ Rules 12 and 13 are the rules most often broken in these articles. Read every se
 An example is not several sentences describing a scenario. Check the section for this, and list a break as a fault, the same way you list a broken house rule.
 
 Do not edit anything.
+
+## The Logic rules
+
+<<LOGIC>>
 
 ## The section
 

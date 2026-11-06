@@ -174,6 +174,7 @@ def _check_section(section: str, system: str, fix_system: str, max_fixes: int, i
     corrections, then stop. Returns (final section, record text, corrections made). With a
     `progress` file, each check and correction is saved to it as it finishes, and a stopped
     run resumes there."""
+    find_prompt, fix_prompt = (p.replace("<<LOGIC>>", opening_logic_rules()) for p in (find_prompt, fix_prompt))
     saved = json.loads(progress.read_text()) if progress and progress.exists() else {}
     section = saved.get("section", section)
     record = saved.get("record", [f"### As written\n\n{section}\n"])

@@ -91,11 +91,11 @@ Question design also means knowing what not to ask. Any question that touches on
 
 ## Scoring what you hear
 
-An interview without a scoring method produces opinions, not evidence. When each interviewer walks away with a different impression and no common framework for comparing notes, the debrief becomes a negotiation between strong personalities rather than a review of what candidates demonstrated. The person who speaks most confidently tends to carry the most weight, regardless of whether their assessment is the most accurate.
+An interview without a scoring method produces opinions, not evidence. When each interviewer walks away with a different impression and no common framework for comparing notes, the interview debrief becomes a negotiation between strong personalities rather than a review of what candidates demonstrated. The person who speaks most confidently tends to carry the most weight, regardless of whether their assessment is the most accurate.
 
-A [behavioral interview scoring matrix](/blog/behavioral-interview-scoring-matrix) gives each interviewer a grid that lists the competencies the role requires, with behavioral descriptions of what a weak, adequate, and strong answer looks like for each one. Behaviorally anchored rating scales (BARS) go further, naming what each score looks like in plain behavioral terms so two interviewers rating the same answer are far more likely to reach the same score. A useful scorecard includes space for direct quotes and specific examples alongside numerical scores, giving the debrief something concrete to discuss beyond competing ratings.
+A [behavioral interview scoring matrix](/blog/behavioral-interview-scoring-matrix) gives each interviewer a grid that lists the competencies the role requires, with behavioral descriptions of what a weak, adequate, and strong answer looks like for each one. Behaviorally anchored rating scales (BARS) go further, naming what each score looks like in plain behavioral terms so two interviewers rating the same answer are far more likely to reach the same score. A useful scorecard includes space for direct quotes and specific examples alongside numerical scores, giving interviewers something concrete to discuss in the debrief conversation beyond competing ratings.
 
-That independent record also makes the debrief more resistant to bias. According to a [Gartner survey](https://www.glassdoor.com/blog/11-must-ask-behavioral-interview-questions/), 39% of HR leaders say structured interviews help reduce bias. The scoring method is a large part of why. When scores are recorded independently before the group debrief, each interviewer's judgment is on record and harder to revise in response to social pressure from colleagues.
+That independent record also makes the interview debrief more resistant to bias. According to a [Gartner survey](https://www.glassdoor.com/blog/11-must-ask-behavioral-interview-questions/), 39% of HR leaders say structured interviews help reduce bias. The scoring method is a large part of why. When scores are recorded independently before the debrief conversation, each interviewer's judgment is on record and harder to revise in response to social pressure from colleagues.
 
 ## Interview bias
 
@@ -105,7 +105,7 @@ The types that appear most often in hiring include first impression bias, the ha
 
 Beyond those first-impression effects, affinity bias pulls interviewers toward candidates who remind them of themselves. Confirmation bias leads interviewers to seek out information that confirms the impression they formed early, and to discount information that contradicts it. These two biases often work together. An interviewer who likes a candidate will ask easier follow-up questions and interpret vague answers charitably, without noticing either tendency. For a full breakdown of each bias type and where it enters the process, see our article on [interview bias](/blog/interview-bias).
 
-The practical fixes for bias are structural. Standardized questions make it harder for interviewers to follow different lines of inquiry. Independent scoring before the debrief prevents the most confident voice in the room from pulling everyone else's ratings. Diverse panels reduce the risk that affinity bias runs unchecked. Focusing evaluation criteria on what a candidate will add to the team, rather than how well they fit the existing culture, removes at least some of the room for interviewers to favor candidates who remind them of colleagues they already like.
+The practical fixes for bias are structural. Standardized questions make it harder for interviewers to follow different lines of inquiry. Independent scoring before the debrief conversation prevents the most confident voice in the room from unduly impacting everyone else's ratings. Diverse panels reduce the risk that affinity bias runs unchecked. Focusing evaluation criteria on what a candidate will add to the team, rather than how well they fit the existing culture, removes at least some of the room for interviewers to favor candidates who remind them of colleagues they already like.
 
 ## Pre-employment assessments alongside the interview
 
@@ -123,11 +123,11 @@ Getting the basics right protects the offer. Share an itinerary before the inter
 
 ## Giving feedback after the interview
 
-Interview feedback closes the hiring process with respect for every candidate who went through it. Most companies give it to candidates who were not selected, naming the gap and offering actionable guidance for improvement. Few companies do it, and candidates leave with nothing to act on.
+Interview feedback closes the hiring process with respect for every candidate who went through it. Most companies send rejected candidates a form letter or nothing at all. In Survale's [2025 Candidate Experience Benchmark Research](https://survale.com/2025-candidate-experience-cande-benchmark-research-key-statistics/), 56% of candidates reported receiving no feedback after being rejected during screening and interviewing, and only 6% reported receiving feedback on assessment or test results. Receiving feedback is helpful for candidates, and providing feedback to candidates also results in a positive return for the employer. When candidates were given specific feedback, their Net Promoter Score for willingness to refer others rose by more than 50%, according to the [2024 Candidate Experience Benchmark Research](https://www.ere.net/articles/12-key-takeaways-from-the-2024-candidate-experience-benchmark-research).
 
-Feedback given well is specific: it names the gap between what the candidate demonstrated and what the role required, and it gives the candidate something they can act on. Generic responses like "We decided to move forward with other candidates" are of little value to the person receiving them. Detailed, honest feedback demonstrates respect and leaves the candidate with a better impression of the company than a silence or a form letter would. Some of them will apply again for future roles, refer colleagues, or become customers. For scripts that work across the most common rejection scenarios, see our article on [interview feedback examples](/blog/interview-feedback-examples). For the rejection email itself, see our article on [how to write personalized job rejection emails](/blog/job-rejection-email).
+Good feedback is specific. It details the gap between what the candidate demonstrated and what the role required, and it gives the candidate something to act on. Generic responses like "We decided to move forward with other candidates" are of little value to the person receiving them. Detailed, honest feedback demonstrates respect and leaves the candidate with a better impression of the company than a silence or a form letter would. Some of them will apply again for future roles, refer colleagues, or become customers. For scripts that work across the most common rejection scenarios, see our article on [interview feedback examples](/blog/interview-feedback-examples). For the rejection email itself, see our article on [how to write personalized job rejection emails](/blog/job-rejection-email).
 
-Giving that feedback well is only part of the task. Recording it in a consistent format matters just as much. When interviewers submit written reviews through a shared template, the team builds a record of why each candidate advanced or was rejected. That record serves the debrief, protects the decision if it is later questioned, and reveals patterns in the process — where the team is consistently losing good candidates, or where the criteria being applied don't match the requirements in the job description.
+Giving that feedback well is only part of the task. Recording it in a consistent format matters just as much. When interviewers submit written reviews through a shared template, the team builds a record of why each candidate advanced or was rejected. That record serves the debrief conversation, protects the decision if it is later questioned, and reveals inconsistencies in the process, such as where the criteria being applied don't match the requirements in the job description.
 
 ## The trade-off between structure and flexibility
 
@@ -137,7 +137,7 @@ Unstructured interviewing gives the interviewer room to push on something intere
 
 ## Put this into practice
 
-Running a disciplined interview process — from a structured screening call through scored debriefs to prompt, specific feedback — means you get information you can actually use. Candidates experience the company at its best, decisions are easier to make and to explain, and the person hired is more likely to be the right one.
+Running a disciplined interview process — from a structured screening call through scored interview debriefs to prompt, specific feedback — means you get information you can actually use. Candidates experience the company at its best, decisions are easier to make and to explain, and the person hired is more likely to be the right one.
 
 Polymer keeps every part of that process in one place, with candidate reviews, scoring, shared comments, and message automations that make it straightforward to close the loop with every candidate. [Start a free trial here](https://www.polymer.co/free-trial).
 
@@ -157,11 +157,11 @@ A behavioral interview question asks candidates to describe a specific situation
 
 ### What should a good interview scorecard include?
 
-A good scorecard lists the competencies the role requires, describes in observable terms what a weak, adequate, and strong answer looks like for each, includes space for direct quotes and specific examples, and closes with an overall recommendation. Scorecards should be built before the first candidate arrives and completed independently by each interviewer before the group debrief.
+A good scorecard lists the competencies the role requires, describes in observable terms what a weak, adequate, and strong answer looks like for each, includes space for direct quotes and specific examples, and closes with an overall recommendation. Scorecards should be built before the first candidate arrives and completed independently by each interviewer before the interview debrief.
 
 ### How do you reduce bias in interviews?
 
-The most effective bias-reduction methods are structural: standardized questions so each candidate is asked the same things, independent scoring before the group debrief, diverse interview panels so that affinity bias is less likely to run unchecked, and evaluation criteria focused on what a candidate will add rather than how well they fit the existing culture. Awareness of bias alone does not reliably change behavior.
+The most effective bias-reduction methods are structural: standardized questions so each candidate is asked the same things, independent scoring before the interview debrief, diverse interview panels so that affinity bias is less likely to run unchecked, and evaluation criteria focused on what a candidate will add rather than how well they fit the existing culture. Awareness of bias alone does not reliably change behavior.
 
 ### Should you give feedback to rejected candidates?
 
