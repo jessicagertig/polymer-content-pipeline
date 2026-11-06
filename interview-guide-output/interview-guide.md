@@ -7,9 +7,9 @@ mainImageAlt: A hiring manager and candidate seated across a table during a stru
 
 If you find all the different types of interviews confusing, or feel like every interview is a blur, this guide will make everything about interviewing clearer. An interview is a meeting between a candidate and one or more persons in which the potential employer's representatives ask a series of questions.
 
-At its best, an interview is a structured exchange of information — not a conversation that meanders until one person feels a spark. The employer's side is finding out whether a candidate can do the job, will do it, and will work well with the team. The candidate's side is finding out whether the role and the company are right for them. When both sides do this well, the interview produces information that is otherwise unavailable: how a person reasons under pressure, how they communicate about work they've done, and whether they will thrive in this particular environment.
+An interview is also an assessment that runs in both directions: the employer evaluates the candidate's qualifications, experience, and judgment, and the candidate evaluates whether the role, the team, and the company are worth their time. It can take many forms — a ten-minute phone screening, a live coding exercise, a panel conversation with four people in the room, or a final meeting with a founder — and a single hiring process often uses several of them in sequence. The questions asked, how answers are scored, the structure of the conversation, and how interviewers manage their own biases all determine whether the process produces a sound hiring decision.
 
-This article covers every common interview format and what each one is for, how to design questions that produce useful answers, how to score what you hear, how to recognize and reduce bias, how to give feedback, and how to run a process that works for the candidates going through it as much as it works for you.
+This article covers every major interview format and what each is for, how to design questions that produce useful answers, how to score what you hear, how to manage interview bias, and how to close the process with feedback that reflects well on your company.
 
 ## How the interview process fits together
 
