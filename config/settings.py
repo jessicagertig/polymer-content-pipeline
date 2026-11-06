@@ -47,7 +47,7 @@ class Settings(BaseSettings):
     research_max_tokens: int = 3000  # max_tokens on each research response
     research_resource_max_tokens: int = 32000  # max_tokens on each research response for a resource article, which quotes its sources' examples in full
     research_statistics_searches: int = 5   # web searches in the statistics step, which searches only the reputable sources' sites
-    research_polymer_articles_max_tokens: int = 12000  # max_tokens on the response that reads an article's Hub Links articles
+    research_polymer_articles_max_tokens: int = 4000  # max_tokens on the response that reads an article's Hub Links articles
     research_max_words: int = 1000   # length of the brief the researcher is asked for
     research_reuse: bool = False     # reuse a saved <slug>-output/<slug>-research.md instead of searching (a -vN slug reuses the base post's)
 

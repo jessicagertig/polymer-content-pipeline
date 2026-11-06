@@ -1,6 +1,6 @@
 from config.settings import settings
 
-RESEARCH_SYSTEM = """You are a researcher for a blog about hiring and recruiting. You find facts for a writer who has no web access. Every fact you return names its source and gives the URL you found it at. Except for statistics, which have their own instructions, the source is the company, organization, or author that published the page at the URL. A name is never a URL or a web address: write the name the company, organization, or author uses for itself, such as The Cognitive for thecognitive.io. When a source gives examples, such as email templates, job description templates, or rubrics, quote every example in full, word for word, with its source. Quoted examples do not count toward a word limit. Return only what you found in the sources. Where a fact could not be verified, say so in one line instead of guessing.
+RESEARCH_SYSTEM = """You are a researcher for a blog about hiring and recruiting. You find facts for a writer who has no web access. Every fact you return names its source and gives the URL you found it at. Except for statistics, which have their own instructions, the source is the company, organization, or author that published the page at the URL. A name is never a URL or a web address: write the name the company, organization, or author uses for itself, such as The Cognitive for thecognitive.io. <<QUOTE_EXAMPLES>>Return only what you found in the sources. Where a fact could not be verified, say so in one line instead of guessing.
 
 Take statistics and definitions from these sources: <<SOURCES>>.
 
@@ -15,8 +15,13 @@ Never give a statistic from a website in this list: <<COMPETITORS>>. When a news
 Give every statistic with the URL of a page where that number appears. Leave out any statistic you cannot give such a URL for.
 
 Some articles compare a statistic from one year with the same statistic from another year. For a comparison, find both statistics in the same source. Gallup's yearly statistics on employee engagement are an example. There is one exception. In a versus article that names two products, or an alternatives article, a product's own pricing and feature pages are the source for that product's pricing and features, and for nothing else."""
-RESEARCH_SYSTEM = RESEARCH_SYSTEM.replace("<<COMPETITORS>>", ", ".join(settings.competitor_domains())).replace(
+QUOTE_EXAMPLES = "When a source gives examples, such as email templates, job description templates, or rubrics, quote every example in full, word for word, with its source. Quoted examples do not count toward a word limit. "
+# The Polymer articles call reads whole articles of ours: it quotes only the definitions it needs.
+POLYMER_ARTICLES_SYSTEM = RESEARCH_SYSTEM.replace("<<QUOTE_EXAMPLES>>", "")
+RESEARCH_SYSTEM = RESEARCH_SYSTEM.replace("<<QUOTE_EXAMPLES>>", QUOTE_EXAMPLES)
+RESEARCH_SYSTEM, POLYMER_ARTICLES_SYSTEM = (s.replace("<<COMPETITORS>>", ", ".join(settings.competitor_domains())).replace(
     "<<SOURCES>>", "; ".join(f"{name} ({', '.join(addresses)})" for name, addresses in settings.reputable_sources()))
+                                            for s in (RESEARCH_SYSTEM, POLYMER_ARTICLES_SYSTEM))
 
 
 RESEARCH_USER = """Research the following blog article. Use at most {max_searches} web searches.
@@ -49,8 +54,8 @@ You are researching for an article that will be built based on this formatting g
 
 Return a research brief of at most {max_words} words, as plain text in seven numbered sections:
 
-1. Statistics: five to eight recent figures the article can cite. For each, give the number, what it measures, the source, the publication, the article's title, the year, and the URL. The source is the company, organization, or study the page at the URL credits for the figure. The publication is the company, organization, or author that published that page. When the page credits no one else, the publication is also the source. The statistics must have a 2-to-1 ratio of benefits to negatives. For every 1 negative, you must have 2 benefits. If you are simply unable to get 8 statistics, that's fine.
-2. Definitions: terms and definitions of the article's topic. When the word "guide" is in the title, the guide is this article, never the topic, so do not define it. Look for definitions in Polymer's articles, at polymer.co/blog, first. For each, provide a combination of a summary and direct quotes from the source, with the source name and URL.
+1. Statistics: five to eight recent figures the article can cite. For each, give the number, what it measures, the source, the publication, the article's title, the year, and the URL. The source is the company, organization, or study the page at the URL credits for the figure. The publication is the company, organization, or author that published that page. When the page credits no one else, the publication is also the source. The statistics must have a 3-to-1 ratio of benefits to negatives. For every 1 negative, you must have 3 benefits. If you are simply unable to get 8 statistics, that's fine.
+2. Definitions: a definition of the article's topic, then definitions of terms within it, including every term the brief from the editor names. When the word "guide" is in the title, the guide is this article, never the topic, so do not define it. Look for definitions in Polymer's articles, at polymer.co/blog, first, then in the other sources you take definitions from, for every term they do not define. For each, provide a combination of a summary and direct quotes from the source, with the source name and URL.
 3. Best practices: if this will be a guide, look up best practices and other guides. Do not focus on only one guide or only one set of best practices. Provide a minimum of 3 sources. For each, provide a combination of a summary and direct quotes from the source, with the source name and URL.
 4. Trade-offs: for a versus article that is not product-based, look up what other people say are the trade-offs between the two. Provide a minimum of 3 sources. For each, provide a combination of a summary and direct quotes from the source, with the source name and URL.
 5. List items: for a list article that is not product-based, look up what good items of this kind are, and what makes them good and more effective. Do not focus on only one source. Provide a minimum of 3 sources. For each, you may give its list exactly as the source gives it, with what the source says makes the items good, the source name, and the URL.
@@ -110,7 +115,7 @@ STEP_TOPICS = {
 }
 
 # For an article with Hub Links: the published Hub Links articles' text, read as sources.
-POLYMER_ARTICLES_USER = """Below are articles on this site that this article links to. For each, give its title and URL, what it covers, its main points, and any definition it gives, quoted. Use them as sources for this article.
+POLYMER_ARTICLES_USER = """Below are articles on this site that this article links to. For each, give its title and URL, a brief summary of what it covers, and any definition this article needs from it, quoted. Quote nothing else from it.
 
 {articles}"""
 
@@ -118,7 +123,7 @@ DEFINITIONS_STEP = dict(
     step="definitions",
     heading="Definitions",
     max_words=200,
-    instructions="terms and definitions of the article's topic. When the word \"guide\" is in the title, the guide is this article, never the topic, so do not define it. Look for definitions in Polymer's articles, at polymer.co/blog, first. For each, provide a combination of a summary and direct quotes from the source, with the source name, the article's title, and the URL.",
+    instructions="a definition of the article's topic, then definitions of terms within it, including every term the brief from the editor names. When the word \"guide\" is in the title, the guide is this article, never the topic, so do not define it. Look for definitions in Polymer's articles, at polymer.co/blog, first, then in the other sources you take definitions from, for every term they do not define. For each, provide a combination of a summary and direct quotes from the source, with the source name, the article's title, and the URL.",
 )
 
 TOPIC_STEPS = {

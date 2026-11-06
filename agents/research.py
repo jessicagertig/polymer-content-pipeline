@@ -12,11 +12,16 @@ from config.settings import settings
 from lib.llm import research_call, structured_call
 from lib.logging import get
 from lib.repo import ROOT
-from prompts.research import (RESEARCH_SYSTEM, RESEARCH_USER, FORMAT_NOTES, EDITOR_BRIEF, POLYMER_ARTICLES_USER,
+from prompts.research import (RESEARCH_SYSTEM, RESEARCH_USER, FORMAT_NOTES, EDITOR_BRIEF, POLYMER_ARTICLES_USER, POLYMER_ARTICLES_SYSTEM,
                               STEP_USER, STEP_TOPICS, DEFINITIONS_STEP, TOPIC_STEPS, STATISTICS_STEP)
 
 
 log = get(__name__)
+
+
+def _polymer_links(text: str) -> str:
+    """Our blog's links on www: the partner domain wwr.polymer.co serves the same posts."""
+    return text.replace("://wwr.polymer.co/blog/", "://www.polymer.co/blog/")
 
 
 def _saved_brief(slug: str):
@@ -66,7 +71,7 @@ def research_brief(opp) -> str:
         f"{result['input_tokens']} in / {result['output_tokens']} out, "
         f"{len(result['text'].split())} words"
     )
-    return result["text"]
+    return _polymer_links(result["text"])
 
 
 def _polymer_articles(opp) -> str:
@@ -86,7 +91,7 @@ def _polymer_articles(opp) -> str:
         articles.append(f"### {titles[path]}\nhttps://{settings.site_domain}{path}\n\n{text}")
     if not articles:
         return ""
-    result = structured_call(system=RESEARCH_SYSTEM, user=POLYMER_ARTICLES_USER.format(articles="\n\n".join(articles)),
+    result = structured_call(system=POLYMER_ARTICLES_SYSTEM, user=POLYMER_ARTICLES_USER.format(articles="\n\n".join(articles)),
                              tool_name="submit_research", tool_description="Submit the Polymer articles section of the brief.",
                              input_schema={"type": "object", "properties": {"text": {"type": "string"}}, "required": ["text"]},
                              max_tokens=settings.research_polymer_articles_max_tokens)
@@ -96,7 +101,7 @@ def _polymer_articles(opp) -> str:
 
 def _three_step_brief(opp, structure: str) -> str:
     """Definitions, then the article type's topic search, then statistics, each a separate call.
-    The statistics step searches only the reputable sources' sites (config/reputable-sources.txt).
+    The definitions and statistics steps search only the reputable sources' sites (config/reputable-sources.txt).
     Its output is also saved on its own as <slug>-output/<slug>-statistics.md, for the checker and fixer."""
     page_type = opp.page_type.value
     context = dict(
@@ -109,14 +114,14 @@ def _three_step_brief(opp, structure: str) -> str:
         editor_brief=EDITOR_BRIEF.format(rationale=opp.rationale),
     )
     definitions_note = (" Devote one search to each side of the versus." if page_type == "comparison"
-                        else " If one search turns up enough, stop there.")
+                        else "" if page_type in ("hub", "listicle") else " If one search turns up enough, stop there.")
     steps = [
-        (DEFINITIONS_STEP | {"search_note": definitions_note}, 2),
+        (DEFINITIONS_STEP | {"search_note": definitions_note} | ({"max_words": 600} if page_type == "hub" else {}), 3 if page_type == "hub" else 2),
         (TOPIC_STEPS[page_type], 2),
         (STATISTICS_STEP, settings.research_statistics_searches),
     ]
     reputable = [address for _, addresses in settings.reputable_sources() for address in addresses]
-    parts = [polymer] if opp.hub_links and (polymer := _polymer_articles(opp)) else []
+    parts = []
     for step, searches in steps:
         result = research_call(
             system=RESEARCH_SYSTEM,
@@ -124,7 +129,7 @@ def _three_step_brief(opp, structure: str) -> str:
             max_searches=searches,
             max_tokens=settings.research_resource_max_tokens if opp.resource_article else settings.research_max_tokens,
             blocked_domains=settings.competitor_domains(),
-            allowed_domains=reputable if step is STATISTICS_STEP else None,
+            allowed_domains=reputable if step["step"] in ("definitions", "statistics") else None,
         )
         if not result["text"]:
             raise RuntimeError(f"Research call for {step['step']} returned no text")
@@ -133,4 +138,6 @@ def _three_step_brief(opp, structure: str) -> str:
         if step is STATISTICS_STEP:
             from lib import repo
             repo.stage(f"{opp.id}-output/{opp.id}-statistics.md", result["text"])
-    return "\n\n".join(parts)
+    if opp.hub_links and (polymer := _polymer_articles(opp)):
+        parts.append(polymer)
+    return _polymer_links("\n\n".join(parts))
