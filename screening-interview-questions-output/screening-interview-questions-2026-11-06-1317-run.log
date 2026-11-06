@@ -1,0 +1,43 @@
+2026-11-06 13:17:26,933 | INFO    | lib.content_calendar | Loaded 30 blog opportunities from blog-content-topics.csv
+2026-11-06 13:17:33,904 | INFO    | __main__ | Launch Batch: 5 post(s) left; staging the next one.
+2026-11-06 13:17:34,642 | INFO    | agents.content_generator | Generating: Screening Interview Questions: What to Ask Before the Full Interview
+2026-11-06 13:17:35,256 | INFO    | agents.research | Researching: Screening Interview Questions: What to Ask Before the Full Interview
+2026-11-06 13:17:35,279 | ERROR   | __main__ | Failed for 'Screening Interview Questions: What to Ask Before the Full Interview': Streaming is required for operations that may take longer than 10 minutes. See https://platform.claude.com/docs/en/cli-sdks-libraries/sdks/python#long-requests for more details; $0.00: 0 in, 0 out, 0 cache written, 0 cache read, 0 searches
+Traceback (most recent call last):
+  File "/home/runner/work/polymer-content-pipeline/polymer-content-pipeline/main.py", line 132, in _stage_one
+    done = run_steps(slug, write)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/polymer-content-pipeline/polymer-content-pipeline/pipeline.py", line 71, in run_steps
+    fn()
+  File "/home/runner/work/polymer-content-pipeline/polymer-content-pipeline/pipeline.py", line 68, in <lambda>
+    for step, fn in [("write", lambda: write(resuming)), ("hide resources", lambda: hide_resources(slug)),
+                                       ^^^^^^^^^^^^^^^
+  File "/home/runner/work/polymer-content-pipeline/polymer-content-pipeline/main.py", line 121, in write
+    generate(page)
+  File "/home/runner/work/polymer-content-pipeline/polymer-content-pipeline/agents/content_generator.py", line 54, in generate
+    research = page.research_brief or research_brief(opp)
+                                      ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/polymer-content-pipeline/polymer-content-pipeline/agents/research.py", line 48, in research_brief
+    return _three_step_brief(opp, page_structure(opp))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/polymer-content-pipeline/polymer-content-pipeline/agents/research.py", line 126, in _three_step_brief
+    result = research_call(
+             ^^^^^^^^^^^^^^
+  File "/home/runner/work/polymer-content-pipeline/polymer-content-pipeline/lib/llm.py", line 182, in research_call
+    response = _with_retries(lambda: client.messages.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/polymer-content-pipeline/polymer-content-pipeline/lib/llm.py", line 79, in _with_retries
+    return call()
+           ^^^^^^
+  File "/home/runner/work/polymer-content-pipeline/polymer-content-pipeline/lib/llm.py", line 182, in <lambda>
+    response = _with_retries(lambda: client.messages.create(
+                                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/anthropic/_utils/_utils.py", line 294, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/anthropic/resources/messages/messages.py", line 1220, in create
+    timeout = self._client._calculate_nonstreaming_timeout(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/anthropic/_base_client.py", line 865, in _calculate_nonstreaming_timeout
+    raise ValueError(
+ValueError: Streaming is required for operations that may take longer than 10 minutes. See https://platform.claude.com/docs/en/cli-sdks-libraries/sdks/python#long-requests for more details
