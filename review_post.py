@@ -232,8 +232,9 @@ def _statistics_for(slug: str) -> str:
 
 
 def _brief(page) -> str:
-    """The calendar's Article Brief / Angle, under the writer's "## Brief from the editor" heading."""
-    return "\n\n" + EDITOR_BRIEF.format(rationale=page.opportunity.rationale).strip()
+    """The calendar's Article Brief / Angle, under the writer's "## Brief from the editor" heading, for the checkers and fixers."""
+    return ("\n\n" + EDITOR_BRIEF.format(rationale=page.opportunity.rationale).strip()
+            + "\n\nA sentence the brief from the editor gives word for word is the editor's own. Do not check it, and do not change it.")
 
 
 def _system(template: str = REVIEW_SYSTEM) -> str:

@@ -130,7 +130,7 @@ def structured_call(
             system=system_blocks,
             tools=tools,
             tool_choice={"type": "auto"},   # forcing a tool is rejected on this model; the user prompt names it
-            messages=[{"role": "user", "content": user}],
+            messages=[{"role": "user", "content": user + f"\n\nWrite your whole answer inside the `{tool_name}` call. Write nothing before or after it."}],
             **({"thinking": {"type": "adaptive"}} if thinking else {}),
         ) as stream:
             return stream.get_final_message()
