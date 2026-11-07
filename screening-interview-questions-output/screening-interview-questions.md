@@ -5,11 +5,11 @@ slug: screening-interview-questions
 metaDescription: The right screening interview questions save everyone time. Here are eight questions, with scoring rubrics, to run a structured screen that works.
 mainImageAlt: Hiring manager on a phone screening interview call with a notepad and scoring rubric in front of them
 
-Ask the right questions in a screening call and your team avoids spending a full round of interviews on candidates who were never a real fit. The challenge is that most screening calls run on instinct rather than a consistent question set, which means the first round produces impressions instead of information you can compare.
+Ask the right questions in a screening call and your team avoids spending a full round of interviews on candidates who were never a real fit. When screening calls run on gut feel rather than a shared set of questions, the first round leaves you with impressions you cannot compare.
 
-A screening interview is a short early-round conversation — typically 20 to 30 minutes — where someone on the hiring team works through a focused list of questions to confirm basic fit before bringing a candidate in for the full interview. The questions cover practical requirements like compensation and availability, motivational factors like why the candidate is in the market, and one or two role-specific probes that a resume alone can't answer.
+A screening interview is a short early-round conversation — typically 20 to 30 minutes — in which someone on the hiring team works through a focused list of questions to confirm basic fit before bringing a candidate in for the full interview. The questions cover practical requirements such as compensation and availability, motivational factors such as why the candidate is in the market, and one or two role-specific probes that a resume alone can't answer.
 
-This article covers which questions to ask at the screening stage and what each one is designed to reveal, how to sequence the call, how to score answers consistently across every candidate, and how to use the results to decide who moves forward.
+This article covers which questions to ask at the screening stage and what each one is designed to reveal, how to sequence the call, how to score answers consistently, and how to use the results to decide who moves forward.
 
 ## What makes a screening question work
 
