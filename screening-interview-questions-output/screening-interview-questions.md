@@ -41,6 +41,14 @@ Once you have a draft list, check it against two common failure modes in questio
 
 Each behavioral question in a structured screen should be scored on the same five-point scale. The rubric below anchors each score to specific, observable behavior so two interviewers scoring the same candidate will land close to the same number. Use this alongside every behavioral question in the set that follows.
 
+| Score | Behavioral description |
+| --- | --- |
+| 1 | Candidate gave no specific example; response was entirely general or off-topic. |
+| 2 | Candidate referenced a situation but provided no detail on actions taken. |
+| 3 | Candidate described a situation and actions but did not address the outcome. |
+| 4 | Candidate gave a clear situation, specific actions, and a measurable outcome. |
+| 5 | Candidate gave a clear example with measurable outcome and reflected on what they learned or would do differently. |
+
 For logistical questions, score on whether the candidate's answer meets the role's requirements and whether they give a concrete number or date rather than a vague one.
 
 ## Is the salary range for this position within your acceptable range?
@@ -51,6 +59,14 @@ This question clears the most basic logistical requirement before anyone spends 
 
 **What a weak answer looks like** — The candidate is vague ("I'm open to anything"), unwilling to give a number, or states a figure well outside the posted range without acknowledging the gap. Vagueness here often signals that the candidate has not thought through whether the salary, the role, or both meet their actual requirements. Follow up: "We're budgeted in the range of X to Y. Does that work for where you are?"
 
+| Score | What it looks like for this question |
+| --- | --- |
+| 1 | Candidate refuses to discuss salary or gives a non-answer. |
+| 2 | Candidate acknowledges the question but provides no number or range. |
+| 3 | Candidate gives a range that partially overlaps, with no explanation of flexibility. |
+| 4 | Candidate confirms alignment or explains a specific, grounded reason for a slight gap. |
+| 5 | Candidate confirms alignment and shows awareness of total compensation beyond base salary. |
+
 ## Why are you searching for a new position?
 
 Motivation is difficult to assess at the screening stage, yet it shapes whether a candidate will commit to the role. This question surfaces why the candidate is in the market now, which is distinct from why they want this particular role, and gives you an early read on how they talk about their current or most recent employer.
@@ -58,6 +74,14 @@ Motivation is difficult to assess at the screening stage, yet it shapes whether 
 **What a strong answer looks like** — The candidate is direct. They point to something concrete, such as a cap on growth, a shift in the company's direction, or a gap between their current role and where they want to go. The answer connects to what drew them toward this opportunity rather than only away from their last one, and they describe past employers without bitterness or blame.
 
 **What a weak answer looks like** — The candidate is evasive or gives a generic answer like "I'm just exploring." A candidate who speaks negatively about a manager or team in a way that suggests the problem follows them from role to role is worth noting. Neither response disqualifies a candidate outright, but both warrant a follow-up: "Can you say more about what specifically prompted the search?"
+
+| Score | What it looks like for this question |
+| --- | --- |
+| 1 | Candidate gives no reason or refuses to answer. |
+| 2 | Candidate gives a vague answer with no connection to this role. |
+| 3 | Candidate explains a reason for leaving but doesn't connect it to this opportunity. |
+| 4 | Candidate explains why they're leaving and links it clearly to what this role offers. |
+| 5 | Candidate gives a candid, specific reason for leaving, connects it to this role, and shows genuine knowledge of the company or position. |
 
 ## What are the top three duties in your current or most recent job?
 
@@ -67,6 +91,14 @@ Resumes describe titles and outcomes. This question surfaces daily work. The gap
 
 **What a weak answer looks like** — The candidate describes their title or their team's function rather than their own work. They use broad language like "I handled communications" or "I supported the team," phrases that tell you little about what they owned. If the answer stays thin after the initial question, follow up: "What did a typical week look like for you in that role?"
 
+| Score | What it looks like for this question |
+| --- | --- |
+| 1 | Candidate describes the team or department rather than their own duties. |
+| 2 | Candidate lists duties in general terms with no specificity about scope or tools. |
+| 3 | Candidate describes specific duties but doesn't connect them to the role's requirements. |
+| 4 | Candidate gives specific, concrete duties and draws a clear connection to the open role. |
+| 5 | Candidate describes specific duties with measurable scope, connects them to this role, and identifies where there is overlap and where they would be learning something new. |
+
 ## What do you see as your strongest skills, and what are your key challenges?
 
 This question does two things at once. The strengths half tells you whether the candidate's self-assessment lines up with the role's requirements. The challenges half tells you how self-aware they are and whether they're growing. Together, the two halves give you a fuller picture of the candidate than either would on its own.
@@ -74,6 +106,14 @@ This question does two things at once. The strengths half tells you whether the 
 **What a strong answer looks like** — For strengths, strong candidates tie their answers directly to the duties of the open role. They point to something specific (a technical skill, a working style, a track record) and explain how it applies to this position. For challenges, the more self-aware candidates describe specific steps they are taking to improve, rather than repackaging a strength as a weakness.
 
 **What a weak answer looks like** — A candidate who describes strengths with no connection to the role, or who struggles to identify a genuine challenge, is likely giving you a rehearsed answer rather than an honest one. Watch for deflection: "I work too hard" or "I care too much" tells you nothing about how the person will perform in the role.
+
+| Score | What it looks like for this question |
+| --- | --- |
+| 1 | Candidate gives generic strengths with no connection to the role; cannot identify a challenge. |
+| 2 | Candidate names strengths and a challenge but neither connects to the job or to growth. |
+| 3 | Candidate links strengths to the role but gives a deflecting or evasive challenge. |
+| 4 | Candidate links strengths directly to the role's requirements and identifies a real challenge with awareness of its impact. |
+| 5 | Candidate gives specific, role-relevant strengths and describes a genuine challenge along with concrete steps they are taking to address it. |
 
 ## What can you tell me about our company and industry?
 
@@ -83,6 +123,14 @@ Candidates who want this role, specifically, will have done their homework. This
 
 **What a weak answer looks like** — The candidate describes the company in the same words as the homepage, or admits they haven't had time to look into it. The former suggests surface-level preparation; the latter is worth noting as a signal about how seriously the candidate is pursuing this opportunity. A quick follow-up ("What about the role caught your attention?") often surfaces useful information even when the company knowledge is thin.
 
+| Score | What it looks like for this question |
+| --- | --- |
+| 1 | Candidate admits to no research or gives an entirely incorrect description. |
+| 2 | Candidate restates the company's homepage description with no additional knowledge. |
+| 3 | Candidate shows familiarity with the company but cannot connect it to the role or the industry context. |
+| 4 | Candidate demonstrates research beyond the homepage and connects the company's position to why they applied. |
+| 5 | Candidate references specific, recent information about the company or industry and ties it directly to what they would bring to the role. |
+
 ## Tell me about a recent piece of work you're particularly proud of. What did you personally contribute?
 
 Candidates naturally describe team achievements in the first person plural. This question cuts through that by asking what they owned. The answer reveals decision-making, initiative, and the impact they can point to as their own, information a resume's "we" language leaves out.
@@ -90,6 +138,14 @@ Candidates naturally describe team achievements in the first person plural. This
 **What a strong answer looks like** — The candidate describes a specific project or deliverable, explains the decisions they made, and separates their contribution from the team's. The best answers include a measurable result (revenue generated, time saved, error rate reduced) and reflect on what made their contribution effective. A strong answer makes it clear what this person delivers independently.
 
 **What a weak answer looks like** — The candidate describes a team achievement and cannot distinguish their role from the group's. Their language stays in the first person plural and never arrives at "I." If the follow-up "What specifically did you own?" doesn't sharpen the answer, the candidate has not demonstrated an individual contribution worth advancing. That is reason to pause before scheduling the full interview.
+
+| Score | What it looks like for this question |
+| --- | --- |
+| 1 | Candidate describes a team achievement with no individual contribution identified. |
+| 2 | Candidate references a personal contribution but cannot describe what they specifically did or decided. |
+| 3 | Candidate describes their contribution clearly but cannot point to a result. |
+| 4 | Candidate describes specific actions they owned and the measurable outcome that followed. |
+| 5 | Candidate gives a clear account of what they owned, the result it produced, and what they would do differently next time. |
 
 ## Which part of this role would be most familiar to you, and which would be the biggest stretch?
 
@@ -99,6 +155,14 @@ This question does something most screening questions don't: it invites the cand
 
 **What a weak answer looks like** — The candidate says everything looks familiar, or describes the stretch in terms so broad that it's clear they haven't read the job description closely. A candidate who fails to identify a genuine stretch is overconfident or disengaged from what the role requires. Either way, it's information worth having before you schedule the full interview.
 
+| Score | What it looks like for this question |
+| --- | --- |
+| 1 | Candidate says everything is familiar or cannot identify a stretch. |
+| 2 | Candidate identifies a stretch but describes it so vaguely that it's unclear they read the job description. |
+| 3 | Candidate identifies familiar and stretch areas specifically but doesn't address how they'd close the gap. |
+| 4 | Candidate gives specific examples on both sides and describes a plan or approach for the stretch. |
+| 5 | Candidate gives specific examples on both sides, describes a concrete approach to the stretch, and frames it as a reason they're excited about the role. |
+
 ## Do you have any questions for me?
 
 The questions a candidate asks at the end of a screening call can tell you as much as the questions you asked them. Thoughtful questions show that the candidate has read the role carefully and thought about what doing it well would require. They also show what matters to this person as they weigh their own decision, because screening calls run in both directions.
@@ -106,6 +170,14 @@ The questions a candidate asks at the end of a screening call can tell you as mu
 **What a strong answer looks like** — The candidate asks something specific: about the team's current priorities, the success criteria for the role in the first 90 days, the challenges the previous person in the role faced, or how decisions get made on the team. The best questions show that the candidate is weighing whether the role is right for them, not simply trying to get it. That's the kind of deliberateness you want to see before you bring someone in for a full interview.
 
 **What a weak answer looks like** — The candidate says they have no questions, or asks only about vacation policy and benefits. That alone does not disqualify the candidate, but a candidate who is genuinely interested in the role tends to have specific things they want to understand about the work, the team, or the company's direction.
+
+| Score | What it looks like for this question |
+| --- | --- |
+| 1 | Candidate has no questions. |
+| 2 | Candidate asks only about benefits, vacation, or other administrative topics. |
+| 3 | Candidate asks about the role but the question could apply to any company or position. |
+| 4 | Candidate asks a specific question about the team, the role's success criteria, or the company's direction. |
+| 5 | Candidate asks two or more thoughtful, specific questions that show they've engaged seriously with the job description and the company. |
 
 ## How to run the call and use the rubric
 
