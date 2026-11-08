@@ -5,6 +5,12 @@ slug: hiring-process-steps
 metaDescription: Most hiring processes are whatever happened last time. This guide walks through every step of the hiring process, from defining the role to onboarding a new hire.
 mainImageAlt: A hiring team reviewing candidate applications together around a conference table, with a laptop and printed resumes visible
 
+Most hiring processes are not designed. They are whatever happened last time — a job description someone updated from a previous version, a few interviews scheduled when it was convenient, an offer extended when the team finally agreed. Without a defined process, every search starts from scratch, the team improvises at each step, and the same mistakes recur in ways nobody can explain or prevent.
+
+The hiring process is the sequence of steps that takes a business need — a role that must be filled — and produces a hiring decision. It runs from the moment someone recognizes that a role is needed to the day a new employee starts. When those steps are defined in advance, everyone on the team knows what to do, candidates move through faster, and you make decisions on evidence rather than instinct.
+
+This guide walks through each step in order: defining the role, writing the job post, sourcing and screening candidates, running structured interviews, making a decision, and bringing a new hire through onboarding. Each section covers what the step involves, what good looks like, and where the process most often breaks down.
+
 ## What the hiring process actually is
 
 Most hiring processes are not designed. They are whatever happened last time — a job description someone updated from a previous version, a few interviews scheduled when it was convenient, an offer made when the team finally agreed. The result is a process that is inconsistent, slow, and hard to improve because nobody can say exactly what it is.
