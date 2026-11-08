@@ -13,17 +13,15 @@ This guide walks through each step in order — defining the role, writing the j
 
 ## What the hiring process actually is
 
-Most hiring processes are not designed. They are whatever happened last time — a job description someone updated from a previous version, a few interviews scheduled when it was convenient, an offer made when the team finally agreed. The result is a process that is inconsistent, slow, and hard to improve because nobody can say exactly what it is.
+Few teams design their hiring process deliberately. The hiring process is a sequence of steps that takes a business need and produces a hiring decision. The process spans every stage from recognizing the need to making the hire, and when each step is defined in advance, the team builds decisions on shared criteria rather than intuition.
 
-The hiring process is a sequence of steps that takes a business need and produces a hiring decision. It runs from the moment someone recognizes that a role is needed to the day a new employee starts, covering everything from defining the role to reviewing applications to making an offer. When those steps are defined in advance, the whole team knows what to do, candidates move faster, and decisions get made on evidence rather than instinct.
-
-This article walks through each step of the hiring process in order: how to define the role, build a job post, source and screen candidates, run structured interviews, make a decision, and bring a new hire through onboarding. Each section covers what the step involves, what good looks like, and where the process most often breaks down.
+The sections below follow the process in order, covering what each step requires, what strong execution looks like, and where things typically go wrong.
 
 ## Define the role before you write the job post
 
 The most consequential step in the hiring process happens before any candidate sees your job post. It is figuring out exactly what the role needs to accomplish. Without that clarity, the job description will be vague, the interview questions will be generic, and the team will have no shared standard for evaluating candidates.
 
-Begin with the work, not the title. Ask what problems this person will own, what outcomes they are responsible for in the first six months, and what decisions they will make independently. That process produces a definition built around the specific problems the role owns, the outcomes it is accountable for, and who holds each decision — not a recycled job description or a generic template from a job board.
+Begin with the work, not the title. Ask what problems this person will own, what outcomes they are responsible for in the first six months, and what decisions they will make independently. That process produces a definition built around the specific problems the role owns, the outcomes it is accountable for, and who holds each decision, rather than a recycled job description or a generic template from a job board.
 
 Once the work is clear, sort the requirements. Separate the must-haves — skills and experience without which a candidate cannot do the job — from the nice-to-haves. This distinction matters most when you are evaluating candidates and need to make trade-offs. Teams that skip this ranking step often find themselves disagreeing about candidates, not because the candidates differ, but because interviewers held different definitions of what the role required. Skills mapping is a structured method for identifying and ranking those requirements before the search begins, and it gives the whole team a consistent foundation for evaluation.
 
@@ -127,21 +125,17 @@ Applicant tracking systems exist to manage the pipeline and keep all candidate i
 
 ## Measure each stage and improve what you find
 
-A hiring process you cannot measure is a process you cannot improve. The metrics that matter most are time, source quality, and offer outcomes. Tracking them consistently is what separates a process that improves from one that repeats its mistakes.
+A hiring process you cannot measure is a process you cannot improve. The metrics that matter most are time to fill and offer outcomes. Tracking them consistently is what separates a process that improves from one that repeats its mistakes.
 
 Time to fill — the number of days from when a role opens to when an offer is accepted — is the most common measure of hiring speed. [SHRM reported that the average U.S. time to fill an open role in 2024 was 41 days](https://www.shrm.org/topics-tools/news/talent-acquisition/recruiters-express-optimism-for-2025), down from 48 days the year before. Your own time-to-fill matters more than the average; the goal is to find where it accumulates. Break the total into segments and measure each one separately: time from role approval to first interview, and time from final interview to offer. That tells you which stage to fix, not just that hiring takes too long.
 
-Source of hire tells you where your best candidates come from, but track it not by volume but by quality: how far candidates from each source advance, and how those hired from each source perform in the role. A channel that produces many applicants but few who advance past the first interview is a weak one.
-
-Offer acceptance rate is a signal about the late-stage experience. When strong candidates decline offers, the reason is usually compensation, process speed, or something they observed about the company during the interviews. Each of those is fixable, but only if you ask. [Gallup found that two in three employees](https://www.gallup.com/workplace/651650/lasting-impact-exceptional-candidate-experiences.aspx) hired in the last year described their candidate experience as exceptional or very good — a strong acceptance rate follows from a process that candidates respect. Whether strong candidates say yes depends on more than the offer itself; the [article on talent acquisition vs. recruitment](/blog/talent-acquisition-vs-recruitment) covers the difference between filling roles and building the kind of longer-term capability that makes those candidates want to join.
+Offer acceptance rate is a signal about the late-stage experience. When strong candidates decline offers, the reason is usually compensation, process speed, or something they observed about the company during the interviews. Each of those is fixable, but only if you ask. [Gallup found that two in three employees](https://www.gallup.com/workplace/651650/lasting-impact-exceptional-candidate-experiences.aspx) hired in the last year described their candidate experience as exceptional or very good. A strong acceptance rate follows from a process that candidates respect. Whether strong candidates say yes depends on more than the offer itself; the [article on talent acquisition vs. recruitment](/blog/talent-acquisition-vs-recruitment) covers the difference between filling roles and building the kind of longer-term capability that makes those candidates want to join.
 
 ## Where the recruitment process most often breaks down
 
 Even well-designed hiring processes hit predictable trouble spots. Knowing where they are makes them easier to prevent.
 
 Unclear role definitions at the start produce disagreement at the end. When the hiring team has not agreed on what the role requires before the search begins, they discover their disagreement at the debrief — after interviews are already complete. Alignment before sourcing prevents that; realizing the team disagrees after screening does not.
-
-Redundant interview rounds are a related problem. Each round should answer a question the previous one could not. If it cannot, it should not exist. Adding rounds signals thoroughness but often produces delay without producing better decisions.
 
 Slow communication loses candidates, and the gap is easy to close. [CIPD found that 85% of organizations say technology use improved candidates' experience, and 82% say it sped up the recruitment process.](https://www.cipd.org/globalassets/media/knowledge/knowledge-hub/reports/2024-pdfs/8662-resource-and-talent-planning-2024-report-web.pdf) Automated stage communications, messages that go out when a candidate moves to a new stage, keep candidates informed without adding manual work for the hiring team.
 
