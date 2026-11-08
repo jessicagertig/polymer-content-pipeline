@@ -1,0 +1,344 @@
+2026-11-08 13:17:31,274 | INFO    | lib.content_calendar | Loaded 29 blog opportunities from blog-content-topics.csv
+2026-11-08 13:17:38,036 | INFO    | __main__ | Launch Batch: 4 post(s) left; staging the next one.
+2026-11-08 13:17:39,166 | INFO    | agents.content_generator | Generating: The Hiring Process, Step by Step
+2026-11-08 13:17:39,464 | INFO    | agents.research | Researching: The Hiring Process, Step by Step
+2026-11-08 13:17:41,386 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:18:12,237 | INFO    | lib.llm | Research call: 3 searches, 69665 in, 1354 out, stop=end_turn
+2026-11-08 13:18:12,238 | INFO    | agents.research | Research, definitions: 3 searches, 718 words
+2026-11-08 13:18:13,368 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:18:40,809 | INFO    | lib.llm | Research call: 1 searches, 25876 in, 988 out, stop=end_turn
+2026-11-08 13:18:40,810 | INFO    | agents.research | Research, best practices: 1 searches, 591 words
+2026-11-08 13:18:41,962 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:19:09,815 | INFO    | lib.llm | Research call: 4 searches, 64918 in, 1298 out, stop=end_turn
+2026-11-08 13:19:09,817 | INFO    | agents.research | Research, statistics: 4 searches, 427 words
+2026-11-08 13:19:12,973 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:25:20,677 | INFO    | lib.llm | Structured call: stop=tool_use, 10418 in, 16104 out
+2026-11-08 13:25:21,885 | WARNING | agents.content_generator | Validation warnings: ['Meta description is 162 chars; aim for 160']
+2026-11-08 13:25:21,886 | WARNING | agents.content_generator | To-do for the follow-up run: ["Removed link to /blog/skills-mapping-for-hiring-a-complete-guide ('Skills mapping'): not a page on the site. Link a real page instead.", "Removed link to /blog/employer-branding-steps ('Employer branding'): not a page on the site. Link a real page instead.", "Removed link to /blog/agile-recruiting-process ('agile recruiting process'): not a page on the site. Link a real page instead.", "Removed link to /blog/job-rejection-email ('job rejection email'): not a page on the site. Link a real page instead.", "Removed link to /blog/behavioral-interview-scoring-matrix ('behavioral interview scoring matrix'): not a page on the site. Link a real page instead.", "Removed link to /blog/unique-interview-questions ('unique interview questions'): not a page on the site. Link a real page instead.", "Removed link to /blog/interview-bias ('Understanding the types of interview bias'): not a page on the site. Link a real page instead.", "Removed link to /blog/first-impression-bias ('First impression bias'): not a page on the site. Link a real page instead.", "Removed link to /blog/interview-guide ('Complete Interview Guide for Hiring Teams'): not a page on the site. Link a real page instead.", "Removed link to /blog/interview-feedback-examples ('interview feedback examples'): not a page on the site. Link a real page instead.", "Removed link to /blog/onboarding ('onboarding guide'): not a page on the site. Link a real page instead.", "Removed link to /blog/hiring-pipeline ('what a hiring pipeline is and how to build one'): not a page on the site. Link a real page instead.", "Removed link to /blog/how-does-an-applicant-tracking-system-work ('how an applicant tracking system works'): not a page on the site. Link a real page instead.", "Removed link to /blog/talent-acquisition-vs-recruitment ('talent acquisition vs. recruitment'): not a page on the site. Link a real page instead.", 'Only 1 internal link(s) in the body; add at least 1 more.', 'Listed link to /blog/skills-mapping-for-hiring-a-complete-guide is not a page on the site; ignore it or find the right page.', 'Listed link to /blog/agile-recruiting-process is not a page on the site; ignore it or find the right page.', 'Listed link to /blog/job-rejection-email is not a page on the site; ignore it or find the right page.', 'Listed link to /blog/behavioral-interview-scoring-matrix is not a page on the site; ignore it or find the right page.', 'Listed link to /blog/unique-interview-questions is not a page on the site; ignore it or find the right page.', 'Listed link to /blog/interview-bias is not a page on the site; ignore it or find the right page.', 'Listed link to /blog/first-impression-bias is not a page on the site; ignore it or find the right page.', 'Listed link to /blog/interview-guide is not a page on the site; ignore it or find the right page.', 'Listed link to /blog/interview-feedback-examples is not a page on the site; ignore it or find the right page.', 'Listed link to /blog/onboarding is not a page on the site; ignore it or find the right page.', 'Listed link to /blog/hiring-pipeline is not a page on the site; ignore it or find the right page.', 'Listed link to /blog/how-does-an-applicant-tracking-system-work is not a page on the site; ignore it or find the right page.', 'Listed link to /blog/talent-acquisition-vs-recruitment is not a page on the site; ignore it or find the right page.', 'Listed link to /blog/employer-branding-steps is not a page on the site; ignore it or find the right page.', 'Add a link to https://www.polymer.co/blog/agile-recruiting-process once it is published.', 'Add a link to https://www.polymer.co/blog/skills-mapping-for-hiring-a-complete-guide once it is published.', 'Add a link to https://www.polymer.co/blog/talent-acquisition-vs-recruitment once it is published.', 'Add a link to https://www.polymer.co/blog/employer-branding-steps once it is published.', 'Add a link to https://www.polymer.co/blog/interview-bias once it is published.', 'Add a link to https://www.polymer.co/blog/first-impression-bias once it is published.', 'Add a link to https://www.polymer.co/blog/unique-interview-questions once it is published.', 'Add a link to https://www.polymer.co/blog/behavioral-interview-scoring-matrix once it is published.', 'Add a link to https://www.polymer.co/blog/interview-feedback-examples once it is published.', 'Add a link to https://www.polymer.co/blog/job-rejection-email once it is published.', 'Add a link to https://www.polymer.co/blog/onboarding once it is published.', 'Add a link to https://www.polymer.co/blog/how-does-an-applicant-tracking-system-work once it is published.', 'Add a link to https://www.polymer.co/blog/interview-guide once it is published.', 'Add a link to https://www.polymer.co/blog/hiring-pipeline once it is published.']
+2026-11-08 13:25:21,893 | INFO    | agents.content_generator | Generated 3815 words, 7 FAQs
+2026-11-08 13:25:31,157 | WARNING | lib.repo | git push for hiring-process-steps-output/hiring-process-steps-research.md failed: To https://github.com/jessicagertig/polymer-content-pipeline
+ ! [remote rejected] engine-run/run-2026-11-08-1317 -> engine-run/run-2026-11-08-1317 (failed)
+error: failed to push some refs to 'https://github.com/jessicagertig/polymer-content-pipeline'
+2026-11-08 13:25:31,159 | INFO    | __main__ | Saved output: hiring-process-steps-output/
+2026-11-08 13:25:32,539 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:26:15,886 | INFO    | lib.llm | Structured call: stop=tool_use, 10247 in, 2363 out
+2026-11-08 13:26:18,400 | INFO    | main | Saved output: hiring-process-steps-output/
+2026-11-08 13:26:18,401 | INFO    | rewrite_opening | Opening rewritten for hiring-process-steps: 0 -> 189 words
+2026-11-08 13:26:19,993 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:26:56,660 | INFO    | lib.llm | Structured call: stop=tool_use, 3082 in, 3093 out
+2026-11-08 13:26:57,813 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:27:12,499 | INFO    | lib.llm | Structured call: stop=tool_use, 3310 in, 1047 out
+2026-11-08 13:27:13,683 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:27:50,466 | INFO    | lib.llm | Structured call: stop=tool_use, 3074 in, 2715 out
+2026-11-08 13:27:52,766 | INFO    | main | Saved output: hiring-process-steps-output/
+2026-11-08 13:27:52,767 | INFO    | review_post | Opening checked for hiring-process-steps: 1 correction(s)
+2026-11-08 13:27:53,828 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:27:53,850 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:27:54,093 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:27:54,400 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:27:59,161 | INFO    | lib.llm | Structured call: stop=tool_use, 1415 in, 337 out
+2026-11-08 13:28:00,326 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:28:00,472 | INFO    | lib.llm | Structured call: stop=tool_use, 1566 in, 487 out
+2026-11-08 13:28:01,670 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:28:02,609 | INFO    | lib.llm | Structured call: stop=tool_use, 1425 in, 554 out
+2026-11-08 13:28:03,573 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:28:06,473 | INFO    | lib.llm | Structured call: stop=tool_use, 1503 in, 746 out
+2026-11-08 13:28:07,725 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:28:12,299 | INFO    | lib.llm | Structured call: stop=tool_use, 1430 in, 1025 out
+2026-11-08 13:28:12,878 | INFO    | lib.llm | Structured call: stop=tool_use, 1499 in, 955 out
+2026-11-08 13:28:13,208 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:28:13,899 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:28:18,486 | INFO    | lib.llm | Structured call: stop=tool_use, 1423 in, 330 out
+2026-11-08 13:28:19,716 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:28:21,409 | INFO    | lib.llm | Structured call: stop=tool_use, 1608 in, 1308 out
+2026-11-08 13:28:22,436 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:28:24,019 | INFO    | lib.llm | Structured call: stop=tool_use, 1406 in, 655 out
+2026-11-08 13:28:24,940 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:28:25,175 | INFO    | lib.llm | Structured call: stop=tool_use, 1679 in, 1696 out
+2026-11-08 13:28:26,063 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:28:26,951 | INFO    | lib.llm | Structured call: stop=tool_use, 1475 in, 741 out
+2026-11-08 13:28:27,830 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:28:31,861 | INFO    | lib.llm | Structured call: stop=tool_use, 1491 in, 588 out
+2026-11-08 13:28:32,197 | INFO    | lib.llm | Structured call: stop=tool_use, 1425 in, 314 out
+2026-11-08 13:28:32,939 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:28:33,031 | INFO    | lib.llm | Structured call: stop=tool_use, 1451 in, 848 out
+2026-11-08 13:28:33,159 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:28:34,008 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:28:34,055 | INFO    | lib.llm | Structured call: stop=tool_use, 1550 in, 533 out
+2026-11-08 13:28:34,982 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:28:36,424 | INFO    | lib.llm | Structured call: stop=tool_use, 1398 in, 228 out
+2026-11-08 13:28:40,640 | INFO    | lib.llm | Structured call: stop=tool_use, 1440 in, 869 out
+2026-11-08 13:28:41,601 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:28:43,675 | INFO    | lib.llm | Structured call: stop=tool_use, 1512 in, 1086 out
+2026-11-08 13:28:45,056 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:28:49,020 | INFO    | lib.llm | Structured call: stop=tool_use, 1666 in, 1309 out
+2026-11-08 13:28:50,039 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:28:50,386 | INFO    | lib.llm | Structured call: stop=tool_use, 1497 in, 397 out
+2026-11-08 13:28:51,250 | INFO    | lib.llm | Structured call: stop=tool_use, 1426 in, 584 out
+2026-11-08 13:28:51,287 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:28:52,264 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:29:00,121 | INFO    | lib.llm | Structured call: stop=tool_use, 1568 in, 911 out
+2026-11-08 13:29:00,287 | INFO    | lib.llm | Structured call: stop=tool_use, 1539 in, 616 out
+2026-11-08 13:29:01,138 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:29:01,724 | INFO    | lib.llm | Structured call: stop=tool_use, 1484 in, 840 out
+2026-11-08 13:29:01,798 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:29:02,969 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:29:11,481 | INFO    | lib.llm | Structured call: stop=tool_use, 1430 in, 505 out
+2026-11-08 13:29:12,521 | INFO    | lib.llm | Structured call: stop=tool_use, 1635 in, 1045 out
+2026-11-08 13:29:13,437 | INFO    | lib.llm | Structured call: stop=tool_use, 1497 in, 663 out
+2026-11-08 13:29:13,519 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:29:14,693 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:29:24,760 | INFO    | lib.llm | Structured call: stop=tool_use, 1524 in, 1066 out
+2026-11-08 13:29:25,781 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:29:26,795 | INFO    | lib.llm | Structured call: stop=tool_use, 1522 in, 827 out
+2026-11-08 13:29:27,906 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:29:37,111 | INFO    | lib.llm | Structured call: stop=tool_use, 1507 in, 735 out
+2026-11-08 13:29:40,810 | INFO    | lib.llm | Structured call: stop=tool_use, 1686 in, 1123 out
+2026-11-08 13:29:42,028 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:30:03,225 | INFO    | lib.llm | Structured call: stop=tool_use, 1497 in, 1330 out
+2026-11-08 13:30:03,229 | INFO    | review_post | Section 2/16 checked: What the hiring process actually is, 2 correction(s)
+2026-11-08 13:30:03,231 | INFO    | review_post | Section 3/16 checked: Define the role before you write the job post, 4 correction(s)
+2026-11-08 13:30:03,232 | INFO    | review_post | Section 4/16 checked: Write a job post that attracts the right candidates, 4 correction(s)
+2026-11-08 13:30:03,233 | INFO    | review_post | Section 5/16 checked: Build your application form with intention, 4 correction(s)
+2026-11-08 13:30:03,234 | INFO    | review_post | Spent so far: $2.24: 238764 in, 54213 out, 113208 cache written, 671711 cache read, 8 searches
+2026-11-08 13:30:04,258 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:30:04,387 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:30:04,661 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:30:05,413 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:30:14,581 | INFO    | lib.llm | Structured call: stop=tool_use, 1426 in, 571 out
+2026-11-08 13:30:15,611 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:30:20,148 | INFO    | lib.llm | Structured call: stop=tool_use, 1425 in, 803 out
+2026-11-08 13:30:21,326 | INFO    | lib.llm | Structured call: stop=tool_use, 1581 in, 981 out
+2026-11-08 13:30:22,399 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:30:23,277 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:30:27,977 | INFO    | lib.llm | Structured call: stop=tool_use, 1897 in, 1398 out
+2026-11-08 13:30:28,310 | INFO    | lib.llm | Structured call: stop=tool_use, 1518 in, 1064 out
+2026-11-08 13:30:29,290 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:30:29,394 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:30:32,302 | INFO    | lib.llm | Structured call: stop=tool_use, 1723 in, 1192 out
+2026-11-08 13:30:33,307 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:30:33,776 | INFO    | lib.llm | Structured call: stop=tool_use, 1438 in, 1003 out
+2026-11-08 13:30:34,954 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:30:36,117 | INFO    | lib.llm | Structured call: stop=tool_use, 1427 in, 425 out
+2026-11-08 13:30:37,258 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:30:45,378 | INFO    | lib.llm | Structured call: stop=tool_use, 1443 in, 575 out
+2026-11-08 13:30:46,439 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:30:47,142 | INFO    | lib.llm | Structured call: stop=tool_use, 1581 in, 804 out
+2026-11-08 13:30:48,124 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:30:50,255 | INFO    | lib.llm | Structured call: stop=tool_use, 1481 in, 1118 out
+2026-11-08 13:30:51,234 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:30:55,339 | INFO    | lib.llm | Structured call: stop=tool_use, 1442 in, 953 out
+2026-11-08 13:30:56,316 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:30:57,987 | INFO    | lib.llm | Structured call: stop=tool_use, 1429 in, 509 out
+2026-11-08 13:30:59,054 | INFO    | lib.llm | Structured call: stop=tool_use, 1643 in, 1095 out
+2026-11-08 13:30:59,064 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:31:00,102 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:31:03,855 | INFO    | lib.llm | Structured call: stop=tool_use, 2180 in, 2543 out
+2026-11-08 13:31:04,830 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:31:07,133 | INFO    | lib.llm | Structured call: stop=tool_use, 1450 in, 583 out
+2026-11-08 13:31:08,380 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:31:11,657 | INFO    | lib.llm | Structured call: stop=tool_use, 1574 in, 689 out
+2026-11-08 13:31:12,841 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:31:14,560 | INFO    | lib.llm | Structured call: stop=tool_use, 1545 in, 1136 out
+2026-11-08 13:31:15,988 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:31:17,636 | INFO    | lib.llm | Structured call: stop=tool_use, 1453 in, 964 out
+2026-11-08 13:31:18,811 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:31:21,593 | INFO    | lib.llm | Structured call: stop=tool_use, 1418 in, 433 out
+2026-11-08 13:31:22,569 | INFO    | lib.llm | Structured call: stop=tool_use, 1917 in, 1093 out
+2026-11-08 13:31:22,752 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:31:23,392 | INFO    | lib.llm | Structured call: stop=tool_use, 1653 in, 1061 out
+2026-11-08 13:31:24,304 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:31:24,429 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:31:29,851 | INFO    | lib.llm | Structured call: stop=tool_use, 1456 in, 606 out
+2026-11-08 13:31:30,336 | INFO    | lib.llm | Structured call: stop=tool_use, 1478 in, 826 out
+2026-11-08 13:31:31,279 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:31:31,340 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:31:37,393 | INFO    | lib.llm | Structured call: stop=tool_use, 1560 in, 746 out
+2026-11-08 13:31:38,693 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:31:40,540 | INFO    | lib.llm | Structured call: stop=tool_use, 1457 in, 976 out
+2026-11-08 13:31:41,587 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:31:42,674 | INFO    | lib.llm | Structured call: stop=tool_use, 1417 in, 688 out
+2026-11-08 13:31:43,072 | INFO    | lib.llm | Structured call: stop=tool_use, 2095 in, 1847 out
+2026-11-08 13:31:44,052 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:31:51,854 | INFO    | lib.llm | Structured call: stop=tool_use, 1462 in, 602 out
+2026-11-08 13:31:52,134 | INFO    | lib.llm | Structured call: stop=tool_use, 1600 in, 1328 out
+2026-11-08 13:31:53,141 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:31:59,492 | INFO    | lib.llm | Structured call: stop=tool_use, 1892 in, 888 out
+2026-11-08 13:32:00,589 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:32:06,184 | INFO    | lib.llm | Structured call: stop=tool_use, 1573 in, 744 out
+2026-11-08 13:32:16,001 | INFO    | lib.llm | Structured call: stop=tool_use, 2023 in, 1784 out
+2026-11-08 13:32:17,122 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:32:35,492 | INFO    | lib.llm | Structured call: stop=tool_use, 1891 in, 1094 out
+2026-11-08 13:32:36,703 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:32:56,417 | INFO    | lib.llm | Structured call: stop=tool_use, 2057 in, 1974 out
+2026-11-08 13:32:57,252 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:33:18,781 | INFO    | lib.llm | Structured call: stop=tool_use, 1889 in, 1213 out
+2026-11-08 13:33:18,783 | INFO    | review_post | Section 6/16 checked: Source candidates through the right channels, 4 correction(s)
+2026-11-08 13:33:18,784 | INFO    | review_post | Section 7/16 checked: Screen applications fairly and efficiently, 4 correction(s)
+2026-11-08 13:33:18,785 | INFO    | review_post | Section 8/16 checked: Run interviews that give you evidence, 4 correction(s)
+2026-11-08 13:33:18,786 | INFO    | review_post | Section 9/16 checked: Collect structured feedback from the team, 4 correction(s)
+2026-11-08 13:33:18,788 | INFO    | review_post | Spent so far: $3.18: 297258 in, 90522 out, 113208 cache written, 1427247 cache read, 8 searches
+2026-11-08 13:33:19,767 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:33:19,801 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:33:19,820 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:33:19,890 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:33:23,509 | INFO    | lib.llm | Structured call: stop=tool_use, 1395 in, 293 out
+2026-11-08 13:33:24,477 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:33:26,788 | INFO    | lib.llm | Structured call: stop=tool_use, 1449 in, 425 out
+2026-11-08 13:33:27,762 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:33:31,757 | INFO    | lib.llm | Structured call: stop=tool_use, 1434 in, 667 out
+2026-11-08 13:33:32,879 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:33:33,441 | INFO    | lib.llm | Structured call: stop=tool_use, 1405 in, 876 out
+2026-11-08 13:33:34,635 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:33:38,319 | INFO    | lib.llm | Structured call: stop=tool_use, 1411 in, 315 out
+2026-11-08 13:33:38,961 | INFO    | lib.llm | Structured call: stop=tool_use, 1655 in, 1195 out
+2026-11-08 13:33:39,357 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:33:39,965 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:33:40,485 | INFO    | lib.llm | Structured call: stop=tool_use, 1504 in, 1011 out
+2026-11-08 13:33:41,350 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:33:47,442 | INFO    | lib.llm | Structured call: stop=tool_use, 1477 in, 1158 out
+2026-11-08 13:33:48,346 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:33:48,710 | INFO    | lib.llm | Structured call: stop=tool_use, 1464 in, 946 out
+2026-11-08 13:33:49,648 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:33:53,330 | INFO    | lib.llm | Structured call: stop=tool_use, 1411 in, 316 out
+2026-11-08 13:33:53,921 | INFO    | lib.llm | Structured call: stop=tool_use, 1446 in, 729 out
+2026-11-08 13:33:54,954 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:33:58,915 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:33:59,807 | INFO    | lib.llm | Structured call: stop=tool_use, 1429 in, 632 out
+2026-11-08 13:34:00,435 | INFO    | lib.llm | Structured call: stop=tool_use, 1917 in, 1823 out
+2026-11-08 13:34:00,880 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:34:01,321 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:34:04,801 | INFO    | lib.llm | Structured call: stop=tool_use, 1508 in, 997 out
+2026-11-08 13:34:05,782 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:34:07,423 | INFO    | lib.llm | Structured call: stop=tool_use, 1437 in, 877 out
+2026-11-08 13:34:08,700 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:34:09,865 | INFO    | lib.llm | Structured call: stop=tool_use, 1452 in, 922 out
+2026-11-08 13:34:11,291 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:34:13,148 | INFO    | lib.llm | Structured call: stop=tool_use, 1411 in, 347 out
+2026-11-08 13:34:14,115 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:34:15,884 | INFO    | lib.llm | Structured call: stop=tool_use, 1646 in, 891 out
+2026-11-08 13:34:16,985 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:34:18,021 | INFO    | lib.llm | Structured call: stop=tool_use, 1438 in, 736 out
+2026-11-08 13:34:19,135 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:34:22,265 | INFO    | lib.llm | Structured call: stop=tool_use, 1426 in, 878 out
+2026-11-08 13:34:23,210 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:34:23,398 | INFO    | lib.llm | Structured call: stop=tool_use, 1432 in, 689 out
+2026-11-08 13:34:24,488 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:34:25,061 | INFO    | lib.llm | Structured call: stop=tool_use, 1497 in, 697 out
+2026-11-08 13:34:26,054 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:34:28,213 | INFO    | lib.llm | Structured call: stop=tool_use, 1414 in, 423 out
+2026-11-08 13:34:31,403 | INFO    | lib.llm | Structured call: stop=tool_use, 1422 in, 378 out
+2026-11-08 13:34:32,698 | INFO    | lib.llm | Structured call: stop=tool_use, 1513 in, 778 out
+2026-11-08 13:34:33,621 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:34:35,748 | INFO    | lib.llm | Structured call: stop=tool_use, 1825 in, 1641 out
+2026-11-08 13:34:36,890 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:34:46,616 | INFO    | lib.llm | Structured call: stop=tool_use, 1641 in, 647 out
+2026-11-08 13:34:47,578 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:34:49,475 | INFO    | lib.llm | Structured call: stop=tool_use, 1431 in, 921 out
+2026-11-08 13:34:50,559 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:35:05,503 | INFO    | lib.llm | Structured call: stop=tool_use, 1550 in, 1211 out
+2026-11-08 13:35:05,819 | INFO    | lib.llm | Structured call: stop=tool_use, 1704 in, 1613 out
+2026-11-08 13:35:06,493 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:35:06,775 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:35:19,486 | INFO    | lib.llm | Structured call: stop=tool_use, 1425 in, 705 out
+2026-11-08 13:35:25,397 | INFO    | lib.llm | Structured call: stop=tool_use, 1657 in, 1144 out
+2026-11-08 13:35:26,422 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:35:48,783 | INFO    | lib.llm | Structured call: stop=tool_use, 1881 in, 1858 out
+2026-11-08 13:35:49,714 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:36:11,349 | INFO    | lib.llm | Structured call: stop=tool_use, 1652 in, 1376 out
+2026-11-08 13:36:11,351 | INFO    | review_post | Section 10/16 checked: Make the offer and close the decision, 4 correction(s)
+2026-11-08 13:36:11,352 | INFO    | review_post | Section 11/16 checked: Bring new hires in well, 4 correction(s)
+2026-11-08 13:36:11,353 | INFO    | review_post | Section 12/16 checked: Use your hiring pipeline to stay organized, 3 correction(s)
+2026-11-08 13:36:11,355 | INFO    | review_post | Section 13/16 checked: Measure each stage and improve what you find, 4 correction(s)
+2026-11-08 13:36:11,358 | INFO    | review_post | Spent so far: $4.00: 349017 in, 120637 out, 113208 cache written, 2140820 cache read, 8 searches
+2026-11-08 13:36:12,354 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:36:12,409 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:36:12,709 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:36:16,860 | INFO    | lib.llm | Structured call: stop=tool_use, 1305 in, 344 out
+2026-11-08 13:36:18,136 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:36:22,183 | INFO    | lib.llm | Structured call: stop=tool_use, 1455 in, 594 out
+2026-11-08 13:36:23,238 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:36:24,806 | INFO    | lib.llm | Structured call: stop=tool_use, 1338 in, 632 out
+2026-11-08 13:36:25,694 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:36:25,753 | INFO    | lib.llm | Structured call: stop=tool_use, 1556 in, 811 out
+2026-11-08 13:36:26,915 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:36:29,685 | INFO    | lib.llm | Structured call: stop=tool_use, 1289 in, 324 out
+2026-11-08 13:36:30,582 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:36:33,756 | INFO    | lib.llm | Structured call: stop=tool_use, 1513 in, 929 out
+2026-11-08 13:36:35,593 | INFO    | lib.llm | Structured call: stop=tool_use, 1306 in, 581 out
+2026-11-08 13:36:36,084 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:36:36,606 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:36:39,957 | INFO    | lib.llm | Structured call: stop=tool_use, 1466 in, 302 out
+2026-11-08 13:36:40,492 | INFO    | lib.llm | Structured call: stop=tool_use, 1289 in, 323 out
+2026-11-08 13:36:40,532 | INFO    | lib.llm | Structured call: stop=tool_use, 1665 in, 1266 out
+2026-11-08 13:36:40,948 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:36:41,523 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:36:41,869 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:36:48,483 | INFO    | lib.llm | Structured call: stop=tool_use, 1305 in, 647 out
+2026-11-08 13:36:49,404 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:36:54,137 | INFO    | lib.llm | Structured call: stop=tool_use, 1570 in, 708 out
+2026-11-08 13:36:55,237 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:36:56,283 | INFO    | lib.llm | Structured call: stop=tool_use, 1295 in, 427 out
+2026-11-08 13:36:57,142 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:36:58,151 | INFO    | lib.llm | Structured call: stop=tool_use, 1498 in, 1353 out
+2026-11-08 13:36:59,122 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:37:03,963 | INFO    | lib.llm | Structured call: stop=tool_use, 1318 in, 634 out
+2026-11-08 13:37:04,140 | INFO    | lib.llm | Structured call: stop=tool_use, 1467 in, 334 out
+2026-11-08 13:37:04,864 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:37:07,985 | INFO    | lib.llm | Structured call: stop=tool_use, 1290 in, 287 out
+2026-11-08 13:37:08,343 | INFO    | lib.llm | Structured call: stop=tool_use, 1639 in, 1196 out
+2026-11-08 13:37:08,981 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:38:55,127 | INFO    | lib.llm | Structured call: stop=tool_use, 1578 in, 5900 out
+2026-11-08 13:38:56,123 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:39:16,526 | INFO    | lib.llm | Structured call: stop=tool_use, 1727 in, 1585 out
+2026-11-08 13:39:17,576 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:39:33,298 | INFO    | lib.llm | Structured call: stop=tool_use, 1577 in, 847 out
+2026-11-08 13:39:35,173 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:39:58,440 | INFO    | lib.llm | Structured call: stop=tool_use, 1661 in, 1708 out
+2026-11-08 13:39:59,543 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:40:16,530 | INFO    | lib.llm | Structured call: stop=tool_use, 1574 in, 954 out
+2026-11-08 13:40:16,531 | INFO    | review_post | Section 14/16 checked: Where the recruitment process most often breaks down, 4 correction(s)
+2026-11-08 13:40:16,532 | INFO    | review_post | Section 15/16 checked: Tradeoffs to consider as you design your process, 2 correction(s)
+2026-11-08 13:40:16,533 | INFO    | review_post | Section 16/16 checked: Put your hiring process to work, 4 correction(s)
+2026-11-08 13:40:16,537 | INFO    | review_post | Spent so far: $4.59: 382698 in, 143323 out, 113208 cache written, 2623546 cache read, 8 searches
+2026-11-08 13:40:18,880 | INFO    | main | Saved output: hiring-process-steps-output/
+2026-11-08 13:40:18,884 | INFO    | review_post | Checked hiring-process-steps: 15/16 sections; $4.59: 382698 in, 143323 out, 113208 cache written, 2623546 cache read, 8 searches
+2026-11-08 13:40:20,078 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:40:40,095 | INFO    | lib.llm | Structured call: stop=tool_use, 7658 in, 895 out
+2026-11-08 13:40:40,096 | INFO    | review_post | Content check: faults found in hiring-process-steps; $4.70: 390356 in, 144218 out, 133232 cache written, 2623546 cache read, 8 searches
+2026-11-08 13:40:41,417 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:43:23,293 | INFO    | lib.llm | Structured call: stop=tool_use, 9370 in, 6755 out
+2026-11-08 13:43:23,305 | INFO    | review_post | Content fixed in hiring-process-steps: 5 listed, 0 more found by the code; $4.91: 399726 in, 150973 out, 153234 cache written, 2623546 cache read, 8 searches
+2026-11-08 13:43:24,794 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:44:15,275 | INFO    | lib.llm | Structured call: stop=tool_use, 7871 in, 2736 out
+2026-11-08 13:44:16,354 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:54:30,679 | INFO    | lib.llm | Structured call: stop=tool_use, 9496 in, 31887 out
+2026-11-08 13:54:30,681 | INFO    | review_post | Content review for hiring-process-steps: 17 fault(s); $5.63: 417093 in, 185596 out, 193264 cache written, 2623546 cache read, 8 searches
+2026-11-08 13:54:38,743 | WARNING | lib.repo | git push for hiring-process-steps-output/hiring-process-steps.md failed: To https://github.com/jessicagertig/polymer-content-pipeline
+ ! [remote rejected] engine-run/run-2026-11-08-1317 -> engine-run/run-2026-11-08-1317 (failed)
+error: failed to push some refs to 'https://github.com/jessicagertig/polymer-content-pipeline'
+2026-11-08 13:54:38,750 | INFO    | main | Saved output: hiring-process-steps-output/
+2026-11-08 13:54:40,195 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 13:56:18,393 | INFO    | lib.llm | Structured call: stop=tool_use, 5935 in, 5332 out
+2026-11-08 13:56:18,395 | INFO    | review_post | Transitions: 27 fault(s) in hiring-process-steps; $5.80: 423028 in, 190928 out, 213284 cache written, 2623546 cache read, 8 searches
+2026-11-08 13:56:19,923 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 14:04:22,289 | INFO    | lib.llm | Structured call: stop=tool_use, 6407 in, 26691 out
+2026-11-08 14:04:22,295 | INFO    | review_post | Transitions fixed in hiring-process-steps: 17 listed, 0 more found by the code; $6.29: 429435 in, 217619 out, 233096 cache written, 2623546 cache read, 8 searches
+2026-11-08 14:04:23,390 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 14:05:50,007 | INFO    | lib.llm | Structured call: stop=tool_use, 6443 in, 6345 out
+2026-11-08 14:05:51,051 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-08 14:16:04,162 | INFO    | lib.llm | Structured call: stop=max_tokens, 6514 in, 32000 out
+2026-11-08 14:16:04,166 | ERROR   | __main__ | Failed for 'The Hiring Process, Step by Step': Response cut off at max_tokens=32000 before the 'submit_post' call completed; $7.06: 442392 in, 255964 out, 273077 cache written, 2623546 cache read, 8 searches
+Traceback (most recent call last):
+  File "/home/runner/work/polymer-content-pipeline/polymer-content-pipeline/main.py", line 132, in _stage_one
+    done = run_steps(slug, write)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/polymer-content-pipeline/polymer-content-pipeline/pipeline.py", line 79, in run_steps
+    if fn(slug, stop_at=stop_at):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/polymer-content-pipeline/polymer-content-pipeline/review_post.py", line 603, in transition_pass
+    fixed = structured_call(system=_system(REVIEW_FIX_SYSTEM) + _brief(page), user=REVIEW_FIX_USER.format(faults="\n".join(found), body_html=state["body"]),
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/polymer-content-pipeline/polymer-content-pipeline/lib/llm.py", line 151, in structured_call
+    raise RuntimeError(f"Response cut off at max_tokens={max_tokens} before the '{tool_name}' call completed")
+RuntimeError: Response cut off at max_tokens=32000 before the 'submit_post' call completed
