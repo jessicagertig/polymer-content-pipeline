@@ -93,7 +93,7 @@ After the interviews are complete, the debrief turns individual impressions into
 
 Ask every interviewer to submit written feedback on each candidate before the debrief. The feedback should cover the competencies that interviewer was assigned to evaluate, with a score and a rationale. Written feedback is harder to revise in the moment and easier to compare across candidates. When evaluations are submitted independently, the debrief surfaces real disagreements rather than burying them.
 
-Good feedback cites what the candidate actually said or did. A note like "strong communicator" gives the team no basis for comparison. "Described the stakeholder conflict clearly and walked through what she changed in her approach after the first conversation failed" tells the team something they can use. For guidance on what structured candidate feedback looks like, the [interview feedback examples](/blog/interview-feedback-examples) page covers different competencies and can help interviewers calibrate before they write their own.
+Good feedback cites what the candidate actually said or did. A note like "strong communicator" gives the team no basis for comparison. "Described the stakeholder conflict clearly and walked through what she changed in her approach after the first conversation failed" tells the team something they can use. For guidance on what structured candidate feedback looks like, the interview feedback examples page covers different competencies and can help interviewers calibrate before they write their own.
 
 After the debrief, document the decision — not just who was chosen, but why. A record of the reasoning protects the team if the decision is ever questioned and helps calibrate future evaluations against real outcomes.
 
@@ -129,7 +129,7 @@ Once the pipeline is running, a hiring process you cannot measure is a process y
 
 Time to fill — the number of days from when a role opens to when an offer is accepted — is the most common measure of hiring speed. [SHRM reported that the average U.S. time to fill an open role in 2024 was 41 days](https://www.shrm.org/topics-tools/news/talent-acquisition/recruiters-express-optimism-for-2025), down from 48 days the year before. Your own time-to-fill matters more than the average; the goal is to find where it accumulates. Break the total into segments and measure each one separately: time from role approval to first interview, and time from final interview to offer. That tells you which stage to fix, not just that hiring takes too long.
 
-Offer acceptance rate is a signal about the late-stage experience. When strong candidates decline offers, the reason is usually compensation, process speed, or something they observed about the company during the interviews. Each of those is fixable, but only if you ask. [Gallup found that two in three employees](https://www.gallup.com/workplace/651650/lasting-impact-exceptional-candidate-experiences.aspx) hired in the last year described their candidate experience as exceptional or very good. A strong acceptance rate follows from a process that candidates respect. Whether strong candidates say yes depends on more than the offer itself; the [article on talent acquisition vs. recruitment](/blog/talent-acquisition-vs-recruitment) covers the difference between filling roles and building the kind of longer-term capability that makes those candidates want to join.
+Offer acceptance rate is a signal about the late-stage experience. When strong candidates decline offers, the reason is usually compensation, process speed, or something they observed about the company during the interviews. Each of those is fixable, but only if you ask. [Gallup found that two in three employees](https://www.gallup.com/workplace/651650/lasting-impact-exceptional-candidate-experiences.aspx) hired in the last year described their candidate experience as exceptional or very good. A strong acceptance rate follows from a process that candidates respect. Whether strong candidates say yes depends on more than the offer itself; the article on talent acquisition vs. recruitment covers the difference between filling roles and building the kind of longer-term capability that makes those candidates want to join.
 
 ## Where the recruitment process most often breaks down
 
@@ -189,20 +189,8 @@ The most common cause is a role that was not defined clearly enough before the s
 
 ## To-do
 
-- Removed link to /blog/skills-mapping-for-hiring-a-complete-guide ('Skills mapping'): not a page on the site. Link a real page instead.
-- Removed link to /blog/employer-branding-steps ('Employer branding'): not a page on the site. Link a real page instead.
-- Removed link to /blog/agile-recruiting-process ('agile recruiting process'): not a page on the site. Link a real page instead.
-- Removed link to /blog/job-rejection-email ('job rejection email'): not a page on the site. Link a real page instead.
-- Removed link to /blog/behavioral-interview-scoring-matrix ('behavioral interview scoring matrix'): not a page on the site. Link a real page instead.
-- Removed link to /blog/unique-interview-questions ('unique interview questions'): not a page on the site. Link a real page instead.
-- Removed link to /blog/interview-bias ('Understanding the types of interview bias'): not a page on the site. Link a real page instead.
-- Removed link to /blog/first-impression-bias ('First impression bias'): not a page on the site. Link a real page instead.
-- Removed link to /blog/interview-guide ('Complete Interview Guide for Hiring Teams'): not a page on the site. Link a real page instead.
 - Removed link to /blog/interview-feedback-examples ('interview feedback examples'): not a page on the site. Link a real page instead.
-- Removed link to /blog/onboarding ('onboarding guide'): not a page on the site. Link a real page instead.
-- Removed link to /blog/hiring-pipeline ('what a hiring pipeline is and how to build one'): not a page on the site. Link a real page instead.
-- Removed link to /blog/how-does-an-applicant-tracking-system-work ('how an applicant tracking system works'): not a page on the site. Link a real page instead.
-- Removed link to /blog/talent-acquisition-vs-recruitment ('talent acquisition vs. recruitment'): not a page on the site. Link a real page instead.
+- Removed link to /blog/talent-acquisition-vs-recruitment ('article on talent acquisition vs. recruitment'): not a page on the site. Link a real page instead.
 - Only 1 internal link(s) in the body; add at least 1 more.
 - Listed link to /blog/skills-mapping-for-hiring-a-complete-guide is not a page on the site; ignore it or find the right page.
 - Listed link to /blog/agile-recruiting-process is not a page on the site; ignore it or find the right page.
