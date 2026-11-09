@@ -361,9 +361,8 @@ Weak answers usually fall into one of two buckets. The candidate either says the
     "comparison": """COMPARISON ARTICLE, an editorial "X vs Y" article, a blog article and not a landing page. The opening follows the Opening rules in the system prompt. A comparison sets two products side by side, or two kinds of something, such as two kinds of hiring software or two hiring methods. The points below are what a comparison usually covers. They are not sections, and they are not headings. Cover each one where the topic calls for it.
 - A table of the points that decide the choice. Use ✓, ✗, or partial.
 - The trade-offs between them: where each one is strongest and where it falls short. Be fair to both.
-- How to choose, matching each one to the reader's situation. The reader may be a recruiter, a hiring manager, a founder, or the head of operations at a growing company (startup or small business) who handles many jobs at once. Readers whom the same reasoning applies to may be covered together, but none may be skipped.
+- How to choose. Consider each reader's situation and select the one that is most appropriate for it. The readers are founding members at startups, hiring managers or ops leaders at growing companies, and recruiters or human resources professionals at larger organizations, in that order. Readers whom the same reasoning applies to may be covered together, but none may be skipped.
 - Pricing, only when the title names two products: each one's published pricing. A comparison of two kinds of tool, or of two methods, has no pricing section.
-- An honest recommendation, with the reasoning.
 
 A comparison may use a heading that other comparisons also use, such as "How to Choose." This is an exception to the headings rule.
 
