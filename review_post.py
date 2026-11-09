@@ -168,6 +168,13 @@ def _em_dash_faults(section: str) -> list[str]:
     return faults
 
 
+def _article_em_dash_faults(body: str) -> list[str]:
+    """_em_dash_faults for a step that is given the whole article: each fault says which section it is,
+    under its heading, since "The whole section" alone does not."""
+    return [f.replace("The whole section", f'The section "{_section_name(s)}"', 1)
+            for s in split_sections(body)[1:] for f in _em_dash_faults(s)]
+
+
 def _check_section(section: str, system: str, fix_system: str, max_fixes: int, is_opening: bool = False,
                    find_prompt: str = FIND_RULE_BY_RULE_USER, fix_prompt: str = FIX_USER, progress=None) -> tuple[str, str, int]:
     """Check one section against the rules, correct it, and check again, up to max_fixes
@@ -422,7 +429,7 @@ def content_check(slug: str, stop_at: float = 0.0) -> bool:
         review = structured_call(system=system, user=CONTENT_REVIEW_CHANGES_USER.format(rules=CONTENT_RULES, changed="\n".join(state["changed"]), body_html=state["body"]),
                                  tool_name="report_faults", tool_description="Report the log and the faults.", input_schema=FIND_RULE_BY_RULE_SCHEMA, max_tokens=16000)
         found = _faults(review["faults"])
-        found += [f for s in split_sections(state["body"])[1:] for f in _em_dash_faults(s)]
+        found += _article_em_dash_faults(state["body"])
         records.append(f"## Review of the changed sentences\n\n### Log\n\n{review['log'].strip()}\n\n### Faults\n\n{review['faults'].strip()}\n")
         if found:
             fixed = structured_call(system=_system(CONTENT_REVIEW_FIX_SYSTEM) + _brief(page), user=CONTENT_REVIEW_FIX_USER.format(rules=CONTENT_RULES, fixes=CONTENT_FIXES, faults="\n".join(found), body_html=state["body"]),
@@ -597,7 +604,7 @@ def transition_pass(slug: str, stop_at: float = 0.0) -> bool:
         review = structured_call(system=system, user=REVIEW_CHANGES_USER.format(changed="\n".join(state["changed"]), body_html=state["body"]),
                                  tool_name="report_faults", tool_description="Report the log and the faults.", input_schema=FIND_RULE_BY_RULE_SCHEMA, max_tokens=16000)
         found = _faults(review["faults"])
-        found += [f for s in split_sections(state["body"])[1:] for f in _em_dash_faults(s)]
+        found += _article_em_dash_faults(state["body"])
         records.append(f"## Review of the changed sentences\n\n### Log\n\n{review['log'].strip()}\n\n### Faults\n\n{review['faults'].strip()}\n")
         if found:
             fixed = structured_call(system=_system(REVIEW_FIX_SYSTEM) + _brief(page), user=REVIEW_FIX_USER.format(faults="\n".join(found), body_html=state["body"]),
