@@ -29,10 +29,9 @@ def test_fix_internal_links():
         '<table><tr><td><a href="/pricing">plans</a></td></tr></table>'
     )
     body, placed, todos = fix_internal_links(html, PAGES)
-    assert '<a href="/blog/made-up">' not in body and "a made-up page" in body
-    assert '<a href="https://shrm.org/x">' in body
-    assert placed == ["/blog/ats-guide", "/pricing", "/pricing"]
-    assert len(todos) == 2 and "made-up" in todos[0] and "table" in todos[1]
+    assert body == html   # no link is ever removed
+    assert placed == ["/blog/ats-guide", "/pricing", "/blog/made-up", "/pricing"]
+    assert len(todos) == 1 and "table" in todos[0]
 
 
 def test_validate_todos_do_not_fail_the_post():

@@ -48,7 +48,7 @@ def site_path(href: str) -> Optional[str]:
 
 
 def fix_internal_links(body_html: str, existing_urls: set) -> tuple[str, list[str], list[str]]:
-    """Removes each <a> whose site path is not in the sitemap, keeping its text.
+    """Finds the internal links in the body. No link is removed.
     Returns (body_html, site paths placed in the body, to-do items)."""
     placed: list[str] = []
     todos: list[str] = []
@@ -59,9 +59,6 @@ def fix_internal_links(body_html: str, existing_urls: set) -> tuple[str, list[st
         path = site_path(href)
         if path is None:
             return m.group(0)
-        if path not in existing_urls:
-            todos.append(f"Removed link to {href} ('{_plain(text)}'): not a page on the site. Link a real page instead.")
-            return text
         placed.append(path)
         if any(a <= m.start() < b for a, b in flattened):
             todos.append(f"Link to {path} is inside a table and will not render; move it into a paragraph.")

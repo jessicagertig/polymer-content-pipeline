@@ -510,6 +510,17 @@ def resource_review(slug: str) -> None:
     log.info(f"Resource review for {slug}: {len(check['faults'])} fault(s); {len(missing)} placeholder(s) missing")
 
 
+def restore_resources(slug: str) -> None:
+    """Puts the hidden resources back without reviewing them, for a post whose resource review could not run."""
+    path = ROOT / f"{slug}-output" / f"{slug}-resources.json"
+    if not path.exists():
+        return
+    page = ContentPage.model_validate_json((ROOT / f"{slug}-output" / f"{slug}.json").read_text())
+    body, _ = res.show(page.content.body_html, json.loads(path.read_text()))
+    _save_body(page, body)
+    path.unlink()
+
+
 def external_links(html: str) -> dict[str, list[str]]:
     """{website: [every URL in the article on that website]} for links to other websites."""
     from urllib.parse import urlparse

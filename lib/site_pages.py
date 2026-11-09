@@ -16,9 +16,14 @@ from config.settings import settings
 
 @lru_cache(maxsize=1)
 def sitemap_entries() -> list[dict]:
-    """Every <url> in the sitemap as {"url": "/path", "lastmod": "<as written, or ''>"}."""
-    with urllib.request.urlopen(f"https://{settings.site_domain}/sitemap.xml", timeout=30) as response:
-        xml = response.read().decode("utf-8")
+    """Every <url> in the sitemap as {"url": "/path", "lastmod": "<as written, or ''>"}. sitemap.xml is a
+    sitemap index (wrk-marketing web/pages/sitemap.xml.js), so every sitemap it lists is read."""
+    def fetch(url: str) -> str:
+        with urllib.request.urlopen(url, timeout=30) as response:
+            return response.read().decode("utf-8")
+    xml = fetch(f"https://{settings.site_domain}/sitemap.xml")
+    if "<sitemapindex" in xml:
+        xml = "".join(fetch(loc.strip()) for loc in re.findall(r"<sitemap>\s*<loc>(.*?)</loc>", xml, flags=re.S))
     entries = []
     for url_xml in re.findall(r"<url>(.*?)</url>", xml, flags=re.S):
         loc = re.search(r"<loc>(.*?)</loc>", url_xml)

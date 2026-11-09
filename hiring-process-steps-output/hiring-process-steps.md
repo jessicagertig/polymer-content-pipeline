@@ -23,7 +23,7 @@ The first and most consequential step in the hiring process happens before any c
 
 Begin with the work, not the title. Ask what problems this person will own, what outcomes they are responsible for in the first six months, and what decisions they will make independently. That process produces a definition built around the specific problems the role owns, the outcomes it is accountable for, and who holds each decision, rather than a recycled job description or a generic template from a job board.
 
-Once the work is clear, sort the requirements. Separate the must-haves — skills and experience without which a candidate cannot do the job — from the nice-to-haves. This distinction matters most when you are evaluating candidates and need to make trade-offs. Teams that skip this ranking step often find themselves disagreeing about candidates, not because the candidates differ, but because interviewers held different definitions of what the role required. Skills mapping is a structured method for identifying and ranking those requirements before the search begins, and it gives the whole team a consistent foundation for evaluation.
+Once the work is clear, sort the requirements. Separate the must-haves — skills and experience without which a candidate cannot do the job — from the nice-to-haves. This distinction matters most when you are evaluating candidates and need to make trade-offs. Teams that skip this ranking step often find themselves disagreeing about candidates, not because the candidates differ, but because interviewers held different definitions of what the role required. [Skills mapping](/blog/skills-mapping-for-hiring-a-complete-guide) is a structured method for identifying and ranking those requirements before the search begins, and it gives the whole team a consistent foundation for evaluation.
 
 Set a target timeline at this stage too. Decide when you need someone in the seat, work backward to set dates for each stage, and share those dates with the hiring team. Without a deadline at each step, every step expands, and that is where hiring slows down.
 
@@ -51,7 +51,7 @@ With your application form in place, posting a job and waiting is a sourcing str
 
 Different channels serve different purposes. Job boards generate volume. Employee referrals tend to produce candidates who stay longer, because people who come recommended arrive with a realistic picture of the team and the role. Direct outreach on professional networks reaches candidates who would not otherwise see the post. Past applicants, people who applied for a previous role and reached the final stages, are a source most companies underuse. They already know the company and have been evaluated before.
 
-Track where your best hires come from. A channel that produces many applicants but few who make it past screening is not a productive channel, regardless of volume. The goal is better candidates, not more of them. For teams that want a more systematic approach to managing the search, an agile recruiting process offers a framework for running sourcing in focused sprints, reviewing what is working at regular intervals, and adjusting before the pipeline runs dry.
+Track where your best hires come from. A channel that produces many applicants but few who make it past screening is not a productive channel, regardless of volume. The goal is better candidates, not more of them. For teams that want a more systematic approach to managing the search, an [agile recruiting process](/blog/agile-recruiting-process) offers a framework for running sourcing in focused sprints, reviewing what is working at regular intervals, and adjusting before the pipeline runs dry.
 
 ## Screen applications fairly and efficiently
 
@@ -63,7 +63,7 @@ AI screening tools can process a large applicant pool against the job's requirem
 
 Pre-employment assessments are another screening tool. [SHRM found that 78% of organizations](https://www.shrm.org/content/dam/en/shrm/research/2024-talent-trends-research-overall-findings.pdf) using pre-employment assessments say those assessments improved the quality of their hires. The right kind of assessment depends heavily on the role: a skills test for a specific technical capability is more reliable than a broad personality inventory.
 
-Keep the shortlist to three to five candidates for a first interview round. Beyond that number, interviewers tend to lose their grip on the criteria and start reacting to individual candidates rather than evaluating each one against the same standard. Send a timely rejection to everyone who does not make the shortlist. A prompt, respectful job rejection email closes the loop for the candidate and reflects well on the company.
+Keep the shortlist to three to five candidates for a first interview round. Beyond that number, interviewers tend to lose their grip on the criteria and start reacting to individual candidates rather than evaluating each one against the same standard. Send a timely rejection to everyone who does not make the shortlist. A prompt, respectful [job rejection email](/blog/job-rejection-email) closes the loop for the candidate and reflects well on the company.
 
 ## Run interviews that give you evidence
 
@@ -75,7 +75,7 @@ Structured interviews, where every candidate is asked the same questions in the 
 
 Every interview question should connect to something the role requires. Behavioral questions ask candidates to describe how they handled a real situation in the past, drawing on actual experience rather than hypothetical answers. Situational questions present a scenario and ask what the candidate would do. Both formats work well when the questions come from the role's competencies rather than whatever comes to mind in the moment.
 
-A behavioral interview scoring matrix gives you a grid that connects each competency to what a weak, acceptable, and strong answer looks like. That makes scoring consistent across interviewers, which turns the debrief into a conversation about evidence rather than impressions. Structured formats also include case and problem-solving questions designed to surface how candidates reason through unfamiliar situations, where the ability to think on the spot matters as much as prior experience.
+A [behavioral interview scoring matrix](/blog/behavioral-interview-scoring-matrix) gives you a grid that connects each competency to what a weak, acceptable, and strong answer looks like. That makes scoring consistent across interviewers, which turns the debrief into a conversation about evidence rather than impressions. Structured formats also include case and problem-solving questions designed to surface how candidates reason through unfamiliar situations, where the ability to think on the spot matters as much as prior experience.
 
 ### Manage the interview process itself
 
@@ -83,7 +83,7 @@ With the right questions in place, be deliberate about how many rounds you run. 
 
 Assign each interviewer a specific area to evaluate, and have them submit scores independently before the debrief. When interviewers hear each other's opinions first, they tend to anchor on the first view, which undermines the whole point of having multiple interviewers. The debrief is for surfacing disagreements and working through them, not for ratifying a consensus that formed before anyone spoke.
 
-Structure reduces bias without eliminating it. Interviewers form impressions early and those impressions resist revision as the conversation unfolds, the order in which candidates are interviewed shapes how they are remembered relative to each other, and interviewers who share interests or backgrounds with a candidate tend to score them higher on dimensions unrelated to those commonalities. Structured scoring is the most reliable check on all three patterns, because it anchors evaluation to the role's criteria before personal reactions take hold. First impression bias deserves particular attention, because it operates before the interview has formally begun.
+Structure reduces bias without eliminating it. Interviewers form impressions early and those impressions resist revision as the conversation unfolds, the order in which candidates are interviewed shapes how they are remembered relative to each other, and interviewers who share interests or backgrounds with a candidate tend to score them higher on dimensions unrelated to those commonalities. Structured scoring is the most reliable check on all three patterns, because it anchors evaluation to the role's criteria before personal reactions take hold. [First impression bias](/blog/first-impression-bias) deserves particular attention, because it operates before the interview has formally begun.
 
 The Complete Interview Guide for Hiring Teams covers question design, scoring, and candidate evaluation in full.
 
@@ -93,7 +93,7 @@ After the interviews are complete, the debrief turns individual impressions into
 
 Ask every interviewer to submit written feedback on each candidate before the debrief. The feedback should cover the competencies that interviewer was assigned to evaluate, with a score and a rationale. Written feedback is harder to revise in the moment and easier to compare across candidates. When evaluations are submitted independently, the debrief surfaces real disagreements rather than burying them.
 
-Good feedback cites what the candidate actually said or did. A note like "strong communicator" gives the team no basis for comparison. "Described the stakeholder conflict clearly and walked through what she changed in her approach after the first conversation failed" tells the team something they can use. For guidance on what structured candidate feedback looks like, the interview feedback examples page covers different competencies and can help interviewers calibrate before they write their own.
+Good feedback cites what the candidate actually said or did. A note like "strong communicator" gives the team no basis for comparison. "Described the stakeholder conflict clearly and walked through what she changed in her approach after the first conversation failed" tells the team something they can use. For guidance on what structured candidate feedback looks like, the [interview feedback examples](/blog/interview-feedback-examples) page covers different competencies and can help interviewers calibrate before they write their own.
 
 After the debrief, document the decision — not just who was chosen, but why. A record of the reasoning protects the team if the decision is ever questioned and helps calibrate future evaluations against real outcomes.
 
@@ -113,7 +113,7 @@ With the offer signed, onboarding is part of the hiring process. The decision to
 
 Onboarding starts before the first day. Send new hires the information they need in advance: who they will meet, what to expect in the first week, and what access they will need from day one. First-day logistics, such as building access, equipment, and software accounts, should be ready before the person arrives, not figured out as they sit there waiting.
 
-Structure the first 30, 60, and 90 days. What should the new hire understand at the end of the first month? What decisions should they be making independently by the end of the third? Those questions give you a framework for onboarding that connects to real outcomes rather than a checklist of activities. The onboarding guide covers how to build that structure and what the most common failure points look like.
+Structure the first 30, 60, and 90 days. What should the new hire understand at the end of the first month? What decisions should they be making independently by the end of the third? Those questions give you a framework for onboarding that connects to real outcomes rather than a checklist of activities. The [onboarding guide](/blog/onboarding) covers how to build that structure and what the most common failure points look like.
 
 ## Use your hiring pipeline to stay organized
 
@@ -121,7 +121,7 @@ Across all of these steps, a hiring pipeline is the set of stages a candidate mo
 
 The pipeline makes it possible to see, at a glance, where every candidate stands. It also makes it possible to find problems early. If candidates are piling up in the screening stage, the screening process is too slow or the applicant pool is too large. If candidates are dropping out between the interview and the offer, late-stage drop-off is the problem. Without a visible pipeline, those problems stay hidden until they grow serious. The article on what a hiring pipeline is and how to build one covers this topic in full.
 
-Applicant tracking systems exist to manage the pipeline and keep all candidate information, including resumes, messages, reviews, and stage history, in one place. Teams that track candidates in a spreadsheet or across a few inboxes lose information and slow the process down. The article on how an applicant tracking system works explains what an ATS does and when a team needs one.
+Applicant tracking systems exist to manage the pipeline and keep all candidate information, including resumes, messages, reviews, and stage history, in one place. Teams that track candidates in a spreadsheet or across a few inboxes lose information and slow the process down. The article on [how an applicant tracking system works](/blog/how-does-an-applicant-tracking-system-work) explains what an ATS does and when a team needs one.
 
 ## Measure each stage and improve what you find
 
@@ -129,7 +129,7 @@ Once the pipeline is running, a hiring process you cannot measure is a process y
 
 Time to fill — the number of days from when a role opens to when an offer is accepted — is the most common measure of hiring speed. [SHRM reported that the average U.S. time to fill an open role in 2024 was 41 days](https://www.shrm.org/topics-tools/news/talent-acquisition/recruiters-express-optimism-for-2025), down from 48 days the year before. Your own time-to-fill matters more than the average; the goal is to find where it accumulates. Break the total into segments and measure each one separately: time from role approval to first interview, and time from final interview to offer. That tells you which stage to fix, not just that hiring takes too long.
 
-Offer acceptance rate is a signal about the late-stage experience. When strong candidates decline offers, the reason is usually compensation, process speed, or something they observed about the company during the interviews. Each of those is fixable, but only if you ask. [Gallup found that two in three employees](https://www.gallup.com/workplace/651650/lasting-impact-exceptional-candidate-experiences.aspx) hired in the last year described their candidate experience as exceptional or very good. A strong acceptance rate follows from a process that candidates respect. Whether strong candidates say yes depends on more than the offer itself; the article on talent acquisition vs. recruitment covers the difference between filling roles and building the kind of longer-term capability that makes those candidates want to join.
+Offer acceptance rate is a signal about the late-stage experience. When strong candidates decline offers, the reason is usually compensation, process speed, or something they observed about the company during the interviews. Each of those is fixable, but only if you ask. [Gallup found that two in three employees](https://www.gallup.com/workplace/651650/lasting-impact-exceptional-candidate-experiences.aspx) hired in the last year described their candidate experience as exceptional or very good. A strong acceptance rate follows from a process that candidates respect. Whether strong candidates say yes depends on more than the offer itself; the article on [talent acquisition vs. recruitment](/blog/talent-acquisition-vs-recruitment) covers the difference between filling roles and building the kind of longer-term capability that makes those candidates want to join.
 
 ## Where the recruitment process most often breaks down
 
@@ -189,34 +189,13 @@ The most common cause is a role that was not defined clearly enough before the s
 
 ## To-do
 
-- Removed link to /blog/interview-feedback-examples ('interview feedback examples'): not a page on the site. Link a real page instead.
-- Removed link to /blog/talent-acquisition-vs-recruitment ('article on talent acquisition vs. recruitment'): not a page on the site. Link a real page instead.
-- Only 1 internal link(s) in the body; add at least 1 more.
-- Listed link to /blog/skills-mapping-for-hiring-a-complete-guide is not a page on the site; ignore it or find the right page.
-- Listed link to /blog/agile-recruiting-process is not a page on the site; ignore it or find the right page.
-- Listed link to /blog/job-rejection-email is not a page on the site; ignore it or find the right page.
-- Listed link to /blog/behavioral-interview-scoring-matrix is not a page on the site; ignore it or find the right page.
-- Listed link to /blog/unique-interview-questions is not a page on the site; ignore it or find the right page.
-- Listed link to /blog/interview-bias is not a page on the site; ignore it or find the right page.
-- Listed link to /blog/first-impression-bias is not a page on the site; ignore it or find the right page.
+- Add a link to /blog/unique-interview-questions ('unique interview questions'): listed but not placed in the body.
+- Add a link to /blog/interview-bias ('Understanding the types of interview bias'): listed but not placed in the body.
 - Listed link to /blog/interview-guide is not a page on the site; ignore it or find the right page.
-- Listed link to /blog/interview-feedback-examples is not a page on the site; ignore it or find the right page.
-- Listed link to /blog/onboarding is not a page on the site; ignore it or find the right page.
 - Listed link to /blog/hiring-pipeline is not a page on the site; ignore it or find the right page.
-- Listed link to /blog/how-does-an-applicant-tracking-system-work is not a page on the site; ignore it or find the right page.
-- Listed link to /blog/talent-acquisition-vs-recruitment is not a page on the site; ignore it or find the right page.
-- Listed link to /blog/employer-branding-steps is not a page on the site; ignore it or find the right page.
-- Add a link to https://www.polymer.co/blog/agile-recruiting-process once it is published.
-- Add a link to https://www.polymer.co/blog/skills-mapping-for-hiring-a-complete-guide once it is published.
-- Add a link to https://www.polymer.co/blog/talent-acquisition-vs-recruitment once it is published.
-- Add a link to https://www.polymer.co/blog/employer-branding-steps once it is published.
-- Add a link to https://www.polymer.co/blog/interview-bias once it is published.
-- Add a link to https://www.polymer.co/blog/first-impression-bias once it is published.
-- Add a link to https://www.polymer.co/blog/unique-interview-questions once it is published.
-- Add a link to https://www.polymer.co/blog/behavioral-interview-scoring-matrix once it is published.
-- Add a link to https://www.polymer.co/blog/interview-feedback-examples once it is published.
-- Add a link to https://www.polymer.co/blog/job-rejection-email once it is published.
-- Add a link to https://www.polymer.co/blog/onboarding once it is published.
-- Add a link to https://www.polymer.co/blog/how-does-an-applicant-tracking-system-work once it is published.
+- Add a link to /blog/employer-branding-steps ('Employer branding'): listed but not placed in the body.
+- Add a link to https://www.polymer.co/blog/employer-branding-steps: a hub article not linked in the body.
+- Add a link to https://www.polymer.co/blog/interview-bias: a hub article not linked in the body.
+- Add a link to https://www.polymer.co/blog/unique-interview-questions: a hub article not linked in the body.
 - Add a link to https://www.polymer.co/blog/interview-guide once it is published.
 - Add a link to https://www.polymer.co/blog/hiring-pipeline once it is published.

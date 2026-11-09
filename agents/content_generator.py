@@ -229,7 +229,8 @@ def recheck(page: ContentPage) -> ContentPage:
     content.reading_time_minutes = reading_time(content.body_html)
     result = validate(content, existing_urls=existing_urls, placed_paths=placed_paths, hub_links=page.opportunity.hub_links)
     items = link_todos + [f"Failed check after review: {e}" for e in result.errors] + result.todos
-    page.todos = [{"item": t, "done": ""} for t in items]
+    from pipeline import SKIPPED
+    page.todos = [t for t in page.todos if t["item"].startswith(SKIPPED)] + [{"item": t, "done": ""} for t in items]
     if page.todos:
         log.warning(f"To-do after review: {[t['item'] for t in page.todos]}")
     return page

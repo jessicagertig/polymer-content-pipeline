@@ -8,6 +8,7 @@ with a type from the menu, a description in the menu's visual terms, and alt tex
 is not changed. Nothing goes to Sanity.
 """
 
+import json
 import re
 import sys
 
@@ -107,16 +108,26 @@ def suggest(slug: str) -> None:
         input_schema=GRAPHICS_SCHEMA,
     )
     sections = {_plain(s.split("</h2>", 1)[0]): _plain(s) for s in re.split(r"<h2[^>]*>", content.body_html)[1:]}
+    places = result["places"]
+    if isinstance(places, str):   # the model sometimes returns the list as one JSON string
+        try:
+            places = json.loads(places)
+        except ValueError:
+            places = []
+    places = [p for p in places if isinstance(p, dict)]   # a place that is not an object is skipped, not a crash
     blocks = [f"# Graphics for {slug}\n"]
-    for n, p in enumerate(result["places"], 1):
-        found = "" if _plain(p["after"]) in sections.get(_plain(p["section"]), "") else " (this paragraph was not found in this section)"
-        lines = [f"## {n}. {p['section']}", f"- Place: after the paragraph beginning \"{p['after']}\" in \"{p['section']}\"{found}", f"- Why here: {p['why']}"]
-        for letter, o in zip("ABC", p["options"]):
-            flag = " (contains a web address)" if WEB_ADDRESS.search(o["description"] + " " + o["alt"]) else ""
-            lines.append(f"- Option {letter}: {o['type']}{flag}\n  - Description: {o['description']}\n  - Alt: {o['alt']}")
+    for n, p in enumerate(places, 1):
+        section, after = p.get("section", ""), p.get("after", "")
+        found = "" if _plain(after) in sections.get(_plain(section), "") else " (this paragraph was not found in this section)"
+        lines = [f"## {n}. {section}", f"- Place: after the paragraph beginning \"{after}\" in \"{section}\"{found}", f"- Why here: {p.get('why', '')}"]
+        options = [o for o in p.get("options") or [] if isinstance(o, dict)]
+        for letter, o in zip("ABC", options):
+            description, alt = o.get("description", ""), o.get("alt", "")
+            flag = " (contains a web address)" if WEB_ADDRESS.search(description + " " + alt) else ""
+            lines.append(f"- Option {letter}: {o.get('type', '')}{flag}\n  - Description: {description}\n  - Alt: {alt}")
         blocks.append("\n".join(lines))
     (ROOT / f"{slug}-output" / f"{slug}-graphics.md").write_text("\n\n".join(blocks) + "\n")
-    log.info(f"Graphics for {slug}: {len(result['places'])} place(s); {usage_line()}")
+    log.info(f"Graphics for {slug}: {len(places)} place(s); {usage_line()}")
 
 
 if __name__ == "__main__":
