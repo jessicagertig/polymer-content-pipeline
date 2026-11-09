@@ -1,0 +1,21 @@
+2026-11-09 13:17:28,680 | INFO    | lib.content_calendar | Loaded 29 blog opportunities from blog-content-topics.csv
+2026-11-09 13:17:35,573 | INFO    | __main__ | Launch Batch: 4 post(s) left; staging the next one.
+2026-11-09 13:17:36,363 | INFO    | pipeline | Resuming hiring-process-steps; finished steps: write, hide resources, opening, opening check, section check, content check
+2026-11-09 13:17:37,608 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-09 13:18:41,732 | INFO    | lib.llm | Structured call: stop=tool_use, 6443 in, 4423 out
+2026-11-09 13:18:43,704 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-09 13:28:34,417 | INFO    | lib.llm | Structured call: stop=max_tokens, 6251 in, 32000 out
+2026-11-09 13:28:34,418 | ERROR   | __main__ | Failed for 'The Hiring Process, Step by Step': Response cut off at max_tokens=32000 before the 'submit_post' call completed; $0.73: 12694 in, 36423 out, 39981 cache written, 0 cache read, 0 searches
+Traceback (most recent call last):
+  File "/home/runner/work/polymer-content-pipeline/polymer-content-pipeline/main.py", line 132, in _stage_one
+    done = run_steps(slug, write)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/polymer-content-pipeline/polymer-content-pipeline/pipeline.py", line 79, in run_steps
+    if fn(slug, stop_at=stop_at):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/polymer-content-pipeline/polymer-content-pipeline/review_post.py", line 603, in transition_pass
+    fixed = structured_call(system=_system(REVIEW_FIX_SYSTEM) + _brief(page), user=REVIEW_FIX_USER.format(faults="\n".join(found), body_html=state["body"]),
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/polymer-content-pipeline/polymer-content-pipeline/lib/llm.py", line 151, in structured_call
+    raise RuntimeError(f"Response cut off at max_tokens={max_tokens} before the '{tool_name}' call completed")
+RuntimeError: Response cut off at max_tokens=32000 before the 'submit_post' call completed
