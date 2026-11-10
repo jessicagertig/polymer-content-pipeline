@@ -1,0 +1,13 @@
+2026-11-10 13:17:27,181 | INFO    | lib.content_calendar | Loaded 29 blog opportunities from blog-content-topics.csv
+2026-11-10 13:17:31,803 | INFO    | __main__ | Launch Batch: 4 post(s) left; staging the next one.
+2026-11-10 13:17:32,641 | INFO    | pipeline | Resuming hiring-process-steps; finished steps: write, hide resources, opening, opening check, section check, content check, transition pass, resource review, recheck, competitor links
+2026-11-10 13:17:33,874 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-10 13:18:26,604 | INFO    | lib.llm | Structured call: stop=tool_use, 10519 in, 3334 out
+2026-11-10 13:18:26,606 | INFO    | suggest_graphics | Graphics for hiring-process-steps: 10 place(s); $0.08: 10519 in, 3334 out, 0 cache written, 0 cache read, 0 searches
+2026-11-10 13:18:26,609 | INFO    | review_post | No section in hiring-process-steps is over the em dash limit
+2026-11-10 13:18:28,038 | INFO    | connectors.sanity | Sanity draft written: drafts.hiring-process-steps (92 blocks)
+2026-11-10 13:18:28,039 | INFO    | agents.publisher | Staged: drafts.hiring-process-steps
+2026-11-10 13:18:29,306 | INFO    | __main__ | Saved output: hiring-process-steps-output/
+2026-11-10 13:18:29,658 | WARNING | connectors.slack | Slack upload of hiring-process-steps-graphics.md failed (missing_scope); posting its text in the thread instead
+2026-11-10 13:18:30,761 | WARNING | connectors.slack | Slack upload of hiring-process-steps.md failed (missing_scope); posting its text in the thread instead
+2026-11-10 13:18:33,673 | INFO    | lib.content_calendar | Marked calendar row 4 as generated (2026-11-10T13:18:32+00:00)
