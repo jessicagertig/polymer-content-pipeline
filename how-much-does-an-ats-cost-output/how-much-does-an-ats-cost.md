@@ -5,11 +5,11 @@ slug: how-much-does-an-ats-cost
 metaDescription: Real ATS pricing for Greenhouse, Workable, Lever, JazzHR, Breezy HR, Recruitee, and more — with every pricing model, hidden cost, and buying decision explained.
 mainImageAlt: Spreadsheet showing ATS pricing comparison across multiple vendors with monthly costs and feature tiers
 
-Most ATS cost guides are written by people who have no price to disclose. They compare vendors, estimate ranges, and hedge everything — because they have nothing at stake. The result is a category of content that gives you ballpark figures, affiliate rankings, and a lot of "it depends" — but rarely the actual numbers your budget decision requires.
+Every ATS pricing guide you'll find online is written by someone who won't tell you their own price. Review sites collect affiliate fees. Analyst firms aggregate vendor-submitted data. The vendors themselves hide behind a "contact sales" button. If you're trying to figure out what an applicant tracking system will actually cost your company before you sit through a demo, you're working with estimates dressed up as facts.
 
-An applicant tracking system is software that collects job applications in one place and manages candidates through each stage of a hiring process, from application to hire. Teams use it to publish jobs, review candidates, collaborate on decisions, and communicate with applicants from a single platform. The pricing, though, varies by an order of magnitude depending on the vendor, the model, and what you count as "included."
+An applicant tracking system is software that collects job applications in one place and manages candidates through each stage of your hiring process, from application to hire. Instead of tracking applicants across inboxes and spreadsheets, your team uses it to publish jobs, review candidates, collaborate on decisions, and communicate with applicants from a single platform. The price for that — depending on the vendor, the tier, and what your team actually needs — ranges from $75 a month to tens of thousands of dollars a year.
 
-This article covers the four pricing models ATS vendors use, what every major platform actually charges, the hidden costs that change the number after you sign, how to calculate a realistic annual total before you commit, and what to do when you're ready to decide.
+This guide explains the four pricing models you'll encounter and what each one costs in practice, then gives real prices from every major vendor, details the hidden fees that change the actual number, and closes with what to do before you sign anything.
 
 ## Why ATS Pricing Is So Hard to Find
 
