@@ -5,11 +5,11 @@ slug: how-much-does-an-ats-cost
 metaDescription: Real ATS pricing for Greenhouse, Workable, Lever, JazzHR, Breezy HR, Recruitee, and more — with every pricing model, hidden cost, and buying decision explained.
 mainImageAlt: Spreadsheet showing ATS pricing comparison across multiple vendors with monthly costs and feature tiers
 
-Every ATS pricing guide you'll find online is written by someone who won't tell you their own price. Review sites collect affiliate fees. Analyst firms aggregate vendor-submitted data. The vendors themselves hide behind a "contact sales" button. If you're trying to figure out what an applicant tracking system will actually cost your company before you sit through a demo, you're working with estimates dressed up as facts.
+Every ATS pricing guide you'll find online is written by someone who won't tell you their own price. Review sites collect affiliate fees. Vendor-submitted data is what analyst firms aggregate and publish. The vendors themselves hide behind a "contact sales" button. If you're trying to figure out what an applicant tracking system will actually cost your company before you sit through a demo, you're working with estimates dressed up as facts.
 
-An applicant tracking system is software that collects job applications in one place and manages candidates through each stage of your hiring process, from application to hire. Instead of tracking applicants across inboxes and spreadsheets, your team uses it to publish jobs, review candidates, collaborate on decisions, and communicate with applicants from a single platform. The price for that — depending on the vendor, the tier, and what your team actually needs — ranges from $75 a month to tens of thousands of dollars a year.
+An applicant tracking system is software that collects job applications in one place and manages candidates through each stage of your hiring process, from application to hire. Your team uses it from a single platform to publish jobs, review candidates, collaborate on decisions, and communicate with applicants — instead of tracking applicants across inboxes and spreadsheets. What you pay depends on the vendor, the tier, and your headcount.
 
-This guide explains the four pricing models you'll encounter and what each one costs in practice, then gives real prices from every major vendor, details the hidden fees that change the actual number, and closes with what to do before you sign anything.
+This guide covers the four pricing models and what each costs in practice, real prices from every major vendor, the hidden fees that change the actual number, and what to do before you sign anything.
 
 ## Why ATS Pricing Is So Hard to Find
 
