@@ -13,7 +13,7 @@ from lib.llm import research_call, structured_call
 from lib.logging import get
 from lib.repo import ROOT
 from prompts.research import (RESEARCH_SYSTEM, RESEARCH_USER, FORMAT_NOTES, EDITOR_BRIEF, POLYMER_ARTICLES_USER, POLYMER_ARTICLES_SYSTEM,
-                              STEP_USER, STEP_TOPICS, DEFINITIONS_STEP, TOPIC_STEPS, STATISTICS_STEP)
+                              STEP_USER, STEP_TOPICS, DEFINITIONS_STEP, TOPIC_STEPS, PRODUCTS_STEP, STATISTICS_STEP)
 
 
 log = get(__name__)
@@ -44,7 +44,7 @@ def research_brief(opp) -> str:
         return saved
     from agents.content_generator import page_structure  # here, not at the top: content_generator imports this module
     log.info(f"Researching: {opp.proposed_title}")
-    if opp.page_type.value in STEP_TOPICS and not opp.product_based:
+    if opp.product_based or opp.page_type.value in STEP_TOPICS:
         return _three_step_brief(opp, page_structure(opp))
     user = RESEARCH_USER.format(
         max_searches=settings.research_max_searches,
@@ -66,6 +66,8 @@ def research_brief(opp) -> str:
     )
     if not result["text"]:
         raise RuntimeError("Research call returned no text")
+    if result.get("stop") == "max_tokens":
+        raise RuntimeError("Research was cut off at its token limit; the brief would be incomplete")
     log.info(
         f"Research done: {result['searches']} searches, "
         f"{result['input_tokens']} in / {result['output_tokens']} out, "
@@ -100,12 +102,14 @@ def _polymer_articles(opp) -> str:
 
 
 def _three_step_brief(opp, structure: str) -> str:
-    """Definitions, then the article type's topic search, then statistics, each a separate call.
+    """Definitions, then the article type's topic search, then statistics, each a separate call. A product-based
+    article has two: the products step, which may search the products' own sites, then statistics.
     The definitions and statistics steps search only the reputable sources' sites (config/reputable-sources.txt).
+    A step cut off at its token limit raises, so an incomplete brief never reaches the writer.
     Its output is also saved on its own as <slug>-output/<slug>-statistics.md, for the checker and fixer."""
     page_type = opp.page_type.value
     context = dict(
-        topic=STEP_TOPICS[page_type],
+        order="products, then statistics" if opp.product_based else f"definitions, then {STEP_TOPICS[page_type]}, then statistics",
         proposed_title=opp.proposed_title,
         page_type=page_type,
         page_structure=structure,
@@ -115,7 +119,7 @@ def _three_step_brief(opp, structure: str) -> str:
     )
     definitions_note = (" Devote one search to each side of the versus." if page_type == "comparison"
                         else "" if page_type in ("hub", "listicle") else " If one search turns up enough, stop there.")
-    steps = [
+    steps = [(PRODUCTS_STEP, settings.research_product_searches), (STATISTICS_STEP, settings.research_statistics_searches)] if opp.product_based else [
         (DEFINITIONS_STEP | {"search_note": definitions_note} | ({"max_words": 600} if page_type == "hub" else {}), 3 if page_type == "hub" else 2),
         (TOPIC_STEPS[page_type], 2),
         (STATISTICS_STEP, settings.research_statistics_searches),
@@ -123,16 +127,20 @@ def _three_step_brief(opp, structure: str) -> str:
     reputable = [address for _, addresses in settings.reputable_sources() for address in addresses]
     parts = []
     for step, searches in steps:
+        products = step["step"] == "products"
         result = research_call(
             system=RESEARCH_SYSTEM,
             user=STEP_USER.format(**context, **step, max_searches=searches),
             max_searches=searches,
-            max_tokens=settings.research_resource_max_tokens if opp.resource_article else settings.research_max_tokens,
-            blocked_domains=settings.competitor_domains(),
+            max_tokens=(settings.research_product_max_tokens if products else
+                        settings.research_resource_max_tokens if opp.resource_article else settings.research_max_tokens),
+            blocked_domains=None if products else settings.competitor_domains(),   # a product's own pricing page is its source
             allowed_domains=reputable if step["step"] in ("definitions", "statistics") else None,
         )
         if not result["text"]:
             raise RuntimeError(f"Research call for {step['step']} returned no text")
+        if result.get("stop") == "max_tokens":
+            raise RuntimeError(f"Research for {step['step']} was cut off at its token limit; the brief would be incomplete")
         log.info(f"Research, {step['step']}: {result['searches']} searches, {len(result['text'].split())} words")
         parts.append(result["text"])
         if step is STATISTICS_STEP:

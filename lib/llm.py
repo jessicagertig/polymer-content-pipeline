@@ -208,4 +208,4 @@ def research_call(*, system: str, user: str, max_searches: int, max_tokens: int,
 
     text = "\n".join(block.text for block in response.content if block.type == "text").strip()
     log.info(f"Research call: {searches} searches, {input_tokens} in, {output_tokens} out, stop={response.stop_reason}")
-    return {"text": text, "searches": searches, "input_tokens": input_tokens, "output_tokens": output_tokens}
+    return {"text": text, "searches": searches, "input_tokens": input_tokens, "output_tokens": output_tokens, "stop": response.stop_reason}

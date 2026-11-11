@@ -14,7 +14,7 @@ Never give a statistic from a website in this list: <<COMPETITORS>>. When a news
 
 Give every statistic with the URL of a page where that number appears. Leave out any statistic you cannot give such a URL for.
 
-Some articles compare a statistic from one year with the same statistic from another year. For a comparison, find both statistics in the same source. Gallup's yearly statistics on employee engagement are an example. There is one exception. In a versus article that names two products, or an alternatives article, a product's own pricing and feature pages are the source for that product's pricing and features, and for nothing else."""
+Some articles compare a statistic from one year with the same statistic from another year. For a comparison, find both statistics in the same source. Gallup's yearly statistics on employee engagement are an example. There is one exception. In a product-based article, such as a versus article that names two products, an alternatives article, or an article about what products cost, a product's own pricing and feature pages are the source for that product's pricing and features, and for nothing else."""
 QUOTE_EXAMPLES = "When a source gives examples, such as email templates, job description templates, or rubrics, quote every example in full, word for word, with its source. Quoted examples do not count toward a word limit. "
 # The Polymer articles call reads whole articles of ours: it quotes only the definitions it needs.
 POLYMER_ARTICLES_SYSTEM = RESEARCH_SYSTEM.replace("<<QUOTE_EXAMPLES>>", "")
@@ -96,7 +96,7 @@ You are researching for an article that will be built based on this formatting g
 
 {editor_brief}"""
 
-STEP_USER = """Research the following blog article. This is one of three research steps: definitions, then {topic}, then statistics. In this step, research only {step}. Your search limit for this step is {max_searches}. Use a different query for each search.{search_note}
+STEP_USER = """Research the following blog article. This is one of the research steps: {order}. In this step, research only {step}. Your search limit for this step is {max_searches}. Use a different query for each search.{search_note}
 
 """ + STEP_CONTEXT + """
 
@@ -152,6 +152,15 @@ TOPIC_STEPS = {
 
 TOPIC_STEPS["interview-question-guide"] = TOPIC_STEPS["listicle"]
 TOPIC_STEPS["hub"] = TOPIC_STEPS["guide"]
+
+# For a product-based article: each product's prices and features. Polymer's come from the feature inventory.
+PRODUCTS_STEP = dict(
+    step="products",
+    heading="Products",
+    max_words=settings.research_product_max_words,
+    search_note=" Spread the searches across the products, at least one for each.",
+    instructions="for each product named in the title, the supporting keywords, or the brief from the editor, other than Polymer: the URL of its pricing page; its pricing model; each published plan with its price, its billing period, and what the price is based on, such as users, jobs, or employees; any free plan or free trial; and its three most-cited features, from its own site, with the URL. When a product does not publish its prices, say so. Then give the price ranges that independent sources report, each with the source's name, the date of the page, and the URL. Give no figure that no source gives. Do not research Polymer: its information is supplied separately.",
+)
 
 STATISTICS_STEP = dict(
     step="statistics",

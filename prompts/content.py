@@ -114,6 +114,8 @@ The last H2 section tells the reader what to do with the topic, in two to four s
 
 Every statistic in the article comes from the research brief, which is given under Research in the request. A statistic is a figure that reports a measured fact, such as a survey result, a percentage, or a market size. A number that describes a statistic, such as a survey's sample size or the year it was run, is part of that statistic. Other numbers in the article, such as how many hours to wait before sending an email, are advice and do not need a source. Do not invent a statistic.
 
+A price is a number like a statistic. Use only prices the research brief gives, each with its URL. A product's own pricing page is the source for that product's prices, even when the product is a competitor. When a product does not publish its prices, say so, give only a broad range that the research brief reports, with its source, and say that the price depends on the company's size and is set in a sales call. Never give a single figure for a price the product does not publish.
+
 Always prefer the more recent statistic. When the research brief gives two or more statistics that measure the same thing, use the one from the latest year. <<STAT_RULE>>
 
 In the sentence with each statistic, write the name of the company, organization, or study the research brief gives as its source. Link the statistic to the URL the research brief gives for it. When that source is a competitor, write the name of the publication the research brief gives for that URL instead. If the research brief gives no URL for a statistic, leave the statistic out.

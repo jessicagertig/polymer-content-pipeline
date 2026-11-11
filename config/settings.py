@@ -49,6 +49,9 @@ class Settings(BaseSettings):
     research_statistics_searches: int = 5   # web searches in the statistics step, which searches only the reputable sources' sites
     research_polymer_articles_max_tokens: int = 4000  # max_tokens on the response that reads an article's Hub Links articles
     research_max_words: int = 1000   # length of the brief the researcher is asked for
+    research_product_searches: int = 12   # web searches in a product-based article's products step
+    research_product_max_words: int = 2500   # length of the products step's output
+    research_product_max_tokens: int = 16000   # max_tokens on the products step's response
     research_reuse: bool = False     # reuse a saved <slug>-output/<slug>-research.md instead of searching (a -vN slug reuses the base post's)
 
     # GitHub — the Lambda commits each run's output (<slug>-output/ and the calendar CSV)
