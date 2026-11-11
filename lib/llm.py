@@ -129,8 +129,9 @@ def structured_call(
             max_tokens=max_tokens,
             system=system_blocks,
             tools=tools,
-            tool_choice={"type": "auto"},   # forcing a tool is rejected on this model; the user prompt names it
-            messages=[{"role": "user", "content": user + f"\n\nWrite your whole answer inside the `{tool_name}` call. Write nothing before or after it."}],
+            # Forced, so the model writes nothing before the call; thinking cannot be combined with a forced tool.
+            tool_choice={"type": "auto"} if thinking else {"type": "tool", "name": tool_name},
+            messages=[{"role": "user", "content": user}],
             **({"thinking": {"type": "adaptive"}} if thinking else {}),
         ) as stream:
             return stream.get_final_message()
