@@ -23,7 +23,7 @@
     "created_at": "2026-11-11T13:17:30.229848",
     "calendar_row": 5,
     "launch_batch": true,
-    "includes_polymer": false,
+    "includes_polymer": true,
     "product_based": true,
     "resource_article": false,
     "hub_links": []
