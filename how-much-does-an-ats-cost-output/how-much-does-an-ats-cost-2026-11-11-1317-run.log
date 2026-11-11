@@ -1,0 +1,191 @@
+2026-11-11 13:17:30,230 | INFO    | lib.content_calendar | Loaded 28 blog opportunities from blog-content-topics.csv
+2026-11-11 13:17:36,209 | INFO    | __main__ | Launch Batch: 3 post(s) left; staging the next one.
+2026-11-11 13:17:37,091 | INFO    | agents.content_generator | Generating: How Much Does an ATS Cost in 2026? Real Prices From Every Major Vendor
+2026-11-11 13:17:38,217 | INFO    | agents.research | Researching: How Much Does an ATS Cost in 2026? Real Prices From Every Major Vendor
+2026-11-11 13:17:39,151 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:18:58,901 | INFO    | lib.llm | Research call: 5 searches, 157893 in, 3426 out, stop=max_tokens
+2026-11-11 13:18:58,902 | INFO    | agents.research | Research done: 5 searches, 157893 in / 3426 out, 1554 words
+2026-11-11 13:19:00,747 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:24:31,811 | INFO    | lib.llm | Structured call: stop=tool_use, 5769 in, 14651 out
+2026-11-11 13:24:33,173 | WARNING | agents.content_generator | Validation warnings: ['Title is 70 chars; Google truncates around 65']
+2026-11-11 13:24:33,174 | INFO    | agents.content_generator | Generated 3754 words, 7 FAQs
+2026-11-11 13:24:37,169 | INFO    | __main__ | Saved output: how-much-does-an-ats-cost-output/
+2026-11-11 13:24:38,500 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:25:10,426 | INFO    | lib.llm | Structured call: stop=tool_use, 10445 in, 1558 out
+2026-11-11 13:25:12,965 | INFO    | main | Saved output: how-much-does-an-ats-cost-output/
+2026-11-11 13:25:12,966 | INFO    | rewrite_opening | Opening rewritten for how-much-does-an-ats-cost: 171 -> 196 words
+2026-11-11 13:25:14,615 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:25:50,086 | INFO    | lib.llm | Structured call: stop=tool_use, 3108 in, 2751 out
+2026-11-11 13:25:51,948 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:26:07,484 | INFO    | lib.llm | Structured call: stop=tool_use, 3188 in, 1177 out
+2026-11-11 13:26:08,471 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:26:50,340 | INFO    | lib.llm | Structured call: stop=tool_use, 3106 in, 2953 out
+2026-11-11 13:26:54,669 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:27:04,622 | INFO    | lib.llm | Structured call: stop=tool_use, 3246 in, 936 out
+2026-11-11 13:27:06,523 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:27:37,226 | INFO    | lib.llm | Structured call: stop=tool_use, 3106 in, 2325 out
+2026-11-11 13:27:38,534 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:27:52,239 | INFO    | lib.llm | Structured call: stop=tool_use, 3199 in, 1071 out
+2026-11-11 13:27:53,617 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:28:28,413 | INFO    | lib.llm | Structured call: stop=tool_use, 3097 in, 2634 out
+2026-11-11 13:28:29,495 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:28:42,965 | INFO    | lib.llm | Structured call: stop=tool_use, 3175 in, 1025 out
+2026-11-11 13:28:44,229 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:29:20,055 | INFO    | lib.llm | Structured call: stop=tool_use, 3081 in, 2467 out
+2026-11-11 13:29:21,668 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:29:39,503 | INFO    | lib.llm | Structured call: stop=tool_use, 3168 in, 1244 out
+2026-11-11 13:29:41,010 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:30:06,242 | INFO    | lib.llm | Structured call: stop=tool_use, 3074 in, 2271 out
+2026-11-11 13:30:09,874 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:30:23,354 | INFO    | lib.llm | Structured call: stop=tool_use, 3207 in, 1115 out
+2026-11-11 13:30:24,510 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:30:51,139 | INFO    | lib.llm | Structured call: stop=tool_use, 3083 in, 2136 out
+2026-11-11 13:30:53,653 | INFO    | main | Saved output: how-much-does-an-ats-cost-output/
+2026-11-11 13:30:53,655 | INFO    | review_post | Opening checked for how-much-does-an-ats-cost: 6 correction(s)
+2026-11-11 13:30:54,954 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:30:55,192 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:30:55,859 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:30:55,888 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:31:00,960 | INFO    | lib.llm | Structured call: stop=tool_use, 1344 in, 426 out
+2026-11-11 13:31:03,575 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:31:06,733 | INFO    | lib.llm | Structured call: stop=tool_use, 1667 in, 690 out
+2026-11-11 13:31:07,793 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:31:10,390 | INFO    | lib.llm | Structured call: stop=tool_use, 1777 in, 788 out
+2026-11-11 13:31:11,526 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:31:14,446 | INFO    | lib.llm | Structured call: stop=tool_use, 1359 in, 955 out
+2026-11-11 13:31:17,873 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:31:21,381 | INFO    | lib.llm | Structured call: stop=tool_use, 1765 in, 960 out
+2026-11-11 13:31:22,784 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:31:25,056 | INFO    | lib.llm | Structured call: stop=tool_use, 1344 in, 443 out
+2026-11-11 13:31:26,491 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:31:29,864 | INFO    | lib.llm | Structured call: stop=tool_use, 1822 in, 1705 out
+2026-11-11 13:31:30,618 | INFO    | lib.llm | Structured call: stop=tool_use, 2781 in, 2080 out
+2026-11-11 13:31:30,936 | INFO    | lib.llm | Structured call: stop=tool_use, 1308 in, 466 out
+2026-11-11 13:31:31,733 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:31:31,833 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:31:32,279 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:31:33,891 | INFO    | lib.llm | Structured call: stop=tool_use, 1352 in, 748 out
+2026-11-11 13:31:35,070 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:31:37,314 | INFO    | lib.llm | Structured call: stop=tool_use, 1309 in, 581 out
+2026-11-11 13:31:38,495 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:31:40,492 | INFO    | lib.llm | Structured call: stop=tool_use, 1348 in, 447 out
+2026-11-11 13:31:41,221 | INFO    | lib.llm | Structured call: stop=tool_use, 1318 in, 241 out
+2026-11-11 13:31:52,918 | INFO    | lib.llm | Structured call: stop=tool_use, 1777 in, 1141 out
+2026-11-11 13:31:55,615 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:32:10,547 | INFO    | lib.llm | Structured call: stop=tool_use, 1869 in, 1678 out
+2026-11-11 13:32:12,310 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:32:31,716 | INFO    | lib.llm | Structured call: stop=tool_use, 1773 in, 1013 out
+2026-11-11 13:33:55,958 | INFO    | lib.llm | Structured call: stop=tool_use, 3338 in, 9532 out
+2026-11-11 13:33:57,457 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:34:43,877 | INFO    | lib.llm | Structured call: stop=tool_use, 2654 in, 2195 out
+2026-11-11 13:34:45,581 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:35:34,298 | INFO    | lib.llm | Structured call: stop=tool_use, 2845 in, 3967 out
+2026-11-11 13:35:36,282 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:36:14,269 | INFO    | lib.llm | Structured call: stop=tool_use, 2665 in, 1849 out
+2026-11-11 13:36:15,936 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:36:55,984 | INFO    | lib.llm | Structured call: stop=tool_use, 2867 in, 3613 out
+2026-11-11 13:36:57,613 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:37:29,960 | INFO    | lib.llm | Structured call: stop=tool_use, 2664 in, 1567 out
+2026-11-11 13:37:30,955 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:38:09,453 | INFO    | lib.llm | Structured call: stop=tool_use, 2775 in, 3383 out
+2026-11-11 13:38:10,499 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:40:38,868 | INFO    | lib.llm | Structured call: stop=max_tokens, 2656 in, 8000 out
+2026-11-11 13:40:38,869 | WARNING | pipeline | The section check failed for how-much-does-an-ats-cost (attempt 1 of 2): RuntimeError: Response cut off at max_tokens=8000 before the 'report_faults' call completed
+2026-11-11 13:40:40,136 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:40:40,269 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:40:40,666 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:40:41,190 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:40:47,793 | INFO    | lib.llm | Structured call: stop=tool_use, 1344 in, 498 out
+2026-11-11 13:40:48,870 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:40:50,657 | INFO    | lib.llm | Structured call: stop=tool_use, 1667 in, 617 out
+2026-11-11 13:40:51,872 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:40:57,375 | INFO    | lib.llm | Structured call: stop=tool_use, 1359 in, 797 out
+2026-11-11 13:40:58,401 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:41:01,332 | INFO    | lib.llm | Structured call: stop=tool_use, 1344 in, 309 out
+2026-11-11 13:41:04,812 | INFO    | lib.llm | Structured call: stop=tool_use, 1777 in, 1294 out
+2026-11-11 13:41:05,783 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:41:09,610 | INFO    | lib.llm | Structured call: stop=tool_use, 1731 in, 1541 out
+2026-11-11 13:41:10,877 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:41:21,323 | INFO    | lib.llm | Structured call: stop=tool_use, 2781 in, 2236 out
+2026-11-11 13:41:21,823 | INFO    | lib.llm | Structured call: stop=tool_use, 1670 in, 648 out
+2026-11-11 13:41:22,636 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:41:23,081 | INFO    | lib.llm | Structured call: stop=tool_use, 1822 in, 1702 out
+2026-11-11 13:41:23,631 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:41:24,534 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:41:33,925 | INFO    | lib.llm | Structured call: stop=tool_use, 1766 in, 1156 out
+2026-11-11 13:41:34,405 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:41:41,656 | INFO    | lib.llm | Structured call: stop=tool_use, 1777 in, 884 out
+2026-11-11 13:41:43,237 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:41:49,378 | INFO    | lib.llm | Structured call: stop=tool_use, 1640 in, 714 out
+2026-11-11 13:41:50,113 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:42:01,642 | INFO    | lib.llm | Structured call: stop=tool_use, 3180 in, 3351 out
+2026-11-11 13:42:03,650 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:42:06,394 | INFO    | lib.llm | Structured call: stop=tool_use, 1792 in, 2044 out
+2026-11-11 13:42:07,603 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:42:13,801 | INFO    | lib.llm | Structured call: stop=tool_use, 1777 in, 475 out
+2026-11-11 13:42:13,830 | INFO    | lib.llm | Structured call: stop=tool_use, 1679 in, 1812 out
+2026-11-11 13:42:14,311 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:42:15,530 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:42:30,092 | INFO    | lib.llm | Structured call: stop=tool_use, 1823 in, 1661 out
+2026-11-11 13:42:31,806 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:42:32,706 | INFO    | lib.llm | Structured call: stop=tool_use, 1646 in, 875 out
+2026-11-11 13:42:33,926 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:42:43,826 | INFO    | lib.llm | Structured call: stop=tool_use, 1708 in, 1226 out
+2026-11-11 13:42:44,238 | INFO    | lib.llm | Structured call: stop=tool_use, 1785 in, 679 out
+2026-11-11 13:42:44,271 | INFO    | lib.llm | Structured call: stop=tool_use, 2675 in, 1991 out
+2026-11-11 13:42:45,220 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:42:45,234 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:42:45,476 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:42:57,814 | INFO    | lib.llm | Structured call: stop=tool_use, 1789 in, 1578 out
+2026-11-11 13:42:58,884 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:43:02,684 | INFO    | lib.llm | Structured call: stop=tool_use, 1643 in, 938 out
+2026-11-11 13:43:03,140 | INFO    | lib.llm | Structured call: stop=tool_use, 1791 in, 350 out
+2026-11-11 13:43:22,564 | INFO    | lib.llm | Structured call: stop=tool_use, 2876 in, 3363 out
+2026-11-11 13:43:24,495 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:43:53,910 | INFO    | lib.llm | Structured call: stop=tool_use, 2680 in, 1478 out
+2026-11-11 13:43:55,722 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:44:41,864 | INFO    | lib.llm | Structured call: stop=tool_use, 2793 in, 3739 out
+2026-11-11 13:44:42,871 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:47:19,134 | INFO    | lib.llm | Structured call: stop=max_tokens, 2677 in, 8000 out
+2026-11-11 13:47:19,136 | WARNING | pipeline | The section check failed for how-much-does-an-ats-cost (attempt 2 of 2): RuntimeError: Response cut off at max_tokens=8000 before the 'report_faults' call completed
+2026-11-11 13:47:21,849 | INFO    | main | Saved output: how-much-does-an-ats-cost-output/
+2026-11-11 13:47:23,527 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:48:08,082 | INFO    | lib.llm | Structured call: stop=tool_use, 8093 in, 2145 out
+2026-11-11 13:48:08,084 | INFO    | review_post | Content check: faults found in how-much-does-an-ats-cost; $3.99: 326407 in, 140309 out, 129612 cache written, 1227132 cache read, 5 searches
+2026-11-11 13:48:09,351 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:50:52,025 | INFO    | lib.llm | Structured call: stop=tool_use, 9656 in, 6788 out
+2026-11-11 13:50:52,032 | INFO    | review_post | Content fixed in how-much-does-an-ats-cost: 3 listed, 0 more found by the code; $4.19: 336063 in, 147097 out, 149468 cache written, 1227132 cache read, 5 searches
+2026-11-11 13:50:53,340 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 13:51:37,568 | INFO    | lib.llm | Structured call: stop=tool_use, 8296 in, 2006 out
+2026-11-11 13:51:38,869 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 14:00:37,412 | INFO    | lib.llm | Structured call: stop=tool_use, 9701 in, 30813 out
+2026-11-11 14:00:37,414 | INFO    | review_post | Content review for how-much-does-an-ats-cost: 9 fault(s); $4.89: 354060 in, 179916 out, 189206 cache written, 1227132 cache read, 5 searches
+2026-11-11 14:00:39,992 | INFO    | main | Saved output: how-much-does-an-ats-cost-output/
+2026-11-11 14:00:48,200 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 14:01:52,480 | INFO    | lib.llm | Structured call: stop=tool_use, 6590 in, 3668 out
+2026-11-11 14:01:52,481 | INFO    | review_post | Transitions: 15 fault(s) in how-much-does-an-ats-cost; $5.04: 360650 in, 183584 out, 209080 cache written, 1227132 cache read, 5 searches
+2026-11-11 14:01:53,798 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 14:05:45,849 | INFO    | lib.llm | Structured call: stop=tool_use, 7025 in, 13083 out
+2026-11-11 14:05:45,855 | INFO    | review_post | Transitions fixed in how-much-does-an-ats-cost: 14 listed, 1 more found by the code; $5.33: 367675 in, 196667 out, 228746 cache written, 1227132 cache read, 5 searches
+2026-11-11 14:05:47,420 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 14:07:14,502 | INFO    | lib.llm | Structured call: stop=tool_use, 7403 in, 6709 out
+2026-11-11 14:07:15,608 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 14:17:18,525 | INFO    | lib.llm | Structured call: stop=tool_use, 7269 in, 31326 out
+2026-11-11 14:17:18,528 | INFO    | review_post | Transition review for how-much-does-an-ats-cost: 11 fault(s); $6.02: 382347 in, 234702 out, 248561 cache written, 1247006 cache read, 5 searches
+2026-11-11 14:17:21,150 | INFO    | main | Saved output: how-much-does-an-ats-cost-output/
+2026-11-11 14:17:21,155 | WARNING | agents.content_generator | To-do after review: ["Step skipped: the section check failed twice and did not run (RuntimeError: Response cut off at max_tokens=8000 before the 'report_faults' call completed)."]
+2026-11-11 14:17:21,177 | INFO    | main | Saved output: how-much-does-an-ats-cost-output/
+2026-11-11 14:17:21,178 | INFO    | pipeline | Rechecked how-much-does-an-ats-cost: 1 to-do item(s)
+2026-11-11 14:17:22,642 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 14:17:22,956 | INFO    | lib.llm | Structured call: stop=tool_use, 803 in, 54 out
+2026-11-11 14:17:22,957 | INFO    | review_post | Competitor links in how-much-does-an-ats-cost: 0 of 2 website(s)
+2026-11-11 14:17:23,979 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-11 14:18:19,699 | INFO    | lib.llm | Structured call: stop=tool_use, 11141 in, 3425 out
+2026-11-11 14:18:19,702 | INFO    | suggest_graphics | Graphics for how-much-does-an-ats-cost: 0 place(s); $6.11: 394291 in, 238181 out, 248561 cache written, 1247006 cache read, 5 searches
+2026-11-11 14:18:19,705 | INFO    | review_post | No section in how-much-does-an-ats-cost is over the em dash limit
+2026-11-11 14:18:21,640 | INFO    | connectors.sanity | Sanity draft written: drafts.how-much-does-an-ats-cost (92 blocks)
+2026-11-11 14:18:21,641 | INFO    | agents.publisher | Staged: drafts.how-much-does-an-ats-cost
+2026-11-11 14:18:23,085 | INFO    | __main__ | Saved output: how-much-does-an-ats-cost-output/
+2026-11-11 14:18:23,762 | WARNING | connectors.slack | Slack upload of how-much-does-an-ats-cost-graphics.md failed (missing_scope); posting its text in the thread instead
+2026-11-11 14:18:24,255 | WARNING | connectors.slack | Slack upload of how-much-does-an-ats-cost.md failed (missing_scope); posting its text in the thread instead
+2026-11-11 14:18:29,016 | INFO    | lib.content_calendar | Marked calendar row 5 as generated (2026-11-11T14:18:27+00:00)
