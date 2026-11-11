@@ -189,3 +189,7 @@ Start with the base annual subscription, add implementation costs (even internal
 ### What ATS pricing model is best for a startup or small business?
 
 Flat-rate pricing with unlimited users is usually the best fit for startups and small businesses. It gives you predictable monthly costs, lets you involve the whole team in hiring without per-seat charges, and scales by active jobs rather than headcount. Per-seat and per-employee models tend to become expensive as you grow, while usage-based pricing can spike during active hiring periods.
+
+## To-do
+
+- Step skipped: the section check failed twice and did not run (RuntimeError: Response cut off at max_tokens=8000 before the 'report_faults' call completed).
