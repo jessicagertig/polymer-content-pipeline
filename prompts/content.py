@@ -203,7 +203,15 @@ POLYMER_INCLUDED = """## Polymer in this article
 Polymer is one of the products this article covers. Describe Polymer only as the feature inventory below describes it. Do not mention a Polymer feature that is not in the inventory, and do not state a price for any paid placement.
 
 ### Polymer feature inventory
-{feature_inventory}"""
+{feature_inventory}{positioning}"""
+
+# For an article that includes Polymer and is not an alternatives article, whose playbook already carries the positioning.
+POSITIONING_SECTION = """
+
+### Polymer competitive positioning
+Position Polymer, and describe its competitors, by these guidelines.
+
+{positioning}"""
 
 EXPAND_USER = """The article below is {words} words. The minimum is 2,500 words, with FAQ excluded, and the ideal length is about 3,000 to 3,500. Add to the article until it is at least 2,500 words.
 

@@ -16,8 +16,6 @@ Polymer is designed to make hiring software feel straightforward. Teams can get 
 
 The interface itself is an important part of the product's value. Polymer should be described as intuitive, modern, and pleasant to use, rather than merely simple.
 
-Customer quotes about Polymer's UI and ease of use should be used as supporting evidence where appropriate.
-
 ## **2\. Flexible without the bloat**
 
 Polymer provides the flexibility companies need to run their own hiring process without overwhelming them with functionality designed for much larger or more specialized recruiting organizations.
@@ -82,7 +80,7 @@ Avoid positioning Polymer as basic, lightweight because it lacks functionality, 
 
 Polymer does not need to be the best ATS for every company.
 
-Comparison content should identify where competitors genuinely excel, as long as it is not one of Polymer's main selling points, stated dryly as fact and never as their promoter, and then clearly explain the type of team for whom Polymer is the better fit. Competitors are described truthfully, never in their own marketing language, and their sections read as heavy, complex software that a recruiting department runs. Their sections lead with the features a growing company does not want. The features a growing company wants most are shown in Polymer's section and buried or left out of the competitors'. Competitors have more than enough other features to fill their sections.
+Any article that covers competitors should identify where competitors genuinely excel, as long as it is not one of Polymer's main selling points, stated dryly as fact and never as their promoter, and then clearly explain the type of team for whom Polymer is the better fit. Competitors are described truthfully, never in their own marketing language, and their sections read as heavy, complex software that a recruiting department runs. Their sections lead with the features a growing company does not want. The features a growing company wants most are shown in Polymer's section and buried or left out of the competitors'. Competitors have more than enough other features to fill their sections.
 
 Many growing teams don't need an enterprise recruiting platform with every possible feature. They need a capable ATS that adapts to their hiring process, has a clean interface, is easy to use, incorporates modern capabilities like AI where they are genuinely useful, and doesn't introduce unnecessary cost or complexity.
 

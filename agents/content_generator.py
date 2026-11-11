@@ -12,7 +12,7 @@ from prompts.research import EDITOR_BRIEF
 from lib.text import word_count as wc, reading_time, clean_body_html, has_empty_lists, space_em_dashes
 from lib.validation import validate, fix_internal_links, site_path, MIN_WORD_COUNT
 from models.content import ContentPage, GeneratedContent, ContentStatus
-from prompts.content import CONTENT_SYSTEM, CONTENT_USER, PAGE_SCHEMA, PAGE_STRUCTURES, POLYMER_INCLUDED, POLYMER_EXCLUDED, POLYMER_EXCLUDED_PRODUCT_BASED, REDRAFT_SECTION, HUB_SECTION, HUB_UNPUBLISHED, EXPAND_USER, EXPAND_SCHEMA
+from prompts.content import CONTENT_SYSTEM, CONTENT_USER, PAGE_SCHEMA, PAGE_STRUCTURES, POLYMER_INCLUDED, POSITIONING_SECTION, POLYMER_EXCLUDED, POLYMER_EXCLUDED_PRODUCT_BASED, REDRAFT_SECTION, HUB_SECTION, HUB_UNPUBLISHED, EXPAND_USER, EXPAND_SCHEMA
 
 
 log = get(__name__)
@@ -68,7 +68,8 @@ def generate(page: ContentPage) -> ContentPage:
     structure = page_structure(opp)
 
     if opp.includes_polymer:
-        polymer_section = POLYMER_INCLUDED.format(feature_inventory=settings.feature_inventory())
+        positioning = "" if opp.page_type.value == "alternatives" else POSITIONING_SECTION.format(positioning=settings.competitive_positioning())
+        polymer_section = POLYMER_INCLUDED.format(feature_inventory=settings.feature_inventory(), positioning=positioning)
     elif opp.product_based:
         polymer_section = POLYMER_EXCLUDED_PRODUCT_BASED
     else:   # the closer: the article's only mention of Polymer

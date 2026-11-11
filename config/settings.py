@@ -76,6 +76,11 @@ class Settings(BaseSettings):
         path = Path(__file__).parent / "polymer-feature-inventory.md"
         return path.read_text() if path.exists() else ""
 
+    def competitive_positioning(self) -> str:
+        """How to position Polymer against its competitors, for every article that includes Polymer."""
+        path = Path(__file__).parent / "polymer-competitive-positioning.md"
+        return path.read_text() if path.exists() else ""
+
     def alternatives_playbook(self) -> str:
         """The outline for the alternatives format: the playbook, then the positioning guidelines it cites."""
         here = Path(__file__).parent
