@@ -1,0 +1,1 @@
+- hiretruffle.com (Truffle, Applicant tracking system and recruiting software for hiring teams): https://www.hiretruffle.com/blog/lever-ats
