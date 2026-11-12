@@ -63,11 +63,11 @@ The sourcing tool searches a profile database and surfaces candidates with writt
 
 The headcount-based pricing is worth modeling before signing an annual contract. A startup that grows from 15 to 35 employees midway through the year will see a price jump regardless of whether the number of open roles has changed. Workable also offers a free trial.
 
-**Best for** — Startups that want proactive sourcing baked in, need a large job board network, or are building out an HR layer alongside their recruiting function and want one platform to cover both.
+**Best for:** Startups that want proactive sourcing baked in, need a large job board network, or are building an HR layer alongside their recruiting function and want one platform to cover both.
 
-**Pro** — Published pricing and a wide job board network make Workable straightforward to evaluate. Because the platform covers onboarding, time off, and employee records alongside hiring, a startup building out its HR stack at the same time it is building its team has fewer tools to manage as it grows.
+**Pro:** Published pricing and a wide job board network make Workable straightforward to evaluate. Because the platform covers onboarding, time off, and employee records alongside hiring, a startup building its HR stack at the same time it is building its team has fewer tools to manage as it grows.
 
-**Con** — Headcount-based pricing means costs rise as the company grows, even if hiring volume stays flat. A startup at the earliest hiring stages will pay for capabilities it has not yet needed.
+**Con:** Headcount-based pricing means costs rise as the company grows, even if hiring volume stays flat. Early-stage startups pay for capabilities they are not yet using.
 
 ## Ashby
 
@@ -91,11 +91,11 @@ What Greenhouse offers at that price is an industry-leading structured hiring sy
 
 Greenhouse earns its place on this list because a small number of startups genuinely need it — specifically those that have raised a significant round, hired a head of people or a full recruiting team, and are building hiring infrastructure designed to scale to hundreds of employees. For every other startup on this list, the cost and implementation overhead will outweigh the features.
 
-**Best for** — Well-funded startups with a dedicated people team that is building enterprise-grade hiring infrastructure from the first day and can absorb both the cost and the implementation investment.
+**Best for:** Well-funded startups with a dedicated people team that is building enterprise-grade hiring infrastructure from day one and can absorb both the cost and the implementation investment.
 
-**Strength** — Industry-leading structured hiring tools, deep integrations, and enterprise-grade DEI and compliance reporting.
+**Pro:** Industry-leading structured hiring tools, deep integrations, and enterprise-grade DEI and compliance reporting. These tools give a recruiting department defensible, consistent evaluation across every role.
 
-**Limitation** — No published pricing, high entry costs, and an implementation process that requires significant time and often external support. It is too much tool for a founding team.
+**Con:** No published pricing, high entry costs, and an implementation process that requires significant time and often external support — more than a founding team at the early stage can justify.
 
 ## Lever
 
@@ -113,7 +113,7 @@ For a startup doing primarily inbound, reactive hiring — a role opens, the tea
 
 ## How to Choose the Right ATS for Your Startup
 
-The right tool depends on where you are in the company's life and who is doing the hiring. A founding team making its first three hires has different needs than a 60-person company with a head of people running 15 searches at once. These four questions narrow the field.
+A founding team making its first three hires has different needs than a 60-person company with a head of people running 15 searches at once. These questions narrow the field.
 
 ### Who is running the hiring process?
 
