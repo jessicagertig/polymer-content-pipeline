@@ -164,3 +164,8 @@ The right time to move to a more sophisticated platform is when your current too
 ### Is Polymer a good ATS for a startup?
 
 Polymer is built for growing teams that want a capable, flexible hiring system without the complexity and cost of enterprise software. Every plan includes unlimited users, AI-assisted candidate screening, customizable hiring stages, and published pricing — which are the features most founding teams need most. It's designed to be set up quickly by the person doing the hiring, without a dedicated recruiter or IT support.
+
+## To-do
+
+- Only 1 internal link(s) in the body; add at least 1 more.
+- Add a link to /blog/best-applicant-tracking-software ('7 Best Applicant Tracking Software Solutions for Small Business in 2026'): listed but not placed in the body.
