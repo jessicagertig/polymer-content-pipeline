@@ -1,0 +1,3 @@
+- ashbyhq.com (Ashby, All-in-one recruiting and applicant tracking system (ATS) for hiring teams.): https://www.ashbyhq.com/pricing
+- workable.com (Workable, Applicant tracking system and recruiting software for hiring teams.): https://www.workable.com/pricing
+- breezy.hr (Breezy HR, Applicant tracking system and recruiting software for hiring teams.): https://breezy.hr/pricing
