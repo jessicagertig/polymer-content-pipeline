@@ -31,7 +31,7 @@ All-In-One plans include AI credits for Ashby's AI features. Advanced Scheduling
 
 ### Who tends to look elsewhere
 
-Three things push companies to look elsewhere. Pricing tied to total employee headcount means your ATS cost grows with your company even when your recruiting activity doesn't. The Foundations plan reaches $900 per month for a company of 76–100 people, and Plus pricing is not published. The platform's analytics dashboards, outbound sequencing, and CRM workflows suit a dedicated recruiting team well, but are more than a founder doing their own hiring or a hiring manager with one open role at a time needs. If one of those descriptions fits your team, the tools below are worth looking at.
+Pricing tied to total employee headcount means your ATS cost grows with your company even when your recruiting activity doesn't. The Foundations plan reaches $900 per month for a company of 76–100 people, and Plus pricing is not published. The platform's analytics dashboards, outbound sequencing, and CRM workflows suit a dedicated recruiting team well, but are more than a founder doing their own hiring or a hiring manager with one open role at a time needs. If one of those descriptions fits your team, the tools below are worth looking at.
 
 ## Ashby Alternatives at a Glance
 
@@ -61,7 +61,7 @@ Polymer is an applicant tracking system and job board software built for growing
 
 ### Why consider it
 
-Polymer is a complete ATS — the full feature set is there on the day you sign up, covering customizable pipelines, automated candidate messaging, AI-assisted screening, and scored team reviews, with no weeks of onboarding or manual to work through first. It handles sophisticated hiring requirements without loading teams with the workflows and infrastructure built for a dedicated recruiting department. That ease of adoption follows from the platform's intentional focus on growing teams, not from any constraint on what it can do.
+Polymer is a complete ATS. The full feature set is there on the day you sign up, covering customizable pipelines, automated candidate messaging, AI-assisted screening, and scored team reviews, with no weeks of onboarding or manual to work through first. It handles sophisticated hiring requirements without loading teams with the workflows and infrastructure built for a dedicated recruiting department. That ease of adoption follows from the platform's intentional focus on growing teams, not from any constraint on what it can do.
 
 ### Key features
 
@@ -257,11 +257,11 @@ JazzHR fits small businesses that hire infrequently and want an organized way to
 
 ### Key features
 
-* **Unlimited jobs and candidates on the entry plan.** JazzHR's Hero plan allows unlimited open roles and unlimited candidates from the start, so a small business that keeps several positions open doesn't pay more as the number of active roles grows.
-* **Customizable hiring workflows.** Teams can rename and reorder hiring stages, set up custom application questions, and create basic stage-based automations to move candidates and send communications.
-* **Offer letters and e-signatures.** Higher plans let teams create offer letters and send them for e-signature directly from the platform.
-* **Job distribution to multiple boards.** Posts to many job boards from a single submission, with both free and paid distribution options managed from within the platform.
-* **Generative AI features.** JazzHR generates job descriptions with AI assistance and includes AI screening tools for basic candidate review tasks.
+* **Unlimited jobs and candidates on the entry plan**: The Hero plan's unlimited open roles and unlimited candidates mean a small business that keeps several positions open does not pay more as its active role count grows.
+* **Customizable hiring workflows**: Teams can rename and reorder hiring stages, set up custom application questions, and create basic stage-based automations to move candidates and send communications.
+* **Offer letters and e-signatures**: Higher plans let teams create offer letters and send them for e-signature directly from the platform.
+* **Job distribution to multiple boards**: Posts to many job boards from a single submission, with both free and paid distribution options managed from within the platform.
+* **Generative AI features**: JazzHR generates job descriptions with AI assistance and includes AI screening tools for basic candidate review tasks.
 
 ### Pricing
 
