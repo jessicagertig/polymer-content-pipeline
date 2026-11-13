@@ -13,13 +13,15 @@ In this article, we'll cover what Ashby is and when it's the right choice, then 
 
 ## What Ashby Is and When It's the Right Choice
 
-Ashby is an applicant tracking system built for recruiting teams that run structured, high-volume pipelines. Its platform is an all-in-one recruiting tool with an ATS, sourcing CRM, interview scheduling, and recruiting analytics, designed around a team that tracks pipeline velocity, source quality, and time-to-fill across many open roles at once.
+Ashby is an applicant tracking system built for recruiting teams that run structured, high-volume pipelines — an all-in-one platform with an ATS, sourcing CRM, interview scheduling, and recruiting analytics, built around a team that tracks pipeline velocity, source quality, and time-to-fill across many open roles at once.
 
 ### Where Ashby is strongest
 
 Ashby's core strength is its analytics. The reporting suite is built directly on data from its ATS, CRM, and scheduling modules, with pre-built dashboards and a custom report builder. For a recruiting team that needs to report on pipeline health, source quality, and hiring pace, that depth of data is a real asset. Its sourcing and CRM tools let recruiters build outbound email sequences, manage talent pools, and track candidates from first contact to hire without leaving the platform. Combined with customizable interview plans and embedded e-signatures for offers and NDAs, Ashby covers the full recruiting workflow end to end.
 
 **Choose Ashby if** you have a recruiting team that needs deep analytics, outbound sourcing, and a tightly integrated recruiting stack, and your hiring volume justifies the investment.
+
+The sections that follow show which teams each tool is built for, and where the alternatives outperform it.
 
 ### How Ashby is priced
 
@@ -87,6 +89,8 @@ Ashby's native sourcing CRM and analytics suite, with custom report builders and
 
 **Choose Polymer if you're a growing company that wants a capable, flexible ATS that's ready to use the day you sign up.** If you have a dedicated recruiting team running outbound sourcing campaigns and need advanced pipeline analytics, Ashby is built for that work.
 
+That said, Greenhouse earns its place for a different kind of team.
+
 ## Greenhouse: Best for Mid-to-Large Companies With a Dedicated Recruiting Team and Structured Hiring at Scale
 
 Greenhouse is an applicant tracking system built for companies with a dedicated recruiting function. Its structured hiring framework covers scorecards, interview kits, and layered permissions, and is designed to coordinate hiring across many departments, hiring managers, and open roles at once, with governance features that hold their shape as the organization grows.
@@ -125,7 +129,7 @@ Lever is a recruiting platform that merges an ATS and a recruiting CRM into one 
 
 ### Why consider it
 
-Lever fits companies where talent acquisition runs as a proactive discipline: building pipelines, nurturing prospects, and tracking candidates through long sourcing cycles before they ever apply. The CRM is built into the product's data model, not added on top of it, so candidate history, sourcing touchpoints, and application data live in one record from first contact to hire. For recruiting teams that measure themselves on pipeline health and source effectiveness, that unified record is the platform's core value.
+Lever's distinguishing feature is an ATS and CRM that share a single data model from the ground up. Lever fits companies where talent acquisition runs as a proactive discipline: building pipelines, nurturing prospects, and tracking candidates through long sourcing cycles before they ever apply. The CRM is built into the product's data model, not added on top of it, so candidate history, sourcing touchpoints, and application data live in one record from first contact to hire. For recruiting teams that measure themselves on pipeline health and source effectiveness, that unified record is the platform's core value.
 
 ### Key features
 
@@ -157,7 +161,7 @@ Workable is an applicant tracking system and HR platform that extends hiring int
 
 ### Why consider it
 
-Workable fits companies that want to handle more of their HR workflow alongside hiring, from assessments and async video interviews to employee onboarding, without assembling a stack of separate tools. Higher plans add time-off tracking and HR record management. For a team that needs some HR functionality but is not ready for a full HRIS, Workable's bundled approach means fewer vendors to manage.
+Workable extends beyond the ATS, bundling assessments and HR workflows into the same platform. Workable fits companies that want to handle more of their HR workflow alongside hiring, from assessments and async video interviews to employee onboarding, without assembling a stack of separate tools. Higher plans add time-off tracking and HR record management. For a team that needs some HR functionality but is not ready for a full HRIS, Workable's bundled approach means fewer vendors to manage.
 
 ### Key features
 
@@ -189,7 +193,7 @@ Breezy HR is an applicant tracking system built for small teams, with an interfa
 
 ### Why consider it
 
-Breezy fits small teams that want to get hiring organized fast and that want video screening built in. Its free plan, which allows one active job, lets a team post a role and get a feel for the tool before committing. The visual drag-and-drop pipeline is straightforward for a hiring manager who doesn't live in recruiting software every day.
+Breezy fits small teams that want to get started quickly, without the overhead of a mid-market platform. Its free plan, which allows one active job, lets a team post a role and get a feel for the tool before committing. The visual drag-and-drop pipeline is straightforward for a hiring manager who doesn't live in recruiting software every day.
 
 ### Key features
 
@@ -221,7 +225,7 @@ Recruitee is an applicant tracking system built around collaborative hiring, wit
 
 ### Why consider it
 
-Recruitee fits teams where hiring decisions are genuinely collective, with the hiring manager, interviewers, and other stakeholders all weighing in on candidates, and where keeping the whole group aligned is the main coordination challenge. The pipeline is visual and shareable, and the evaluation tools are designed for a whole hiring team reaching a decision together, not for a solo recruiter managing a process.
+Recruitee fits teams where hiring decisions are genuinely collective, with the hiring manager, interviewers, and other stakeholders all weighing in on candidates. Where keeping the whole group aligned is the main coordination challenge, the pipeline is visual and shareable, and the evaluation tools are designed for a whole hiring team reaching a decision together, not for a solo recruiter managing a process.
 
 ### Key features
 
