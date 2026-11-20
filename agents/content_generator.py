@@ -13,7 +13,7 @@ from prompts.research import EDITOR_BRIEF
 from lib.text import word_count as wc, reading_time, clean_body_html, has_empty_lists, space_em_dashes
 from lib.validation import validate, fix_internal_links, site_path, MIN_WORD_COUNT
 from models.content import ContentPage, GeneratedContent, ContentStatus
-from prompts.content import CONTENT_SYSTEM, CONTENT_USER, PAGE_SCHEMA, PAGE_STRUCTURES, POLYMER_INCLUDED, POSITIONING_SECTION, POLYMER_EXCLUDED, POLYMER_EXCLUDED_PRODUCT_BASED, REDRAFT_SECTION, HUB_SECTION, HUB_UNPUBLISHED, EXPAND_USER, EXPAND_SCHEMA
+from prompts.content import CONTENT_SYSTEM, CONTENT_USER, PAGE_SCHEMA, PAGE_STRUCTURES, POLYMER_INCLUDED, POSITIONING_SECTION, RESEARCH_RULES, SELF_CHECK, ALTERNATIVES_SYSTEM, ALTERNATIVES_RESEARCH_RULES, ALTERNATIVES_SELF_CHECK, POLYMER_EXCLUDED, POLYMER_EXCLUDED_PRODUCT_BASED, REDRAFT_SECTION, HUB_SECTION, HUB_UNPUBLISHED, EXPAND_USER, EXPAND_SCHEMA
 
 
 log = get(__name__)
@@ -123,10 +123,14 @@ def generate(page: ContentPage) -> ContentPage:
         hub_section=hub_section,
         polymer_section=polymer_section,
         redraft_section=REDRAFT_SECTION.format(instructions=page.redraft_instructions) if page.redraft_instructions else "",
+        research_rules=ALTERNATIVES_RESEARCH_RULES if page_type == "alternatives" else RESEARCH_RULES,
+        self_check=ALTERNATIVES_SELF_CHECK if page_type == "alternatives" else SELF_CHECK,
     )
 
-    # System prompt with brand guidelines is mostly stable across calls → cache it
-    system = CONTENT_SYSTEM.format(brand_guidelines=brand, elements_of_style=settings.elements_of_style())
+    # System prompt with brand guidelines is mostly stable across calls → cache it. An alternatives article is
+    # written by its playbook, so its system prompt carries only the house rules and The Elements of Style.
+    system = (ALTERNATIVES_SYSTEM.format(elements_of_style=settings.elements_of_style()) if page_type == "alternatives"
+              else CONTENT_SYSTEM.format(brand_guidelines=brand, elements_of_style=settings.elements_of_style()))
 
     # Generate; regenerate once if the model leaves empty list scaffolds (renders as
     # big blank gaps). On the final attempt we sanitize whatever we got.

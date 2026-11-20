@@ -45,6 +45,9 @@ def recheck_saved(slug: str) -> None:
     log.info(f"Rechecked {slug}: {len(page.todos)} to-do item(s)")
 
 
+# Steps that check an article against the general rules, which an alternatives article's playbook replaces
+PLAYBOOK_REPLACES = ("opening", "opening check", "content check", "transition pass")
+
 SKIPPED = "Step skipped"   # the start of a to-do item for a step that did not run; the recheck keeps these
 
 
@@ -94,6 +97,12 @@ def run_steps(slug: str, write: Callable[[bool], None], stop_at: float = STOP_AT
     if "write" not in done:   # never skipped: without it there is no article
         write(resuming)
         finish("write")
+    saved = out / f"{slug}.json"
+    if saved.exists() and ContentPage.model_validate_json(saved.read_text()).opportunity.page_type.value == "alternatives":
+        for step in PLAYBOOK_REPLACES:
+            if step not in done:
+                log.info(f"No {step} for {slug}: an alternatives article is written by its playbook")
+                finish(step)
     for step, fn in [("hide resources", lambda: hide_resources(slug)), ("opening", lambda: rewrite_opening(slug)),
                      ("opening check", lambda: check_opening(slug))]:
         if step not in done:

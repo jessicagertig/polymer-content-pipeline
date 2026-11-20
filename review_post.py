@@ -34,6 +34,7 @@ from prompts.review import (
     CONTENT_RULES, CONTENT_FIXES, CONTENT_FIND_USER, CONTENT_FIND_SCHEMA, CONTENT_FIX_USER, CONTENT_FIX_SCHEMA,
     CONTENT_REVIEW_CHANGES_USER, CONTENT_REVIEW_FIX_USER,
     RESOURCE_SYSTEM, RESOURCE_CHECK_USER, RESOURCE_CHECK_SCHEMA, RESOURCE_FIX_USER, RESOURCE_FIX_SCHEMA,
+    ALTERNATIVES_REVIEW_SYSTEM, ALTERNATIVES_FIX_SYSTEM, ALTERNATIVES_FIND_USER, ALTERNATIVES_FIX_USER,
     COMPETITOR_LINKS_SYSTEM, COMPETITOR_LINKS_USER, COMPETITOR_LINKS_SCHEMA,
     OPENING_FIX_SYSTEM, FIX_SYSTEM, TRANSITIONS_FIX_SYSTEM, REVIEW_FIX_SYSTEM, CONTENT_FIX_SYSTEM, CONTENT_REVIEW_FIX_SYSTEM,
 )
@@ -296,11 +297,18 @@ def check_post(slug: str, max_fixes: int = 4, workers: int = 4, stop_at: float =
     check (check_opening), `workers` sections at a time. A finished
     section is written to <slug>-check-progress.json at once, so a stopped run resumes
     there. Stops early, keeping the sections done, when `stop_at` dollars have been spent.
-    Returns whether every section was checked."""
+    Returns whether every section was checked. An alternatives article, written by its playbook, is checked
+    against the house rules and The Elements of Style only, opening included, since it has no opening check."""
     page = ContentPage.model_validate_json((ROOT / f"{slug}-output" / f"{slug}.json").read_text())
     sections = split_sections(page.content.body_html)
-    statistics = _statistics_for(slug)
-    system, fix_system = _system() + statistics + _brief(page), _system(FIX_SYSTEM) + statistics + _brief(page)
+    alternatives = page.opportunity.page_type.value == "alternatives"
+    if alternatives:
+        system, fix_system = _system(ALTERNATIVES_REVIEW_SYSTEM) + _brief(page), _system(ALTERNATIVES_FIX_SYSTEM) + _brief(page)
+        prompts = dict(find_prompt=ALTERNATIVES_FIND_USER, fix_prompt=ALTERNATIVES_FIX_USER)
+    else:
+        statistics = _statistics_for(slug)
+        system, fix_system = _system() + statistics + _brief(page), _system(FIX_SYSTEM) + statistics + _brief(page)
+        prompts = {}
     progress = ROOT / f"{slug}-output" / f"{slug}-check-progress.json"
     done: dict[str, dict] = {}
     if progress.exists():
@@ -309,12 +317,12 @@ def check_post(slug: str, max_fixes: int = 4, workers: int = 4, stop_at: float =
             done = saved["done"]
             log.info(f"Resuming {slug}: {len(done)}/{len(sections)} sections already checked")
     stopped = False
-    skip = {0} if sections and _is_opening(sections[0]) else set()
+    skip = {0} if sections and _is_opening(sections[0]) and not alternatives else set()
     todo = [i for i in range(len(sections)) if str(i) not in done and i not in skip]
     for start in range(0, len(todo), workers):
         batch = todo[start:start + workers]
         with ThreadPoolExecutor(max_workers=len(batch)) as pool:
-            results = list(pool.map(lambda i: _check_section(sections[i], system, fix_system, max_fixes), batch))
+            results = list(pool.map(lambda i: _check_section(sections[i], system, fix_system, max_fixes, **prompts), batch))
         for i, (final, record, fixes) in zip(batch, results):
             done[str(i)] = {"section": final, "record": record, "fixes": fixes}
             log.info(f"Section {i + 1}/{len(sections)} checked: {_section_name(sections[i])}, {fixes} correction(s)")

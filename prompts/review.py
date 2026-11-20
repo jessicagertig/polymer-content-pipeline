@@ -592,3 +592,34 @@ COMPETITOR_LINKS_SCHEMA = {
     },
     "required": ["suspects"],
 }
+
+
+# For an alternatives article, whose playbook replaces every rule but the house rules and The Elements of Style.
+def _house_rules_and_style_only(template: str) -> str:
+    return ("You edit finished blog articles. You do not write them. You edit by the house rules and by the rules of Strunk's The Elements of Style, which follows in full.\n\n"
+            + template[template.index("## House rules"):])
+
+
+ALTERNATIVES_REVIEW_SYSTEM = _house_rules_and_style_only(REVIEW_SYSTEM)
+ALTERNATIVES_FIX_SYSTEM = _house_rules_and_style_only(FIX_SYSTEM)
+
+
+def _trim(template: str, cuts: list[tuple[str, str]]) -> str:
+    for old, new in cuts:
+        assert template.count(old) == 1, old[:60]
+        template = template.replace(old, new)
+    return template
+
+
+ALTERNATIVES_FIND_USER = _trim(FIND_RULE_BY_RULE_USER, [
+    ("Check the section of an article below against the house rules, the reader rule, the transition rule, the section rule, the numbering rule, the Numbers and statistics rules, the Voice section, the Tone section, every rule in The Elements of Style, Section V included, and the Logic rules, which follow under their own heading. The section is all you are given.",
+     "Check the section of an article below against the house rules and every rule in The Elements of Style, Section V included. The section is all you are given."),
+    (" Under the transition rule, quote the first sentence of the paragraph that does not connect to the one before it.", ""),
+    ("An example is not several sentences describing a scenario. Check the section for this, and list a break as a fault, the same way you list a broken house rule.\n\n", ""),
+    ("## The Logic rules\n\n<<LOGIC>>\n\n", ""),
+])
+ALTERNATIVES_FIX_USER = _trim(FIX_USER, [
+    ("An example is not several sentences describing a scenario.\n\nThe Logic rules, given here as your checker was given them:\n\n<<LOGIC>>\n\n", ""),
+    ("the house rules, the reader rule, the transition rule, the section rule, the numbering rule, the Numbers and statistics rules, the Voice section, the Logic rules, and every rule in The Elements of Style",
+     "the house rules, and every rule in The Elements of Style"),
+])

@@ -178,7 +178,7 @@ The minimum goal is 2,500 words, with FAQ excluded. Ideal length is about 3,000 
 
 {editor_brief}
 ## Research
-Every fact about a named product comes from this brief. Every statistic follows the Numbers and statistics rules in the system prompt.
+Every fact about a named product comes from this brief. {research_rules}
 
 {research}
 
@@ -196,7 +196,7 @@ Link to at least 2 of these articles in the body, where they fit the text. Every
 
 {redraft_section}
 
-Write a draft of the body first, at full length: at least 2,500 words, and ideally 3,000 to 3,500, FAQ excluded. Then read the draft back against the house rules, the Opening rules, the Structure rules, the blog format, the research rules, the Numbers and statistics rules, the Logic rules, the Voice and Tone sections of the writing guide, and every rule in The Elements of Style, one rule at a time, and write one line per rule on what you found. Read the whole text of each rule, examples included. Then rewrite whatever failed. Submit the draft, the check, and the final article.
+{self_check}
 
 Call the `generate_post` tool with the structured output. Internal links point to the blog articles listed above."""
 
@@ -214,6 +214,23 @@ POSITIONING_SECTION = """
 Position Polymer, and describe its competitors, by these guidelines.
 
 {positioning}"""
+
+RESEARCH_RULES = "Every statistic follows the Numbers and statistics rules in the system prompt."
+SELF_CHECK = """Write a draft of the body first, at full length: at least 2,500 words, and ideally 3,000 to 3,500, FAQ excluded. Then read the draft back against the house rules, the Opening rules, the Structure rules, the blog format, the research rules, the Numbers and statistics rules, the Logic rules, the Voice and Tone sections of the writing guide, and every rule in The Elements of Style, one rule at a time, and write one line per rule on what you found. Read the whole text of each rule, examples included. Then rewrite whatever failed. Submit the draft, the check, and the final article."""
+
+# An alternatives article is written by its playbook, the positioning, and the approved example, which the request
+# carries. The writer gets only the house rules and The Elements of Style from the general prompt.
+ALTERNATIVES_SYSTEM = ("""You write Polymer's "[competitor] alternatives" blog articles. The playbook in the request, the positioning guidelines, and the approved example that follow it set the article: its structure, its sections, its opener, its closer, its title and meta description, and what it says about each product. Follow them exactly.
+
+These rules apply to every sentence.
+
+""" + CONTENT_SYSTEM[CONTENT_SYSTEM.index("**House rules:**"):CONTENT_SYSTEM.index("**Opening:**")].strip() + """
+
+## The Elements of Style
+
+{elements_of_style}""")
+ALTERNATIVES_RESEARCH_RULES = "Every price and every fact about a product follows the playbook."
+ALTERNATIVES_SELF_CHECK = "Write a draft of the body first, at full length. Then run the playbook's self-review, in its section 9, on the draft, and read the draft back against the house rules and every rule in The Elements of Style, one rule at a time, and write one line per rule on what you found. Read the whole text of each rule, examples included. Then rewrite whatever failed. Submit the draft, the check, and the final article."
 
 EXPAND_USER = """The article below is {words} words. The minimum is 2,500 words, with FAQ excluded, and the ideal length is about 3,000 to 3,500. Add to the article until it is at least 2,500 words.
 
