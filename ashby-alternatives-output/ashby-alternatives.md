@@ -24,6 +24,8 @@ Prices are as published on each vendor's site in November 2026. Where a vendor d
 
 ## Is Ashby the right fit for your team?
 
+The sections below cover where Ashby is strongest, how it's priced, what's included, and who tends to look elsewhere.
+
 ### Where Ashby is strongest
 
 Ashby is an all-in-one recruiting platform that consolidates an ATS, sourcing and candidate relationship management, interview scheduling, and analytics into a single system. It's built for a recruiting team that runs structured hiring at scale, with deep funnel analytics, conversion tracking, and dashboard reporting on every plan. Scheduling is native, so a recruiting coordinator can book a multi-stage panel from inside the same tool that tracks the candidate. AI features span the platform: an AI Candidate Assistant for sourcing outreach, AI-assisted application review, and an AI Notetaker as a paid add-on.
@@ -62,6 +64,8 @@ The list below is organized by the kind of team each tool fits, starting with Po
 
 ### Why consider it
 
+Polymer is ready to use the day you sign up.
+
 You want a complete, modern applicant tracking system you can start using today, with a branded careers page, easy team collaboration, and built-in AI candidate screening — without weeks of onboarding. Polymer covers the full hiring workflow, including custom application forms, automations, job distribution, and an API, but skips the administrative weight that comes with enterprise recruiting software.
 
 That scope is deliberate: Polymer is built for what a growing team needs and omits what it does not. The system is ready to use on day one, with no configuration project standing between signup and your first published job. It supports structured hiring workflows, including custom stages, automations, AI screening, and review requests, without the administrative overhead of an enterprise platform. A growing company can run a disciplined, consistent hiring process while keeping the system fast to adopt and easy to hand off to new hiring managers. For a deeper look at the mechanics, read the article on [how an applicant tracking system works](/blog/how-does-an-applicant-tracking-system-work).
@@ -78,7 +82,7 @@ That scope is deliberate: Polymer is built for what a growing team needs and omi
 
 Polymer publishes its [pricing](https://www.polymer.co/pricing). Starter is $124 per month, Growth is $233, and Scale is $415, each billed annually. Month to month, they're $149, $279, and $499. Every plan has the complete feature set, unlimited users, and unlimited candidates. The plans differ by how many jobs you can have published at once (5, 20, or 50) and by monthly Plato credits: 50, 100, or 150.
 
-You can create jobs, build the board, and add your team before you enter a payment method. A 14-day free trial starts when you publish your first job, and you can switch plans during the trial without ending it.
+Before the trial starts, you can create jobs, build the board, and add your team without entering a payment method. A 14-day free trial starts when you publish your first job, and you can switch plans during the trial without ending it.
 
 ### Where it beats Ashby
 
@@ -100,7 +104,9 @@ Ashby's native scheduling and analytics are purpose-built for a recruiting team 
 
 ### Why consider it
 
-You need an enterprise-focused recruiting platform, and you have a dedicated team to administer it. Before a role opens, the team defines competencies, writes an interview plan, assigns each interviewer a kit of questions, and sets the scorecard rubric. Interviewers submit scorecards before the debrief, so the panel enters the room with scores already on the table. The article on [Greenhouse alternatives](/blog/greenhouse-alternatives) covers other enterprise-tier options if you're evaluating at that level.
+A dedicated team defines competencies, writes an interview plan, assigns each interviewer a kit of questions, and sets the scorecard rubric before a role opens.
+
+You need an enterprise-focused recruiting platform, and you have a dedicated team to administer it. Interviewers submit scorecards before the debrief, so the panel enters the room with scores already on the table. The article on [Greenhouse alternatives](/blog/greenhouse-alternatives) covers other enterprise-tier options if you're evaluating at that level.
 
 ### Key features
 
@@ -131,6 +137,8 @@ Ashby publishes its pricing for companies up to 100 employees and includes sched
 [Lever](https://www.lever.co/) is an ATS and recruiting CRM in a single database. It's built for a recruiting team that spends its days sourcing people who haven't applied and keeping them warm until a role opens.
 
 ### Why consider it
+
+Your recruiters spend their days sourcing people who haven't applied, keeping them warm until a role opens.
 
 You want a full recruiting CRM alongside your ATS, and recruiters on your team are doing outbound work. They source passive candidates, tag them, put them into nurture sequences, and log every touchpoint over months before a role opens. When the right opening comes up, the contact's record becomes an application without starting over.
 
@@ -164,6 +172,8 @@ Ashby publishes its Foundations pricing and includes scheduling and analytics on
 
 ### Why consider it
 
+Workable is built for a company that wants its recruiting software and HR software from one vendor, with the option to bring them together over time.
+
 You want a sourcing database your recruiting team can search alongside an ATS, and you'd like to consolidate hiring and HR under the same platform over time. Workable's AI sourcing runs against more than 400 million profiles, so a recruiter can find candidates who haven't applied. The HR suite covers employee records, onboarding, time tracking, and payroll preparation, and is available as an add-on when the company is ready for it.
 
 ### Key features
@@ -196,6 +206,8 @@ Ashby bundles scheduling, CRM, and analytics into one contract without add-ons. 
 
 ### Why consider it
 
+Teamtailor is built for companies where the candidate-facing experience is as important as the pipeline behind it.
+
 How your careers page looks and reads shapes the first impression candidates form of your company, and your people team wants to control it without engineering. Teamtailor's careers site builder is designed for non-technical users, with templates, sections, team pages, and media. The ATS sits behind it, tracking candidates through the pipeline and triggering stage automations as they move.
 
 ### Key features
@@ -208,11 +220,11 @@ How your careers page looks and reads shapes the first impression candidates for
 
 ### Pricing
 
-Teamtailor doesn't publish pricing. Reports vary on the model — some describe pricing by job slots, others by company size — and no self-serve rate is available on the site. [Third-party procurement data](https://www.pin.com/blog/teamtailor-pricing/) reports a broad range: Starter runs roughly $300 to $400 per month, Growth runs $600 to $1,200 per month, and mid-market contracts fall between $6,000 and $12,000 per year. The final price depends on company size and is set through a sales conversation. No confirmed self-serve free trial is available; demos are offered.
+Teamtailor doesn't publish pricing. Reports vary on the model, with some describing pricing by job slots and others by company size, and no self-serve rate is available on the site. [Third-party procurement data](https://www.pin.com/blog/teamtailor-pricing/) reports a broad range: Starter runs roughly $300 to $400 per month, Growth runs $600 to $1,200 per month, and mid-market contracts fall between $6,000 and $12,000 per year. The final price depends on company size and is set through a sales conversation. No confirmed self-serve free trial is available; demos are offered.
 
 ### Where it beats Ashby
 
-Teamtailor's careers site builder gives a people team direct control over the candidate-facing experience without a developer. The depth of careers site customization — drag-and-drop sections, team pages, embedded video, DEI-specific features — is designed for companies where the careers page is part of the brand. Ashby is built around analytics, scheduling, and CRM depth, not careers site design.
+Teamtailor's careers site builder gives a people team direct control over the candidate-facing experience without a developer. The depth of careers site customization, including drag-and-drop sections, team pages, embedded video, and DEI-specific features, is designed for companies where the careers page is part of the brand. Ashby is built around analytics, scheduling, and CRM depth, not careers site design.
 
 ### Where Ashby wins
 
@@ -227,6 +239,8 @@ Ashby's analytics, scheduling, and CRM are more comprehensive than Teamtailor's 
 [Rippling](https://www.rippling.com/) is a workforce management platform. HR, payroll, and IT management are the core product; recruiting is an add-on module that sits inside the same system.
 
 ### Why consider it
+
+Rippling fits when recruiting is one piece of a broader platform decision.
 
 You already use Rippling for HR and payroll, or you're buying the whole Rippling platform, and you want recruiting inside the same contract. When a hire is made in the recruiting module, that record flows into HR, payroll, and IT onboarding without a separate import or integration to maintain. There is no additional system to connect, because the handoff from candidate to employee stays entirely within Rippling.
 
@@ -259,6 +273,8 @@ Ashby is a purpose-built recruiting platform with scheduling, CRM, and analytics
 [BambooHR](https://www.bamboohr.com/) is an HR platform. Employee records, onboarding, PTO, e-signatures, and reporting are the core product, and the hiring module is one part of it.
 
 ### Why consider it
+
+BambooHR fits when an HR system of record is the primary need and the ATS is secondary.
 
 You need a human resources system of record, and you'd like the ATS to come with it. When a candidate is hired, their record becomes their employee record — onboarding tasks, document signing, and time-off accrual pick up from there without an import step. The hiring module exists so the HR team doesn't have to re-enter a new hire.
 
@@ -304,7 +320,7 @@ The products on this list take different views on what hiring software should do
 
 If you're a growing company that wants a capable, intuitive ATS that's ready to use the day you sign up, [Polymer](https://www.polymer.co/) is the fit. Set up your jobs, your board, and your team before you enter any payment details, and the 14-day free trial starts when you publish your first job.
 
-Greenhouse fits a dedicated recruiting team running structured, scorecard-driven hiring. Lever fits recruiters who run outbound sourcing and long-term nurture campaigns. Workable fits a company that wants sourcing, recruiting, and an HR suite from one vendor. Teamtailor fits a company whose careers page is a core part of its employer brand. Rippling fits teams already on that platform and keeps recruiting inside the same contract. BambooHR fits a company that needs a human resources system of record with an ATS inside it.
+Each of the other tools fits a more specific hiring situation. Greenhouse fits a dedicated recruiting team running structured, scorecard-driven hiring. Lever fits recruiters who run outbound sourcing and long-term nurture campaigns. Workable fits a company that wants sourcing, recruiting, and an HR suite from one vendor. Teamtailor fits a company whose careers page is a core part of its employer brand. Rippling fits teams already on that platform and keeps recruiting inside the same contract. BambooHR fits a company that needs a human resources system of record with an ATS inside it.
 
 ## Frequently asked questions
 
