@@ -1,3 +1,8 @@
-- ashbyhq.com (Ashby, All-in-one recruiting and applicant tracking system (ATS) for hiring teams.): https://www.ashbyhq.com/pricing
-- workable.com (Workable, Applicant tracking system and recruiting software for hiring teams.): https://www.workable.com/pricing
-- breezy.hr (Breezy HR, Applicant tracking system and recruiting software for hiring teams.): https://breezy.hr/pricing
+- greenhouse.com (Greenhouse, Applicant tracking system and recruiting software for hiring teams): https://www.greenhouse.com/
+- lever.co (Lever, Applicant tracking system and recruiting CRM combined into one platform): https://www.lever.co/
+- hiretruffle.com (HireTruffle, Recruiting and applicant tracking software for hiring teams): https://www.hiretruffle.com/blog/lever-ats
+- compono.com (Compono, Hiring and workforce optimization software including applicant tracking): https://www.compono.com/articles/lever-pricing-2026-real-cost-breakdown
+- workable.com (Workable, Applicant tracking system and recruiting software for hiring teams): https://www.workable.com/, https://www.workable.com/pricing
+- teamtailor.com (Teamtailor, Applicant tracking system and employer branding recruiting platform): https://www.teamtailor.com/
+- rippling.com (Rippling, All-in-one HR platform that includes hiring, payroll, and workforce management): https://www.rippling.com/
+- bamboohr.com (BambooHR, All-in-one HR platform with applicant tracking and hiring tools): https://www.bamboohr.com/, https://www.bamboohr.com/pricing

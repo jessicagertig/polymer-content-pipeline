@@ -1,345 +1,353 @@
 # Best Ashby Alternatives in 2026: 7 ATS Options Compared
 
-pageTitle: Best Ashby Alternatives in 2026: 7 ATS Options Compared
+pageTitle: 7 Best Ashby Alternatives | Polymer
 slug: ashby-alternatives
-metaDescription: Looking for Ashby alternatives? Compare 7 ATS options for growing teams—features, pricing, and where each one wins—to find the right fit for your hiring process.
-mainImageAlt: Comparison of Ashby alternatives including Polymer, Greenhouse, Lever, Workable, Breezy HR, Recruitee, and JazzHR for growing teams in 2026
+metaDescription: Compare the 7 best Ashby alternatives, with published pricing, AI availability, and a clear best-fit verdict for each, so you can pick the right ATS.
+mainImageAlt: Side-by-side comparison of Ashby alternatives including Polymer, Greenhouse, Lever, Workable, Teamtailor, Rippling, and BambooHR on a laptop screen
 
-Ashby is a recruiting platform built for fast-growing startups with a dedicated recruiting team — designed for teams that track where candidates come from, how fast they move through the pipeline, and how long each role takes to fill. For companies that fit that profile, it delivers a complete recruiting operation in one place. If you're reading this, something about that profile doesn't match your team.
+Ashby is the ATS many startups reach for first — structured hiring, built-in scheduling, a sourcing CRM, and deep analytics in one platform. It handles all of that well for a recruiting team that runs hiring at scale. But a team without that scale may be paying for capabilities it will never use. [Aptitude Research](https://www.aptituderesearch.com/the-ats-market-a-changing-landscape/) finds that only 28% of companies are satisfied with their current ATS decision.
 
-This comparison is written for growing companies and startups. The right alternative depends on how your team hires — how much analytics and sourcing depth your recruiting model requires, how quickly you need to be up and running, and how much complexity your team can carry. Some tools are built around dedicated recruiting departments with structured pipelines and deep analytics. Others are lightweight, uncluttered products built for a hiring manager running one role at a time.
+This comparison is written for growing companies and startups. If that's you, you likely have hiring managers who post roles and review candidates, without a dedicated recruiting department or the need for a sourcing CRM, funnel analytics, and native scheduling bundled into every contract. Some tools below are lightweight alternatives for inbound-only hiring. Others are standalone ATS products built for collaborative hiring across a growing team, or sit inside an HR or workforce platform. Two are enterprise recruiting suites built for a talent acquisition team, included here because some teams evaluating Ashby have outgrown lighter tooling.
 
-In this article, we'll cover what Ashby is and when it's the right choice, then go through seven alternatives — who each one is built for, how it's priced, where it beats Ashby, and who should choose it.
+The right choice depends on how your team hires, whether you need sourcing and outbound recruiting tools, and whether you want hiring to live inside a broader people platform. This article covers what Ashby includes and who it's built for, then goes through seven alternatives, covering who each one is built for, what it does well, how it's priced, where it's stronger than Ashby, and where Ashby wins.
 
-## What Ashby Is and When It's the Right Choice
+## Quick comparison of Ashby alternatives
 
-Ashby is an applicant tracking system built for recruiting teams that run structured, high-volume pipelines — an all-in-one platform with an ATS, sourcing CRM, interview scheduling, and recruiting analytics, built around a team that tracks pipeline velocity, source quality, and time-to-fill across many open roles at once.
-
-### Where Ashby is strongest
-
-Ashby's core strength is its analytics. The reporting suite is built directly on data from its ATS, CRM, and scheduling modules, with pre-built dashboards and a custom report builder. For a recruiting team that needs to report on pipeline health, source quality, and hiring pace, that depth of data is a real asset. Its sourcing and CRM tools let recruiters build outbound email sequences, manage talent pools, and track candidates from first contact to hire without leaving the platform. Combined with customizable interview plans and embedded e-signatures for offers and NDAs, Ashby covers the full recruiting workflow end to end.
-
-**Choose Ashby if** you have a recruiting team that needs deep analytics, outbound sourcing, and a tightly integrated recruiting stack, and your hiring volume justifies the investment.
-
-The sections that follow show which teams each tool is built for, and where the alternatives outperform it.
-
-### How Ashby is priced
-
-Ashby prices by total employee headcount, not by recruiter seats. Its Foundations plan, for companies of up to 100 employees, is published on [Ashby's pricing page](https://www.ashbyhq.com/pricing) at $300 to $900 per month depending on your headcount band ($300 for 1–10 employees, $400 for 11–25, $500 for 26–50, $700 for 51–75, and $900 for 76–100). Annual contracts save 10% on this tier. Its Plus plan, for 101–1,000 employees, and its Enterprise plan are quote-only.
-
-### What's included and what's added on
-
-All-In-One plans include AI credits for Ashby's AI features. Advanced Scheduling and AI Notetaker are paid add-ons. Outbound email-lookup credits are metered and capped by plan — 200 per month on Foundations. Texting costs $90 per 1,000 messages on every tier.
-
-### Who tends to look elsewhere
-
-Pricing tied to total employee headcount means your ATS cost grows with your company even when your recruiting activity doesn't. The Foundations plan reaches $900 per month for a company of 76–100 people, and Plus pricing is not published. The platform's analytics dashboards, outbound sequencing, and CRM workflows suit a dedicated recruiting team well, but are more than a founder doing their own hiring or a hiring manager with one open role at a time needs. If one of those descriptions fits your team, the tools below are worth looking at.
-
-## Ashby Alternatives at a Glance
+Prices are as published on each vendor's site in November 2026. Where a vendor does not publish pricing, the price depends on company size and is set in a sales call.
 
 | Alternative | Best for | Starting price | Pricing published | AI review |
 | --- | --- | --- | --- | --- |
-| Polymer | Growing teams that want a capable, flexible ATS without recruiting-department complexity | $124/month (annual) | Yes | Yes (Plato) |
-| Greenhouse | Mid-to-large companies with a dedicated recruiting team and structured hiring at scale | Quote only | No | Yes |
-| Lever | Talent acquisition teams that need a combined ATS and recruiting CRM | Quote only | No | Yes |
-| Workable | Companies that want assessments, HR workflows, and an ATS in one platform | $149/month (annual) | Starter only | Yes |
-| Breezy HR | Small teams that want a visual ATS with built-in video interviews | See pricing page | Yes | Yes |
-| Recruitee | Collaborative hiring teams that want a pipeline-first ATS | See pricing page | Start plan only | Yes |
-| JazzHR | Small businesses hiring a few roles a year on a tight budget | See pricing page | Yes | Limited |
+| Polymer | Growing companies that want a capable, flexible ATS | See pricing page | Yes | Credits included on every plan |
+| Greenhouse | Enterprise recruiting teams | Quote only | No | AI features across all tiers; advanced features on higher tiers |
+| Lever | Teams that source passive candidates | Quote only | No | In the core platform, priced by quote |
+| Workable | Teams that want sourcing and HR from one vendor | See pricing page | Yes | Add-on; credits sold separately |
 
-Polymer is our product — and for every tool in this list, including ours, the article says where another option is the better fit.
+## Is Ashby the right fit for your team?
 
-* **Polymer**: Best for growing teams that want a capable, flexible ATS without recruiting-department complexity
-* **Greenhouse**: Best for mid-to-large companies with a dedicated recruiting team and structured hiring at scale
-* **Lever**: Best for talent acquisition teams that need a combined ATS and recruiting CRM
-* **Workable**: Best for companies that want assessments, HR workflows, and an ATS in one platform
-* **Breezy HR**: Best for small teams that want a visual ATS with built-in video interviews
-* **Recruitee**: Best for collaborative hiring teams that want a pipeline-first ATS
-* **JazzHR**: Best for small businesses hiring a few roles a year on a tight budget
+The sections below cover where Ashby is strongest, how it's priced, what's included, and who tends to look elsewhere.
 
-## Polymer: Best for Growing Teams That Want a Capable, Flexible ATS Without Recruiting-Department Complexity
+### Where Ashby is strongest
 
-Polymer is an applicant tracking system and job board software built for growing teams, from a founder running early hires to a company with hiring managers and a recruiter in place. Plans are tiered by how many jobs you need open at once, and every plan includes the complete feature set and unlimited users. Plato, Polymer's AI candidate reviewer, is included on every plan.
+Ashby is an all-in-one recruiting platform that consolidates an ATS, sourcing and candidate relationship management, interview scheduling, and analytics into a single system. It's built for a recruiting team that runs structured hiring at scale, with deep funnel analytics, conversion tracking, and dashboard reporting on every plan. Scheduling is native, so a recruiting coordinator can book a multi-stage panel from inside the same tool that tracks the candidate. AI features span the platform: an AI Candidate Assistant for sourcing outreach, AI-assisted application review, and an AI Notetaker as a paid add-on.
 
-### Why consider it
+**Choose Ashby if** you have a recruiting team that will use the CRM and analytics, you're hiring across multiple roles in parallel, and you want all of that in one contract.
 
-Polymer is a complete ATS. The full feature set is there on the day you sign up, covering customizable pipelines, automated candidate messaging, AI-assisted screening, and scored team reviews, with no weeks of onboarding or manual to work through first. It handles sophisticated hiring requirements without loading teams with the workflows and infrastructure built for a dedicated recruiting department. That ease of adoption follows from the platform's intentional focus on growing teams, not from any constraint on what it can do.
+### How Ashby is priced
 
-### Key features
+Ashby prices by total company headcount, not per recruiter seat. The All-In-One Foundations plan covers companies up to 100 employees, with pricing on a published calculator. All-In-One Plus, for 101 to 1,000 employees, is quote only. All-In-One Enterprise, for companies above 1,000, is also quote only.
 
-* **Hiring stage message automations and templates**: Message templates with placeholders for candidate name, job title, and sender fire automatically when a candidate enters a stage. Build your candidate communication once, and it runs itself through the pipeline.
-* **Plato AI screening**: Plato reviews each application against the requirements in your job description, marking each criterion as clear evidence, related evidence, or no evidence, and assigns an overall fit level from Excellent to Poor. Name, location, and email are removed before scoring. Auto-reviews run the moment a candidate applies; bulk screening handles existing candidates in one go.
-* **Candidate reviews and review requests**: Scored, written feedback is visible to the whole hiring team. Anyone you send a review request to — a team member, an advisor, a subject-matter expert — receives a Review kit with the candidate's resume and application, without needing an account or access to the rest of your pipeline.
-* **Branded job board with customizable application forms**: Every account gets a branded job board at signup, on a custom domain if you want one. Each job has its own application form with standard fields, custom questions, file uploads, and knockout questions that automatically flag candidates who don't meet a hard requirement.
-* **Flexible integrations and a customer API**: A full customer API lets your team read candidates, move applications, and post reviews programmatically. Zapier triggers connect Polymer to your other tools, LinkedIn posting is built in, and each job's pipeline is fully customizable from stage names to ordering.
+### What's included and what's added on
 
-### Pricing
+Every All-In-One plan includes the ATS, sourcing and CRM, scheduling, and analytics together. AI credits are included on every plan. The AI Notetaker is a paid add-on on every plan — pricing is not published. Ashby offers no free trial and no free plan.
 
-Polymer publishes its pricing on its pricing page. Plans run $124, $233, and $415 per month billed annually, or $149, $279, and $499 month to month. Every plan includes the complete feature set, unlimited users, and unlimited candidates; plans differ by how many jobs can be published at once (5, 20, or 50) and by monthly Plato credits (50, 100, or 150). You can explore Polymer, set up your hiring stages, invite your team, and preview your job board before entering a payment method. The 14-day free trial starts when you publish your first job.
+### Who tends to look elsewhere
 
-### Where it beats Ashby
+Ashby's pricing is based on total company headcount, which means the bill rises as the company grows whether or not hiring volume changes. A company that grows its headcount but keeps its number of open roles steady pays more for its ATS without getting more out of it. That model suits organizations with stable headcount and works against companies whose headcount is growing faster than their hiring activity.
 
-Polymer's pricing is based on how many roles you have open at once, not how many people work at your company. That means your ATS cost stays tied to your actual hiring activity, not your headcount. As your company grows, adding headcount during quieter hiring periods does not raise your plan cost. Plans are published in full, so you know what you're paying before a sales conversation enters the picture.
+Teams also look elsewhere when they don't need everything Ashby bundles. The CRM, the scheduling module, and the analytics layer are powerful, but a company where hiring managers post roles and review applicants without a dedicated recruiting team running outreach may not use most of them. A platform built around a recruiting operation the team doesn't have adds cost without adding value. If either of those is your situation, the seven tools below cover the range of alternatives, from an easy-to-adopt ATS for growing companies to enterprise suites for global hiring.
 
-### Where Ashby wins
+## Best Ashby alternatives at a glance
 
-Ashby's native sourcing CRM and analytics suite, with custom report builders and pipeline dashboards built on its own recruiting data, go well beyond Polymer's scope.
+The list below is organized by the kind of team each tool fits, starting with Polymer, which is our product. For every tool, including ours, we say where Ashby or another option is the better choice.
 
-### Best fit
+* **Polymer:** Best for growing companies that want a capable, flexible ATS
+* **Greenhouse:** Best for enterprise recruiting teams
+* **Lever:** Best for teams that source passive candidates
+* **Workable:** Best for teams that want sourcing and HR from one vendor
+* **Teamtailor:** Best for companies that want to build a strong employer brand
+* **Rippling:** Best for companies that want hiring inside their HR and payroll platform
+* **BambooHR:** Best for hiring inside an HR system of record
 
-**Choose Polymer if you're a growing company that wants a capable, flexible ATS that's ready to use the day you sign up.** If you have a dedicated recruiting team running outbound sourcing campaigns and need advanced pipeline analytics, Ashby is built for that work.
+## Polymer: Best for growing companies
 
-That said, Greenhouse earns its place for a different kind of team.
-
-## Greenhouse: Best for Mid-to-Large Companies With a Dedicated Recruiting Team and Structured Hiring at Scale
-
-Greenhouse is an applicant tracking system built for companies with a dedicated recruiting function. Its structured hiring framework covers scorecards, interview kits, and layered permissions, and is designed to coordinate hiring across many departments, hiring managers, and open roles at once, with governance features that hold their shape as the organization grows.
+[Polymer](https://www.polymer.co/) is a modern, intuitive ATS for growing companies, from a founder interviewing their first hires to a company with hiring managers and a recruiter. Users are unlimited, so anyone you want involved in hiring gets a seat. Pricing is tiered by how many jobs you need open at once, not by headcount.
 
 ### Why consider it
 
-Greenhouse fits companies that have outgrown lighter tools and now need governance: audit trails, role-based access across departments, and structured processes that scale. It also offers an extensive integration ecosystem and Model Context Protocol (MCP) support, making it a strong fit for a technical team that wants to wire their recruiting stack together precisely. A large organization running hiring across multiple regions with strict access controls will find that level of compliance infrastructure hard to match elsewhere.
+Polymer is ready to use the day you sign up.
+
+You want a complete, modern applicant tracking system you can start using today, with a branded careers page, easy team collaboration, and built-in AI candidate screening — without weeks of onboarding. Polymer covers the full hiring workflow, including custom application forms, automations, job distribution, and an API, but skips the administrative weight that comes with enterprise recruiting software.
+
+That scope is deliberate: Polymer is built for what a growing team needs and omits what it does not. The system is ready to use on day one, with no configuration project standing between signup and your first published job. It supports structured hiring workflows, including custom stages, automations, AI screening, and review requests, without the administrative overhead of an enterprise platform. A growing company can run a disciplined, consistent hiring process while keeping the system fast to adopt and easy to hand off to new hiring managers. For a deeper look at the mechanics, read the article on [how an applicant tracking system works](/blog/how-does-an-applicant-tracking-system-work).
 
 ### Key features
 
-* **Role-based permissions and multi-department governance**: Granular access controls let recruiting ops assign what each hiring manager, interviewer, and admin can see and do, with audit trails across the hiring process and ISO 42001 AI certification and SOC 2 Type II compliance.
-* **Interview kits and scorecards with bias auditing**: Interviewers access the candidate's resume, scorecard, and prep in one view. AI surfaces scoring suggestions and scorecard summaries, with monthly third-party audits of AI outputs for bias.
-* **CRM and talent rediscovery**: A prospect in the CRM converts to a candidate in the ATS without an import. AI-powered sourcing and campaign pools are available, with CRM depth varying by plan tier.
-* **Reporting and real-time pipeline visibility**: Built-in reporting includes pipeline visibility and benchmarks across roles and departments, with advanced reporting available on higher tiers.
-* **Generative AI features**: Job description generation, resume anonymization, offer forecasting, and keyword filtering span all plans, with deeper AI sourcing tools on higher tiers.
+* **Message automations and templates.** Hiring stage automations send a templated message to every candidate who reaches a stage, with no manual follow-up needed. Message templates with placeholders for the candidate's name, your name, the job title, and your organization make every communication repeatable across roles.
+* **Plato AI screening.** Plato reviews each applicant against the requirements in the job description you already wrote, assigning each one a fit level and evidence-based reasoning across every criterion. Filter the pipeline by fit score and start with your strongest candidates.
+* **Candidate reviews and review requests.** Any team member can submit a scored review or request one from a colleague — even someone outside the hiring team — by sending a Review kit with the candidate's profile. The whole team's feedback is visible in one place on the candidate record.
+* **Company job board.** A branded careers page is set up at signup, ready to go on your own domain, in the language your candidates read, with job videos, category groupings, and social share images. Customizable application forms add multiple question formats, file uploads, and Admin-only fields per job.
+* **Customizations.** A customer API manages candidates and job data on every plan. Notifications go to Slack or Discord, a Google Analytics stream ID tracks board traffic, Zapier triggers connect hiring events to your other tools, automatic posting to your LinkedIn company page, and a fully custom hiring pipeline round out the configuration options.
 
 ### Pricing
 
-Greenhouse does not publish its prices. All three plans — Core, Plus, and Pro — are custom-quoted based on hiring volume, organizational complexity, and features. The price depends on your company's size and is set in a sales call. Implementation costs are additional and vary by plan.
+Polymer publishes its [pricing](https://www.polymer.co/pricing). Starter is $124 per month, Growth is $233, and Scale is $415, each billed annually. Month to month, they're $149, $279, and $499. Every plan has the complete feature set, unlimited users, and unlimited candidates. The plans differ by how many jobs you can have published at once (5, 20, or 50) and by monthly Plato credits: 50, 100, or 150.
+
+Before the trial starts, you can create jobs, build the board, and add your team without entering a payment method. A 14-day free trial starts when you publish your first job, and you can switch plans during the trial without ending it.
 
 ### Where it beats Ashby
 
-Greenhouse's integration ecosystem is broader than Ashby's, with more than 500 connections available. Its governance features extend further for compliance-conscious organizations, covering audit trails, multi-department permissions, and ISO 42001 AI certification, none of which Ashby publishes equivalent compliance for. Those compliance capabilities make Greenhouse the stronger choice for enterprise compliance requirements.
+Polymer's plans are priced by how many jobs you need open at once, not by how many people work at your company. Ashby's Foundations plan prices by total company headcount — $300 to $900 per month depending on the band — so the bill climbs as the company grows whether or not hiring is picking up. A startup that doubled its team this year but kept the same two open roles pays more than it did before. With Polymer, what drives the cost is hiring activity, not company size.
+
+Setup is the other advantage. Polymer is running the same day you sign up. The job board, hiring stages, and message templates are ready out of the box, and a job needs only a title and a description to publish. Plato AI turns on against that description with no configuration required. Customize anything you like while applications keep arriving. Ashby is powerful, but it was built for a recruiting team to configure and administer, and the setup reflects that.
 
 ### Where Ashby wins
 
-Ashby publishes its Foundations pricing outright. Greenhouse publishes nothing across any plan. Ashby's native analytics suite draws on its own ATS, CRM, and scheduling data, giving it reporting that is deeper and more integrated than Greenhouse's standard offering. Ashby also includes outbound email sequencing and CRM tools on every all-in-one plan, while Greenhouse's CRM depth varies by tier.
+Ashby's native scheduling and analytics are purpose-built for a recruiting team running structured hiring at volume. Interview scheduling, funnel conversion tracking, and CRM-style outreach are part of the same platform and share one candidate record. Polymer has no sourcing CRM or native scheduling. Ashby also includes sourcing tooling on every plan, so a team doing outbound recruiting doesn't need a separate tool.
 
 ### Best fit
 
-**Choose Greenhouse if you're a mid-to-large company with a recruiting department that needs enterprise-grade governance, a broad integration ecosystem, and structured hiring at scale.** For a growing team without that complexity, the platform's overhead and custom pricing process introduce requirements that simpler tools avoid.
+**Choose Polymer if** you're a growing company that wants a capable, flexible ATS that's ready to use the day you sign up. If you have a dedicated recruiting team running outbound sourcing and funnel analytics, Ashby is built for that.
 
-## Lever: Best for Talent Acquisition Teams That Need a Combined ATS and Recruiting CRM
+## Greenhouse: Best for enterprise recruiting teams
 
-Lever is a recruiting platform that merges an ATS and a recruiting CRM into one product, built for talent acquisition teams that run both inbound hiring and outbound sourcing from the same place. Its architecture assumes a team with sourcing specialists alongside hiring managers, where the workflow treats sourcing and hiring as a continuous process rather than separate functions.
+[Greenhouse](https://www.greenhouse.com/) is an applicant tracking system built for a talent acquisition department. If your company has recruiters, recruiting coordinators, and a head of TA who reports hiring metrics to leadership, this is the system that team would run.
 
 ### Why consider it
 
-Lever's distinguishing feature is an ATS and CRM that share a single data model from the ground up. Lever fits companies where talent acquisition runs as a proactive discipline: building pipelines, nurturing prospects, and tracking candidates through long sourcing cycles before they ever apply. The CRM is built into the product's data model, not added on top of it, so candidate history, sourcing touchpoints, and application data live in one record from first contact to hire. For recruiting teams that measure themselves on pipeline health and source effectiveness, that unified record is the platform's core value.
+A dedicated team defines competencies, writes an interview plan, assigns each interviewer a kit of questions, and sets the scorecard rubric before a role opens.
+
+You need an enterprise-focused recruiting platform, and you have a dedicated team to administer it. Interviewers submit scorecards before the debrief, so the panel enters the room with scores already on the table. The article on [Greenhouse alternatives](/blog/greenhouse-alternatives) covers other enterprise-tier options if you're evaluating at that level.
 
 ### Key features
 
-* **Unified ATS and CRM data model**: Candidates sourced through the CRM and candidates who apply inbound share one record, with the full history from first contact through every stage of the hiring pipeline — no import step, no duplicate records.
-* **Nurture campaigns and outbound sequencing**: Talent acquisition teams can build multi-touch email sequences to prospects, track open and reply rates, and move candidates from nurture into an active pipeline without duplicating records.
-* **Structured interview feedback**: Scorecards and feedback forms collect structured input from interviewers, with the full feedback history tied to each candidate record.
-* **Reporting and analytics across the pipeline**: Pre-built reports cover pipeline health, source effectiveness, and time-in-stage across active roles, with the ability to filter by team or department.
-* **Generative AI features**: LeverTRM includes AI-assisted job description generation, candidate matching, and sourcing recommendations to accelerate pipeline-building for recruiting teams.
+* **Interview plans and kits.** Each stage of each role gets a plan with assigned interviewers, focus competencies, interview questions, and a scorecard rubric.
+* **Requisition and offer approval chains.** Roles open only after a configured approval chain signs off, and offers go through their own chain before a candidate sees one.
+* **Integrations marketplace.** Greenhouse connects to 500+ partners for assessments, background checks, scheduling, HRIS sync, and sourcing tools, including MCP support for external AI platforms.
+* **Reporting.** Pipeline, source, time-to-fill, offer acceptance, and diversity reports are built in, with an AI-powered report builder on higher tiers.
+* **Greenhouse AI.** An AI voice interviewer runs first-round phone screens, a notetaker maps transcripts to scorecard questions, AI drafts interview questions and scorecard attributes, and a resume review feature strips identifying details before scoring. AI-powered report filters and other advanced features are on higher tiers.
 
 ### Pricing
 
-Lever does not publish its prices. Plans are custom-quoted based on company size and hiring needs, with no free trial.
+Greenhouse doesn't publish pricing. Plans are Core, Plus, and Pro, priced by company headcount on custom quotes. [Independent reviewers](https://bestrecruitingtools.com/blog/greenhouse-ats-review-2026) report a broad range, with Core plans the lowest and Pro plans the highest, and the final price is set in a sales call based on company size. Expect a sales cycle, an annual contract, and an implementation that typically takes several weeks.
 
 ### Where it beats Ashby
 
-Lever's CRM is native to its data model from the ground up. The ATS and CRM share one record, so prospect history, sourcing notes, and pipeline activity live together without any sync or import. For talent acquisition teams where the distinction between sourcing and hiring is blurry by design, Lever's architecture handles that more naturally than Ashby's modular approach.
+Greenhouse has a wider integration ecosystem than Ashby, with 500+ partner connections for assessments, background checks, and HRIS sync that a large talent acquisition team needs. Its structured hiring tooling — interview kits tied to competencies, scorecards submitted before the debrief, and AI-drafted questions — scales to run the same process across dozens of hiring managers in parallel. The fraud-detection capability (Real Talent) flags fraudulent applications before they reach a recruiter.
 
 ### Where Ashby wins
 
-Ashby publishes its Foundations pricing; Lever does not publish pricing at all. Ashby's analytics suite, with custom report builders and dashboards built on its own data, is more developed than Lever's standard reporting. Ashby also includes interview scheduling natively, where Lever relies on third-party integrations for scheduling.
+Ashby publishes its pricing for companies up to 100 employees and includes scheduling, CRM, and analytics on every plan without add-ons or a separate contract. Greenhouse prices by quote only, requires an implementation project before the first job posts, and treats sourcing and scheduling as separate pieces to assemble. Ashby's analytics layer is deeper for a team that tracks funnel conversion, and its CRM outreach tooling runs from the same record as the ATS. Greenhouse is built for a larger organization with a dedicated team to match.
 
 ### Best fit
 
-**Choose Lever if your team needs a single record from first prospect touch to hired and your recruiting model is built on proactive outbound sourcing.** If you're hiring reactively, posting roles and working the inbound pipeline, Lever's CRM depth is infrastructure you won't use.
+**Choose Greenhouse if** you have a recruiting team running structured, scorecard-driven hiring across many roles, a budget for a multi-week implementation, and a need for the widest possible integration ecosystem. If your managers hire for their own openings, look at Polymer.
 
-## Workable: Best for Companies That Want Assessments, HR Workflows, and an ATS in One Platform
+## Lever: Best for teams that source passive candidates
 
-Workable is an applicant tracking system and HR platform that extends hiring into assessments, HR workflows, and onboarding, all inside one product. It is built for teams that want a broad set of tools in one place and are willing to pay for capabilities beyond core ATS functions.
+[Lever](https://www.lever.co/) is an ATS and recruiting CRM in a single database. It's built for a recruiting team that spends its days sourcing people who haven't applied and keeping them warm until a role opens.
 
 ### Why consider it
 
-Workable extends beyond the ATS, bundling assessments and HR workflows into the same platform. Workable fits companies that want to handle more of their HR workflow alongside hiring, from assessments and async video interviews to employee onboarding, without assembling a stack of separate tools. Higher plans add time-off tracking and HR record management. For a team that needs some HR functionality but is not ready for a full HRIS, Workable's bundled approach means fewer vendors to manage.
+Your recruiters spend their days sourcing people who haven't applied, keeping them warm until a role opens.
+
+You want a full recruiting CRM alongside your ATS, and recruiters on your team are doing outbound work. They source passive candidates, tag them, put them into nurture sequences, and log every touchpoint over months before a role opens. When the right opening comes up, the contact's record becomes an application without starting over.
 
 ### Key features
 
-* **HR modules for onboarding and people management**: Workable extends beyond hiring into employee onboarding, time-off tracking, and HR record management on its higher plans, reaching further into people management than a pure ATS.
-* **Assessments and video interviews**: Cognitive and personality assessments and async video interviews are built into the platform, requiring no separate vendor or integration.
-* **AI sourcing and candidate database**: An AI sourcing assistant recommends candidates from a broad database of profiles, letting recruiting teams build a pipeline beyond inbound applicants.
-* **Job distribution to multiple boards**: Posts to many job boards from a single publish action, with both free and paid distribution options managed from within the platform.
-* **Generative AI features**: AI-assisted job descriptions, interview question generation, and candidate summarization are built into the platform, available across plans.
+* **LeverTRM (ATS + CRM).** The applicant pipeline and the sourcing pipeline share one candidate record, so a passively nurtured contact and a direct applicant are never duplicated.
+* **NurtureKit.** Multi-step automated outreach sequences keep passive candidates warm over months, with tracking on opens and replies and exit rules for when someone responds.
+* **LinkedIn Recruiter System Connect.** A two-way sync with LinkedIn Recruiter puts InMail activity and profile data on the Lever record for teams that pay for LinkedIn Recruiter.
+* **Candidate Loss Risk alerts.** AI flags candidates showing signs of fading engagement — slowing response times, reduced activity — so a recruiter can step in before an offer is declined.
+* **Generative AI.** Talent Fit scoring, interview transcripts and summaries, Fraud Signals, and an optional AI Screening add-on powered by VONQ handle the administrative side of sourcing and evaluation.
 
 ### Pricing
 
-Workable [publishes its Starter plan price](https://www.workable.com/pricing) on its pricing page, and its Standard and Premier plans are priced through a sales conversation. Month-to-month billing is available on the Starter plan with no minimum term.
+Lever doesn't publish pricing. One unified plan is priced by company headcount on a custom quote, with Candidate Insights, AI Screening by VONQ, and Onboarding available as separately priced add-ons. Pricing depends on company size and is set in a sales call. [One source](https://www.hiretruffle.com/blog/lever-ats) reports a broad range of roughly $6,700 to $51,900 per year, and [another](https://www.compono.com/articles/lever-pricing-2026-real-cost-breakdown) reports a broad range of $6 to $8 per employee per month. No free trial is available, and an annual contract is required.
 
 ### Where it beats Ashby
 
-Workable's HR modules — onboarding, time-off, and people records — go beyond what Ashby offers, making it a reasonable choice for a company that wants to run more of its HR workflow in the same platform as its ATS. Its assessments and built-in async video interviews are native features that Ashby's standard plans leave out.
+NurtureKit gives recruiters a dedicated outreach tool built for running a passive pipeline over months. Multi-step sequences with open and reply tracking, exit rules, and a full touchpoint log mean a recruiter can pick up exactly where the last conversation ended when a role opens. The LinkedIn Recruiter System Connect integration is also tighter than what Ashby offers, putting InMail history directly on the Lever record.
 
 ### Where Ashby wins
 
-Ashby's recruiting analytics are more developed than Workable's, with a custom report builder built on its own ATS, CRM, and scheduling data. Ashby's sourcing CRM, which supports outbound email sequences and talent pool management, is more purpose-built for a recruiting team running proactive outbound hiring than Workable's AI sourcing feature. Ashby publishes pricing for its Foundations tier, while Workable's Standard and Premier plans are priced through a sales conversation rather than listed on its pricing page.
+Ashby publishes its Foundations pricing and includes scheduling and analytics on every plan. Lever prices by quote only and requires an annual contract with no free trial. Ashby's funnel analytics and conversion tracking are deeper than Lever's reporting. Teams looking for a combined recruiting CRM and analytics platform in one contract often find Ashby easier to compare and evaluate before signing.
 
 ### Best fit
 
-**Choose Workable if you want assessments, job distribution, and basic HR features in one platform and your team is comfortable paying for capabilities you may not use every day.** Teams that want a focused ATS will find that Workable's broader scope includes more than they need.
+**Choose Lever if** you have recruiters whose job is sourcing passive candidates and running nurture campaigns over months. If your candidates come from inbound applications, the CRM layer goes mostly unused.
 
-## Breezy HR: Best for Small Teams That Want a Visual ATS With Built-In Video Interviews
+## Workable: Best for teams that want sourcing and HR from one vendor
 
-Breezy HR is an applicant tracking system built for small teams, with an interface designed to get a non-recruiter up and running quickly. It includes async video interviews as a native feature, alongside a visual pipeline and basic candidate communication tools, without the overhead of a mid-market platform.
+[Workable](https://www.workable.com/) is a widely used applicant tracking system with a sourcing database and an optional HR suite. It is built for a company that wants its recruiting software and HR software from a single vendor.
 
 ### Why consider it
 
-Breezy fits small teams that want to get started quickly, without the overhead of a mid-market platform. Its free plan, which allows one active job, lets a team post a role and get a feel for the tool before committing. The visual drag-and-drop pipeline is straightforward for a hiring manager who doesn't live in recruiting software every day.
+Workable is built for a company that wants its recruiting software and HR software from one vendor, with the option to bring them together over time.
+
+You want a sourcing database your recruiting team can search alongside an ATS, and you'd like to consolidate hiring and HR under the same platform over time. Workable's AI sourcing runs against more than 400 million profiles, so a recruiter can find candidates who haven't applied. The HR suite covers employee records, onboarding, time tracking, and payroll preparation, and is available as an add-on when the company is ready for it.
 
 ### Key features
 
-* **Visual drag-and-drop pipeline**: A Kanban-style board lets the team move candidates between stages visually, with stage names and structure customizable per role — a format that is immediately legible to a non-recruiter.
-* **Built-in async video interviews**: Candidates record video responses to interview questions without scheduling a live call, and the team can review responses at their own pace without a third-party tool.
-* **Automated candidate messaging**: Stage-based email and SMS automations send messages when candidates move through the pipeline, with templates for common stages.
-* **Job distribution to multiple boards**: Posts to many job boards from a single submission, including free and paid boards, managed from within the platform.
-* **Generative AI features**: AI-assisted job description writing and candidate summarization tools speed up job setup and early-stage review.
+* **AI sourcing database.** Workable's sourcing layer searches a database of 400+ million candidate profiles with AI on top, so a recruiter can run outbound search from inside the ATS.
+* **Job board distribution.** Jobs post to multiple job boards from inside Workable, with tracking on which sources produce applicants.
+* **HR suite.** Employee records, onboarding, time tracking, and payroll preparation are available as a separate add-on for companies that want their ATS and HR software from the same vendor.
+* **Video interviews and assessments.** Native video interviewing and candidate assessments are available on Premier and Enterprise plans; add-ons on Standard.
+* **Workable Agent.** A paid AI add-on on every plan that evaluates candidates against an ideal profile, sources passively, and powers a candidate chat. Credits are sold in packs starting at $600 for 5,000; every paid account gets 3,000 to start.
 
 ### Pricing
 
-Breezy HR's Bootstrap plan is free for one active job. Its Startup plan starts at $157 per month billed annually, based on [pricing published on Breezy HR's pricing page](https://breezy.hr/pricing). Business and Pro plans cost more, with pricing available from Breezy HR directly. Month-to-month billing is available.
+Workable [publishes its pricing](https://www.workable.com/pricing). Plans are priced by total company headcount. For a company of 1 to 20 employees billed annually, Standard is $299 per month, Premier is $599, and Enterprise is $719. Each tier increases with headcount. Standard is available month to month; Premier and Enterprise require annual commitments. Workable HR is a separate add-on at $99 per month on annual billing for companies of 1 to 20. A 15-day free trial is available.
 
 ### Where it beats Ashby
 
-Breezy HR has a free plan — Ashby has none. For a very small team posting one role at a time, the ability to start for free before committing to a paid plan is a meaningful practical difference. The visual Kanban pipeline is also more immediately legible to a non-recruiter than Ashby's analytics-forward interface, which is built for a team that reads pipeline reports regularly.
+Workable publishes its prices, and Standard is available month to month with no annual commitment. Ashby's Foundations plan is also published for companies up to 100 employees, but Plus and Enterprise are quote only. Workable's sourcing database holds over 400 million profiles, and the HR suite means a company can run hiring and HR through the same vendor as it grows.
 
 ### Where Ashby wins
 
-Ashby's analytics, sourcing CRM, and interview scheduling go well beyond what Breezy offers. Breezy's reporting is limited compared to Ashby's custom report builder, and Breezy has no native outbound sourcing or CRM module. For a recruiting team that needs data depth, Ashby belongs in a different category.
+Ashby bundles scheduling, CRM, and analytics into one contract without add-ons. Workable's AI layer (Workable Agent), video interviews, and assessments are add-ons on Standard, which is the plan most growing teams start on. Ashby's funnel analytics and conversion tracking are more detailed than Workable's reporting, and the all-in-one model is a cleaner fit for a team that runs structured recruiting across the full funnel.
 
 ### Best fit
 
-**Choose Breezy HR if you're a small team posting one or two roles at a time and you want video interviews built into the tool without paying for recruiting-department infrastructure.** As your hiring volume grows, Breezy's reporting and analytics will become a constraint.
+**Choose Workable if** you want sourcing, recruiting, and an HR suite from one vendor, and your company's size is steady enough that headcount-based pricing works in your favor. For a company still growing fast, that pricing model deserves a close look.
 
-## Recruitee: Best for Collaborative Hiring Teams That Want a Pipeline-First ATS
+## Teamtailor: Best for companies prioritizing employer branding
 
-Recruitee is an applicant tracking system built around collaborative hiring, with a shared pipeline view at its center and evaluation tools designed to get the whole hiring team involved in assessing candidates. It is part of the Tellent suite of HR products.
+[Teamtailor](https://www.teamtailor.com/) is a recruiting platform built around careers site design. Its differentiator is a drag-and-drop careers site builder that lets a people team create a fully branded candidate experience without involving a developer.
 
 ### Why consider it
 
-Recruitee fits teams where hiring decisions are genuinely collective, with the hiring manager, interviewers, and other stakeholders all weighing in on candidates. Where keeping the whole group aligned is the main coordination challenge, the pipeline is visual and shareable, and the evaluation tools are designed for a whole hiring team reaching a decision together, not for a solo recruiter managing a process.
+Teamtailor is built for companies where the candidate-facing experience is as important as the pipeline behind it.
+
+How your careers page looks and reads shapes the first impression candidates form of your company, and your people team wants to control it without engineering. Teamtailor's careers site builder is designed for non-technical users, with templates, sections, team pages, and media. The ATS sits behind it, tracking candidates through the pipeline and triggering stage automations as they move.
 
 ### Key features
 
-* **Shared pipeline with team collaboration tools**: A shared pipeline view lets the whole team see where candidates stand, leave structured feedback, and vote on candidates, with every team member's input visible in one place.
-* **Structured evaluation and scorecards**: Scorecards and rating criteria are set per role, so interviewers evaluate candidates against the same benchmarks across the team, making the final decision easier to explain.
-* **Automated candidate communication**: Stage-based automations send emails when candidates move, with templates and scheduling tools to keep communication consistent across the team.
-* **Job distribution to multiple boards**: Posts to many job boards from a single publish action, with paid distribution managed from within the platform.
-* **Generative AI features**: The platform includes AI-assisted job description writing and candidate screening suggestions to speed up job setup and early-stage review.
+* **Drag-and-drop careers site builder.** Teams build and edit a fully branded careers site without coding, using sections, templates, team pages, images, and video.
+* **Candidate pipeline with automations.** A visual pipeline with stage automations triggers messages and actions as candidates move through the hiring process.
+* **DEI tools.** Anonymous hiring and EEO surveys are built into the platform for teams running structured diversity initiatives.
+* **Chrome sourcing extension.** Recruiters add candidates from LinkedIn and other sites directly into the pipeline from a browser extension.
+* **AI Co-pilot.** Available on higher tiers, Teamtailor's AI Co-pilot assists with job descriptions, candidate communications, and analysis.
 
 ### Pricing
 
-Recruitee's Start plan is billed month to month at a published price. The Grow and Optimize plans are not published; pricing for those plans depends on company size and is set in a sales call.
+Teamtailor doesn't publish pricing. Reports vary on the model, with some describing pricing by job slots and others by company size, and no self-serve rate is available on the site. [Third-party procurement data](https://www.pin.com/blog/teamtailor-pricing/) reports a broad range: Starter runs roughly $300 to $400 per month, Growth runs $600 to $1,200 per month, and mid-market contracts fall between $6,000 and $12,000 per year. The final price depends on company size and is set through a sales conversation. No confirmed self-serve free trial is available; demos are offered.
 
 ### Where it beats Ashby
 
-Recruitee's collaborative evaluation tools, including shared pipelines, candidate voting, and team-facing scorecards, are more immediately accessible to a non-recruiting hiring team than Ashby's analytics-first interface. For a company where hiring decisions are made by committee, Recruitee's pipeline-first design fits that workflow more directly than Ashby's structured recruiting approach built for a dedicated talent team.
+Teamtailor's careers site builder gives a people team direct control over the candidate-facing experience without a developer. The depth of careers site customization, including drag-and-drop sections, team pages, embedded video, and DEI-specific features, is designed for companies where the careers page is part of the brand. Ashby is built around analytics, scheduling, and CRM depth, not careers site design.
 
 ### Where Ashby wins
 
-Ashby's analytics and reporting capabilities are substantially more developed than Recruitee's, and its native sourcing CRM — outbound email sequences, talent pools, Chrome extension candidate capture — has no equivalent in Recruitee. A recruiting team that tracks source quality and pipeline velocity will find that Ashby provides reporting depth Recruitee does not match.
+Ashby's analytics, scheduling, and CRM are more comprehensive than Teamtailor's pipeline. Ashby publishes its Foundations pricing with a band-by-band calculator, while Teamtailor requires a demo to get any pricing information at all. Ashby's structured hiring tooling goes deeper for a recruiting team that needs funnel conversion tracking and outbound sourcing from the same platform.
 
 ### Best fit
 
-**Choose Recruitee if your hiring team makes decisions collaboratively and you want a pipeline-first tool that gets non-recruiters involved without a steep learning curve.** If your team needs advanced analytics or outbound sourcing, look at Ashby or Lever instead.
+**Choose Teamtailor if** your careers site is a core part of your recruiting strategy, your people team wants to manage it without engineering help, and you're comfortable with a quote-based engagement. If your priority is analytics, CRM depth, or transparent pricing, another tool fits better.
 
-## JazzHR: Best for Small Businesses Hiring a Few Roles a Year on a Tight Budget
+## 6. Rippling: Best for companies that want hiring inside their HR and payroll platform
 
-JazzHR is an applicant tracking system aimed at small businesses that want to move off spreadsheets and email without spending much. At $75 per month for its entry plan, it covers the basics of posting roles, collecting applications, and moving candidates through stages.
+[Rippling](https://www.rippling.com/) is a workforce management platform. HR, payroll, and IT management are the core product; recruiting is an add-on module that sits inside the same system.
 
 ### Why consider it
 
-JazzHR fits small businesses that hire infrequently and want an organized way to manage applicants without the cost of a mid-market platform. Its entry plan allows unlimited open jobs and unlimited candidates, which is unusual at its price point and suits a small business that keeps several roles open but doesn't fill them quickly.
+Rippling fits when recruiting is one piece of a broader platform decision.
+
+You already use Rippling for HR and payroll, or you're buying the whole Rippling platform, and you want recruiting inside the same contract. When a hire is made in the recruiting module, that record flows into HR, payroll, and IT onboarding without a separate import or integration to maintain. There is no additional system to connect, because the handoff from candidate to employee stays entirely within Rippling.
 
 ### Key features
 
-* **Unlimited jobs and candidates on the entry plan**: The Hero plan's unlimited open roles and unlimited candidates mean a small business that keeps several positions open does not pay more as its active role count grows.
-* **Customizable hiring workflows**: Teams can rename and reorder hiring stages, set up custom application questions, and create basic stage-based automations to move candidates and send communications.
-* **Offer letters and e-signatures**: Higher plans let teams create offer letters and send them for e-signature directly from the platform.
-* **Job distribution to multiple boards**: Posts to many job boards from a single submission, with both free and paid distribution options managed from within the platform.
-* **Generative AI features**: JazzHR generates job descriptions with AI assistance and includes AI screening tools for basic candidate review tasks.
+* **Unified people platform.** Recruiting lives in the same system as HR, payroll, and IT, so a new hire's record moves from the pipeline to onboarding without re-entry at any step.
+* **Job postings and pipeline.** Requisitions are created from the HR system, jobs post to job boards, and applications come back into a candidate pipeline with stage tracking.
+* **Interview scheduling.** Scheduling integrates with calendar tools, so hiring managers and candidates can book without a back-and-forth over availability.
+* **Offer letters.** Offers are generated from templates inside the platform, with the candidate's details pulled from their record, and routed for e-signature.
+* **Native HRIS integration.** Compensation, department, and start date data flow from the offer directly into the employee record, with no manual entry at the HR handoff.
 
 ### Pricing
 
-JazzHR's Hero plan is $75 per month, Plus is $269 per month, and Pro is $420 per month, all billed monthly, with a discount available on annual billing.
+Rippling's Recruiting module is an add-on and cannot be purchased on its own. Rippling does not publish pricing for it. The price depends on the company's size and is set in a sales call. The Recruiting module offers no self-serve free trial.
 
 ### Where it beats Ashby
 
-JazzHR's entry price is a fraction of Ashby's Foundations floor. For a very small business that hires slowly and does not need analytics, outbound CRM, or advanced scheduling, JazzHR covers the fundamentals — pipeline, communication, and job posting — without the investment Ashby requires.
+Rippling's recruiting module sits inside the same platform as payroll and IT, so the operational handoff from candidate to employee requires no integration to build or maintain. When an offer is accepted, accounts, devices, and payroll are set up inside the system the company already uses for HR. Ashby is a standalone recruiting platform with no native HR, payroll, or IT management.
 
 ### Where Ashby wins
 
-Ashby's analytics, sourcing CRM, structured interview plans, and AI features are in a different tier from JazzHR's. JazzHR has limited AI screening compared to Ashby's AI review suite and no outbound sourcing capabilities. As a team's hiring complexity grows, JazzHR's simpler toolset becomes a ceiling rather than a foundation.
+Ashby is a purpose-built recruiting platform with scheduling, CRM, and analytics on every plan. Rippling's recruiting module is one part of a larger workforce system and is not sold or supported as a standalone ATS. The recruiting features are less deep than Ashby's, particularly in analytics, structured hiring, and outbound sourcing. Rippling also requires the full platform purchase; Ashby can be evaluated and bought on its own terms.
 
 ### Best fit
 
-**Choose JazzHR if you're a small business posting roles occasionally and your priority is keeping costs low while getting organized.** If your hiring is growing in volume or complexity, you'll want a tool that grows with you.
+**Choose Rippling if** you're already on the Rippling platform and want your recruiting and HR consolidated in one contract. If you're buying an ATS on its own merits, a dedicated recruiting platform gives you greater depth in recruiting features for the price.
 
-## How to Choose an Ashby Alternative
+## BambooHR: Best for hiring inside an HR system of record
 
-The right alternative depends on which of these factors matters most to your team:
+[BambooHR](https://www.bamboohr.com/) is an HR platform. Employee records, onboarding, PTO, e-signatures, and reporting are the core product, and the hiring module is one part of it.
 
-* **Team structure**: Ashby, Greenhouse, and Lever are built for a dedicated recruiting team managing many roles. Polymer, Breezy, and JazzHR are built for teams where the hiring manager or founder runs the process.
-* **Outbound sourcing and CRM**: If proactive sourcing is part of your model, Ashby, Lever, and Workable have native CRM tools built for it. The other three tools on this list focus on inbound applications. For a deeper look at how talent acquisition differs from reactive hiring, see [Talent Acquisition vs. Recruitment: What's the Difference?](/blog/talent-acquisition-vs-recruitment).
-* **Analytics depth**: Ashby and Greenhouse have the deepest analytics. Polymer, Breezy, and JazzHR cover the basics. If pipeline velocity and source-quality reports are a requirement, narrow to those two.
-* **Implementation tolerance**: Polymer and Breezy are set up and usable in a day. Greenhouse and Lever involve an implementation process. Ashby falls in between — Foundations is lighter, but Plus and Enterprise involve onboarding support.
-* **AI screening**: Polymer's Plato and Ashby both include AI-assisted candidate review. Greenhouse and Workable include AI features, with each platform placing them at different points in the hiring workflow. JazzHR's AI screening is limited. For more on how an ATS handles AI and the rest of the pipeline, see [How Does an Applicant Tracking System Work?](/blog/how-does-an-applicant-tracking-system-work).
-* **Pricing model**: Ashby prices by total employee headcount. Polymer prices by the number of open jobs. Workable and JazzHR price by plan tier. Greenhouse and Lever are quote-only. The right model depends on whether your headcount or your hiring activity is the more variable number.
-* **Published pricing**: Polymer, Breezy, and JazzHR publish all their prices. Ashby publishes its Foundations plan price only. Workable publishes its Starter plan. Greenhouse and Lever publish nothing.
-* **Budget**: Polymer, Breezy, and JazzHR publish starting prices, and Ashby publishes the price for its Foundations plan. Greenhouse and Lever require a sales conversation before you know the number.
+### Why consider it
 
-## Which Tool Is Right for Your Team?
+BambooHR fits when an HR system of record is the primary need and the ATS is secondary.
 
-Ashby is well suited to recruiting teams that need depth — analytics, outbound sourcing, and a tightly integrated recruiting stack. If that describes your team, Ashby, Greenhouse, and Lever are all in the right tier for that work, and the choice between them turns on CRM architecture, compliance requirements, and integration needs.
+You need a human resources system of record, and you'd like the ATS to come with it. When a candidate is hired, their record becomes their employee record — onboarding tasks, document signing, and time-off accrual pick up from there without an import step. The hiring module exists so the HR team doesn't have to re-enter a new hire.
 
-For a growing company that is not running a dedicated recruiting department, the picture shifts. [According to SHRM](https://www.shrm.org/topics-tools/news/talent-acquisition/shrm-talent-trends-2025-recruitment-challenges), nearly 90% of HR professionals who use an AI tool in recruiting say it saves them time or increases their efficiency, and that benefit does not require enterprise infrastructure to access. What you need is a tool that covers the hiring workflow well, that your whole team can pick up without a training program, and that charges in proportion to what you are actually hiring.
+### Key features
 
-Here is a one-line verdict for each tool in this list:
+* **HR system of record.** BambooHR keeps employee records, org charts, e-signatures, PTO, reporting, and a mobile app, with payroll, benefits administration, and time tracking as separately priced add-ons.
+* **Bamboo AI.** A natural-language layer over the HR data answers workforce questions, flags unusual time-off patterns, and predicts burnout. It does not review job applications.
+* **Reports.** Candidate source and funnel reports share the same report builder as headcount, turnover, and time-off data.
+* **Background checks.** Orders are placed from inside the candidate's record, and results come back through an integrated checking partner.
+* **Offer letter templates.** On higher tiers, BambooHR generates offer letters from templates with candidate details filled in, sends them for e-signature, and files them to the employee record on acceptance.
 
-* **Polymer**: The right choice for a growing team that wants a capable, intuitive ATS with AI-assisted screening, without the complexity of a recruiting platform.
-* **Greenhouse**: The right choice for a large company that needs enterprise governance, a broad integration ecosystem, and structured hiring at scale.
-* **Lever**: The right choice for a talent acquisition team built around proactive outbound sourcing with a unified candidate record.
-* **Workable**: The right choice for a team that wants assessments, some HR functionality, and an ATS under one roof and is comfortable paying for the bundle.
-* **Breezy HR**: The right choice for a small team that wants video screening built in and a visual pipeline at a low entry price.
-* **Recruitee**: The right choice for a team that makes hiring decisions collectively and wants a pipeline-first tool built for group evaluation.
-* **JazzHR**: The right choice for a small business that hires slowly and wants to get organized at the lowest cost.
+### Pricing
 
-Polymer is capable and intuitive, covers the full hiring workflow from job post to hired, and gives you AI-assisted screening in Plato alongside team reviews, automated candidate messaging, and a branded job board, without the overhead of a recruiting platform. You can set up your hiring stages, invite your team, and preview your job board before you enter a payment method. The 14-day free trial starts when you publish your first job.
+BambooHR [publishes per-employee rates](https://www.bamboohr.com/pricing). Core is $10 per employee per month, Pro is $17, and Elite is $25. Companies with 25 or fewer employees pay a flat minimum of $250 per month. Applicant tracking is included from Core, with job opening caps of 5 on Core, 25 on Pro, and 50 on Elite. Payroll, benefits administration, and time tracking are separately priced. At the Core rate, a 40-person company would pay $400 per month, before any add-ons.
+
+### Where it beats Ashby
+
+BambooHR has a mature HRIS where the candidate record becomes the employee record at hire, with no integration to maintain. Employee records, PTO, and e-signatures are established, stable features, and onboarding tasks begin the moment an offer is accepted. Ashby is a recruiting platform only, so HR, payroll, and onboarding are separate purchases from separate vendors.
+
+### Where Ashby wins
+
+Ashby is a recruiting platform with scheduling, CRM, and funnel analytics. BambooHR's hiring module has no sourcing database, no outbound CRM, and no interview scheduling, and job openings are capped at 5, 25, or 50 by HR tier. Ashby is built for a team focused on hiring; BambooHR's hiring module serves a team focused on managing the people already hired.
+
+### Best fit
+
+**Choose BambooHR if** you need a human resources system of record and want the ATS to come with it. If you're buying an ATS as the primary tool, Ashby or Polymer is a better fit than a module inside an HR platform.
+
+## How to choose an Ashby alternative
+
+Work through these before you book any demos. Most teams can rule out half the list in ten minutes.
+
+* **Hiring volume.** How many roles are open at once? Polymer's plans size by published jobs (5, 20, or 50). BambooHR caps jobs by HR tier. Ashby and Greenhouse are built for many parallel roles managed by a recruiting team.
+* **Recruiting team structure.** Do you have dedicated recruiters, or do hiring managers post and review for their own openings? Ashby and Greenhouse assume a talent acquisition team. Lever assumes recruiters running outbound work. Polymer assumes the hiring manager is doing the hiring.
+* **Need for sourcing or a recruiting CRM.** If outbound sourcing is part of a recruiter's daily work, Lever and Workable both have the tooling for it. If you hire from inbound applications, that layer goes unused in both.
+* **Platform consolidation.** Do you want your ATS inside a larger platform — HR, payroll, or workforce management? BambooHR and Rippling give you that. Ashby and Polymer are standalone recruiting platforms.
+* **Implementation tolerance.** Greenhouse is a multi-week project. Ashby is built for a recruiting team to spend several days configuring. Polymer requires no implementation — you can start posting roles as soon as you sign up.
+* **AI requirements.** Decide whether you want AI screening included, as an add-on, or not at all. Polymer includes Plato on every plan with nothing to configure. Ashby includes AI credits on every plan; the AI Notetaker is a paid add-on. Workable sells its AI separately. BambooHR has no application screening AI.
+* **Budget and pricing model.** Ask how the price changes as the company grows. Headcount-based pricing (Ashby, Greenhouse, Workable, Lever, Rippling) rises with the team. Job-based pricing (Polymer) rises with hiring volume. Per-employee pricing (BambooHR) rises with every hire, including the ones not involved in hiring at all.
+
+## Which Ashby alternative is right for you?
+
+The products on this list take different views on what hiring software should do — and for whom. Some assume a recruiting department is running structured hiring across dozens of open roles. Some combine an ATS with a CRM for teams doing outbound sourcing. Some put hiring inside a broader HR or workforce platform. The right fit is the model that matches how your team actually hires.
+
+If you're a growing company that wants a capable, intuitive ATS that's ready to use the day you sign up, [Polymer](https://www.polymer.co/) is the fit. Set up your jobs, your board, and your team before you enter any payment details, and the 14-day free trial starts when you publish your first job.
+
+Each of the other tools fits a more specific hiring situation. Greenhouse fits a dedicated recruiting team running structured, scorecard-driven hiring. Lever fits recruiters who run outbound sourcing and long-term nurture campaigns. Workable fits a company that wants sourcing, recruiting, and an HR suite from one vendor. Teamtailor fits a company whose careers page is a core part of its employer brand. Rippling fits teams already on that platform and keeps recruiting inside the same contract. BambooHR fits a company that needs a human resources system of record with an ATS inside it.
 
 ## Frequently asked questions
 
 ### What is the best Ashby alternative for a small business?
 
-For a small business, Polymer and JazzHR are the most practical alternatives. Polymer gives you a complete ATS with AI-assisted screening, automated candidate messaging, and a branded job board starting at $124 per month billed annually — with pricing based on how many roles you have open, not your headcount. JazzHR starts at $75 per month and covers the fundamentals of posting, pipeline, and communication, making it the right choice if your budget is the primary constraint and you hire infrequently.
+For a small business, Polymer is the closest fit among the seven. A small business hires a few times a year, and the people managing each hire have other work to do — they need an ATS that works from the first day, not one built for a recruiting department. Polymer is intuitive, setup takes minutes, and Plato AI reviews new applicants against the job description already written so the team starts with the strongest candidates. Plans are tiered by how many jobs a business needs open at once, not by how many people it employs, and prices are published. If the business also needs employee records, onboarding, and payroll from the same vendor, BambooHR is the better choice.
 
 ### What is the best Ashby alternative for a startup?
 
-Polymer is the most common choice for startups that want a capable, flexible ATS without the complexity of a dedicated recruiting platform. It is set up and usable the day you sign up, includes AI candidate screening through Plato, and gives every team member access without a per-seat charge. If your startup has a dedicated talent acquisition team running outbound sourcing, Lever is worth considering for its unified ATS and CRM data model.
+Polymer is the best fit for a startup. A startup's hiring needs change fast, and Polymer is flexible enough to follow them — a job takes minutes to set up, the pipeline and application form are customizable as roles evolve, and Plato AI reviews applicants against the job description without any configuration. Users are unlimited, plans are tiered by open jobs rather than company headcount, and pricing is published, so a founder can compare and start a trial without a sales call. A startup that has raised a large round and is building a dedicated recruiting team may want Ashby's structured hiring and analytics instead.
 
-### Is there a cheaper alternative to Ashby?
+### Which Ashby alternative is cheaper?
 
-Several tools cost less than Ashby's Foundations floor of $300 per month. Polymer starts at $124 per month billed annually, Workable's Starter plan is $149, and JazzHR's Hero plan is $75 per month. Polymer and Workable include AI-assisted screening; JazzHR's AI capabilities are more limited. The key difference from Ashby is that Polymer prices by open jobs and Ashby prices by total employee headcount — so the gap widens as your team grows even when your hiring does not.
+Polymer's entry plan costs less than Ashby's Foundations plan at most headcount bands. Polymer's Starter is $124 per month billed annually, against Ashby's $300 for a team of 1 to 10 and $400 for 11 to 25. Plato AI screening credits are included on every Polymer plan. BambooHR's $250 monthly minimum is also below Ashby's entry price, though BambooHR charges per employee and the rate rises with every hire. Workable also publishes its prices and offers a 15-day free trial, though its Standard plan starts at $299 per month for small teams.
 
-### What is the easiest Ashby alternative to use?
+### Which Ashby alternative is easiest to use?
 
-Polymer and Breezy HR are the easiest to get started with, both requiring no lengthy onboarding or implementation. Polymer's pipeline, candidate messaging, and AI screening are ready the day you sign up, and you can configure your hiring stages and preview your job board before entering a payment method. Breezy HR's visual drag-and-drop pipeline is immediately legible to a hiring manager who doesn't use recruiting software every day.
+Polymer is the easiest to use of the seven. It's designed so a hiring manager can start the same day they sign up, and a job publishes with nothing more than a title and a description. The hiring stages, message templates, and job board are ready out of the box and can be customized whenever the team is ready. Ashby is well-designed for a recruiting team, but it was built to be configured and administered by one, and the setup reflects that depth. Greenhouse and Lever typically take weeks to implement fully.
 
-### What is the best Ashby alternative for a lean hiring team?
+### Which alternative is best for a lean hiring team?
 
-Polymer is built for lean hiring teams. Its message automations handle routine candidate communication without manual work, Plato's AI screening surfaces the strongest applicants before a human reads every resume, and review requests let you bring in advisors or subject-matter experts without giving them full platform access. The result is a structured hiring process that a small team can run without a dedicated recruiter managing the tool.
+For a lean hiring team, Polymer fits best. Message automations handle candidate communications when someone moves to a new stage. Review requests bring in a colleague's input on a single candidate without adding them to the hiring team, and users are unlimited. Plato AI reviews every applicant against the job description, so the small team starts its day with the strongest candidates already surfaced. Ashby is built for a recruiting team that manages the system; Polymer is built for a team where everyone is also doing something else.
 
-### Do growing companies actually need an enterprise ATS like Ashby?
+### Do I need an enterprise ATS like Ashby?
 
-Most growing companies do not. The features that justify Ashby — deep pipeline analytics, outbound email sequencing, a full sourcing CRM — are most valuable when a dedicated recruiting team is running structured, high-volume hiring. A founder doing early hires, or a hiring manager running a few roles at once, needs a capable ATS with a clean interface, AI-assisted screening, and team collaboration tools. That does not require the complexity or the headcount-based pricing of a platform built for a recruiting department.
+Probably not, unless your company has a recruiting team running structured hiring across many roles in parallel. Ashby is well-suited for companies with dedicated recruiters who use the CRM, analytics, and scheduling tools daily. For a growing company where hiring managers handle their own roles and the team wants a capable, flexible ATS without the administrative overhead, Polymer covers the full hiring workflow without the complexity Ashby assumes. The question worth asking is whether your team will actually use the CRM, the scheduling module, and the funnel analytics — and if the answer is no, you're paying for a platform built for an operation you don't have.
 
 ### How does Ashby compare to Greenhouse?
 
-Ashby and Greenhouse are both built for companies with a dedicated recruiting function, but they serve different needs. Ashby's analytics suite is deeper and more integrated with its own recruiting data, and Ashby publishes Foundations pricing. Greenhouse focuses more on enterprise governance — audit trails, ISO 42001 AI certification, 500-plus integrations — and is better suited to large organizations with complex access control requirements. Neither is built for a growing team without a recruiting department, and Greenhouse publishes no pricing at all.
+Ashby and Greenhouse are both built for dedicated recruiting teams, but they take different approaches. Ashby bundles scheduling, CRM, and analytics into one contract from the start, with published pricing for companies up to 100 employees. Greenhouse is priced by quote only, requires a multi-week implementation, and is built for large talent acquisition departments running structured, competency-based hiring with approval chains and a 500+ integration marketplace. Teams comparing the two are usually asking whether they need Greenhouse's depth of structured hiring tooling and ecosystem breadth, or whether Ashby's all-in-one model covers more ground in a single contract.

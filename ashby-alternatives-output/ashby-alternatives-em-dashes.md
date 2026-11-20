@@ -1,3 +1,3 @@
 # ashby-alternatives: sections over the em dash limit
 
-- Opening: The section has 3 em dashes. The limit is two.
+- Polymer: Best for growing companies: The section has 5 em dashes. The limit is two.
