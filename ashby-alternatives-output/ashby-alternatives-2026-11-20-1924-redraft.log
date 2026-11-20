@@ -1,0 +1,265 @@
+2026-11-20 19:24:18,166 | INFO    | agents.content_generator | Generating: Best Ashby Alternatives in 2026
+2026-11-20 19:24:21,605 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:32:55,057 | INFO    | lib.llm | Structured call: stop=tool_use, 27974 in, 23933 out
+2026-11-20 19:32:56,590 | WARNING | agents.content_generator | To-do for the follow-up run: ["Add a link to /blog/greenhouse-alternatives ('Greenhouse alternatives'): listed but not placed in the body."]
+2026-11-20 19:32:56,590 | INFO    | agents.content_generator | Generated 5433 words, 7 FAQs
+2026-11-20 19:32:59,612 | INFO    | __main__ | Saved output: ashby-alternatives-output/
+2026-11-20 19:32:59,613 | INFO    | pipeline | No opening for ashby-alternatives: an alternatives article is written by its playbook
+2026-11-20 19:32:59,614 | INFO    | pipeline | No opening check for ashby-alternatives: an alternatives article is written by its playbook
+2026-11-20 19:32:59,615 | INFO    | pipeline | No content check for ashby-alternatives: an alternatives article is written by its playbook
+2026-11-20 19:32:59,615 | INFO    | pipeline | No transition pass for ashby-alternatives: an alternatives article is written by its playbook
+2026-11-20 19:33:00,800 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:33:00,835 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:33:00,896 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:33:00,943 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:33:07,623 | INFO    | lib.llm | Structured call: stop=tool_use, 1490 in, 393 out
+2026-11-20 19:33:09,764 | INFO    | lib.llm | Structured call: stop=tool_use, 1096 in, 452 out
+2026-11-20 19:33:12,253 | INFO    | lib.llm | Structured call: stop=tool_use, 1594 in, 943 out
+2026-11-20 19:33:13,116 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:33:26,135 | INFO    | lib.llm | Structured call: stop=tool_use, 1117 in, 1464 out
+2026-11-20 19:33:26,921 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:33:36,828 | INFO    | lib.llm | Structured call: stop=tool_use, 1368 in, 994 out
+2026-11-20 19:33:37,515 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:33:40,329 | INFO    | lib.llm | Structured call: stop=tool_use, 1966 in, 2483 out
+2026-11-20 19:33:41,227 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:33:50,537 | INFO    | lib.llm | Structured call: stop=tool_use, 1105 in, 783 out
+2026-11-20 19:33:51,246 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:34:00,975 | INFO    | lib.llm | Structured call: stop=tool_use, 1271 in, 1040 out
+2026-11-20 19:34:01,678 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:34:09,005 | INFO    | lib.llm | Structured call: stop=tool_use, 1101 in, 498 out
+2026-11-20 19:34:10,652 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:34:18,451 | INFO    | lib.llm | Structured call: stop=tool_use, 1187 in, 907 out
+2026-11-20 19:34:19,261 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:34:41,965 | INFO    | lib.llm | Structured call: stop=tool_use, 1098 in, 1375 out
+2026-11-20 19:34:42,771 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:34:52,767 | INFO    | lib.llm | Structured call: stop=tool_use, 1590 in, 4087 out
+2026-11-20 19:34:53,464 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:34:56,953 | INFO    | lib.llm | Structured call: stop=tool_use, 1320 in, 1195 out
+2026-11-20 19:34:57,582 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:35:09,658 | INFO    | lib.llm | Structured call: stop=tool_use, 1097 in, 837 out
+2026-11-20 19:35:21,378 | INFO    | lib.llm | Structured call: stop=tool_use, 1961 in, 2477 out
+2026-11-20 19:35:22,192 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:35:35,086 | INFO    | lib.llm | Structured call: stop=tool_use, 1591 in, 761 out
+2026-11-20 19:35:35,832 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:35:56,562 | INFO    | lib.llm | Structured call: stop=tool_use, 1790 in, 2093 out
+2026-11-20 19:35:57,452 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:36:31,535 | INFO    | lib.llm | Structured call: stop=tool_use, 1583 in, 1816 out
+2026-11-20 19:36:32,665 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:36:52,362 | INFO    | lib.llm | Structured call: stop=tool_use, 1911 in, 2053 out
+2026-11-20 19:36:53,044 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:37:32,152 | INFO    | lib.llm | Structured call: stop=tool_use, 1572 in, 2095 out
+2026-11-20 19:37:32,154 | INFO    | review_post | Section 1/14 checked: Opening, 4 correction(s)
+2026-11-20 19:37:32,154 | INFO    | review_post | Section 2/14 checked: Table of contents, 0 correction(s)
+2026-11-20 19:37:32,155 | INFO    | review_post | Section 3/14 checked: Quick comparison of Ashby alternatives, 0 correction(s)
+2026-11-20 19:37:32,155 | INFO    | review_post | Section 4/14 checked: Is Ashby the right fit for your team?, 4 correction(s)
+2026-11-20 19:37:32,157 | INFO    | review_post | Spent so far: $1.43: 56782 in, 52679 out, 105222 cache written, 262780 cache read, 0 searches
+2026-11-20 19:37:33,026 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:37:33,037 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:37:33,380 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:37:33,616 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:37:46,426 | INFO    | lib.llm | Structured call: stop=tool_use, 1015 in, 645 out
+2026-11-20 19:37:47,931 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:37:52,643 | INFO    | lib.llm | Structured call: stop=tool_use, 1690 in, 1247 out
+2026-11-20 19:37:53,702 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:37:54,230 | INFO    | lib.llm | Structured call: stop=tool_use, 1090 in, 750 out
+2026-11-20 19:37:54,947 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:37:58,678 | INFO    | lib.llm | Structured call: stop=tool_use, 1616 in, 1441 out
+2026-11-20 19:37:59,463 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:38:06,845 | INFO    | lib.llm | Structured call: stop=tool_use, 1016 in, 618 out
+2026-11-20 19:38:07,591 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:38:14,983 | INFO    | lib.llm | Structured call: stop=tool_use, 2026 in, 2444 out
+2026-11-20 19:38:15,890 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:38:16,059 | INFO    | lib.llm | Structured call: stop=tool_use, 2004 in, 2496 out
+2026-11-20 19:38:16,701 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:38:17,520 | INFO    | lib.llm | Structured call: stop=tool_use, 1090 in, 867 out
+2026-11-20 19:38:18,193 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:38:20,325 | INFO    | lib.llm | Structured call: stop=tool_use, 1798 in, 2120 out
+2026-11-20 19:38:21,047 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:38:34,639 | INFO    | lib.llm | Structured call: stop=tool_use, 1024 in, 828 out
+2026-11-20 19:38:35,425 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:38:41,864 | INFO    | lib.llm | Structured call: stop=tool_use, 1104 in, 768 out
+2026-11-20 19:38:42,393 | INFO    | lib.llm | Structured call: stop=tool_use, 1618 in, 1272 out
+2026-11-20 19:38:42,786 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:38:43,088 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:38:48,124 | INFO    | lib.llm | Structured call: stop=tool_use, 1690 in, 2051 out
+2026-11-20 19:38:49,153 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:38:53,293 | INFO    | lib.llm | Structured call: stop=tool_use, 2294 in, 3251 out
+2026-11-20 19:38:54,220 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:39:01,470 | INFO    | lib.llm | Structured call: stop=tool_use, 1837 in, 2094 out
+2026-11-20 19:39:02,239 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:39:13,062 | INFO    | lib.llm | Structured call: stop=tool_use, 1025 in, 1540 out
+2026-11-20 19:39:13,826 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:39:17,521 | INFO    | lib.llm | Structured call: stop=tool_use, 2059 in, 2578 out
+2026-11-20 19:39:18,225 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:39:19,586 | INFO    | lib.llm | Structured call: stop=tool_use, 1615 in, 1035 out
+2026-11-20 19:39:20,289 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:39:20,354 | INFO    | lib.llm | Structured call: stop=tool_use, 1149 in, 766 out
+2026-11-20 19:39:21,052 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:39:31,818 | INFO    | lib.llm | Structured call: stop=tool_use, 1024 in, 588 out
+2026-11-20 19:39:39,667 | INFO    | lib.llm | Structured call: stop=tool_use, 2020 in, 2339 out
+2026-11-20 19:39:40,435 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:39:43,824 | INFO    | lib.llm | Structured call: stop=tool_use, 1934 in, 2291 out
+2026-11-20 19:39:44,583 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:39:47,800 | INFO    | lib.llm | Structured call: stop=tool_use, 1692 in, 1844 out
+2026-11-20 19:39:48,624 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:40:02,558 | INFO    | lib.llm | Structured call: stop=tool_use, 2243 in, 2765 out
+2026-11-20 19:40:04,206 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:40:10,484 | INFO    | lib.llm | Structured call: stop=tool_use, 1601 in, 1476 out
+2026-11-20 19:40:11,146 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:40:11,514 | INFO    | lib.llm | Structured call: stop=tool_use, 2040 in, 2509 out
+2026-11-20 19:40:12,357 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:40:25,754 | INFO    | lib.llm | Structured call: stop=tool_use, 2020 in, 1160 out
+2026-11-20 19:40:27,221 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:40:27,752 | INFO    | lib.llm | Structured call: stop=tool_use, 1671 in, 1977 out
+2026-11-20 19:40:28,407 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:40:35,470 | INFO    | lib.llm | Structured call: stop=tool_use, 1600 in, 463 out
+2026-11-20 19:41:00,098 | INFO    | lib.llm | Structured call: stop=tool_use, 1699 in, 2961 out
+2026-11-20 19:41:00,863 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:41:02,055 | INFO    | lib.llm | Structured call: stop=tool_use, 2216 in, 3059 out
+2026-11-20 19:41:02,785 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:41:18,805 | INFO    | lib.llm | Structured call: stop=tool_use, 2015 in, 2147 out
+2026-11-20 19:41:19,980 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:41:38,298 | INFO    | lib.llm | Structured call: stop=tool_use, 1999 in, 2335 out
+2026-11-20 19:41:39,073 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:41:51,674 | INFO    | lib.llm | Structured call: stop=tool_use, 1690 in, 1855 out
+2026-11-20 19:42:08,942 | INFO    | lib.llm | Structured call: stop=tool_use, 2397 in, 3355 out
+2026-11-20 19:42:09,972 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:42:57,044 | INFO    | lib.llm | Structured call: stop=tool_use, 1999 in, 2451 out
+2026-11-20 19:42:57,046 | INFO    | review_post | Section 5/14 checked: Best Ashby alternatives at a glance, 4 correction(s)
+2026-11-20 19:42:57,047 | INFO    | review_post | Section 6/14 checked: 1. Polymer: Best for growing companies, 4 correction(s)
+2026-11-20 19:42:57,047 | INFO    | review_post | Section 7/14 checked: 2. Greenhouse: Best for enterprise recruiting teams, 4 correction(s)
+2026-11-20 19:42:57,048 | INFO    | review_post | Section 8/14 checked: 3. Lever: Best for teams that source passive candidates, 4 correction(s)
+2026-11-20 19:42:57,050 | INFO    | review_post | Spent so far: $2.77: 117402 in, 117065 out, 105222 cache written, 893420 cache read, 0 searches
+2026-11-20 19:42:57,775 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:42:57,777 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:42:57,784 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:42:58,012 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:43:13,167 | INFO    | lib.llm | Structured call: stop=tool_use, 1638 in, 932 out
+2026-11-20 19:43:13,863 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:43:14,350 | INFO    | lib.llm | Structured call: stop=tool_use, 1613 in, 857 out
+2026-11-20 19:43:15,237 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:43:22,581 | INFO    | lib.llm | Structured call: stop=tool_use, 1610 in, 1472 out
+2026-11-20 19:43:23,331 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:43:23,945 | INFO    | lib.llm | Structured call: stop=tool_use, 1583 in, 1442 out
+2026-11-20 19:43:24,852 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:43:30,889 | INFO    | lib.llm | Structured call: stop=tool_use, 1815 in, 2068 out
+2026-11-20 19:43:31,803 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:43:33,765 | INFO    | lib.llm | Structured call: stop=tool_use, 1702 in, 2077 out
+2026-11-20 19:43:34,608 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:43:41,463 | INFO    | lib.llm | Structured call: stop=tool_use, 1828 in, 1952 out
+2026-11-20 19:43:41,986 | INFO    | lib.llm | Structured call: stop=tool_use, 1923 in, 2147 out
+2026-11-20 19:43:42,291 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:43:42,644 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:43:48,500 | INFO    | lib.llm | Structured call: stop=tool_use, 1644 in, 1114 out
+2026-11-20 19:43:49,209 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:43:59,600 | INFO    | lib.llm | Structured call: stop=tool_use, 1610 in, 971 out
+2026-11-20 19:44:00,747 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:44:01,415 | INFO    | lib.llm | Structured call: stop=tool_use, 1582 in, 1109 out
+2026-11-20 19:44:02,111 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:44:11,359 | INFO    | lib.llm | Structured call: stop=tool_use, 1965 in, 2332 out
+2026-11-20 19:44:12,474 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:44:16,348 | INFO    | lib.llm | Structured call: stop=tool_use, 1757 in, 1929 out
+2026-11-20 19:44:17,100 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:44:19,504 | INFO    | lib.llm | Structured call: stop=tool_use, 1771 in, 1966 out
+2026-11-20 19:44:20,187 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:44:29,457 | INFO    | lib.llm | Structured call: stop=tool_use, 1618 in, 3023 out
+2026-11-20 19:44:30,369 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:44:36,450 | INFO    | lib.llm | Structured call: stop=tool_use, 1603 in, 1174 out
+2026-11-20 19:44:37,157 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:44:44,774 | INFO    | lib.llm | Structured call: stop=tool_use, 1641 in, 1814 out
+2026-11-20 19:44:45,561 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:44:48,186 | INFO    | lib.llm | Structured call: stop=tool_use, 1801 in, 2032 out
+2026-11-20 19:44:48,916 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:44:56,838 | INFO    | lib.llm | Structured call: stop=tool_use, 1579 in, 2056 out
+2026-11-20 19:44:57,582 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:44:59,303 | INFO    | lib.llm | Structured call: stop=tool_use, 1882 in, 2204 out
+2026-11-20 19:45:00,589 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:45:04,344 | INFO    | lib.llm | Structured call: stop=tool_use, 1926 in, 2206 out
+2026-11-20 19:45:05,054 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:45:16,322 | INFO    | lib.llm | Structured call: stop=tool_use, 1868 in, 1999 out
+2026-11-20 19:45:16,577 | INFO    | lib.llm | Structured call: stop=tool_use, 1620 in, 1416 out
+2026-11-20 19:45:17,087 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:45:17,448 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:45:22,331 | INFO    | lib.llm | Structured call: stop=tool_use, 1645 in, 989 out
+2026-11-20 19:45:23,017 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:45:31,096 | INFO    | lib.llm | Structured call: stop=tool_use, 1604 in, 1825 out
+2026-11-20 19:45:31,934 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:45:42,709 | INFO    | lib.llm | Structured call: stop=tool_use, 1749 in, 2367 out
+2026-11-20 19:45:43,431 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:45:44,008 | INFO    | lib.llm | Structured call: stop=tool_use, 1576 in, 1568 out
+2026-11-20 19:45:45,528 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:45:47,746 | INFO    | lib.llm | Structured call: stop=tool_use, 1783 in, 2391 out
+2026-11-20 19:45:48,694 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:45:50,805 | INFO    | lib.llm | Structured call: stop=tool_use, 1958 in, 2068 out
+2026-11-20 19:45:51,491 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:46:04,010 | INFO    | lib.llm | Structured call: stop=tool_use, 1727 in, 1975 out
+2026-11-20 19:46:04,724 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:46:05,381 | INFO    | lib.llm | Structured call: stop=tool_use, 1624 in, 1177 out
+2026-11-20 19:46:06,087 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:46:07,906 | INFO    | lib.llm | Structured call: stop=tool_use, 1661 in, 1140 out
+2026-11-20 19:46:19,398 | INFO    | lib.llm | Structured call: stop=tool_use, 1567 in, 886 out
+2026-11-20 19:46:25,976 | INFO    | lib.llm | Structured call: stop=tool_use, 1812 in, 2165 out
+2026-11-20 19:46:26,791 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:46:30,630 | INFO    | lib.llm | Structured call: stop=tool_use, 1606 in, 2151 out
+2026-11-20 19:46:38,216 | INFO    | lib.llm | Structured call: stop=tool_use, 1623 in, 672 out
+2026-11-20 19:46:38,217 | INFO    | review_post | Section 9/14 checked: 4. Workable: Best for companies that want sourcing and HR from one vendor, 4 correction(s)
+2026-11-20 19:46:38,218 | INFO    | review_post | Section 10/14 checked: 5. Rippling: Best for hiring inside an HR and payroll platform, 4 correction(s)
+2026-11-20 19:46:38,219 | INFO    | review_post | Section 11/14 checked: 6. Teamtailor: Best for employer branding-first recruiting, 4 correction(s)
+2026-11-20 19:46:38,219 | INFO    | review_post | Section 12/14 checked: 7. Pinpoint: Best for mid-market in-house recruiting teams, 4 correction(s)
+2026-11-20 19:46:38,222 | INFO    | review_post | Spent so far: $4.07: 178916 in, 178731 out, 105222 cache written, 1524060 cache read, 0 searches
+2026-11-20 19:46:38,891 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:46:39,122 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:46:50,305 | INFO    | lib.llm | Structured call: stop=tool_use, 1424 in, 645 out
+2026-11-20 19:46:51,186 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:46:53,030 | INFO    | lib.llm | Structured call: stop=tool_use, 1086 in, 906 out
+2026-11-20 19:46:53,886 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:47:04,662 | INFO    | lib.llm | Structured call: stop=tool_use, 1312 in, 1042 out
+2026-11-20 19:47:05,381 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:47:08,415 | INFO    | lib.llm | Structured call: stop=tool_use, 1495 in, 1745 out
+2026-11-20 19:47:09,913 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:47:17,371 | INFO    | lib.llm | Structured call: stop=tool_use, 1086 in, 803 out
+2026-11-20 19:47:18,922 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:47:30,040 | INFO    | lib.llm | Structured call: stop=tool_use, 1286 in, 1083 out
+2026-11-20 19:47:30,795 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:47:41,189 | INFO    | lib.llm | Structured call: stop=tool_use, 1093 in, 622 out
+2026-11-20 19:47:42,197 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:47:51,969 | INFO    | lib.llm | Structured call: stop=tool_use, 1189 in, 1014 out
+2026-11-20 19:47:52,736 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:47:56,727 | INFO    | lib.llm | Structured call: stop=tool_use, 1427 in, 2257 out
+2026-11-20 19:47:57,427 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:48:04,247 | INFO    | lib.llm | Structured call: stop=tool_use, 1088 in, 723 out
+2026-11-20 19:48:04,929 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:48:12,808 | INFO    | lib.llm | Structured call: stop=tool_use, 1529 in, 1691 out
+2026-11-20 19:48:13,703 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:48:17,862 | INFO    | lib.llm | Structured call: stop=tool_use, 1258 in, 1143 out
+2026-11-20 19:48:18,579 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:48:30,730 | INFO    | lib.llm | Structured call: stop=tool_use, 1430 in, 927 out
+2026-11-20 19:48:31,921 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:48:37,515 | INFO    | lib.llm | Structured call: stop=tool_use, 1101 in, 1135 out
+2026-11-20 19:48:44,216 | INFO    | lib.llm | Structured call: stop=tool_use, 1542 in, 1573 out
+2026-11-20 19:48:45,441 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:49:00,755 | INFO    | lib.llm | Structured call: stop=tool_use, 1431 in, 767 out
+2026-11-20 19:49:01,466 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:49:13,815 | INFO    | lib.llm | Structured call: stop=tool_use, 1487 in, 1586 out
+2026-11-20 19:49:15,042 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:49:22,623 | INFO    | lib.llm | Structured call: stop=tool_use, 1434 in, 438 out
+2026-11-20 19:49:22,624 | INFO    | review_post | Section 13/14 checked: How to choose an Ashby alternative, 4 correction(s)
+2026-11-20 19:49:22,625 | INFO    | review_post | Section 14/14 checked: Which Ashby alternative is right for you?, 4 correction(s)
+2026-11-20 19:49:22,628 | INFO    | review_post | Spent so far: $4.54: 202614 in, 198831 out, 105222 cache written, 1839380 cache read, 0 searches
+2026-11-20 19:49:25,319 | INFO    | main | Saved output: ashby-alternatives-output/
+2026-11-20 19:49:25,322 | INFO    | review_post | Checked ashby-alternatives: 14/14 sections; $4.54: 202614 in, 198831 out, 105222 cache written, 1839380 cache read, 0 searches
+2026-11-20 19:49:25,326 | WARNING | agents.content_generator | To-do after review: ["Add a link to /blog/greenhouse-alternatives ('Greenhouse alternatives'): listed but not placed in the body."]
+2026-11-20 19:49:25,356 | INFO    | main | Saved output: ashby-alternatives-output/
+2026-11-20 19:49:25,357 | INFO    | pipeline | Rechecked ashby-alternatives: 1 to-do item(s)
+2026-11-20 19:49:26,038 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:49:28,660 | INFO    | lib.llm | Structured call: stop=tool_use, 901 in, 239 out
+2026-11-20 19:49:28,661 | INFO    | review_post | Competitor links in ashby-alternatives: 6 of 6 website(s)
+2026-11-20 19:49:29,406 | INFO    | httpx2 | HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-20 19:50:19,342 | INFO    | lib.llm | Structured call: stop=tool_use, 15474 in, 3240 out
+2026-11-20 19:50:19,345 | INFO    | suggest_graphics | Graphics for ashby-alternatives: 7 place(s); $4.64: 218989 in, 202310 out, 105222 cache written, 1839380 cache read, 0 searches
+2026-11-20 19:50:19,347 | WARNING | review_post | 4 section(s) in ashby-alternatives over the em dash limit, listed in ashby-alternatives-em-dashes.md
+2026-11-20 19:50:20,871 | INFO    | connectors.sanity | Sanity draft written: drafts.ashby-alternatives (199 blocks)
+2026-11-20 19:50:20,873 | INFO    | agents.publisher | Staged: drafts.ashby-alternatives
+2026-11-20 19:50:22,245 | INFO    | __main__ | Saved output: ashby-alternatives-output/
+2026-11-20 19:50:22,853 | WARNING | connectors.slack | Slack upload of ashby-alternatives-graphics.md failed (missing_scope); posting its text in the thread instead
+2026-11-20 19:50:24,768 | WARNING | connectors.slack | Slack upload of ashby-alternatives.md failed (missing_scope); posting its text in the thread instead
