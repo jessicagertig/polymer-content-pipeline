@@ -19,7 +19,7 @@ from datetime import datetime
 
 from config.settings import settings
 from connectors import sanity
-from lib.llm import structured_call, cost, usage_line
+from lib.llm import structured_call, research_call, cost, usage_line
 from lib.logging import get
 from lib import resources as res
 from lib.repo import ROOT
@@ -35,7 +35,7 @@ from prompts.review import (
     CONTENT_REVIEW_CHANGES_USER, CONTENT_REVIEW_FIX_USER,
     RESOURCE_SYSTEM, RESOURCE_CHECK_USER, RESOURCE_CHECK_SCHEMA, RESOURCE_FIX_USER, RESOURCE_FIX_SCHEMA,
     ALTERNATIVES_REVIEW_SYSTEM, ALTERNATIVES_FIX_SYSTEM, ALTERNATIVES_FIND_USER, ALTERNATIVES_FIX_USER,
-    COMPETITOR_LINKS_SYSTEM, COMPETITOR_LINKS_USER, COMPETITOR_LINKS_SCHEMA,
+    COMPETITOR_LINKS_SYSTEM, COMPETITOR_LINKS_USER, COMPETITOR_LINKS_SCHEMA, DEAD_LINK_SYSTEM, DEAD_LINK_USER,
     OPENING_FIX_SYSTEM, FIX_SYSTEM, TRANSITIONS_FIX_SYSTEM, REVIEW_FIX_SYSTEM, CONTENT_FIX_SYSTEM, CONTENT_REVIEW_FIX_SYSTEM,
 )
 
@@ -558,6 +558,82 @@ def competitor_links(slug: str) -> None:
     if lines:
         path.write_text("\n".join(lines) + "\n")
     log.info(f"Competitor links in {slug}: {len(lines)} of {len(links)} website(s)")
+
+
+BROWSER_HEADERS = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0 Safari/537.36",
+                   "Accept": "text/html,application/xhtml+xml,*/*;q=0.8", "Accept-Language": "en-US,en;q=0.9"}
+
+
+def load_link(url: str) -> str:
+    """Loads the page the way a browser does. Returns "ok"; "dead" when the page does not exist,
+    the website does not answer, or the link redirects to the website's home page; or, when the
+    website refused the request or did not answer in time, the reason."""
+    import requests
+    from urllib.parse import urlparse
+    try:
+        response = requests.get(url, headers=BROWSER_HEADERS, timeout=20, allow_redirects=True, stream=True)
+        response.close()
+    except (requests.exceptions.Timeout, requests.exceptions.SSLError) as e:
+        return type(e).__name__
+    except requests.exceptions.ConnectionError:
+        return "dead"
+    except requests.RequestException as e:
+        return type(e).__name__
+    if response.status_code in (404, 410):
+        return "dead"
+    if response.status_code >= 400:
+        return f"HTTP {response.status_code}"
+    if urlparse(url).path.strip("/") and not urlparse(response.url).path.strip("/"):
+        return "dead"
+    return "ok"
+
+
+def _paragraph_with(html: str, url: str) -> str:
+    """The text of the paragraph, list item, or table cell that contains the link."""
+    for block in re.findall(r"<(?:p|li|td)[^>]*>(.*?)</(?:p|li|td)>", html, re.S):
+        if f'href="{url}"' in block:
+            return re.sub(r"<[^>]+>", "", block).strip()
+    return ""
+
+
+def suggest_replacement(url: str, paragraph: str) -> str:
+    """A replacement for a dead link, from a web search, that loads; "" when the search finds none."""
+    result = research_call(system=DEAD_LINK_SYSTEM, user=DEAD_LINK_USER.format(url=url, paragraph=paragraph),
+                           max_searches=3, max_tokens=2000, blocked_domains=settings.competitor_domains() or None)
+    found = re.findall(r"REPLACEMENT:\s*(https?://\S+)", result["text"])
+    new = found[-1].rstrip(".,)>") if found else ""
+    return new if new and new != url and load_link(new) == "ok" else ""
+
+
+def link_check(slug: str) -> None:
+    """Loads every link to another website in the article, and lists in <slug>-links.md, for the
+    Fixes message in Slack, the dead links, each with a replacement a web search suggests, and the
+    links that could not be loaded, which are checked by hand. The article is not changed."""
+    page = ContentPage.model_validate_json((ROOT / f"{slug}-output" / f"{slug}.json").read_text())
+    path = ROOT / f"{slug}-output" / f"{slug}-links.md"
+    path.unlink(missing_ok=True)
+    html = page.content.body_html
+    urls = list(dict.fromkeys(u for links in external_links(html).values() for u in links))
+    with ThreadPoolExecutor(8) as pool:
+        results = dict(zip(urls, pool.map(load_link, urls)))
+    dead = [u for u, r in results.items() if r == "dead"]
+    unloaded = [(u, r) for u, r in results.items() if r not in ("ok", "dead")]
+    lines = []
+    if dead:
+        lines.append("*Dead links* (each suggested replacement is a web search's guess; check it before using it):")
+        for url in dead:
+            try:
+                new = suggest_replacement(url, _paragraph_with(html, url))
+            except Exception as e:
+                log.warning(f"The replacement search failed for {url}: {type(e).__name__}: {e}")
+                new = ""
+            lines.append(f"- <{url}>, suggested replacement: " + (f"<{new}>" if new else "none found"))
+    if unloaded:
+        lines.append("*Links that could not be loaded* (the website refused the request or did not answer; check each one by hand):")
+        lines += [f"- <{url}> ({reason})" for url, reason in unloaded]
+    if lines:
+        path.write_text("\n".join(lines) + "\n")
+    log.info(f"Links in {slug}: {len(dead)} dead, {len(unloaded)} could not be loaded, of {len(urls)}")
 
 
 def em_dash_report(slug: str) -> None:

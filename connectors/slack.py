@@ -156,6 +156,7 @@ def notify_summary(page: ContentPage, spent: str = "") -> None:
     em_lines = [l for l in _read(out / f"{opp.id}-em-dashes.md").splitlines() if l.startswith("- ")]
     places = _read(out / f"{opp.id}-graphics.md").count("\n## ")
     suspects = len(_read(out / f"{opp.id}-competitor-links.md").splitlines())
+    links = sum(l.startswith("- ") for l in _read(out / f"{opp.id}-links.md").splitlines())
     blocks = [
         _header(f"✅ Draft staged: {opp.proposed_title}"),
         {
@@ -176,7 +177,7 @@ def notify_summary(page: ContentPage, spent: str = "") -> None:
                 "text": (
                     f"*Larger errors:* {'yes, in the next message' if larger else 'none'}\n"
                     f"*Fixes:* {len(page.todos)} to-do item(s), {len(em_lines)} section(s) over the em dash limit, "
-                    f"{suspects} link(s) that may go to competitors\n"
+                    f"{suspects} link(s) that may go to competitors, {links} link(s) that are dead or could not be loaded\n"
                     f"*Graphic ideas:* {places} place(s)\n"
                     f"*Header image alt text:* {content.main_image_alt or '_none_'}"
                 ),
@@ -187,12 +188,13 @@ def notify_summary(page: ContentPage, spent: str = "") -> None:
 
 
 def notify_fixes(page: ContentPage) -> None:
-    """The em dash report, the to-do list, and the links that may go to competitors, when any of
-    them has anything in it."""
+    """The em dash report, the to-do list, the links that may go to competitors, and the links that
+    are dead or could not be loaded, when any of them has anything in it."""
     opp = page.opportunity
     em = _read(_outputs(opp.id) / f"{opp.id}-em-dashes.md")
     suspects = _read(_outputs(opp.id) / f"{opp.id}-competitor-links.md")
-    if not em and not page.todos and not suspects:
+    links = _read(_outputs(opp.id) / f"{opp.id}-links.md")
+    if not em and not page.todos and not suspects and not links:
         return
     todos = "\n".join(f"• {t['item']}" for t in page.todos) or "None."
     blocks = [
@@ -203,6 +205,8 @@ def notify_fixes(page: ContentPage) -> None:
     if suspects:
         blocks.append({"type": "section", "text": {"type": "mrkdwn", "text": _text(
             f"*Links that may go to competitors* (keep or remove them in Studio):\n{suspects}")}})
+    if links:
+        blocks.append({"type": "section", "text": {"type": "mrkdwn", "text": _text(links)}})
     _post(settings.slack_content_channel, blocks, text=f"Fixes: {opp.proposed_title}")
 
 

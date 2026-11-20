@@ -19,7 +19,7 @@ def test_an_alternatives_article_skips_the_steps_its_playbook_replaces(tmp_path,
         return lambda *a, **k: calls.append(name) or True
 
     for name in ("check_post", "check_opening", "content_check", "transition_pass", "em_dash_report", "hide_resources",
-                 "resource_review", "restore_resources", "competitor_links"):
+                 "resource_review", "restore_resources", "competitor_links", "link_check"):
         monkeypatch.setattr(review_post, name, ok(name))
     monkeypatch.setattr(rewrite_opening, "rewrite", ok("opening"))
     monkeypatch.setattr(suggest_graphics, "suggest", ok("graphics"))

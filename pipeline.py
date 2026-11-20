@@ -25,7 +25,7 @@ log = get(__name__)
 STOP_AT = 15.0
 
 STEP_ORDER = ("write", "hide resources", "opening", "opening check", "section check", "content check",
-              "transition pass", "resource review", "recheck", "competitor links", "graphics")
+              "transition pass", "resource review", "recheck", "competitor links", "link check", "graphics")
 
 
 def next_step(slug: str) -> str:
@@ -64,7 +64,7 @@ def run_steps(slug: str, write: Callable[[bool], None], stop_at: float = STOP_AT
     writes the post and saves it under `slug`. Returns the finished steps; the post is done
     when "graphics" is among them."""
     from review_post import (check_post, check_opening, content_check, transition_pass, em_dash_report, hide_resources, resource_review,
-                             restore_resources, competitor_links)
+                             restore_resources, competitor_links, link_check)
     from rewrite_opening import rewrite as rewrite_opening
     from suggest_graphics import suggest
     out = ROOT / f"{slug}-output"
@@ -117,7 +117,8 @@ def run_steps(slug: str, write: Callable[[bool], None], stop_at: float = STOP_AT
         if attempt(step, lambda fn=fn: fn(slug, stop_at=stop_at)):
             finish(step)
     for before, step, fn in [("transition pass", "resource review", resource_review), ("resource review", "recheck", recheck_saved),
-                             ("recheck", "competitor links", competitor_links), ("competitor links", "graphics", suggest)]:
+                             ("recheck", "competitor links", competitor_links),
+                             ("competitor links", "link check", link_check), ("link check", "graphics", suggest)]:
         if before in done and step not in done:
             attempt(step, lambda fn=fn: fn(slug))
             finish(step)

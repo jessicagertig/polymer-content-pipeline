@@ -326,6 +326,16 @@ For each repeated point, cite the rule that it broke, and record every place the
 
 These are not repeated points: the conclusion restating points from the body, and a repeated word.
 
+**Basically identical sections:**
+
+An article cannot have two basically identical sections, meaning two sections that say the same thing, even if their headings and wording differ. This happens in two ways.
+
+Case 1: The two headings are about the same subject. They may be worded differently, but they mean the same thing, so both sections describe the same thing. For example, an article might have one section headed "Phone screens" and another headed "Screening calls." Both headings are about the short call that confirms a candidate's basic qualifications before a full interview, and both sections describe that call.
+
+Case 2: The two headings are about different subjects, but one section describes the other section's subject instead of its own. For example, an article might have a section headed "Reference checks" and a section headed "Background checks." The reference checks section correctly describes calling a candidate's former managers to ask about the candidate's work. If the background checks section describes the same thing, it is wrong, because a background check verifies a candidate's records, such as criminal history, past employment, and education, usually through a screening company.
+
+For each pair of basically identical sections, quote both headings and state whether it is Case 1 or Case 2.
+
 **Needless counts:**
 
 Rule 1: Check the article for needless counts. A count is needless when what follows it is not a numbered list or a numbered set of steps. For example, "Effective rejection emails share four qualities" is not followed by a numbered list, nor is it a numbered set of steps. Therefore, it is not necessary to include the count. It could simply say, "Effective rejection emails are prompt, clear, specific enough to feel human, and brief."
@@ -371,6 +381,14 @@ Removing a point can leave a paragraph without a topic, or a section without a p
 If a statistic is used twice to support separate points or conclusions, keep it in both places. If it is worded or framed the same way in both, word and frame it differently in one of them. If one of them is in the opening, change the one in the body.
 
 Then make sure each passage you changed still reads correctly.
+
+**Basically identical sections:**
+
+Correct each pair of basically identical sections according to its case.
+
+Case 1, two headings about the same subject: Combine the two sections into one. Don't keep one section and add sentences from the other. Write a single section that uses what is best in each and says each thing once, organized by Rules 8 and 9 of The Elements of Style. Put it where the first section was, under whichever of the two headings fits it better, and delete the second section.
+
+Case 2, two headings about different subjects: One of the two sections describes the wrong subject. In the Case 2 example in the check for basically identical sections, that is the background checks section. Rewrite that section so it describes the subject in its heading. Use the research brief if it covers that subject. If it doesn't, write from general knowledge, and say only what is clearly true. Don't add statistics.
 
 **Needless counts:**
 
@@ -592,6 +610,20 @@ COMPETITOR_LINKS_SCHEMA = {
     },
     "required": ["suspects"],
 }
+
+DEAD_LINK_SYSTEM = """You find replacement links for an article on the Polymer blog. Polymer is an applicant tracking system."""
+
+DEAD_LINK_USER = """This link in the article no longer loads:
+
+{url}
+
+It is in this paragraph:
+
+{paragraph}
+
+Search for the same page at its new address. If the page is gone, search for another page that supports what the paragraph cites the link for. Do not suggest a page on the website of a company that sells hiring software.
+
+End your reply with one line: REPLACEMENT: followed by the address, or REPLACEMENT: NONE."""
 
 
 # For an alternatives article, whose playbook replaces every rule but the house rules and The Elements of Style.

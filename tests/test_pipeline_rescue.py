@@ -16,7 +16,7 @@ def test_a_step_that_fails_twice_is_skipped_and_the_post_goes_on(tmp_path, monke
         raise RuntimeError("Response cut off")
 
     for name in ("check_post", "check_opening", "content_check", "em_dash_report", "hide_resources",
-                 "resource_review", "restore_resources", "competitor_links"):
+                 "resource_review", "restore_resources", "competitor_links", "link_check"):
         monkeypatch.setattr(review_post, name, ok(name))
     monkeypatch.setattr(review_post, "transition_pass", broken)
     monkeypatch.setattr(rewrite_opening, "rewrite", ok("opening"))
