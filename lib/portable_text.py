@@ -205,3 +205,41 @@ class _Converter(HTMLParser):
             if self.marks[i] == mark:
                 del self.marks[i]
                 return
+
+
+def to_markdown(blocks: list[dict]) -> str:
+    """A Sanity article's content as Markdown: headings, paragraphs, lists, bold and italic text, links,
+    tables, and each image as its alt text, so a reader of the text sees the article's whole structure."""
+    lines: list[str] = []
+
+    def spans(b: dict) -> str:
+        links = {m["_key"]: m.get("href", "") for m in b.get("markDefs") or [] if m.get("_type") == "link"}
+        out = []
+        for s in b.get("children") or []:
+            t = s.get("text", "")
+            for m in s.get("marks") or []:
+                t = f"**{t}**" if m == "strong" else f"*{t}*" if m == "em" else f"[{t}]({links[m]})" if m in links else t
+            out.append(t)
+        return "".join(out)
+
+    for b in blocks:
+        kind = b.get("_type")
+        if kind == "block":
+            style, item = b.get("style", "normal"), b.get("listItem")
+            text = spans(b)
+            if item:
+                lines.append(("- " if item == "bullet" else "1. ") + text)
+                continue
+            lines.append({"h2": "## ", "h3": "### ", "h4": "#### ", "blockquote": "> "}.get(style, "") + text)
+        elif kind and "table" in kind.lower():
+            rows = [r.get("cells", []) for r in b.get("rows", [])]
+            if rows:
+                lines.append("| " + " | ".join(rows[0]) + " |")
+                lines.append("|" + " --- |" * len(rows[0]))
+                lines += ["| " + " | ".join(r) + " |" for r in rows[1:]]
+        elif kind == "image":
+            lines.append(f"[Image: {b.get('alt', '')}]")
+        elif kind == "toc":
+            lines.append("[Table of contents]")
+        lines.append("")
+    return "\n".join(lines).strip()

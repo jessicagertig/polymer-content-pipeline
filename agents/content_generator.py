@@ -1,6 +1,7 @@
 """Content generation agent — Claude writes AEO-optimized pages with structured output."""
 
 import json
+import re
 
 from config.settings import settings
 from lib.llm import structured_call
@@ -36,12 +37,30 @@ def faq_items_from_html(html: str) -> list[dict]:
 
 def page_structure(opp) -> str:
     """The blog format for one opportunity: the alternatives playbook or the page structure for its type."""
-    competitor_name = opp.competitor_signal.competitor if opp.competitor_signal else "the competitor"
+    named = re.search(r"Best (.+?) Alternatives", opp.proposed_title)   # the calendar's "Best Ashby Alternatives in 2026"
+    competitor_name = (opp.competitor_signal.competitor if opp.competitor_signal else
+                       named.group(1) if named else "the competitor")
     if opp.page_type.value == "alternatives":
         structure = settings.alternatives_playbook()
     else:
         structure = PAGE_STRUCTURES.get(opp.page_type.value, PAGE_STRUCTURES["guide"])
     return structure.replace("{competitor}", competitor_name)
+
+
+REFERENCE_SLUG = "workable-alternatives"   # the approved example the alternatives playbook names
+
+
+def reference_article() -> str:
+    """The published Workable alternatives article from Sanity, with its page title and meta description, for the
+    writer of an alternatives article. Raises when it cannot be loaded: the playbook's example is required."""
+    from connectors import sanity
+    from lib.portable_text import to_markdown
+    doc = sanity.query('*[_type == "blogPost" && slug.current == $slug && !(_id in path("drafts.**"))][0]'
+                       '{editorialTitle, pageTitle, metaDescription, content}', {"slug": REFERENCE_SLUG}).get("result")
+    if not doc or not doc.get("content"):
+        raise RuntimeError(f"The approved example /blog/{REFERENCE_SLUG} could not be loaded from Sanity")
+    return (f"# The approved example: {doc.get('editorialTitle')}\n\n"
+            f"Page title: {doc.get('pageTitle')}\nMeta description: {doc.get('metaDescription')}\n\n{to_markdown(doc['content'])}")
 
 
 def generate(page: ContentPage) -> ContentPage:
@@ -66,6 +85,8 @@ def generate(page: ContentPage) -> ContentPage:
 
     page_type = opp.page_type.value
     structure = page_structure(opp)
+    if page_type == "alternatives":
+        structure += "\n\n" + reference_article()
 
     if opp.includes_polymer:
         positioning = "" if opp.page_type.value == "alternatives" else POSITIONING_SECTION.format(positioning=settings.competitive_positioning())

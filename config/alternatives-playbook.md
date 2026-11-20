@@ -2,8 +2,8 @@
 
 Two documents come before this one.
 
-1. ../Polymer_Competitive_Positioning_Guidelines.md is the positioning. Read it in full before writing. Its vocabulary, its differentiators, and its competitive principle are the source for every Polymer sentence in the article.
-2. The published Workable alternatives article (https://www.polymer.co/blog/workable-alternatives, source in workable-alternatives-2026-09-11/draft.md) is the approved example. Read it in full before writing. This document states the rules it follows.
+1. The Polymer Competitive Positioning Guidelines, given after this playbook, are the positioning. Read it in full before writing. Its vocabulary, its differentiators, and its competitive principle are the source for every Polymer sentence in the article.
+2. The published Workable alternatives article (https://www.polymer.co/blog/workable-alternatives) is the approved example. It is given in full after the positioning, with its page title and meta description. Read it in full before writing. This document states the rules it follows.
 
 ## 1. What the article is
 
@@ -17,7 +17,7 @@ Two documents come before this one.
 8. The incumbent gets its own section before the list. Its subsections follow the template in section 6. The framing is fit, not fault, and never its promoter.
 9. The closing section answers how much recruiting software the reader's company needs, in reader terms, then gives one verdict per tool. Never "there's no universal winner".
 10. FAQ answers are self-contained. The first sentence answers the question. Then the reasoning, then the tool to pick when the reader's situation differs. Never "Polymer." as an answer. They feed FAQPage schema verbatim.
-11. It is a blog article at /blog/<competitor>-alternatives. The title follows the keyword workbook. The reader goes in the body and the meta description, not the title.
+11. It is a blog article at /blog/<competitor>-alternatives. The title follows the keyword workbook. The reader goes in the body and the meta description, not the title. The page title is "7 Best {competitor} Alternatives | Polymer". The meta description is: "Compare the 7 best {competitor} alternatives, with published pricing, AI availability, and a clear best-fit verdict for each, so you can pick the right ATS."
 
 ## 2. Structure
 
