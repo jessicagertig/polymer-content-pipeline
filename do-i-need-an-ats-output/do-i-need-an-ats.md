@@ -5,11 +5,11 @@ slug: do-i-need-an-ats
 metaDescription: Not sure if you need an ATS? This guide gives you the honest thresholds — by hiring volume, team size, and process complexity — to know when to get one.
 mainImageAlt: Founder reviewing a hiring pipeline on a laptop screen, deciding whether to adopt an applicant tracking system
 
-Most companies get an applicant tracking system one hire too late. The pattern is familiar: hiring works well enough until a critical search comes along, the cracks in the process become impossible to ignore, and a strong candidate slips away before the team even realizes it. The question is how to know when you've reached that point before it costs you.
+Most companies get an ATS one hire too late. The process holds together until it doesn't — and by the time a strong candidate has gone quiet, feedback has disappeared into an email thread, and the team can't align on where things stand, the search has already cost more than it should have. The question is whether you've hit that point, or whether you're close enough to get ahead of it.
 
-An applicant tracking system is hiring software that gives you one central place where job applications are submitted, then tracks each candidate through the stages of your hiring process, from inbox to hired. The name comes from the core function: tracking where each candidate is in the pipeline, which stage they're in, who moved them there and when, and the reason anyone was turned down. In practice, the term now covers the whole hiring system — job publishing, application forms, candidate messaging, and a complete record of every decision made along the way.
+An applicant tracking system is hiring software that gives you one central place where job applications are submitted, then tracks each candidate through the stages of your hiring process, from inbox to hired. Each candidate gets one record — their resume, every message you've exchanged, your team's feedback, and a log of every stage they've moved through — so nothing depends on a spreadsheet someone forgot to update.
 
-This guide covers the concrete thresholds at which a manual process stops working, what you gain by moving to an ATS, what it won't fix, what to look for as a small company, and when you genuinely don't need one yet.
+This guide covers how a manual process breaks down and when, the honest thresholds where a spreadsheet stops working, what an ATS fixes and what it doesn't, and what to look for if you're a small company evaluating options.
 
 ## How a hiring pipeline works without an ATS
 
