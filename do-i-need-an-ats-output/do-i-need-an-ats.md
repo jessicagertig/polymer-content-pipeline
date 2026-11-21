@@ -5,9 +5,9 @@ slug: do-i-need-an-ats
 metaDescription: Not sure if you need an ATS? This guide gives you the honest thresholds — by hiring volume, team size, and process complexity — to know when to get one.
 mainImageAlt: Founder reviewing a hiring pipeline on a laptop screen, deciding whether to adopt an applicant tracking system
 
-Most companies get an ATS one hire too late. The process holds together until it doesn't — and by the time a strong candidate has gone quiet, feedback has disappeared into an email thread, and the team can't align on where things stand, the search has already cost more than it should have. The question is whether you've hit that point, or whether you're close enough to get ahead of it.
+Most companies get an ATS one hire too late. By the time a strong candidate has gone quiet, feedback has scattered across inboxes, and the team disagrees on where things stand, the hire has already cost more time than it needed to. Whether you're at that point yet, or close enough to get ahead of it, is what this guide is here to answer.
 
-An applicant tracking system is hiring software that gives you one central place where job applications are submitted, then tracks each candidate through the stages of your hiring process, from inbox to hired. Each candidate gets one record — their resume, every message you've exchanged, your team's feedback, and a log of every stage they've moved through — so nothing depends on a spreadsheet someone forgot to update.
+An applicant tracking system is hiring software that gives you one central place where job applications are submitted, then tracks each candidate through every stage of your hiring process, from inbox to hired. Each candidate gets one record with their resume, every message you've exchanged, your team's feedback, and a log of every stage they've moved through. That record lives in the system, not in a spreadsheet someone forgot to update.
 
 This guide covers how a manual process breaks down and when, the honest thresholds where a spreadsheet stops working, what an ATS fixes and what it doesn't, and what to look for if you're a small company evaluating options.
 
