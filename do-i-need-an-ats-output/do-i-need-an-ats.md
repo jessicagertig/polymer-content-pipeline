@@ -49,11 +49,11 @@ The right figure depends less on how many people you hire annually and more on h
 
 Company headcount is similarly unreliable as a proxy. A five-person company planning to double in six months has a different hiring problem than a 100-person company with low turnover and one or two hires a year. The trigger is process complexity — how many moving parts the process has, how many people touch each decision, and how many applicants each role draws. If every applicant gets a reply and no candidate has been lost between email threads, you have not hit the threshold yet. When that stops being true, you have.
 
-## What you give up by waiting too long
+## What a manual process costs you
 
 Waiting past the right threshold with a manual process has a predictable cost. The most visible is the missed candidate: a strong applicant who accepts a competing offer while your team is still coordinating feedback, or who stops responding because a scheduling email never arrived. By the time the ATS is in place, that hire is gone. The search restarts, the role sits empty longer, and everyone involved spends more time on hiring than the role demands.
 
-The financial cost is real. [SHRM's 2025 benchmarking data](https://www.shrm.org/about/press-room/shrm-releases-2025-benchmarking-reports--how-does-your-organizat) puts the average nonexecutive cost per hire at $5,475. That figure covers advertising, recruiter time, interview time, and administrative overhead — and it excludes the cost of the role sitting unfilled for weeks, or the cost of a bad hire made because the evaluation process lacked the structure to surface the right person.
+[SHRM's 2025 benchmarking data](https://www.shrm.org/about/press-room/shrm-releases-2025-benchmarking-reports--how-does-your-organizat) puts the average nonexecutive cost per hire at $5,475. That figure covers advertising, recruiter time, interview time, and administrative overhead — and it excludes the cost of the role sitting unfilled for weeks, or the cost of a bad hire made because the evaluation process lacked the structure to surface the right person.
 
 That structure is exactly what an ATS builds ahead of time. Setting the system up before a demanding search begins means the team learns it on a lower-stakes hire. You build your hiring stages, write your message templates, and work out how the pipeline maps to your actual process before any of that is urgent. When the important search comes along, the system is already set up and everyone knows how to use it.
 
@@ -71,11 +71,11 @@ An ATS organizes your hiring process. It manages structure — the stages, workf
 
 There's also a scope limit worth acknowledging. An ATS is built for active candidates — people who apply to your jobs. It doesn't replace proactive sourcing, referral programs, or the relationships that surface candidates before they're looking. If your biggest recruiting challenge is finding candidates at all, rather than managing the ones who apply, an ATS addresses only part of the problem. Managing inbound applicants and building a proactive talent pipeline are different work, and they call for different approaches. [The guide on talent acquisition vs. recruitment](/blog/talent-acquisition-vs-recruitment) covers that distinction in full.
 
-Nor does an ATS replace good judgment. AI-assisted screening, which scores each application against the job's requirements automatically, is genuinely useful for high-volume roles because it removes some of the most time-consuming early-stage work. But it surfaces signals, not verdicts. The hiring decision still belongs to the people on your team.
+AI-assisted screening scores each application against the job's requirements automatically, which is genuinely useful for high-volume roles because it removes some of the most time-consuming early-stage work. It surfaces signals, not verdicts. The hiring decision still belongs to the people on your team.
 
 ## Applicant tracking system for small companies: what to look for
 
-Not every ATS is built for a growing team. Enterprise systems carry features, complexity, and pricing models designed for large recruiting departments, and those don't translate well to a team of ten or twenty people hiring a handful of roles each year. Here are the criteria worth anchoring on when you're evaluating options as a small company.
+Not every ATS is built for a growing team. Enterprise systems carry features, complexity, and pricing models designed for large recruiting departments, and those don't translate well to a team of ten or twenty people hiring a handful of roles each year. These are the criteria worth anchoring on when you're evaluating options as a small company.
 
 ### Pricing that doesn't punish growth
 
@@ -99,19 +99,19 @@ If you're making fewer than five hires a year, filling one role at a time, with 
 
 The moment any of those conditions change, the process outgrows both tools. Set your threshold before you reach it: define the conditions under which you move to an ATS. If you open more than one role at a time, or bring in more than one interviewer, you move to an ATS. That way, the decision is made before the crunch, not during an active search when a good candidate is waiting.
 
-Consider also what else you need. If your growing company needs employee records, onboarding tracking, and time-off management alongside hiring support, a combined platform handles all of it without requiring a second system. Running two separate systems where one would do creates its own overhead. For teams where hiring is the primary pain point, a standalone ATS is the cleaner choice. For teams building out HR infrastructure at the same time, that question is worth settling before you commit to any vendor.
+Before committing to a standalone ATS, consider what else you need. If your growing company needs employee records, onboarding tracking, and time-off management alongside hiring support, a combined platform handles all of it without requiring a second system. Running two separate systems where one would do creates its own overhead. For teams where hiring is the primary pain point, a standalone ATS is the cleaner choice. For teams building out HR infrastructure at the same time, that question is worth settling before you commit to any vendor.
 
-## The trade-offs worth knowing before you decide
+## What to know before you decide
 
 Moving from a manual process to an ATS is a small but real investment of time upfront. You'll set up your hiring stages, write your templates, configure your application forms, and decide how roles are structured in the system. For most growing teams, that setup fits into a single workday. For a team that has never had a formal process, it may surface questions you haven't answered yet — which stages a candidate moves through, who is responsible at each one, what a rejection looks like — and working through those is worth doing even if it takes longer than expected.
 
-There is also the question of fit. An ATS built for large recruiting departments carries complexity your team doesn't need and may never use. Features you don't use drive up cost and clutter the interface — a system built for a different scale of operation will always have more of them. The goal is to match the system to the scale of the problem. A tool built for growing companies will serve you better than one stripped down from an enterprise product, even if the enterprise product's feature list is longer. If you're evaluating several options, [this comparison of the best applicant tracking software for small businesses](/blog/best-applicant-tracking-software) covers the leading choices side by side.
+The question of fit matters as much as timeline. An ATS built for large recruiting departments carries complexity your team doesn't need and may never use. Features you don't use drive up cost and clutter the interface. A system built for a different scale of operation will always have more of them. The goal is to match the system to the scale of the problem. A tool built for growing companies will serve you better than one stripped down from an enterprise product, even if the enterprise product's feature list is longer. If you're evaluating several options, [this comparison of the best applicant tracking software for small businesses](/blog/best-applicant-tracking-software) covers the leading choices side by side.
 
 ## Start hiring on a system that keeps up
 
 When you get the structure in place before you need it urgently, you fill roles faster, make decisions your whole team can stand behind, and give every candidate a fair, consistent process — whether they get the offer or not. Most teams are up and running in a day, and each search after that takes less time than the one before.
 
-Polymer is an applicant tracking system built for growing teams — with a branded job board, a visual hiring pipeline, shared reviews, automated candidate messaging, and AI-assisted screening, all on one plan with unlimited users. [See how Polymer works for small businesses](https://www.polymer.co/applicant-tracking-for-small-business).
+Polymer is an applicant tracking system built for growing teams, with a branded job board, a visual hiring pipeline, shared reviews, automated candidate messaging, and AI-assisted screening, all on one plan with unlimited users. [See how Polymer works for small businesses](https://www.polymer.co/applicant-tracking-for-small-business).
 
 ## Frequently asked questions
 
